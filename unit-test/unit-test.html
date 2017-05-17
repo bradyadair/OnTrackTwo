@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>On-Track Unit Test</title>
+</head>
+
+<!--Libraries-->
+<script src="../js/lib/jquery-3.1.1.js"></script>
+<script src="../js/lib/alphanum.js"></script>
+<script src="../js/lib/goalSeek.js"></script>
+<link rel="stylesheet"
+      href="unit-test.css"/>
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!--Calculation Scripts-->
+<script src="../js/childcare-costs.js"></script>
+<script src="../js/cost-by-age.js"></script>
+<script src="../js/cost-of-car-ownership.js"></script>
+<script src="../js/generated-standard.js"></script>
+<script src="../js/housing.js"></script>
+<script src="../js/misc.js"></script>
+<script src="../js/taxes-ehc.js"></script>
+<script src="../js/taxes-mhc.js"></script>
+<script src="../js/variables.js"></script>
+<script src="../js/user-inputs.js"></script>
+
+<script src="unit-test-data.js"></script>
+<script src="unit-test.js"></script>
+
+<body>
+
+<!--Unit Test Controls-->
+<div class="box">
+    <div class="row header">
+        <div class="col-xs-1 col-xs-offset-3">
+            <strong>Health Care</strong>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radio-healthcare" id="radio-ehc" value="No" checked>
+                    Employer
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radio-healthcare" id="radio-mhc" value="Yes">
+                    Marketplace
+                </label>
+            </div>
+        </div>
+
+        <div class="col-xs-1">
+            <strong>Childcare Needed</strong>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radio-childcare" id="radio-childcare-center-care"
+                           value="childcare-center-care" checked>
+                    Center Care
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radio-childcare" id="radio-childcare-family-care"
+                           value="childcare-family-care">
+                    Family Care
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="radio-childcare" id="radio-childcare-none" value="childcare-none">
+                    None
+                </label>
+            </div>
+        </div>
+        <p>Adult Bus Passes default to 1</p>
+        <p>Child Bus Passes default to Number of Schoolagers and Teenagers</p>
+    </div>
+
+    <!--Unit Test Table-->
+    <div class="row content">
+        <table id="unit" class="table table-striped table-condensed table-bordered table-hover header-fixed">
+            <!--Table Headings-->
+            <thead>
+            <tr>
+                <th class="composition">Ad</th>
+                <th class="composition">In</th>
+                <th class="composition">Pr</th>
+                <th class="composition">Sc</th>
+                <th class="composition">Te</th>
+                <th class="composition">FamCare</th>
+                <th class="composition">MHC</th>
+                <th class="income">GrossAnn</th>
+                <th class="tax">NetTax</th>
+                <th class="income">NetAnn</th>
+                <th class="total-expenses">Exp+Sav</th>
+                <th class="total-expenses">TotalExp</th>
+                <th class="expense">Housing</th>
+                <th class="expense">Childcare</th>
+                <th class="expense">Food</th>
+                <th class="expense">CarIns</th>
+                <th class="expense">CarOwn</th>
+                <th class="expense">PubTran</th>
+                <th class="expense">Health</th>
+                <th class="expense">OOP</th>
+                <th class="expense">Entertain</th>
+                <th class="expense">Misc</th>
+                <th class="expense">Savings</th>
+            </tr>
+            </thead>
+            <!--Table Body (Unit test data will be appended here)-->
+            <tbody>
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <!--Table Footer (Repeat of headers - makes it easier tell columns apart)-->
+    <div class="row footer">
+        <table id="footer" class="table table-condensed table-bordered header-fixed">
+            <thead>
+            <tr>
+                <th class="composition">Ad</th>
+                <th class="composition">In</th>
+                <th class="composition">Pr</th>
+                <th class="composition">Sc</th>
+                <th class="composition">Te</th>
+                <th class="composition">FamCare</th>
+                <th class="composition">MHC</th>
+                <th class="income">GrossAnn</th>
+                <th class="tax">NetTax</th>
+                <th class="income">NetAnn</th>
+                <th class="total-expenses">Exp+Sav</th>
+                <th class="total-expenses">TotalExp</th>
+                <th class="expense">Housing</th>
+                <th class="expense">Childcare</th>
+                <th class="expense">Food</th>
+                <th class="expense">CarIns</th>
+                <th class="expense">CarOwn</th>
+                <th class="expense">PubTran</th>
+                <th class="expense">Health</th>
+                <th class="expense">OOP</th>
+                <th class="expense">Entertain</th>
+                <th class="expense">Misc</th>
+                <th class="expense">Savings</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+</body>
+</html>

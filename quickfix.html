@@ -1,0 +1,72 @@
+<!--PLEASE DO NOT USE AGAIN. This was for quick fixes.-->
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="admin/admin.js"></script>
+<script>
+    function get_database_value(id){
+        let value = database_values.filter(function(value){
+            return value['id'] == id
+        })[0];
+        return value;
+    }
+    let database_values = [];
+
+
+    $.ajax({
+        'url': 'api/v1/api.php?endpoint=entry',
+        'method': 'GET',
+        success: function(response){
+            database_values = JSON.parse(response);
+            console.log(get_database_value(9050));
+            for(let i = 8944; i < 9051; i++){
+                let value_in_question = get_database_value(i.toString());
+                let title = $("<div>" + value_in_question['entryName'] + "</div>");
+                let input = $("<input id='value" + value_in_question['id'] + "' value='" +  value_in_question['entryName'] + "'>");
+                title.append(input);
+                input.blur(rename_variable);
+                $("#root").append(
+                    title
+                );
+                window[value_in_question['entryName']] =
+                    parseFloat(value_in_question['entryValue']);
+            }
+        }
+
+    });
+
+
+    let rename_variable = function(){
+        console.log(this);
+        let that = $(this);
+        let var_id = that.attr('id').slice(5);
+        let value = that.val();
+        let entry = get_database_value(var_id);
+        console.log(entry);
+        entry["entryName"] = value;
+        console.log(entry);
+        entry["entryId"] = entry["id"];
+        $.ajax({
+            url: 'api/v1/api.php?endpoint=entry',
+            method: 'PUT',
+            data: JSON.stringify(entry),
+            beforeSend: beforeSend,
+            success: function(response){
+                console.log(response);
+                that.parent().append("SUCCESS");
+            }
+        })
+    }
+
+</script>
+<style>
+    #root div{
+        width: 100%;
+    }
+</style>
+
+<div id="root">
+
+</div>-->
+
+<!--PLEASE DO NOT USE AGAIN. This was for quick fixes.-->

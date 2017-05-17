@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On Track Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../js/lib/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <script src="../js/lib/jquery.steps.js"></script>
+    <link rel="stylesheet" href="form.css">
+    <script src="../js/lib/jquery.validate.js"></script>
+    <script src="../js/user-inputs.js"></script>
+    <script src="../js/childcare-costs.js"></script>
+    <script src="../js/cost-by-age.js"></script>
+    <script src="../js/cost-of-car-ownership.js"></script>
+    <script src="../js/generated-standard.js"></script>
+    <script src="../js/housing.js"></script>
+    <script src="../js/misc.js"></script>
+    <script src="../js/taxes-ehc.js"></script>
+    <script src="../js/taxes-mhc.js"></script>
+    <script src="../js/variables.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="col-lg-6 offset-lg-3">
+    <!--<div id="error-messages">
+    </div>-->
+    <form id="wizard">
+
+        <!--Family Composition-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/family-black.png" alt=""
+                     id="family-page-title"
+                     class="page-title-img">
+
+                <h4 class="page-title-text">
+                    Tell us about your household
+                </h4>
+                <h5 class="page-subtitle-text">
+                    Please indicate everyone in your household that you are financially responsible for
+                </h5>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="number-of-adults">Adults 19+</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="number" id="number-of-adults" value="1" name="number-of-adults" min="1" max="5">
+                    </div>
+                </div>
+
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="number-of-infants">Infants 0-2</label>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="number" id="number-of-infants" value="0" name="number-of-infants" min="0" max="5">
+                    </div>
+                </div>
+
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="number-of-preschoolers">Preschoolers 3-5</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="number" id="number-of-preschoolers" name="number-of-preschoolers" value="0" min="0"
+                               max="5">
+                    </div>
+                </div>
+
+                <div class="user-input">
+
+                    <div class="form-label">
+                        <label for="number-of-schoolagers">Schoolagers 6-13</label>
+                    </div>
+
+                    <div class="form-input">
+                        <input type="number" id="number-of-schoolagers" name="number-of-schoolagers" value="0" min="0"
+                               max="5">
+                    </div>
+                </div>
+
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="number-of-teenagers">Teenagers 14-18</label>
+                    </div>
+                    <div class="form-input">
+                        <input type="number" id="number-of-teenagers" name="number-of-teenagers" value="0" min="0"
+                               max="5">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                    onclick="calculate_input_data()"
+                   role="menuitem">Results</a>
+            </div>
+            <!--onclick="wizard.steps('next')"-->
+            <div class="next-button">
+                <a class="btn btn-filled hidden" id="page-one-next" href="#"
+                   onclick="verifyInputsAndStepNext()"
+                   role="menuitem">Next</a>
+            </div>
+        </fieldset>
+
+        <!--Housing-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/house.png" alt=""
+                     class="page-title-img"
+                     id="housing-page-title">
+                <h3 class="page-title-text">
+                    Your Housing Situation
+                </h3>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="number-of-rooms">Number of Bedrooms Needed</label>
+                    </div>
+                    <div class="form-input">
+                        <select id="number-of-rooms">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-description">
+                    Based on the study, we show that a household like yours needs the number of bedrooms above.
+                    If you have a reasonable reason for having more or less bedrooms, please
+                    indicate the number here.
+                </div>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="wizard.steps('next')"
+                   role="menuitem">Next</a>
+            </div>
+            <div class="previous-button">
+                <a class="btn btn-empty" href="#"
+                   onclick="wizard.steps('previous')"
+                   role="menuitem">Previous</a>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="store_input_data()"
+                   role="menuitem">Results</a>
+            </div>
+        </fieldset>
+        <!--Child Care-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/parambulator.png"
+                     id="childcare-page-title"
+                     class="page-title-img"
+                     alt="">
+                <h3 class="page-title-text">
+                    Child Care Situation
+                </h3>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="child-care-needed">Is child care needed?</label>
+                    </div>
+                    <div class="form-input">
+                        <select id="child-care-needed">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-description child-care-descriptions">
+                    Some people use family care instead of center care, where you pay a licensed provider that
+                    cares for your child in their home instead of a commercial location. If this is the case,
+                    mark yes here:
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="family-care">Use family care instead of center care?</label>
+                    </div>
+                    <div class="form-input">
+                        <select id="family-care">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-description child-care-descriptions">
+                    If you pay a family member or unlicensed provider
+                    (neighbor) to babysit your child, please put the
+                    amount paid per month here:
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="babysitting-costs">Estimated monthly babysitting costs</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="babysitting-costs" type="number" value="0" min="0"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="wizard.steps('next')"
+                   role="menuitem">Next</a>
+            </div>
+            <div class="previous-button">
+                <a class="btn btn-empty" href="#"
+                   onclick="wizard.steps('previous')"
+                   role="menuitem">Previous</a>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="store_input_data()"
+                   role="menuitem">Results</a>
+            </div>
+        </fieldset>
+
+        <!--Health care-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/healthcare.png"
+                     id="healthcare-page-title"
+                     class="page-title-img">
+                <h3 class="page-title-text">
+                    Marketplace Healthcare
+                </h3>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="form-description">
+                    The Affordable Care Act created a central marketplace for individuals and households to
+                    purchase health insurance. For most families, it is cheaper to use the marketplace, however, they
+                    assume higher risks. This is due to the actuarial value being lower, which leads to high out of
+                    pocket expenses. The caveat is that the marketplace insurance is only cheaper when the Premium Tax
+                    Credit and the Utah Health Benefit Plan Credit are utilized. Those credits can only be used if an
+                    employer does not offer health insurance. It is also based on gross income which means that as the
+                    level of income increases, the benefits decrease.
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="marketplace-healthcare">
+                            <div>Do you have Marketplace</div>
+                            <div>(Obamacare) health insurance?</div>
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <select id="marketplace-healthcare">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="next-button">
+                    <a class="btn btn-filled" href="#"
+                       onclick="wizard.steps('next')"
+                       role="menuitem">Next</a>
+                </div>
+                <div class="previous-button">
+                    <a class="btn btn-empty" href="#"
+                       onclick="wizard.steps('previous')"
+                       role="menuitem">Previous</a>
+                </div>
+                <div class="next-button">
+                    <a class="btn btn-filled" href="#"
+                       onclick="store_input_data()"
+                       role="menuitem">Results</a>
+                </div>
+            </div>
+        </fieldset>
+
+        <!--Cars-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/car.png"
+                     id="cars-page-title"
+                     class="page-title-img">
+                <h3 class="page-title-text">
+                    Cars
+                </h3>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="form-description">
+                The standard is based on the typical household, where adults usually have a
+                vehicle that allows them to get to and from work, attend school, do
+                the shopping, transport children, and or to run errands.  If your
+                circumstance is different, please indicate here how many vehicles
+                are needed here:
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="cars">Number of Cars</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="cars" type="number" value="0" min="0" max="7"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="wizard.steps('next')"
+                   role="menuitem">Next</a>
+            </div>
+            <div class="previous-button">
+                <a class="btn btn-empty" href="#"
+                   onclick="wizard.steps('previous')"
+                   role="menuitem">Previous</a>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="store_input_data()"
+                   role="menuitem">Results</a>
+            </div>
+        </fieldset>
+
+        <!--Public transport-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/train.png"
+                     class="page-title-img"
+                     id="public-transportation-page-title"
+                     alt="">
+                <h3 class="page-title-text">
+                    Public transportation
+                </h3>
+            </div>
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+                <div class="form-description">
+                    If you are using public transportation (the bus),
+                    please indicate the number of adult and child bus passes you require:
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="adult-passes">Adult passes</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="adult-passes" type="number" value="0" min="0" max="5"/>
+                    </div>
+                </div>
+                <div class="user-input">
+                    <div class="form-label">
+                        <label for="child-passes">Child passes</label>
+                    </div>
+                    <div class="form-input">
+                        <input id="child-passes" type="number" value="0" min="0" max="5"/>
+                    </div>
+                </div>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="wizard.steps('next')"
+                   role="menuitem">Next</a>
+            </div>
+            <div class="previous-button">
+                <a class="btn btn-empty" href="#"
+                   onclick="wizard.steps('previous')"
+                   role="menuitem">Previous</a>
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="store_input_data()"
+                   role="menuitem">Results</a>
+            </div>
+        </fieldset>
+        <!--Completed-->
+        <h1>Step</h1>
+        <fieldset>
+            <div class="page-title">
+                <img src="../images/thumb.png"
+                     id="finished-page-title"
+                     class="page-title-img"
+                     alt="">
+                <h3 class="page-title-text">
+                    Great job!
+                </h3>
+                <div class="form-description">
+                    You've completed your On Track Living Standard!
+                </div>
+            </div>
+
+            <div class="user-inputs col-xs-12 col-sm-10 offset-sm-1">
+            </div>
+            <div class="next-button">
+                <a class="btn btn-filled" href="#"
+                   onclick="store_input_data();"
+                   role="menuitem">See Results</a>
+            </div>
+            <div class="previous-button">
+                <a class="btn btn-empty" href="#"
+                   onclick="wizard.steps('previous')"
+                   role="menuitem">Go Back</a>
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
+
+<script src="form.js"></script>
+
+</body>
+</html>

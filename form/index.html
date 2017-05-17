@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>On Track - by Cottages of Hope</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <link rel="stylesheet" href="form.css">
+    <style>
+        body {
+            padding-top: 50px;
+            /*background: black;*/
+            /*color: white;*/
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .title-img {
+            padding: 50px;
+        }
+
+        .title-img img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .content {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            if (!localStorage.getItem("num_adults")) {
+                $("#continue-button").hide();
+
+            }
+        });
+        let reset_values = function () {
+            localStorage.removeItem("num_adults");
+            localStorage.removeItem("num_infants");
+            localStorage.removeItem("num_preschoolers");
+            localStorage.removeItem("num_schoolagers");
+            localStorage.removeItem("num_teenagers");
+            localStorage.removeItem("estimated_babysitting_cost");
+            localStorage.removeItem("childcare_needed_bool");
+            localStorage.removeItem("use_family_care_bool");
+            localStorage.removeItem("rooms");
+            localStorage.removeItem("marketplace_healthcare");
+            localStorage.removeItem("cars");
+            localStorage.removeItem("bus_passes_adult");
+            localStorage.removeItem("bus_passes_child");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<div class="title">
+    <div class="title-img">
+        <img src="../images/piggy-bank.png" alt="">
+
+    </div>
+    <h1>ON TRACK</h1>
+    <p><b>Powered by <i>Cottages of Hope</i></b></p>
+</div>
+
+<div class="content">
+    <a href="http://www.cottagesofhope.org">Cottages of Hope</a>, a non-profit located in Ogden Utah, exists to help
+    households achieve greater levels of financial self-sufficiency.
+
+    One of the key elements of financial stability is having adequate earned income to support the household. Having
+    enough income to
+
+    pay bills, enjoy living, and to save for a future emergency is the basis for what we consider a “Livable Wage”. This
+    calculator was
+
+    created to provide a quick and easy way to determine the “Livable Wage” needed for a household to become
+    self-sufficient.
+</div>
+
+<div class="buttons">
+
+    <div id="start-button" class="next-button">
+        <a href="form.html" onclick="return reset_values();" class="btn btn-filled">
+            Get Started
+        </a>
+    </div>
+
+    <div id="continue-button" class="next-button">
+        <a href="form.html" class="btn btn-filled">
+            Continue
+        </a>
+    </div>
+</div>
+
+<div class="content">
+    <br>
+    <b>
+        We would like to thank our amazing community partners who made this calculator possible:
+    </b>
+
+    <br>
+    <br>
+
+    First, we want to recognize the amazing work of the Department of Economics at Weber State University, led by Dr.
+    <a href="http://www.weber.edu/goddard/jennifergnagey.html">Jennifer Gnagey Ph.D.</a>, who
+    performed a comprehensive study in 2016 of what a family living in Ogden needs to earn to live without government or
+    private assistance. The <a href="http://www.cottagesofhope.org/wp-content/uploads/2017/04/The-Ogden-Independent-Living-Standard-Official.pdf">“Ogden
+    Independent Living Standard”</a> looked at the key components of a household budget that would be covered by a Livable
+    Wage. Significant contributions
+    were also made by Daniel Brinkerhoff, B.S. in Business Economics and Michael Rodgers, B.S. in Quantitative
+    Economics. Our calculator is based on the
+    results of this study.
+
+    <br>
+    <br>
+
+    Secondly, we want to recognize the efforts of the Computer Science Department at Weber State University, where a
+    group of students created this online
+    calculator as their capstone project. Students contributing to the online tool include Tanner Griffin, Ashton
+    Morris, Bryce Palmer, and Adam Salvo who
+    worked under the direction of their instructor, <a href="http://www.weber.edu/CS/Peterson_Brad.html">Bradley Peterson</a>. There efforts to design a simple interface that
+    draws from and interacts with a very
+    complicated series of tables and formulas shows their ingenuity and expertise.
+
+</div>
+</body>
+</html>

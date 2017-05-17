@@ -1,0 +1,113 @@
+.header-fixed{
+    width:100%;
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 100%;
+
+}
+
+/*.header-fixed > thead {*/
+    /*padding-right: 27px;*/
+/*}*/
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    min-width: 4em;
+    width: 4.347%;
+    float: left;
+
+}
+
+.composition {
+    background-color: mediumslateblue;
+    width: 20px;
+}
+
+.expense {
+    background-color: palegoldenrod;
+}
+
+.total-expenses {
+    background-color: yellow;
+}
+
+.income {
+    background-color: #64BA89;
+}
+
+.tax {
+    background-color: cadetblue;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/*.box .row {*/
+    /*border: 1px solid purple;*/
+/*}*/
+
+.box .row.header {
+    flex: 0 1 auto;
+    /* The above is shorthand for:
+    flex-grow: 0,
+    flex-shrink: 1,
+    flex-basis: auto
+    */
+}
+
+.box .row.content {
+    flex: 1 1 auto;
+    /*height: 100px;*/
+    overflow-y: scroll;
+}
+
+.mismatch {
+    background: red;
+}
+
+.match {
+    background: lightgreen;
+}
+
+.unit-datas {
+    width: 20px;
+}
+
+.box .row.footer {
+    flex: 0 1 40px;
+    margin-right: .1%;
+}
+
+.compositions {
+    width: 20px;
+}

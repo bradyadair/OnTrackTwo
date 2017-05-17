@@ -1,0 +1,20 @@
+{
+    "name": "weber/Finance",
+    "description": "A RESTful API to handle Finance applications.",
+    "type": "project",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Finance\\": "src/"
+        }
+    },
+    "require": {
+        "nikic/fast-route": "^1.0",
+        "firebase/php-jwt": "^4.0",
+        "ircmaxell/password-compat": "^1.0.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    }
+
+}

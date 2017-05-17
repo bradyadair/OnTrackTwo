@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Results</title>
+    <!--Remote scripts/styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--Local styles-->
+    <link rel="stylesheet" href="form.css">
+    <!--Local libs-->
+    <script src="../js/lib/jquery.steps.js"></script>
+    <script src="../js/lib/jquery.validate.min.js"></script>
+    <script src="../js/lib/alphanum.js"></script>
+    <script src="../js/lib/goalSeek.js"></script>
+    <!--Local Javascript-->
+    <script src="../js/childcare-costs.js"></script>
+    <script src="../js/cost-by-age.js"></script>
+    <script src="../js/cost-of-car-ownership.js"></script>
+    <script src="../js/generated-standard.js"></script>
+    <script src="../js/housing.js"></script>
+    <script src="../js/misc.js"></script>
+    <script src="../js/taxes-ehc.js"></script>
+    <script src="../js/taxes-mhc.js"></script>
+    <script src="../js/variables.js"></script>
+    <script src="../js/user-inputs.js"></script>
+
+    <style>
+        .total-monthly-expenses-title  {
+            font-size: 42pt;
+        }
+        .total-monthly-expenses-amount  {
+            font-size: 42pt;
+        }
+        .category-image {
+            text-align: center;
+        }
+
+        .category-image img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-top: -20px;
+        }
+
+        .expense-category div {
+            line-height: 50px;
+            font-size: 16pt;
+        }
+
+        .expense-category {
+            border-bottom: 2px solid black;
+            margin: 10px;
+        }
+
+        .results-categories {
+            padding-top: 30px;
+        }
+
+        .total-monthly-expenses {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo-div{
+            text-align: center;
+            padding: 30px 0;
+        }
+        .logo-img{
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        @media screen and (max-width:1400px){
+            .logo-img{
+                max-width:150px;
+                max-height: 150px;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .logo-img{
+                max-width:100px;
+                max-height: 100px;
+            }
+        }
+        @media print{
+            .media-print{
+                display: none;
+            }
+            .logo-img{
+                display: none;
+            }
+            body{
+                transform: scale(.65);
+                margin-top: -325px;
+            }
+            .we-can-help{
+                margin: 0;
+            }
+        }
+        .income-results h4{
+            text-align: center;
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+        }
+        .we-can-help{
+            margin: 100px 0;
+            text-align: center;
+        }
+
+        .btn.btn-filled, .btn.btn-empty{
+            border-radius:15px;
+            width:100%;
+            max-width:230px;
+            font-size:20px;
+            font-weight: 500;
+        }
+        .btn.btn-filled{
+            background: #64BA89;
+            color: white;
+        }
+        .btn.btn-empty{
+            background: white;
+            border: #64BA89 2px solid;
+            color: #64BA89;
+        }
+        a.btn.btn-primary{
+            border: 0;
+            background: #64BA89;
+        }
+        .btn.btn-restart{
+            margin-top: -40px;
+            margin-bottom: 20px;
+        }
+
+        #gross-income-annual,
+        #gross-income-hourly,
+        #net-income-annual,
+        #net-income-hourly{
+            text-align: right;
+        }
+
+        #btn-we-can-help {
+            margin-top: 10px;
+        }
+
+        .gross-and-net-labels {
+            font-size: 24pt;
+        }
+
+        .annual-and-net-labels {
+            font-weight: bold;
+        }
+
+        .gross-and-net-amounts {
+            font-size: 16pt;
+        }
+
+        .category-result-button {
+            float: right;
+        }
+
+        /* Chrome 29+ */
+        @media print and (-webkit-min-device-pixel-ratio:0)
+        and (min-resolution:.001dpcm) {
+            .chrome-print-fix::first-letter {
+                color: #222;
+            }
+        }
+    </style>
+
+    <script>
+        update_page = function(){
+            marketplace_healthcare = localStorage.marketplace_healthcare;
+
+            get_user_inputs_from_local_storage();
+            if(marketplace_healthcare === 'Yes'){
+                for(let i = 0; i < 50; i++){
+                    mhc_gross_income = mhcCalculateGrossIncome();
+                }
+            } else {
+                for(let i = 0; i < 50; i++){
+                    ehc_gross_income = ehcCalculateGrossIncome();
+                }
+            }
+
+            let var_annualHousingCosts = finalHousingAnnual();
+            console.log(finalHousingAnnual());
+            console.log("num_adults", localStorage.num_adults);
+//            let monthlyHousingCosts = var_annualHousingCosts / 12;
+            $('#housing-cost').text('$' + (var_annualHousingCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualChildcareCosts = finalChildcareAnnual();
+            $('#childcare-cost').text('$' + (var_annualChildcareCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualFoodCosts = finalFoodAnnual();
+            $('#food-cost').text('$' + (var_annualFoodCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualCarInsurance = finalCarInsuranceAnnual();
+            $('#car-insurance-cost').text('$' + (var_annualCarInsurance / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualCarOwnership = finalCarOwnershipAnnual();
+            $('#car-ownership-cost').text('$' + (var_annualCarOwnership / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualPublicTransportation = finalPublicTransportationAnnual();
+            $('#public-transport-cost').text('$' + (var_annualPublicTransportation / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualHealthInsurance = finalHealthInsuranceAnnual();
+            $('#health-insurance-cost').text('$' + (var_annualHealthInsurance / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualOutOfPocketCosts = finalOutOfPocketAnnual();
+            $('#out-of-pocket-cost').text('$' + (var_annualOutOfPocketCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualEntertainmentCosts = finalEntertainmentAnnual();
+            $('#entertainment-cost').text('$' + (var_annualEntertainmentCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualMiscellaneousCosts = finalMiscellaneousAnnual();
+            $('#miscellaneous-cost').text('$' + (var_annualMiscellaneousCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_savingsYearly = finalSavingsAnnual();
+            $('#final-savings-yearly').text('$' + (var_savingsYearly / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_netTaxesYearly = finalNetTaxesAnnual();
+            $('#net-taxes-yearly').text('$' + (var_netTaxesYearly).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+
+            let var_annualGrossIncome = finalGrossIncomeAnnual();
+            let var_annualNetIncome = finalNetIncomeAnnual();
+
+            // vvv this is handled in the final functions ^^^
+//            if (marketplace_healthcare === "Yes") {
+//                var_annualGrossIncome = mhc_gross_income;
+//                var_annualNetIncome = mhcNetYearlyIncome();
+//            }else {
+//                var_annualGrossIncome = ehc_gross_income;
+//                var_annualNetIncome = ehcNetYearlyIncome();
+//            }
+            $('#gross-income-annual').text('$' + var_annualGrossIncome.toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            $('#net-income-annual').text('$' + var_annualNetIncome.toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_annualTotalExpenses = finalTotalExpensesAnnual();
+            $("#total-monthly-expenses").text('$' + ((var_annualTotalExpenses + var_savingsYearly) / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
+
+            let var_grossHourlyIncome = finalGrossIncomeAnnualHourly();
+//            let var_grossHourlyIncome = var_annualGrossIncome / 2080;
+            $('#gross-income-hourly').text('$' + var_grossHourlyIncome.toFixed(2));
+
+
+
+            let var_netHourlyIncome = finalNetIncomeAnnualHourly();
+//            let var_netHourlyIncome = var_annualNetIncome / 2080;
+            $('#net-income-hourly').text('$' + var_netHourlyIncome.toFixed(2));
+
+
+//            console.log('Net Hourly Income:', var_netHourlyIncome);
+        };
+        $(document).ready(function(){
+            update_page();
+        })
+    </script>
+</head>
+<body>
+<div class="col-12">
+    <div class="col-12 logo-div">
+        <img src="../images/piggy-bank.png" alt="" class="logo-img">
+    </div>
+    <div class="row total-monthly-expenses">
+        <div class="col-12">
+            <h3 class="total-monthly-expenses-title chrome-print-fix">Total Monthly Expenses</h3>
+        </div>
+        <div class="col-12">
+            <h2 id="total-monthly-expenses" class="total-monthly-expenses-amount chrome-print-fix">...</h2>
+        </div>
+    </div>
+    <div class="row income-results">
+        <div class="row col-sm-8 offset-sm-2 col-xs-12">
+            <div class="col-xs-12 col-sm-4">
+                <h4 class="gross-and-net-labels chrome-print-fix">Gross Income</h4>
+                <div class="row">
+                    <div class="annual-and-net-labels gross-and-net-amounts offset-2 col-6">Annual</div>
+                    <div class="gross-and-net-amounts pull-2 col-4" id="gross-income-annual">...</div>
+                </div>
+
+                <div class="row">
+                    <div class="annual-and-net-labels gross-and-net-amounts offset-2 col-6">Hourly</div>
+                    <div class="gross-and-net-amounts pull-2 col-4" id="gross-income-hourly">...</div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <h4 class="gross-and-net-labels chrome-print-fix">Net Taxes</h4>
+                <div class="row">
+                    <div class="annual-and-net-labels gross-and-net-amounts offset-2 col-6">Annual</div>
+                    <div class="gross-and-net-amounts pull-2 col-4" id="net-taxes-yearly">...</div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <h4 class="gross-and-net-labels chrome-print-fix">Net Income</h4>
+                <div class="row">
+                    <div class="annual-and-net-labels gross-and-net-amounts offset-2 col-6">Annual</div>
+                    <div class="gross-and-net-amounts pull-2 col-4" id="net-income-annual">...</div>
+                </div>
+
+                <div class="row">
+                    <div class="annual-and-net-labels gross-and-net-amounts offset-2 col-6">Hourly</div>
+                    <div class="gross-and-net-amounts pull-2 col-4" id="net-income-hourly">...</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row results-categories">
+
+
+        <div class="col-xs-12 col-sm-4 offset-sm-2">
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/house.png" alt="">
+                </div>
+                <div class="col-7">
+                       Housing
+                    <a class="btn category-result-button btn-primary" href="form.html?page=1"
+                       role="menuitem"> <span class="fa fa-pencil media-print"></span> </a>
+                </div>
+                <div class="col-3" id="housing-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/parambulator.png" alt="">
+                </div>
+                <div class="col-7">
+                    Childcare
+                    <a class="btn category-result-button btn-primary" href="form.html?page=2"
+                       role="menuitem"> <span class="fa fa-pencil media-print"></span> </a>
+                </div>
+                <div class="col-3" id="childcare-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/car.png" alt="">
+                </div>
+                <div class="col-7">
+                    Car Ownership
+                    <a class="btn category-result-button btn-primary" href="form.html?page=4"
+                       role="menuitem"> <span class="fa fa-pencil media-print"></span> </a>
+                </div>
+                <div class="col-3" id="car-ownership-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/car-insurance.png" alt="">
+                </div>
+                <div class="col-7">
+                    Car Insurance
+                </div>
+                <div class="col-3" id="car-insurance-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/cutlery.png" alt="">
+                </div>
+                <div class="col-7">
+                    Food
+                </div>
+                <div class="col-3" id="food-cost">
+                    ...
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/train.png" alt="">
+                </div>
+                <div class="col-7">
+                    Public Transit
+                    <a class="btn category-result-button btn-primary" href="form.html?page=5"
+                                       role="menuitem"> <span class="fa fa-pencil media-print"></span> </a>
+                </div>
+                <div class="col-3" id="public-transport-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/healthcare.png" alt="">
+                </div>
+                <div class="col-7">
+                    Health Care
+                    <a class="btn category-result-button btn-primary" href="form.html?page=3"
+                       role="menuitem"> <span class="fa fa-pencil media-print"></span> </a>
+                </div>
+                <div class="col-3" id="health-insurance-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/out-of-pocket.png" alt="">
+                </div>
+                <div class="col-7">
+                    Out of Pocket
+                </div>
+                <div class="col-3" id="out-of-pocket-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/entertainment.png" alt="">
+                </div>
+                <div class="col-7">
+                    Entertainment
+                </div>
+                <div class="col-3" id="entertainment-cost">
+                    ...
+                </div>
+            </div>
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/misc.png" alt="">
+                </div>
+                <div class="col-7">
+                    Miscellaneous
+                </div>
+                <div class="col-3" id="miscellaneous-cost">
+                    ...
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 offset-sm-4">
+            <div class="row expense-category">
+                <div class="col-2 category-image">
+                    <img src="../images/misc.png" alt="">
+                </div>
+                <div class="col-7">
+                    Savings
+                </div>
+                <div class="col-3" id="final-savings-yearly">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row we-can-help">
+        <div id="start-button" class="btn btn-restart col-sm-4 offset-sm-4 col-xs-12">
+            <a href="index.html" class="btn btn-filled">
+                Start Over
+            </a>
+        </div>
+        <div class="col-sm-4 offset-sm-4 col-xs-12">
+            Are you making less than this?<br/>
+            <div class="btn" id="btn-we-can-help">
+                <a href="http://www.cottagesofhope.org" class="btn btn-empty" target="_blank">We can help!</a>
+            </div>
+            <div id="study-description"><br/>
+                The study was designed to calculate the typical costs related to the size and makeup of your household. In some cases, the
+                assumptions made might not represents your household’s actual situation, so we have allowed for adjustments in a few
+                categories. The following pages will walk you through these options.
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

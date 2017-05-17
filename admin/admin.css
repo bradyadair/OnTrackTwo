@@ -1,0 +1,92 @@
+body{
+    min-height:720px;
+}
+.page-title{
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: double black 10px;
+}
+
+img.page-title-img{
+    height: auto;
+    max-width: 130px;
+}
+
+.user-inputs{
+    padding:40px 0 0 0;
+}
+.user-input{
+    background: #64BA89;
+    font-size:24px;
+    font-weight:500;
+    padding: 10px 10px 0 20px;
+    margin: 2px 0;
+    display: inline-block;
+    width:100%;
+}
+.user-input input,
+.user-input select{
+    display: inline;
+    float: right;
+    border: #FFFFFF;
+    text-align: center;
+    width: 100%;
+}
+.user-input input{
+    /*width: 80px;*/
+    margin-bottom: 10px;
+}
+
+.user-input select{
+    padding:10px 2px;
+    font-size:14px;
+}
+
+.form-description{
+    padding: 20px;
+    font-size: 14px;
+}
+
+.form-label{
+    float:left;
+    max-width: 75%;
+}
+.form-input{
+    float:right;
+    width:25%;
+}
+
+
+.next-button{
+    text-align:center;
+    padding-top: 20px ;
+}
+.previous-button{
+    text-align:center;
+    padding:10px 0;
+}
+.btn.btn-filled, .btn.btn-empty{
+    border-radius:15px;
+    width:100%;
+    max-width:230px;
+    font-size:20px;
+    font-weight: 500;
+}
+.btn.btn-filled{
+    background: #64BA89;
+    color: white;
+}
+.btn.btn-empty{
+    background: white;
+    border: #64BA89 2px solid;
+    color: #64BA89;
+}
+
+
+.page-title-img{
+    max-width: 132px;
+    max-height: 132px;
+}
+input.alert{
+    padding: 0;
+}
