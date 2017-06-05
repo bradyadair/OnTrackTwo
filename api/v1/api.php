@@ -30,7 +30,13 @@ $main = function () {
             if (isset($_GET['id'])) {
                 $args = array("id" => $_GET['id']);
                 echo json_encode((new \OnTrack\Controllers\EntryController())->getEntry($args));
-            } else echo json_encode((new \OnTrack\Controllers\EntryController())->getEntries($args));
+            } 
+            //Using getEntryName to find the values with the name beginning with certain text (Ex. housing_1) to use for calculations
+            else if (isset($_GET['name'])) {
+                $args = array("name" => $_GET['name']);
+                echo json_encode((new \OnTrack\Controllers\EntryController())->getEntryName($args));
+            } 
+            else echo json_encode((new \OnTrack\Controllers\EntryController())->getEntries($args));
         }
 
         if ($_GET['endpoint'] == 'category') {

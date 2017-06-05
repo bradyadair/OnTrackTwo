@@ -1,5 +1,26 @@
 // Housing	K7
 function housing1BedAverageMonthly() {
+    // ******** USING VARIABLES FROM THE DATABASE
+    /*
+    let totalCost = 0;
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&name=housing_1%',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    totalCost += parseInt(entries[entry_index]['entryValue']);
+                    console.log(totalCost)
+                }
+                $('#housing-cost').text('$' + (totalCost / 5).toLocaleString(undefined, {maximumFractionDigits:0}));
+                return totalCost / 5;
+            },
+            error: function(response){
+                console.log(response);
+            }
+    });
+    */
+    // ******** USING HARDCODED VARIABLES
     return (housing_1_bed_84401  +
             housing_1_bed_84403  +
             housing_1_bed_84404  +
