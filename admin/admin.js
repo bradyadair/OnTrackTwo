@@ -73,7 +73,7 @@ let test = function() {
 
 
 let FORM_CATEGORIES = [
-    1, 2, 3, 4, 6, 16, 17
+    "1", "2", "3", "4", "6", "18"
 ];
 let EIC_CATEGORIES = [
     7, 8, 9, 10, 11, 12, 13, 14
@@ -118,7 +118,7 @@ $(document).ready(function () {
 
                         for (let category_index in entries_by_category) {
                             let category = entries_by_category[category_index];
-                            if (category['CategoryId'] in FORM_CATEGORIES) {
+                            if (FORM_CATEGORIES.includes(category.CategoryId)) {
                                 console.log('Form Category', category['CategoryId']);
                                 let panel_id = 'category_body_' + category['CategoryId'];
                                 let panel_title = category['CategoryName'];

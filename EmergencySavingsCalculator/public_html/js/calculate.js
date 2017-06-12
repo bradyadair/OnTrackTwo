@@ -1,127 +1,303 @@
 window.onload = function(){
+
+	console.log("Loaded")
 	//Housing Percentage Needed-------------------------------------------------------------------------------------------
 	rentPercent = 100;
-	document.getElementById("rentPercent").placeholder = rentPercent +"%";
 	electricityPercent = 90;
-	document.getElementById("electricityPercent").placeholder = electricityPercent +"%";
 	gasPercent = 90;
-	document.getElementById("gasPercent").placeholder = gasPercent +"%";
 	waterPercent = 100;
-	document.getElementById("waterPercent").placeholder = waterPercent +"%";
 	netflixPercent = 50;
-	document.getElementById("netflixPercent").placeholder = netflixPercent +"%";
 	internetPercent = 50;
-	document.getElementById("internetPercent").placeholder = internetPercent +"%";
 	entertainmentPercent = 0;
-	document.getElementById("entertainmentPercent").placeholder = entertainmentPercent +"%";
 	otherUtilitiesPercent = 0;
-	document.getElementById("otherUtilitiesPercent").placeholder = otherUtilitiesPercent +"%";
 	cellPhonePercent = 75;
+	groceriesPercent = 50;
+	eatingOutPercent = 0;
+	personalHygienePercent = 30;
+	groceriesOtherPercent = 50;
+	autoInsurancePercent = 100;
+	autoFuelPercent = 75;
+	publicTransitPercent = 100;
+	transOtherPercent = 0;
+	medicalPocketPercent = 100;
+	medicalPrescriptionsPercent = 100;
+	medicalOtherPercent = 0;
+	eduFeesPercent = 0;
+	eduSuppliesPercent = 0;
+	eduOtherPercent = 0;
+	childCareExpensePercent = 100;
+	childSupportPercent = 100;
+	childRecreationPercent = 0;
+	childClothingPercent = 0;
+	childOtherPercent = 0;
+	membershipsPercent = 100;
+	legalFeesPercent = 50;
+	donationsPercent = 50;
+	otherEntertainmentPercent = 0;
+	petsPercent = 50;
+	storagePercent = 100;
+	clothingPercent = 0;
+	constructiveDebtPercent = 100;
+	consumerDebtPercent = 75;
+	collectionsPercent = 0;
+	otherExpensesPercent = 0;
+
+	$.ajax({
+            'url': '../../api/v1/api.php?endpoint=entry&category=18',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    console.log(entries[entry_index]['entryName'])
+
+					switch(entries[entry_index]['entryName']) {
+						case 'Housing_Rent':
+							rentPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Electricity':
+							electricityPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Gas':
+							gasPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Water':
+							waterPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Cable':
+							 netflixPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Internet':
+							 internetPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Entertainment':
+							 entertainmentPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_Other':
+							 otherUtilitiesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Housing_CellPhone':
+							 cellPhonePercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Food_Groceries':
+							 groceriesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Food_Out':
+							 eatingOutPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Food_Hygiene':
+							 personalHygienePercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Food_Other':
+							 groceriesOtherPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Trans_Insurance':
+							 autoInsurancePercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Trans_Fuel':
+							 autoFuelPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Trans_Public':
+							 publicTransitPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Trans_Other':
+							 transOtherPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Medical_Pocket':
+							 medicalPocketPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Medical_Prescription':
+							 medicalPrescriptionsPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Medical_Other':
+							 medicalOtherPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Edu_Fees':
+							 eduFeesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Edu_Supplies':
+							 eduSuppliesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Edu_Other':
+							 eduOtherPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Child_Care':
+							 childCareExpensePercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Child_Support':
+							 childSupportPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Child_Rec':
+							 childRecreationPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Child_Cloth':
+							 childClothingPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Child_Other':
+							 childOtherPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Memberships':
+							 membershipsPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Legal':
+							 legalFeesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Charity':
+							 donationsPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Entertainment':
+							 otherEntertainmentPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Pets':
+							 petsPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Storage':
+							 storagePercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Shopping':
+							  clothingPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_DebtConstructive':
+							 constructiveDebtPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_DebtConsumer':
+							 consumerDebtPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Collections':
+							 collectionsPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						case 'Other_Expenses':
+							 otherExpensesPercent = parseInt(entries[entry_index]['entryValue'])
+							break;
+						default:
+							break;
+					}
+                }
+            },
+            error: function(response){
+                console.log(response);
+            }
+    });
+	document.getElementById("rentPercent").placeholder = rentPercent +"%";
+	
+	document.getElementById("electricityPercent").placeholder = electricityPercent +"%";
+	
+	document.getElementById("gasPercent").placeholder = gasPercent +"%";
+	
+	document.getElementById("waterPercent").placeholder = waterPercent +"%";
+	
+	document.getElementById("netflixPercent").placeholder = netflixPercent +"%";
+	
+	document.getElementById("internetPercent").placeholder = internetPercent +"%";
+	
+	document.getElementById("entertainmentPercent").placeholder = entertainmentPercent +"%";
+	
+	document.getElementById("otherUtilitiesPercent").placeholder = otherUtilitiesPercent +"%";
+	
 	document.getElementById("cellPhonePercent").placeholder = cellPhonePercent +"%";
 	//------------------------------------------------------------------------------------------------------------------------
 
 
 	//Food Percentage Needed---------------------------------------------------------------------------------------------
-	groceriesPercent = 50;
+	
 	document.getElementById("groceriesPercent").placeholder = groceriesPercent +"%";
 
-	eatingOutPercent = 0;
+	
 	document.getElementById("eatingOutPercent").placeholder = eatingOutPercent +"%";
 
-	personalHygienePercent = 30;
+	
 	document.getElementById("personalHygienePercent").placeholder = personalHygienePercent +"%";
 
-	groceriesOtherPercent = 50;
+	
 	document.getElementById("groceriesOtherPercent").placeholder = groceriesOtherPercent +"%";
 	//-----------------------------------------------------------------------------------------------------------------------
 
 	//Auto/Bus Percentage Needed--------------------------------------------------------------------------------------------
-	autoInsurancePercent = 100;
+	
 	document.getElementById("autoInsurancePercent").placeholder = autoInsurancePercent +"%";
 
-	autoFuelPercent = 75;
+	
 	document.getElementById("autoFuelPercent").placeholder = autoFuelPercent +"%";
 
-	publicTransitPercent = 100;
+	
 	document.getElementById("publicTransitPercent").placeholder = publicTransitPercent +"%";
 
-	transOtherPercent = 0;
+	
 	document.getElementById("transOtherPercent").placeholder = transOtherPercent +"%";
 	//-------------------------------------------------------------------------------------------------------------------------
 
 	//Medical Percentage Needed---------------------------------------------------------------------------------------------
-	medicalPocketPercent = 100;
+	
 	document.getElementById("medicalPocketPercent").placeholder = medicalPocketPercent +"%";
 
-	medicalPrescriptionsPercent = 100;
+	
 	document.getElementById("medicalPrescriptionsPercent").placeholder = medicalPrescriptionsPercent +"%";
 
-	medicalOtherPercent = 0;
+	
 	document.getElementById("medicalOtherPercent").placeholder = medicalOtherPercent +"%";
 
 	//---------------------------------------------------------------------------------------------------------------------
 
 	//Education Percentage Needed--------------------------------------------------------------------------------------------
-	eduFeesPercent = 0;
+	
 	document.getElementById("eduFeesPercent").placeholder = eduFeesPercent +"%";
 
-	eduSuppliesPercent = 0;
+	
 	document.getElementById("eduSuppliesPercent").placeholder = eduSuppliesPercent +"%";
 
-	eduOtherPercent = 0;
+	
 	document.getElementById("eduOtherPercent").placeholder = eduOtherPercent +"%";
 
 	//------------------------------------------------------------------------------------------------------------------------
 
 	//Child Percentage Needed------------------------------------------------------------------------------------------------------
-	childCareExpensePercent = 100;
+	
 	document.getElementById("childCareExpensePercent").placeholder = childCareExpensePercent +"%";
 
-	childSupportPercent = 100;
+	
 	document.getElementById("childSupportPercent").placeholder = childSupportPercent +"%";
 
-	childRecreationPercent = 0;
+	
 	document.getElementById("childRecreationPercent").placeholder = childRecreationPercent +"%";
 
-	childClothingPercent = 0;
+	
 	document.getElementById("childClothingPercent").placeholder = childClothingPercent +"%";
 
-	childOtherPercent = 0;
+	
 	document.getElementById("childOtherPercent").placeholder = childOtherPercent +"%";
 	//--------------------------------------------------------------------------------------------------------------------------
 
 	//Other Percentage Needed-------------------------------------------------------------------------------------------------
-	membershipsPercent = 100;
+	
 	document.getElementById("membershipsPercent").placeholder = membershipsPercent +"%";
 
-	legalFeesPercent = 50;
+	
 	document.getElementById("legalFeesPercent").placeholder = legalFeesPercent +"%";
 
-	donationsPercent = 50;
+	
 	document.getElementById("donationsPercent").placeholder = donationsPercent +"%";
 
-	otherEntertainmentPercent = 0;
+	
 	document.getElementById("otherEntertainmentPercent").placeholder = otherEntertainmentPercent +"%";
 
-	petsPercent = 50;
+	
 	document.getElementById("petsPercent").placeholder = petsPercent +"%";
 
-	storagePercent = 100;
+	
 	document.getElementById("storagePercent").placeholder = storagePercent +"%";
 
-	clothingPercent = 0;
+	
 	document.getElementById("clothingPercent").placeholder = clothingPercent +"%";
 
-	constructiveDebtPercent = 100;
+	
 	document.getElementById("constructiveDebtPercent").placeholder = constructiveDebtPercent +"%";
 
-	consumerDebtPercent = 75;
+	
 	document.getElementById("consumerDebtPercent").placeholder = consumerDebtPercent +"%";
 
-	collectionsPercent = 0;
+	
 	document.getElementById("collectionsPercent").placeholder = collectionsPercent +"%";
 
-	otherExpensesPercent = 0;
+	
 	document.getElementById("otherExpensesPercent").placeholder = otherExpensesPercent +"%";
 
 	//savingsPercent = 0;

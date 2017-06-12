@@ -36,6 +36,10 @@ $main = function () {
                 $args = array("name" => $_GET['name']);
                 echo json_encode((new \OnTrack\Controllers\EntryController())->getEntryName($args));
             } 
+            else if (isset($_GET['category'])) {
+                $args = array("category" => $_GET['category']);
+                echo json_encode((new \OnTrack\Controllers\EntryController())->getEntryCategory($args));
+            } 
             else echo json_encode((new \OnTrack\Controllers\EntryController())->getEntries($args));
         }
 
