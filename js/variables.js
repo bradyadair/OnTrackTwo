@@ -1,17 +1,8 @@
 // Calculation constants ===============================================================================================
+var applicable_figure_table_values_list = [];
 
-// Cost By Age ---------------------------------------------------------------------------------------------------------
-const excessive_adult_annual = 8000;  // 'CostByAge'!M16
-const excessive_child_annual = 6000;  // 'CostByAge'!L16
-const bus_child_annual = 753;         // 'CostByAge'!R4
-const bus_adult_annual = 1005;        // 'CostByAge'!R6
-const oop_mhc_infant_annual = 46.74;      // 'CostByAge'!S2
-const oop_mhc_preschooler_annual = 46.74; // 'CostByAge'!S3
-const oop_mhc_schoolager_annual = 139.86; // 'CostByAge'!S4
-const oop_mhc_teenager_annual = 139.86;   // 'CostByAge'!S5
-const oop_mhc_adult_annual = 161.43;      // 'CostByAge'!S6
-const expense_mhc_adult_annual = 2536;    // 'CostByAge'!V3
-const expense_mhc_child_annual = 1447;    // 'CostByAge'!V4
+
+
 
 // Taxes (Both MHC and EHC) --------------------------------------------------------------------------------------------
 const qualifying_childcare_expenses_0_kids =        0;      // 'Taxes'!A6/A9
@@ -28,7 +19,7 @@ const utah_state_credit_value_holder_2_adults_any_kids =        27610;  // 'Taxe
 const state_tax_multiplier = 0.05;  // 'Taxes'!I6/I9
 const credit_before_phase_out_multiplier = 0.06;    //'Taxes'!K6/K9
 const phase_out_multiplier = 0.013; // 'Taxes'!L6//L9
-const child_tax_credit_each = 1000; // 'Taxes'!P6/P9
+
 const adjusted_child_tax_credit_limit = 75000;      // 'Taxes'!Q6/Q9
 const adjusted_child_tax_credit_multiplier = 0.05;  // 'Taxes'!Q6/Q9
 const additional_child_tax_credit_income_adjustment = 3000;             // 'Taxes'!T6/T9
@@ -38,18 +29,10 @@ const fed_deduction_plus_state_exemption_multiplier = 0.06; // 'Taxes'!AI6/Y9
 const federal_payroll_tax_multiplier = 0.0765;  // 'Taxes'!AK6/AA9
 const savings_multiplier = 0.01;    // 'Taxes'!AO6/AE9
 
-// Taxes (Marketplace Healthcare Only) ---------------------------------------------------------------------------------
-const mhc_applicable_figure_index_min = 133;    // 'Taxes'!X6
-const mhc_applicable_figure_index_max = 299;    // 'Taxes'!X6
-const mhc_benchmark_silver_adult_each = 2932;   // 'Taxes'!Z6
-const mhc_benchmark_silver_child_each = 1673;   // 'Taxes'!Z6
-const mhc_benchmark_silver_child_limit = 3;     // 'Taxes'!Z6
-const mhc_utah_health_benefit_plan_credit_multiplier = 0.05; // 'Taxes'!AE6
 
-// Employer Sponsored Health Insur -------------------------------------------------------------------------------------
-const employer_health_insurance_average_1_person = 1406;    // 'Employer Sponsored Health Insur'!C3
-const employer_health_insurance_average_2_people = 2592;    // 'Employer Sponsored Health Insur'!C4
-const employer_health_insurance_average_3_people = 3412;    // 'Employer Sponsored Health Insur'!C5
+const excessive_adult_annual = 8000;  // 'CostByAge'!M16
+const excessive_child_annual = 6000;  // 'CostByAge'!L16
+
 
 
 // Applicable Figure Table ---------------------------------------------------------------------------------------------
@@ -225,7 +208,7 @@ const applicable_figure_table_indices_list = [
     "300 thru 400"
 
 ];  // 'Applicable Figure Table'!A1:A169
-const applicable_figure_table_values_list = [
+var backup_applicable_figure_table_values_list = [
     0.0201,
     0.0302,
     0.0308,
@@ -398,6 +381,296 @@ const applicable_figure_table_values_list = [
 
 ];          // 'Applicable Figure Table'!B1:B169
 
+//Attempt to get data from database, else use hardcoded values
+$.ajax({
+    'url': '../api/v1/api.php?endpoint=entry&category=15',
+    'method': 'GET',
+    'dataType': 'json',
+    'success': function (entries) {
+        for (let i = 0; i < entries.length; i++) {
+            console.log(entries[i]['entryValue']);
+            applicable_figure_table_values_list.push(entries[i]['entryValue']);
+        }
+    },
+    error: function (response) {
+        applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
+        console.log(response);
+    }
+});
+
+
+// Housing -------------------------------------------------------------------------------------------------------------
+//CATEGORY 1
+loadHousing = function(){
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&category=1',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                var tempDict = {};
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                }
+                //console.log(tempDict);
+
+                sessionStorage.setItem('housing_1_bed_84401', tempDict['housing_1_bed_84401']);    // 'Housing'!K2
+                sessionStorage.setItem('housing_1_bed_84403', tempDict['housing_1_bed_84403']);    // 'Housing'!K3
+                sessionStorage.setItem('housing_1_bed_84404', tempDict['housing_1_bed_84404']);    // 'Housing'!K4
+                sessionStorage.setItem('housing_1_bed_84405', tempDict['housing_1_bed_84405']);    // 'Housing'!K5
+                sessionStorage.setItem('housing_1_bed_84408', tempDict['housing_1_bed_84408']);    // 'Housing'!K6
+                sessionStorage.setItem('housing_2_bed_84401', tempDict['housing_2_bed_84401']);    // 'Housing'!L2
+                sessionStorage.setItem('housing_2_bed_84403', tempDict['housing_2_bed_84403']);    // 'Housing'!L3
+                sessionStorage.setItem('housing_2_bed_84404', tempDict['housing_2_bed_84404']);    // 'Housing'!L4
+                sessionStorage.setItem('housing_2_bed_84405', tempDict['housing_2_bed_84405']);    // 'Housing'!L5
+                sessionStorage.setItem('housing_2_bed_84408', tempDict['housing_2_bed_84408']);    // 'Housing'!L6
+                sessionStorage.setItem('housing_3_bed_84401', tempDict['housing_3_bed_84401']);   // 'Housing'!M2
+                sessionStorage.setItem('housing_3_bed_84403', tempDict['housing_3_bed_84403']);   // 'Housing'!M3
+                sessionStorage.setItem('housing_3_bed_84404', tempDict['housing_3_bed_84404']);   // 'Housing'!M4
+                sessionStorage.setItem('housing_3_bed_84405', tempDict['housing_3_bed_84405']);   // 'Housing'!M5
+                sessionStorage.setItem('housing_3_bed_84408', tempDict['housing_3_bed_84408']);   // 'Housing'!M6
+                sessionStorage.setItem('housing_4_bed_84401', tempDict['housing_4_bed_84401']);   // 'Housing'!N2
+                sessionStorage.setItem('housing_4_bed_84403', tempDict['housing_4_bed_84403']);   // 'Housing'!N3
+                sessionStorage.setItem('housing_4_bed_84404', tempDict['housing_4_bed_84404']);   // 'Housing'!N4
+                sessionStorage.setItem('housing_4_bed_84405', tempDict['housing_4_bed_84405']);   // 'Housing'!N5
+                sessionStorage.setItem('housing_4_bed_84408', tempDict['housing_4_bed_84408']);   // 'Housing'!N6
+            },
+            error: function(response){
+                console.log(response);
+                sessionStorage.setItem('housing_1_bed_84401', 550);
+                sessionStorage.setItem('housing_1_bed_84403', 560);
+                sessionStorage.setItem('housing_1_bed_84404', 620);
+                sessionStorage.setItem('housing_1_bed_84405', 620);
+                sessionStorage.setItem('housing_1_bed_84408', 610);
+                sessionStorage.setItem('housing_2_bed_84401', 710);
+                sessionStorage.setItem('housing_2_bed_84403', 720);
+                sessionStorage.setItem('housing_2_bed_84404', 790);
+                sessionStorage.setItem('housing_2_bed_84405', 790);
+                sessionStorage.setItem('housing_2_bed_84408', 780);
+                sessionStorage.setItem('housing_3_bed_84401', 1020);
+                sessionStorage.setItem('housing_3_bed_84403', 1030);
+                sessionStorage.setItem('housing_3_bed_84404', 1130);
+                sessionStorage.setItem('housing_3_bed_84405', 1130);
+                sessionStorage.setItem('housing_3_bed_84408', 1120);
+                sessionStorage.setItem('housing_4_bed_84401', 1170);
+                sessionStorage.setItem('housing_4_bed_84403', 1190);
+                sessionStorage.setItem('housing_4_bed_84404', 1300);
+                sessionStorage.setItem('housing_4_bed_84405', 1300);
+                sessionStorage.setItem('housing_4_bed_84408', 1290);
+            }
+    });
+}
+
+
+// Food Costs ----------------------------------------------------------------------------------------------------------
+// CATEGORY 2
+loadFood = function(){
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&category=2',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                var tempDict = {};
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                }
+                //console.log(tempDict);
+
+                sessionStorage.setItem('food_infant', tempDict['food_infant']);
+                sessionStorage.setItem('food_preschooler', tempDict['food_preschooler']);
+                sessionStorage.setItem('food_schoolager', tempDict['food_schoolager']);
+                sessionStorage.setItem('food_teenager', tempDict['food_teenager']);
+                sessionStorage.setItem('food_adult', tempDict['food_adult']);
+            },
+            error: function(response){
+                console.log(response);
+                sessionStorage.setItem('food_infant', 118.84);
+                sessionStorage.setItem('food_preschooler', 124.92);
+                sessionStorage.setItem('food_schoolager', 193.37);
+                sessionStorage.setItem('food_teenager', 209.30);
+                sessionStorage.setItem('food_adult', 210.30);
+            }
+    });
+}
+
+
+// Child Care Costs ----------------------------------------------------------------------------------------------------
+//CATEGORY 3
+loadChildCare = function(){
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&category=3',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                var tempDict = {};
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                }
+                sessionStorage.setItem('center_care_0_to_12_mo', tempDict['center_care_0_to_12_mo']);
+                sessionStorage.setItem('center_care_1_yr', tempDict['center_care_1_yr']);
+                sessionStorage.setItem('center_care_2_yr', tempDict['center_care_2_yr']);
+                sessionStorage.setItem('center_care_3_yr', tempDict['center_care_3_yr']);
+                sessionStorage.setItem('center_care_4_yr', tempDict['center_care_4_yr']);
+                sessionStorage.setItem('center_care_5_yr', tempDict['center_care_5_yr']);
+                sessionStorage.setItem('center_care_kindergarten_in_school', tempDict['center_care_kindergarten_in']);
+                sessionStorage.setItem('center_care_kindergarten_not_in_school', tempDict['center_care_kindergarten_out']);
+                sessionStorage.setItem('center_care_schoolage_in_school', tempDict['center_care_schoolage_in']);
+                sessionStorage.setItem('center_care_schoolage_not_in_school', tempDict['center_care_schoolage_out']);
+                sessionStorage.setItem('family_care_0_to_12_mo', tempDict['family_care_0_to_12_mo']);
+                sessionStorage.setItem('family_care_1_yr', tempDict['family_care_1_yr']);
+                sessionStorage.setItem('family_care_2_yr', tempDict['family_care_2_yr']);
+                sessionStorage.setItem('family_care_3_yr', tempDict['family_care_3_yr']);
+                sessionStorage.setItem('family_care_4_yr', tempDict['family_care_4_yr']);
+                sessionStorage.setItem('family_care_5_yr', tempDict['family_care_5_yr']);
+                sessionStorage.setItem('family_care_kindergarten_in_school', tempDict['family_care_kindergarten_in']);
+                sessionStorage.setItem('family_care_kindergarten_not_in_school', tempDict['family_care_kindergarten_out']);
+                sessionStorage.setItem('family_care_schoolage_in_school', tempDict['family_care_schoolage_in']);
+                sessionStorage.setItem('family_care_schoolage_not_in_school', tempDict['family_care_schoolage_out']);
+
+            },
+            error: function(response){
+                console.log(response);
+                sessionStorage.setItem('center_care_0_to_12_mo', 653.65);
+                sessionStorage.setItem('center_care_1_yr', 663.05);
+                sessionStorage.setItem('center_care_2_yr', 535.23);
+                sessionStorage.setItem('center_care_3_yr', 511.42);
+                sessionStorage.setItem('center_care_4_yr', 503.42);
+                sessionStorage.setItem('center_care_5_yr', 511.33);
+                sessionStorage.setItem('center_care_kindergarten_in_school', 466.12);
+                sessionStorage.setItem('center_care_kindergarten_not_in_school', 489.09);
+                sessionStorage.setItem('center_care_schoolage_in_school', 442.00);
+                sessionStorage.setItem('center_care_schoolage_not_in_school', 476.89);
+                sessionStorage.setItem('family_care_0_to_12_mo', 514.77);
+                sessionStorage.setItem('family_care_1_yr', 521.68);
+                sessionStorage.setItem('family_care_2_yr', 482.32);
+                sessionStorage.setItem('family_care_3_yr', 467.64);
+                sessionStorage.setItem('family_care_4_yr', 457.12);
+                sessionStorage.setItem('family_care_5_yr', 467.38);
+                sessionStorage.setItem('family_care_kindergarten_in_school', 412.79);
+                sessionStorage.setItem('family_care_kindergarten_not_in_school', 437.43);
+                sessionStorage.setItem('family_care_schoolage_in_school', 384.65);
+                sessionStorage.setItem('family_care_schoolage_not_in_school', 439.08);
+            }
+    });
+}
+
+// Car ---------------------------------------------------------------------------------------------------------------
+// CATEGORY 4
+loadCar = function(){
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&category=4',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                var tempDict = {};
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                }
+                //console.log(tempDict);
+
+                sessionStorage.setItem('car_insurance_single', tempDict['car_insurance_single']);
+                sessionStorage.setItem('car_insurance_married', tempDict['car_insurance_married']);
+                sessionStorage.setItem('car_price', tempDict['car_price']);
+                sessionStorage.setItem('car_miles_per_gallon', tempDict['car_miles_per_gallon']);
+                sessionStorage.setItem('car_finance_cost', tempDict['car_finance_cost']);
+                sessionStorage.setItem('car_monthly_payment', tempDict['car_monthly_payment']);
+                sessionStorage.setItem('car_gas_price', tempDict['car_gas_price']);
+                sessionStorage.setItem('car_miles_driven', tempDict['car_miles_driven']);
+                sessionStorage.setItem('car_registration_annual', tempDict['car_registration_annual']);
+                sessionStorage.setItem('car_emissions_annual', tempDict['car_emissions_annual']);
+                sessionStorage.setItem('car_maintenance_annual', tempDict['car_maintenance_annual']);
+                sessionStorage.setItem('car_tax_multiplier', tempDict['car_tax_multiplier']);
+            },
+            error: function(response){
+                console.log(response);
+                sessionStorage.setItem('car_insurance_single', 465.64);
+                sessionStorage.setItem('car_insurance_married', 466.00);
+                sessionStorage.setItem('car_price', 5341.00);
+                sessionStorage.setItem('car_miles_per_gallon', 26);
+                sessionStorage.setItem('car_finance_cost', 373.64);
+                sessionStorage.setItem('car_monthly_payment', 158.74);
+                sessionStorage.setItem('car_gas_price', 2.75);
+                sessionStorage.setItem('car_miles_driven', 14716);
+                sessionStorage.setItem('car_registration_annual', 110.5);
+                sessionStorage.setItem('car_emissions_annual', 27);
+                sessionStorage.setItem('car_maintenance_annual', 580);
+                sessionStorage.setItem('car_tax_multiplier', 0.071);
+            }
+    });
+}
+
+//NO CATEGORY 5
+
+// Out of Pocket -------------------------------------------------------------------------------------------------------
+// Cost By Age ---------------------------------------------------------------------------------------------------------
+// Employer Sponsored Health Insur -------------------------------------------------------------------------------------
+// Taxes (Marketplace Healthcare Only) ---------------------------------------------------------------------------------
+//CATEGORY 6 
+loadCat6 = function(){
+    $.ajax({
+            'url': '../api/v1/api.php?endpoint=entry&category=6',
+            'method': 'GET',
+            'dataType': 'json',
+            'success': function (entries) {
+                var tempDict = {};
+                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
+                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                }
+                //console.log(tempDict);
+
+                sessionStorage.setItem('bus_adult_annual', tempDict['bus_adult_annual']);
+                sessionStorage.setItem('bus_child_annual', tempDict['bus_child_annual']);
+                sessionStorage.setItem('child_tax_credit_each', tempDict['child_tax_credit_each']);
+                sessionStorage.setItem('employer_health_insurance_average_1_person', tempDict['employer_health_insurance_average_1_person']);
+                sessionStorage.setItem('employer_health_insurance_average_2_people', tempDict['employer_health_insurance_average_2_people']);
+                sessionStorage.setItem('employer_health_insurance_average_3_people', tempDict['employer_health_insurance_average_3_people']);
+                sessionStorage.setItem('expense_mhc_adult_annual', tempDict['expense_mhc_adult_annual']);
+                sessionStorage.setItem('expense_mhc_child_annual', tempDict['expense_mhc_child_annual']);
+                sessionStorage.setItem('mhc_benchmark_silver_adult_each', tempDict['mhc_benchmark_silver_adult_each']);
+                sessionStorage.setItem('mhc_benchmark_silver_child_each', tempDict['mhc_benchmark_silver_child_each']);
+                sessionStorage.setItem('oop_ehc_adult_annual', tempDict['oop_ehc_adult_annual']);
+                sessionStorage.setItem('oop_ehc_teenager_annual', tempDict['oop_ehc_teenager_annual']);
+                sessionStorage.setItem('oop_ehc_schoolager_annual', tempDict['oop_ehc_schoolager_annual']);
+                sessionStorage.setItem('oop_ehc_preschooler_annual', tempDict['oop_ehc_preschooler_annual']);
+                sessionStorage.setItem('oop_ehc_infant_annual', tempDict['oop_ehc_infant_annual']);
+                sessionStorage.setItem('oop_mhc_adult_annual', tempDict['oop_mhc_adult_annual']);
+                sessionStorage.setItem('oop_mhc_teenager_annual', tempDict['oop_mhc_teenager_annual']);
+                sessionStorage.setItem('oop_mhc_schoolager_annual', tempDict['oop_mhc_schoolager_annual']);
+                sessionStorage.setItem('oop_mhc_infant_annual', tempDict['oop_mhc_infant_annual']);
+                sessionStorage.setItem('oop_mhc_preschooler_annual', tempDict['oop_mhc_preschooler_annual']);
+            },
+            error: function(response){
+                console.log(response);
+                sessionStorage.setItem('bus_adult_annual', 1005);
+                sessionStorage.setItem('bus_child_annual', 753);
+                sessionStorage.setItem('child_tax_credit_each', 1000);
+                sessionStorage.setItem('employer_health_insurance_average_1_person', 1406);
+                sessionStorage.setItem('employer_health_insurance_average_2_people', 2592);
+                sessionStorage.setItem('employer_health_insurance_average_3_people', 3412);
+                sessionStorage.setItem('expense_mhc_adult_annual', 2536);
+                sessionStorage.setItem('expense_mhc_child_annual', 1447);
+                sessionStorage.setItem('mhc_benchmark_silver_adult_each', 2932);
+                sessionStorage.setItem('mhc_benchmark_silver_child_each', 1673);
+                sessionStorage.setItem('oop_ehc_adult_annual', 107.62);
+                sessionStorage.setItem('oop_ehc_teenager_annual', 93.24);
+                sessionStorage.setItem('oop_ehc_schoolager_annual', 93.24);
+                sessionStorage.setItem('oop_ehc_preschooler_annual', 31.16);
+                sessionStorage.setItem('oop_ehc_infant_annual', 31.16);
+                sessionStorage.setItem('oop_mhc_adult_annual', 161.43);
+                sessionStorage.setItem('oop_mhc_teenager_annual', 139.86);
+                sessionStorage.setItem('oop_mhc_schoolager_annual', 139.86);
+                sessionStorage.setItem('oop_mhc_infant_annual', 46.74);
+                sessionStorage.setItem('oop_mhc_preschooler_annual', 46.74);
+            }
+    });
+}
+
+
+const mhc_applicable_figure_index_min = 133;    // 'Taxes'!X6
+const mhc_applicable_figure_index_max = 299;    // 'Taxes'!X6
+
+const mhc_benchmark_silver_child_limit = 3;     // 'Taxes'!Z6
+const mhc_utah_health_benefit_plan_credit_multiplier = 0.05; // 'Taxes'!AE6
+
 // Federal Poverty Level -----------------------------------------------------------------------------------------------
 const federal_poverty_level_family_size_list = [1, 2, 3, 4, 5, 6, 7, 8];    // 'Federal Poverty Level'!A3:A10
 const federal_poverty_level_value_list = [
@@ -411,79 +684,7 @@ const federal_poverty_level_value_list = [
     40090
 ];                     // 'Federal Poverty Level'!B3:B10
 
-// Housing -------------------------------------------------------------------------------------------------------------
-const housing_1_bed_84401 = 550;    // 'Housing'!K2
-const housing_1_bed_84403 = 560;    // 'Housing'!K3
-const housing_1_bed_84404 = 620;    // 'Housing'!K4
-const housing_1_bed_84405 = 620;    // 'Housing'!K5
-const housing_1_bed_84408 = 610;    // 'Housing'!K6
-const housing_2_bed_84401 = 710;    // 'Housing'!L2
-const housing_2_bed_84403 = 720;    // 'Housing'!L3
-const housing_2_bed_84404 = 790;    // 'Housing'!L4
-const housing_2_bed_84405 = 790;    // 'Housing'!L5
-const housing_2_bed_84408 = 780;    // 'Housing'!L6
-const housing_3_bed_84401 = 1020;   // 'Housing'!M2
-const housing_3_bed_84403 = 1030;   // 'Housing'!M3
-const housing_3_bed_84404 = 1130;   // 'Housing'!M4
-const housing_3_bed_84405 = 1130;   // 'Housing'!M5
-const housing_3_bed_84408 = 1120;   // 'Housing'!M6
-const housing_4_bed_84401 = 1170;   // 'Housing'!N2
-const housing_4_bed_84403 = 1190;   // 'Housing'!N3
-const housing_4_bed_84404 = 1300;   // 'Housing'!N4
-const housing_4_bed_84405 = 1300;   // 'Housing'!N5
-const housing_4_bed_84408 = 1290;   // 'Housing'!N6
 
-// Child Care Costs ----------------------------------------------------------------------------------------------------
-const center_care_0_to_12_mo    = 653.65;   // 'Child Care Costs'!B11
-const center_care_1_yr          = 663.05;   // 'Child Care Costs'!B12
-const center_care_2_yr          = 535.23;   // 'Child Care Costs'!B13
-const center_care_3_yr          = 511.42;   // 'Child Care Costs'!B14
-const center_care_4_yr          = 503.42;   // 'Child Care Costs'!B15
-const center_care_5_yr          = 511.33;   // 'Child Care Costs'!B16
-const center_care_kindergarten_in_school        = 466.12;   // 'Child Care Costs'!B17
-const center_care_kindergarten_not_in_school    = 489.09;   // 'Child Care Costs'!B18
-const center_care_schoolage_in_school           = 442.00;   // 'Child Care Costs'!B19
-const center_care_schoolage_not_in_school       = 476.89;   // 'Child Care Costs'!B20
-const family_care_0_to_12_mo    = 514.77;   // 'Child Care Costs'!D11
-const family_care_1_yr          = 521.68;   // 'Child Care Costs'!D12
-const family_care_2_yr          = 482.32;   // 'Child Care Costs'!D13
-const family_care_3_yr          = 467.64;   // 'Child Care Costs'!D14
-const family_care_4_yr          = 457.12;   // 'Child Care Costs'!D15
-const family_care_5_yr          = 467.38;   // 'Child Care Costs'!D16
-const family_care_kindergarten_in_school        = 412.79;   // 'Child Care Costs'!D17
-const family_care_kindergarten_not_in_school    = 437.43;   // 'Child Care Costs'!D18
-const family_care_schoolage_in_school           = 384.65;   // 'Child Care Costs'!D19
-const family_care_schoolage_not_in_school       = 439.08;   // 'Child Care Costs'!D20
-
-// Out of Pocket -------------------------------------------------------------------------------------------------------
-const oop_ehc_infant_annual        = 31.16;    // 'Out of Pocket'!L3
-const oop_ehc_preschooler_annual   = 31.16;    // 'Out of Pocket'!L4
-const oop_ehc_schoolager_annual    = 93.24;    // 'Out of Pocket'!L5
-const oop_ehc_teenager_annual      = 93.24;    // 'Out of Pocket'!L6
-const oop_ehc_adult_annual         = 107.62;   // 'Out of Pocket'!L7
-
-// Food Costs ----------------------------------------------------------------------------------------------------------
-const food_infant        = 118.84;         // 'Food Costs'M2
-const food_preschooler   = 124.92;         // 'Food Costs'M3
-const food_schoolager    = 193.37;         // 'Food Costs'M4
-const food_teenager      = 209.30;         // 'Food Costs'M5
-const food_adult         = 210.30;         // 'Food Costs'M6
-
-// Car Insurance -------------------------------------------------------------------------------------------------------
-const car_insurance_single  = 465.64;   // 'Car Insurance'!J3
-const car_insurance_married = 466.00;   // 'Car Insurance'!J4 - NO DEPENDENTS
-
-// Cost of Car Ownership -----------------------------------------------------------------------------------------------
-const car_price                 = 5341.00;  // 'Cost of Car Ownership'!B1
-const car_miles_per_gallon      = 26;       // 'Cost of Car Ownership'!B2
-const car_finance_cost          = 373.64;   // 'Cost of Car Ownership'!B3 - NO DEPENDENTS
-const car_monthly_payment       = 158.74;   // 'Cost of Car Ownership'!B5
-const car_gas_price             = 2.75;     // 'Cost of Car Ownership'!B6
-const car_miles_driven          = 14716;    // 'Cost of Car Ownership'!B7
-const car_registration_annual   = 110.5;    // 'Cost of Car Ownership'!C10
-const car_emissions_annual      = 27;       // 'Cost of Car Ownership'!C11
-const car_maintenance_annual    = 580;      // 'Cost of Car Ownership'!C12
-const car_tax_multiplier        = 0.071;    // 'Cost of Car Ownership'!B13
 
 // Entertainment -------------------------------------------------------------------------------------------------------
 const entertainment_family_size_1       = 1139; // 'Entertainment'!B2

@@ -105,23 +105,23 @@ function costTotalCenterCare() {
 }
 // CostByAge	E2
 function costFoodInfant() {
-    return 12 * numInfants() * food_infant;
+    return 12 * numInfants() * sessionStorage.getItem('food_infant');
 }
 // CostByAge	E3
 function costFoodPreschooler() {
-    return 12 * numPreschoolers() * food_preschooler;
+    return 12 * numPreschoolers() * sessionStorage.getItem('food_preschooler');
 }
 // CostByAge	E4
 function costFoodSchoolager() {
-    return 12 * numSchoolagers() * food_schoolager;
+    return 12 * numSchoolagers() * sessionStorage.getItem('food_schoolager');
 }
 // CostByAge	E5
 function costFoodTeenager() {
-    return 12 * numTeenagers() * food_teenager;
+    return 12 * numTeenagers() * sessionStorage.getItem('food_teenager');
 }
 // CostByAge	E6
 function costFoodAdult() {
-    return 12 * numAdults() * food_adult;
+    return 12 * numAdults() * sessionStorage.getItem('food_adult');
 }
 // CostByAge	E16
 function costTotalFood() {
