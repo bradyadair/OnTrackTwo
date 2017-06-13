@@ -1,5 +1,5 @@
 // Calculation constants ===============================================================================================
-
+var applicable_figure_table_values_list = [];
 // Cost By Age ---------------------------------------------------------------------------------------------------------
 const excessive_adult_annual = 8000;  // 'CostByAge'!M16
 const excessive_child_annual = 6000;  // 'CostByAge'!L16
@@ -225,7 +225,8 @@ const applicable_figure_table_indices_list = [
     "300 thru 400"
 
 ];  // 'Applicable Figure Table'!A1:A169
-const applicable_figure_table_values_list = [
+
+var backup_applicable_figure_table_values_list = [
     0.0201,
     0.0302,
     0.0308,
@@ -397,6 +398,23 @@ const applicable_figure_table_values_list = [
     0.0956
 
 ];          // 'Applicable Figure Table'!B1:B169
+
+//Attempt to get data from database, else use hardcoded values
+$.ajax({
+    'url': '../../api/v1/api.php?endpoint=entry&category=15',
+    'method': 'GET',
+    'dataType': 'json',
+    'success': function (entries) {
+        for (let i = 0; i < entries.length; i++) {
+            console.log(entries[i]['entryValue']);
+            applicable_figure_table_values_list.push(entries[i]['entryValue']);
+        }
+    },
+    error: function (response) {
+        applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
+        console.log(response);
+    }
+});
 
 // Federal Poverty Level -----------------------------------------------------------------------------------------------
 const federal_poverty_level_family_size_list = [1, 2, 3, 4, 5, 6, 7, 8];    // 'Federal Poverty Level'!A3:A10
