@@ -89,7 +89,7 @@ window.onload = function() {
 	otherExpensesPercent = 0;
 
 	$.ajax({
-            'url': 'http://cottagesofhope.org/weberstate/ontrack/api/v1/api.php?endpoint=entry&category=18',
+            'url': '../../api/v1/api.php?endpoint=entry&category=18',
             'method': 'GET',
             'dataType': 'json',
             'success': function (entries) {
