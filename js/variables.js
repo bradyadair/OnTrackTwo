@@ -1,5 +1,6 @@
 // Calculation constants ===============================================================================================
 var applicable_figure_table_values_list = [];
+var applicable_figure_table_indices_list = [];
 // Cost By Age ---------------------------------------------------------------------------------------------------------
 const excessive_adult_annual = 8000;  // 'CostByAge'!M16
 const excessive_child_annual = 6000;  // 'CostByAge'!L16
@@ -39,6 +40,7 @@ const federal_payroll_tax_multiplier = 0.0765;  // 'Taxes'!AK6/AA9
 const savings_multiplier = 0.01;    // 'Taxes'!AO6/AE9
 
 // Taxes (Marketplace Healthcare Only) ---------------------------------------------------------------------------------
+// Could get the min and max from ajax call.
 const mhc_applicable_figure_index_min = 133;    // 'Taxes'!X6
 const mhc_applicable_figure_index_max = 299;    // 'Taxes'!X6
 const mhc_benchmark_silver_adult_each = 2932;   // 'Taxes'!Z6
@@ -401,7 +403,7 @@ var backup_applicable_figure_table_values_list = [
 
 //Attempt to get data from database, else use hardcoded values
 $.ajax({
-    'url': '../../api/v1/api.php?endpoint=entry&category=15',
+    'url': '../api/v1/api.php?endpoint=entry&category=15',
     'method': 'GET',
     'dataType': 'json',
     'success': function (entries) {
