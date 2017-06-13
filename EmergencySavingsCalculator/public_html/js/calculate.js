@@ -171,12 +171,35 @@ window.onload = function(){
 						default:
 							break;
 					}
+					setElements()
                 }
             },
             error: function(response){
                 console.log(response);
+				setElements()
             }
     });
+	
+
+	//savingsPercent = 0;
+	//document.getElementById("savingsPercent").placeholder = savingsPercent +"%";
+
+
+	//-------------------------------------------------------------------------------------------------------------------------
+
+	//Run All functions so all output starts out at 0---------------------------------------------------------------------------
+	calculate();
+	calculateHousing();
+	calculateFood();
+	calculateAuto();
+	calculateMedical();
+	calculateEducation();
+	calculateChild();
+	calculateOther();
+	//---------------------------------------------------------------------------------------------------------------------------
+};
+
+function setElements(){
 	document.getElementById("rentPercent").placeholder = rentPercent +"%";
 	
 	document.getElementById("electricityPercent").placeholder = electricityPercent +"%";
@@ -299,24 +322,7 @@ window.onload = function(){
 
 	
 	document.getElementById("otherExpensesPercent").placeholder = otherExpensesPercent +"%";
-
-	//savingsPercent = 0;
-	//document.getElementById("savingsPercent").placeholder = savingsPercent +"%";
-
-
-	//-------------------------------------------------------------------------------------------------------------------------
-
-	//Run All functions so all output starts out at 0---------------------------------------------------------------------------
-	calculate();
-	calculateHousing();
-	calculateFood();
-	calculateAuto();
-	calculateMedical();
-	calculateEducation();
-	calculateChild();
-	calculateOther();
-	//---------------------------------------------------------------------------------------------------------------------------
-};
+}
 
 
 
