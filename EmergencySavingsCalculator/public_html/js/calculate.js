@@ -48,7 +48,7 @@ window.onload = function() {
 
 		console.log("Loaded")
 	//Housing Percentage Needed-------------------------------------------------------------------------------------------
-	rentPercent = 90;
+	rentPercent = 100;
 	electricityPercent = 90;
 	gasPercent = 90;
 	waterPercent = 100;
