@@ -1,4 +1,51 @@
-window.onload = function(){
+//define vars
+var overviewOp;
+var incomeOp;
+var housingOp;
+var foodOp;
+var transOp;
+var medicalOp;
+var educationOp;
+var childrenOp;
+var otherOp;
+var resultsOp;
+
+var overviewNav;
+var incomeNav;
+var housingNav;
+var foodNav;
+var transNav;
+var medicalNav;
+var educationNav;
+var childrenNav;
+var otherNav;
+var resultsNav;
+
+window.onload = function() {
+    
+        //flow stuff
+        overviewOp = document.getElementById("overviewOp");
+        incomeOp = document.getElementById("incomeOp");
+        housingOp = document.getElementById("housingOp");
+        foodOp = document.getElementById("foodOp");
+        transOp = document.getElementById("transOp");
+        medicalOp = document.getElementById("medicalOp");
+        educationOp = document.getElementById("educationOp");
+        childrenOp = document.getElementById("childrenOp");
+        otherOp = document.getElementById("otherOp");
+        resultsOp = document.getElementById("resultsOp");
+
+        overviewNav = document.getElementById("overviewNav");
+        incomeNav = document.getElementById("incomeNav");
+        housingNav = document.getElementById("housingNav");
+        foodNav = document.getElementById("foodNav");
+        transNav = document.getElementById("transNav");
+        medicalNav = document.getElementById("medicalNav");
+        educationNav = document.getElementById("educationNav");
+        childrenNav = document.getElementById("childrenNav");
+        otherNav = document.getElementById("otherNav");
+        resultsNav = document.getElementById("resultsNav");
+        
 	//Housing Percentage Needed-------------------------------------------------------------------------------------------
 	rentPercent = 100;
 	document.getElementById("rentPercent").placeholder = rentPercent +"%";
@@ -140,7 +187,7 @@ window.onload = function(){
 	calculateChild();
 	calculateOther();
 	//---------------------------------------------------------------------------------------------------------------------------
-};
+}
 
 
 
@@ -200,12 +247,12 @@ function calculate()
 	}
 
 
-	document.getElementById("clientWages").value = parseFloat(clientWages);
-	document.getElementById("clientNet").value = parseFloat(clientWages)-parseFloat(clientPRDeductions);
+	document.getElementById("clientWages").placeholder = "$" +parseFloat(clientWages).toFixed(2);
+	document.getElementById("clientNet").placeholder = "$"+ (parseFloat(clientWages)-parseFloat(clientPRDeductions)).toFixed(2);
 	
-    clientTotal = clientWages +parseFloat(clientSelfEmployment) +parseFloat(clientSocialSecurityRetirement) +parseFloat(clientPension) +parseFloat(clientAlimony) +parseFloat(clientChildSupport) +parseFloat(clientOtherIncome);
+    clientTotal = parseFloat(clientWages) +parseFloat(clientSelfEmployment) +parseFloat(clientSocialSecurityRetirement) +parseFloat(clientPension) +parseFloat(clientAlimony) +parseFloat(clientChildSupport) +parseFloat(clientOtherIncome);
 
-	document.getElementById("clientTotal").value = clientTotal;
+	document.getElementById("clientTotal").placeholder = "$"+ clientTotal.toFixed(2);
 	//-----------------------------------------------------------------------------------------------------------------------
 	
 
@@ -230,7 +277,7 @@ function calculate()
 	{
 		spouseRate = document.getElementById("spouseRate").value;
 	}
-	spouseWages = parseFloat(spouseHours * spouseRate *4.333333333333333, 10);
+	spouseWages = parseFloat(spouseHours * spouseRate *(4+(1/3)), 10);
 	if (document.getElementById("spousePRDeductions").value)
 	{
 		spousePRDeductions = document.getElementById("spousePRDeductions").value;
@@ -261,12 +308,13 @@ function calculate()
 	}
 
 
-	document.getElementById("spouseWages").value = parseFloat(spouseWages);
-	document.getElementById("spouseNet").value = parseFloat(spouseWages)-parseFloat(spousePRDeductions);
+	document.getElementById("spouseWages").placeholder = "$" +parseFloat(spouseWages).toFixed(2);
+	document.getElementById("spouseNet").placeholder = "$"+ (parseFloat(spouseWages)-parseFloat(spousePRDeductions)).toFixed(2);
 	
-    spouseTotal = spouseWages +parseFloat(spouseSelfEmployment) +parseFloat(spouseSocialSecurityRetirement) +parseFloat(spousePension) +parseFloat(spouseAlimony) +parseFloat(spouseChildSupport) +parseFloat(spouseOtherIncome);
+    spouseTotal = parseFloat(spouseWages) +parseFloat(spouseSelfEmployment) +parseFloat(spouseSocialSecurityRetirement) +parseFloat(spousePension) +parseFloat(spouseAlimony) +parseFloat(spouseChildSupport) +parseFloat(spouseOtherIncome);
 
-	document.getElementById("spouseTotal").value = spouseTotal;
+	document.getElementById("spouseTotal").placeholder = "$"+ spouseTotal.toFixed(2);
+
 	//---------------------------------------------------------------------------------------------------------------------------
 }
 
@@ -291,7 +339,7 @@ function calculateHousing()
 		rent = document.getElementById("rent").value;
 	}
 	rentRequired = parseFloat(rent*(rentPercent/100));
-	document.getElementById("rentRequired").value = rentRequired;
+	document.getElementById("rentRequired").placeholder = "$" +rentRequired.toFixed(2);
 
 	electricity = 0;
 	if (document.getElementById("electricity").value)
@@ -299,7 +347,7 @@ function calculateHousing()
 		electricity = document.getElementById("electricity").value;
 	}
 	electricityRequired = parseFloat(electricity*(electricityPercent/100));
-	document.getElementById("electricityRequired").value = electricityRequired;
+	document.getElementById("electricityRequired").placeholder = "$" +electricityRequired.toFixed(2);
 
 	gas = 0;
 	if (document.getElementById("gas").value)
@@ -307,7 +355,7 @@ function calculateHousing()
 		gas = document.getElementById("gas").value;
 	}
 	gasRequired = parseFloat(gas*(gasPercent/100));
-	document.getElementById("gasRequired").value = gasRequired;
+	document.getElementById("gasRequired").placeholder = "$" +gasRequired.toFixed(2);
 
 	water = 0;
 	if (document.getElementById("water").value)
@@ -315,7 +363,7 @@ function calculateHousing()
 		water = document.getElementById("water").value;
 	}
 	waterRequired = parseFloat(water*(waterPercent/100));
-	document.getElementById("waterRequired").value = waterRequired;
+	document.getElementById("waterRequired").placeholder = "$" +waterRequired.toFixed(2);
 
 	netflix = 0;
 	if (document.getElementById("netflix").value)
@@ -323,7 +371,7 @@ function calculateHousing()
 		netflix = document.getElementById("netflix").value;
 	}
 	netflixRequired = parseFloat(netflix*(netflixPercent/100));
-	document.getElementById("netflixRequired").value = netflixRequired;
+	document.getElementById("netflixRequired").placeholder = "$" +netflixRequired.toFixed(2);
 
 	internet = 0;
 	if (document.getElementById("internet").value)
@@ -331,7 +379,7 @@ function calculateHousing()
 		internet = document.getElementById("internet").value;
 	}
 	internetRequired = parseFloat(internet*(internetPercent/100));
-	document.getElementById("internetRequired").value = internetRequired;
+	document.getElementById("internetRequired").placeholder = "$" +internetRequired.toFixed(2);
 
 	entertainment = 0;
 	if (document.getElementById("entertainment").value)
@@ -339,7 +387,7 @@ function calculateHousing()
 		entertainment = document.getElementById("entertainment").value;
 	}
 	entertainmentRequired = parseFloat(entertainment*(entertainmentPercent/100));
-	document.getElementById("entertainmentRequired").value = entertainmentRequired;
+	document.getElementById("entertainmentRequired").placeholder = "$" +entertainmentRequired.toFixed(2);
 
 	otherUtilities = 0;
 	if (document.getElementById("otherUtilities").value)
@@ -347,7 +395,7 @@ function calculateHousing()
 		otherUtilities = document.getElementById("otherUtilities").value;
 	}
 	otherUtilitiesRequired = parseFloat(otherUtilities*(otherUtilitiesPercent/100));
-	document.getElementById("otherUtilitiesRequired").value = otherUtilitiesRequired;
+	document.getElementById("otherUtilitiesRequired").placeholder = "$" +otherUtilitiesRequired.toFixed(2);
 
 	cellPhone = 0;
 	if (document.getElementById("cellPhone").value)
@@ -355,7 +403,7 @@ function calculateHousing()
 		cellPhone = document.getElementById("cellPhone").value;
 	}
 	cellPhoneRequired = parseFloat(cellPhone*(cellPhonePercent/100));
-	document.getElementById("cellPhoneRequired").value = cellPhoneRequired;
+	document.getElementById("cellPhoneRequired").placeholder = "$" +cellPhoneRequired.toFixed(2);
 
 }
 
@@ -369,7 +417,7 @@ function calculateFood()
 		groceries = document.getElementById("groceries").value;
 	}
 	groceriesRequired = parseFloat(groceries*(groceriesPercent/100));
-	document.getElementById("groceriesRequired").value = groceriesRequired;
+	document.getElementById("groceriesRequired").placeholder = "$" +groceriesRequired.toFixed(2);
 
 	eatingOut = 0;
 	if (document.getElementById("eatingOut").value)
@@ -377,7 +425,7 @@ function calculateFood()
 		eatingOut = document.getElementById("eatingOut").value;
 	}
 	eatingOutRequired = parseFloat(eatingOut*(eatingOutPercent/100));
-	document.getElementById("eatingOutRequired").value = eatingOutRequired;
+	document.getElementById("eatingOutRequired").placeholder = "$" +eatingOutRequired.toFixed(2);
 
 	personalHygiene = 0;
 	if (document.getElementById("personalHygiene").value)
@@ -385,7 +433,7 @@ function calculateFood()
 		personalHygiene = document.getElementById("personalHygiene").value;
 	}
 	personalHygieneRequired = parseFloat(personalHygiene*(personalHygienePercent/100));
-	document.getElementById("personalHygieneRequired").value = personalHygieneRequired;
+	document.getElementById("personalHygieneRequired").placeholder = "$" +personalHygieneRequired.toFixed(2);
 
 	groceriesOther = 0;
 	if (document.getElementById("groceriesOther").value)
@@ -393,7 +441,7 @@ function calculateFood()
 		groceriesOther = document.getElementById("groceriesOther").value;
 	}
 	groceriesOtherRequired = parseFloat(groceriesOther*(groceriesOtherPercent/100));
-	document.getElementById("groceriesOtherRequired").value = groceriesOtherRequired;
+	document.getElementById("groceriesOtherRequired").placeholder = "$" +groceriesOtherRequired.toFixed(2);
 
 }
 
@@ -408,7 +456,7 @@ function calculateAuto()
 		autoInsurance = document.getElementById("autoInsurance").value;
 	}
 	autoInsuranceRequired = parseFloat(autoInsurance*(autoInsurancePercent/100));
-	document.getElementById("autoInsuranceRequired").value = autoInsuranceRequired;
+	document.getElementById("autoInsuranceRequired").placeholder = "$" +autoInsuranceRequired.toFixed(2);
 
 	autoFuel = 0;
 	if (document.getElementById("autoFuel").value)
@@ -416,7 +464,7 @@ function calculateAuto()
 		autoFuel = document.getElementById("autoFuel").value;
 	}
 	autoFuelRequired = parseFloat(autoFuel*(autoFuelPercent/100));
-	document.getElementById("autoFuelRequired").value = autoFuelRequired;
+	document.getElementById("autoFuelRequired").placeholder = "$" +autoFuelRequired.toFixed(2);
 
 	publicTransit = 0;
 	if (document.getElementById("publicTransit").value)
@@ -424,7 +472,7 @@ function calculateAuto()
 		publicTransit = document.getElementById("publicTransit").value;
 	}
 	publicTransitRequired = parseFloat(publicTransit*(publicTransitPercent/100));
-	document.getElementById("publicTransitRequired").value = publicTransitRequired;
+	document.getElementById("publicTransitRequired").placeholder = "$" +publicTransitRequired.toFixed(2);
 
 	transOther = 0;
 	if (document.getElementById("transOther").value)
@@ -432,7 +480,7 @@ function calculateAuto()
 		transOther = document.getElementById("transOther").value;
 	}
 	transOtherRequired = parseFloat(transOther*(transOtherPercent/100));
-	document.getElementById("transOtherRequired").value = transOtherRequired;
+	document.getElementById("transOtherRequired").placeholder = "$" +transOtherRequired.toFixed(2);
 }
 
 
@@ -445,7 +493,7 @@ function calculateMedical()
 		medicalPocket = document.getElementById("medicalPocket").value;
 	}
 	medicalPocketRequired = parseFloat(medicalPocket*(medicalPocketPercent/100));
-	document.getElementById("medicalPocketRequired").value = medicalPocketRequired;
+	document.getElementById("medicalPocketRequired").placeholder = "$" +medicalPocketRequired.toFixed(2);
 
 	medicalPrescriptions = 0;
 	if (document.getElementById("medicalPrescriptions").value)
@@ -453,7 +501,7 @@ function calculateMedical()
 		medicalPrescriptions = document.getElementById("medicalPrescriptions").value;
 	}
 	medicalPrescriptionsRequired = parseFloat(medicalPrescriptions*(medicalPrescriptionsPercent/100));
-	document.getElementById("medicalPrescriptionsRequired").value = medicalPrescriptionsRequired;
+	document.getElementById("medicalPrescriptionsRequired").placeholder = "$" +medicalPrescriptionsRequired.toFixed(2);
 
 
 	medicalOther = 0;
@@ -462,7 +510,7 @@ function calculateMedical()
 		medicalOther = document.getElementById("medicalOther").value;
 	}
 	medicalOtherRequired = parseFloat(medicalOther*(medicalOtherPercent/100));
-	document.getElementById("medicalOtherRequired").value = medicalOtherRequired;
+	document.getElementById("medicalOtherRequired").placeholder = "$" +medicalOtherRequired.toFixed(2);
 }
 
 
@@ -478,7 +526,7 @@ function calculateEducation()
 		eduFees = document.getElementById("eduFees").value;
 	}
 	eduFeesRequired = parseFloat(eduFees*(eduFeesPercent/100));
-	document.getElementById("eduFeesRequired").value = eduFeesRequired;
+	document.getElementById("eduFeesRequired").placeholder = "$" +eduFeesRequired.toFixed(2);
 
 	eduSupplies = 0;
 	if (document.getElementById("eduSupplies").value)
@@ -486,7 +534,7 @@ function calculateEducation()
 		eduSupplies = document.getElementById("eduSupplies").value;
 	}
 	eduSuppliesRequired = parseFloat(eduSupplies*(eduSuppliesPercent/100));
-	document.getElementById("eduSuppliesRequired").value = eduSuppliesRequired;
+	document.getElementById("eduSuppliesRequired").placeholder = "$" +eduSuppliesRequired.toFixed(2);
 
 	eduOther = 0;
 	if (document.getElementById("eduOther").value)
@@ -494,7 +542,7 @@ function calculateEducation()
 		eduOther = document.getElementById("eduOther").value;
 	}
 	eduOtherRequired = parseFloat(eduOther*(eduOtherPercent/100));
-	document.getElementById("eduOtherRequired").value = eduOtherRequired;
+	document.getElementById("eduOtherRequired").placeholder = "$" +eduOtherRequired.toFixed(2);
 
 }
 
@@ -507,7 +555,7 @@ function calculateChild()
 		childCareExpense = document.getElementById("childCareExpense").value;
 	}
 	childCareExpenseRequired = parseFloat(childCareExpense*(childCareExpensePercent/100));
-	document.getElementById("childCareExpenseRequired").value = childCareExpenseRequired;
+	document.getElementById("childCareExpenseRequired").placeholder = "$" +childCareExpenseRequired.toFixed(2);
 
 	childSupport = 0;
 	if (document.getElementById("childSupport").value)
@@ -515,7 +563,7 @@ function calculateChild()
 		childSupport = document.getElementById("childSupport").value;
 	}
 	childSupportRequired = parseFloat(childSupport*(childSupportPercent/100));
-	document.getElementById("childSupportRequired").value = childSupportRequired;
+	document.getElementById("childSupportRequired").placeholder = "$" +childSupportRequired.toFixed(2);
 
 	childRecreation = 0;
 	if (document.getElementById("childRecreation").value)
@@ -523,7 +571,7 @@ function calculateChild()
 		childRecreation = document.getElementById("childRecreation").value;
 	}
 	childRecreationRequired = parseFloat(childRecreation*(childRecreationPercent/100));
-	document.getElementById("childRecreationRequired").value = childRecreationRequired;
+	document.getElementById("childRecreationRequired").placeholder = "$" +childRecreationRequired.toFixed(2);
 
 	childClothing = 0;
 	if (document.getElementById("childClothing").value)
@@ -531,7 +579,7 @@ function calculateChild()
 		childClothing = document.getElementById("childClothing").value;
 	}
 	childClothingRequired = parseFloat(childClothing*(childClothingPercent/100));
-	document.getElementById("childClothingRequired").value = childClothingRequired;
+	document.getElementById("childClothingRequired").placeholder = "$" +childClothingRequired.toFixed(2);
 
 	childOther = 0;
 	if (document.getElementById("childOther").value)
@@ -539,7 +587,7 @@ function calculateChild()
 		childOther = document.getElementById("childOther").value;
 	}
 	childOtherRequired = parseFloat(childOther*(childOtherPercent/100));
-	document.getElementById("childOtherRequired").value = childOtherRequired;
+	document.getElementById("childOtherRequired").placeholder = "$" +childOtherRequired.toFixed(2);
 }
 
 
@@ -554,7 +602,7 @@ function calculateOther()
 		memberships = document.getElementById("memberships").value;
 	}
 	membershipsRequired = parseFloat(memberships*(membershipsPercent/100));
-	document.getElementById("membershipsRequired").value = membershipsRequired;
+	document.getElementById("membershipsRequired").placeholder = "$" +membershipsRequired.toFixed(2);
 
 
 	legalFees = 0;
@@ -563,7 +611,7 @@ function calculateOther()
 		legalFees = document.getElementById("legalFees").value;
 	}
 	legalFeesRequired = parseFloat(legalFees*(legalFeesPercent/100));
-	document.getElementById("legalFeesRequired").value = legalFeesRequired;
+	document.getElementById("legalFeesRequired").placeholder = "$" +legalFeesRequired.toFixed(2);
 
 
 	donations = 0;
@@ -572,7 +620,7 @@ function calculateOther()
 		donations = document.getElementById("donations").value;
 	}
 	donationsRequired = parseFloat(donations*(donationsPercent/100));
-	document.getElementById("donationsRequired").value = donationsRequired;
+	document.getElementById("donationsRequired").placeholder = "$" +donationsRequired.toFixed(2);
 
 
 	otherEntertainment = 0;
@@ -581,7 +629,7 @@ function calculateOther()
 		otherEntertainment = document.getElementById("otherEntertainment").value;
 	}
 	otherEntertainmentRequired = parseFloat(otherEntertainment*(otherEntertainmentPercent/100));
-	document.getElementById("otherEntertainmentRequired").value = otherEntertainmentRequired;
+	document.getElementById("otherEntertainmentRequired").placeholder = "$" +otherEntertainmentRequired.toFixed(2);
 
 
 	pets = 0;
@@ -590,7 +638,7 @@ function calculateOther()
 		pets = document.getElementById("pets").value;
 	}
 	petsRequired = parseFloat(pets*(petsPercent/100));
-	document.getElementById("petsRequired").value = petsRequired;
+	document.getElementById("petsRequired").placeholder = "$" +petsRequired.toFixed(2);
 
 
 	storage = 0;
@@ -599,7 +647,7 @@ function calculateOther()
 		storage = document.getElementById("storage").value;
 	}
 	storageRequired = parseFloat(storage*(storagePercent/100));
-	document.getElementById("storageRequired").value = storageRequired;
+	document.getElementById("storageRequired").placeholder = "$" +storageRequired.toFixed(2);
 
 
 	clothing = 0;
@@ -608,7 +656,7 @@ function calculateOther()
 		clothing = document.getElementById("clothing").value;
 	}
 	clothingRequired = parseFloat(clothing*(clothingPercent/100));
-	document.getElementById("clothingRequired").value = clothingRequired;
+	document.getElementById("clothingRequired").placeholder = "$" +clothingRequired.toFixed(2);
 
 
 	constructiveDebt = 0;
@@ -617,7 +665,7 @@ function calculateOther()
 		constructiveDebt = document.getElementById("constructiveDebt").value;
 	}
 	constructiveDebtRequired = parseFloat(constructiveDebt*(constructiveDebtPercent/100));
-	document.getElementById("constructiveDebtRequired").value = constructiveDebtRequired;
+	document.getElementById("constructiveDebtRequired").placeholder = "$" +constructiveDebtRequired.toFixed(2);
 
 
 	consumerDebt = 0;
@@ -626,7 +674,7 @@ function calculateOther()
 		consumerDebt = document.getElementById("consumerDebt").value;
 	}
 	consumerDebtRequired = parseFloat(consumerDebt*(consumerDebtPercent/100));
-	document.getElementById("consumerDebtRequired").value = consumerDebtRequired;
+	document.getElementById("consumerDebtRequired").placeholder = "$" +consumerDebtRequired.toFixed(2);
 
 
 	collections = 0;
@@ -635,7 +683,7 @@ function calculateOther()
 		collections = document.getElementById("collections").value;
 	}
 	collectionsRequired = parseFloat(collections*(collectionsPercent/100));
-	document.getElementById("collectionsRequired").value = collectionsRequired;
+	document.getElementById("collectionsRequired").placeholder = "$" +collectionsRequired.toFixed(2);
 
 
 	otherExpenses = 0;
@@ -644,7 +692,7 @@ function calculateOther()
 		otherExpenses = document.getElementById("otherExpenses").value;
 	}
 	otherExpensesRequired = parseFloat(otherExpenses*(otherExpensesPercent/100));
-	document.getElementById("otherExpensesRequired").value = otherExpensesRequired;
+	document.getElementById("otherExpensesRequired").placeholder = "$" +otherExpensesRequired.toFixed(2);
 
 /*
 	savings = 0;
@@ -653,7 +701,7 @@ function calculateOther()
 		savings = document.getElementById("savings").value;
 	}
 	savingsRequired = parseFloat(savings*(savingsPercent/100));
-	document.getElementById("savingsRequired").value = savingsRequired;
+	document.getElementById("savingsRequired").placeholder = "$" +savingsRequired;
 */
 }
 
@@ -670,48 +718,172 @@ function calculateEmergencySavings()
 	calculateEducation();
 	calculateChild();
 	calculateOther();
+	clientFinalAboveFifty = 0;
+	spouseFinalAboveFifty = 0;
+	clientHouseholdPercent = (clientTotal/(clientTotal+spouseTotal))*100;
+	spouseHouseholdPercent = ((spouseTotal/(clientTotal+spouseTotal))*100);
 
-	document.getElementById("clientFinalTotalIncome").value = '$' + clientTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-	document.getElementById("spouseFinalTotalIncome").value = '$' + spouseTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-	document.getElementById("householdIncome").value = '$' +(clientTotal + spouseTotal).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-	document.getElementById("clientHouseholdPercent").value = (clientTotal/(clientTotal+spouseTotal))*100;
-	document.getElementById("spouseHouseholdPercent").value = (spouseTotal/(clientTotal+spouseTotal))*100;
+	document.getElementById("clientFinalTotalIncome").placeholder = '$' + clientTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+	document.getElementById("spouseFinalTotalIncome").placeholder = '$' + spouseTotal.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+	document.getElementById("householdIncome").placeholder = '$' +(clientTotal + spouseTotal).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+	
+	if (clientHouseholdPercent)
+	{
+		document.getElementById("clientHouseholdPercent").placeholder = clientHouseholdPercent.toFixed(2)+"%";
+	}
+	else
+	{
+		document.getElementById("clientHouseholdPercent").placeholder = (0).toFixed(2)+"%";
+	}
+
+	if (spouseHouseholdPercent)
+	{
+		document.getElementById("spouseHouseholdPercent").placeholder = spouseHouseholdPercent.toFixed(2)+"%";
+	}
+	else
+	{
+		document.getElementById("spouseHouseholdPercent").placeholder = (0).toFixed(2)+"%";
+	}
+	
 	document.getElementById("householdPercent").value = "N/A";
 
 	if ((clientTotal/(clientTotal+spouseTotal))*100-50 >0)
 	{
-		document.getElementById("clientFinalAboveFifty").value = (clientTotal/(clientTotal+spouseTotal))*100-50;
+		clientFinalAboveFifty = ((clientTotal/(clientTotal+spouseTotal))*100-50)
+		document.getElementById("clientFinalAboveFifty").placeholder = clientFinalAboveFifty.toFixed(2)+"%";
 	}
 	else
 	{
-		clientAboveFifty = 0;
-		document.getElementById("clientFinalAboveFifty").value = clientAboveFifty;
+		
+		document.getElementById("clientFinalAboveFifty").placeholder = clientFinalAboveFifty.toFixed(2)+"%";
 	}
 
 	if ((spouseTotal/(clientTotal+spouseTotal))*100-50 >0)
 	{
-		document.getElementById("spouseFinalAboveFifty").value = (spouseTotal/(clientTotal+spouseTotal))*100-50;
+		spouseFinalAboveFifty = ((spouseTotal/(clientTotal+spouseTotal))*100-50)
+		document.getElementById("spouseFinalAboveFifty").placeholder = spouseFinalAboveFifty.toFixed(2)+"%";
 	}
 	else
-	{
-		spouseAboveFifty = 0;
-		document.getElementById("spouseFinalAboveFifty").value = spouseAboveFifty;
+	{	
+		document.getElementById("spouseFinalAboveFifty").placeholder = spouseFinalAboveFifty.toFixed(2)+"%";
 	}
 
-	document.getElementById("householdAboveFifty").value = parseFloat(document.getElementById("clientFinalAboveFifty").value) + parseFloat(document.getElementById("spouseFinalAboveFifty").value);
+	householdAboveFifty = clientFinalAboveFifty +  spouseFinalAboveFifty
+	document.getElementById("householdAboveFifty").placeholder = householdAboveFifty.toFixed(2)+"%";
 
 
 	
-	//% of 50 is absolute value of (client % - spouse %).
-	document.getElementById("percentOfFifty").value = document.getElementById("householdAboveFifty").value*2;
-	document.getElementById("percentOfFiftyTimesThree").value = (document.getElementById("householdAboveFifty").value*2)/100*3+3;
+	percentOfFifty = householdAboveFifty*2;
+	document.getElementById("percentOfFifty").placeholder = percentOfFifty.toFixed(2)+"%";
+	percentOfFiftyTimesThree = ((householdAboveFifty*2)/100*3+3);
+	document.getElementById("percentOfFiftyTimesThree").placeholder = percentOfFiftyTimesThree.toFixed(2) + " Months";
 
-	document.getElementById("budgetTotal").value = parseFloat(rent) + parseFloat(electricity)+ parseFloat(gas)+parseFloat(water)+ parseFloat(netflix)+parseFloat(internet)+parseFloat(entertainment)+ parseFloat(otherUtilities )+parseFloat(cellPhone)+parseFloat(groceries) +parseFloat(eatingOut)+parseFloat(personalHygiene)+parseFloat(groceriesOther)+parseFloat(autoInsurance)+parseFloat(autoFuel)+parseFloat(publicTransit)+parseFloat(transOther)+parseFloat(medicalPocket)+parseFloat(medicalPrescriptions)+parseFloat(medicalOther)+parseFloat(eduFees)+parseFloat(eduSupplies)+parseFloat(eduOther)+parseFloat(childCareExpense)+parseFloat(childSupport)+parseFloat(childRecreation)+parseFloat(childClothing)+parseFloat(childOther)+parseFloat(memberships)+parseFloat(legalFees)+parseFloat(donations)+parseFloat(otherEntertainment)+parseFloat(pets)+parseFloat(storage)+parseFloat(clothing)+parseFloat(constructiveDebt)+parseFloat(consumerDebt)+parseFloat(collections)+parseFloat(otherExpenses);
+	budgetTotal = parseFloat(rent) + parseFloat(electricity)+ parseFloat(gas)+parseFloat(water)+ parseFloat(netflix)+parseFloat(internet)+parseFloat(entertainment)+ parseFloat(otherUtilities )+parseFloat(cellPhone)+parseFloat(groceries) +parseFloat(eatingOut)+parseFloat(personalHygiene)+parseFloat(groceriesOther)+parseFloat(autoInsurance)+parseFloat(autoFuel)+parseFloat(publicTransit)+parseFloat(transOther)+parseFloat(medicalPocket)+parseFloat(medicalPrescriptions)+parseFloat(medicalOther)+parseFloat(eduFees)+parseFloat(eduSupplies)+parseFloat(eduOther)+parseFloat(childCareExpense)+parseFloat(childSupport)+parseFloat(childRecreation)+parseFloat(childClothing)+parseFloat(childOther)+parseFloat(memberships)+parseFloat(legalFees)+parseFloat(donations)+parseFloat(otherEntertainment)+parseFloat(pets)+parseFloat(storage)+parseFloat(clothing)+parseFloat(constructiveDebt)+parseFloat(consumerDebt)+parseFloat(collections)+parseFloat(otherExpenses)
+	document.getElementById("budgetTotal").placeholder = "$" +budgetTotal.toFixed(2);
 	
-	document.getElementById("bugetTotalRequired").value = parseFloat(rentRequired) + parseFloat(electricityRequired)+ parseFloat(gasRequired)+parseFloat(waterRequired) +parseFloat(netflixRequired)+parseFloat(internetRequired)+parseFloat(entertainmentRequired)+ parseFloat(otherUtilitiesRequired )+parseFloat(cellPhoneRequired)+parseFloat(groceriesRequired) +parseFloat(eatingOutRequired)+parseFloat(personalHygieneRequired)+parseFloat(groceriesOtherRequired)+parseFloat(autoInsuranceRequired)+parseFloat(autoFuelRequired)+parseFloat(publicTransitRequired)+parseFloat(transOtherRequired)+parseFloat(medicalPocketRequired)+parseFloat(medicalPrescriptionsRequired)+parseFloat(medicalOtherRequired)+parseFloat(eduFeesRequired)+parseFloat(eduSuppliesRequired)+parseFloat(eduOtherRequired)+parseFloat(childCareExpenseRequired)+parseFloat(childSupportRequired)+parseFloat(childRecreationRequired)+parseFloat(childClothingRequired)+parseFloat(childOtherRequired)+parseFloat(memberships)+parseFloat(legalFeesRequired)+parseFloat(donationsRequired)+parseFloat(otherEntertainmentRequired)+parseFloat(petsRequired)+parseFloat(storageRequired)+parseFloat(clothingRequired)+parseFloat(constructiveDebtRequired)+parseFloat(consumerDebtRequired)+parseFloat(collectionsRequired)+parseFloat(otherExpensesRequired);
+	budgetTotalRequired= parseFloat(rentRequired) + parseFloat(electricityRequired)+ parseFloat(gasRequired)+parseFloat(waterRequired) +parseFloat(netflixRequired)+parseFloat(internetRequired)+parseFloat(entertainmentRequired)+ parseFloat(otherUtilitiesRequired )+parseFloat(cellPhoneRequired)+parseFloat(groceriesRequired) +parseFloat(eatingOutRequired)+parseFloat(personalHygieneRequired)+parseFloat(groceriesOtherRequired)+parseFloat(autoInsuranceRequired)+parseFloat(autoFuelRequired)+parseFloat(publicTransitRequired)+parseFloat(transOtherRequired)+parseFloat(medicalPocketRequired)+parseFloat(medicalPrescriptionsRequired)+parseFloat(medicalOtherRequired)+parseFloat(eduFeesRequired)+parseFloat(eduSuppliesRequired)+parseFloat(eduOtherRequired)+parseFloat(childCareExpenseRequired)+parseFloat(childSupportRequired)+parseFloat(childRecreationRequired)+parseFloat(childClothingRequired)+parseFloat(childOtherRequired)+parseFloat(memberships)+parseFloat(legalFeesRequired)+parseFloat(donationsRequired)+parseFloat(otherEntertainmentRequired)+parseFloat(petsRequired)+parseFloat(storageRequired)+parseFloat(clothingRequired)+parseFloat(constructiveDebtRequired)+parseFloat(consumerDebtRequired)+parseFloat(collectionsRequired)+parseFloat(otherExpensesRequired);
+	document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toFixed(2);
 
+	monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
+	document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
+	totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
+	document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toFixed(2);
 
-	document.getElementById("monthsEmergencySavingsRequired").value = document.getElementById("percentOfFiftyTimesThree").value;
-	document.getElementById("totalEmergencySavingsRequired").value = document.getElementById("monthsEmergencySavingsRequired").value * document.getElementById("bugetTotalRequired").value;
+}
 
+//flow functions
+function overview_click()
+{
+    hideAllDivs();
+    overviewOp.style.display = "block";
+    overviewNav.className = "list-group-item active";
+}
+
+function income_click()
+{
+    hideAllDivs();
+    incomeOp.style.display = "block";
+    incomeNav.className = "list-group-item active";
+}
+
+function housing_click()
+{
+    hideAllDivs();
+    housingOp.style.display = "block";
+    housingNav.className = "list-group-item active";
+}
+
+function food_click()
+{
+    hideAllDivs();
+    foodOp.style.display = "block";
+    foodNav.className = "list-group-item active";
+}
+
+function trans_click()
+{
+    hideAllDivs();
+    transOp.style.display = "block";
+    transNav.className = "list-group-item active";
+}
+
+function medical_click()
+{
+    hideAllDivs();
+    medicalOp.style.display = "block";
+    medicalNav.className = "list-group-item active";
+}
+
+function education_click()
+{
+    hideAllDivs();
+    educationOp.style.display = "block";
+    educationNav.className = "list-group-item active";
+}
+
+function children_click()
+{
+    hideAllDivs();
+    childrenOp.style.display = "block";
+    childrenNav.className = "list-group-item active";
+}
+
+function other_click()
+{
+    hideAllDivs();
+    otherOp.style.display = "block";
+    otherNav.className = "list-group-item active";
+}
+
+function results_click()
+{
+    hideAllDivs();
+    resultsOp.style.display = "block";
+    resultsNav.className = "list-group-item active";
+    calculateEmergencySavings();
+}
+
+function hideAllDivs()
+{
+    overviewOp.style.display = "none";
+    incomeOp.style.display = "none";
+    housingOp.style.display = "none";
+    foodOp.style.display = "none";
+    transOp.style.display = "none";
+    medicalOp.style.display = "none";
+    educationOp.style.display = "none";
+    childrenOp.style.display = "none";
+    otherOp.style.display = "none";
+    resultsOp.style.display = "none";
+    
+    overviewNav.className = "list-group-item";
+    incomeNav.className = "list-group-item";
+    housingNav.className = "list-group-item";
+    foodNav.className = "list-group-item";
+    transNav.className = "list-group-item";
+    medicalNav.className = "list-group-item";
+    educationNav.className = "list-group-item";
+    childrenNav.className = "list-group-item";
+    otherNav.className = "list-group-item";
+    resultsNav.className = "list-group-item";
 }
