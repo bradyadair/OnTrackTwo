@@ -265,7 +265,6 @@ function setElements(){
 	document.getElementById("cellPhonePercent").placeholder = cellPhonePercent +"%";
 	//------------------------------------------------------------------------------------------------------------------------
 
-
 	//Food Percentage Needed---------------------------------------------------------------------------------------------
 	
 	document.getElementById("groceriesPercent").placeholder = groceriesPercent +"%";
@@ -335,8 +334,9 @@ function setElements(){
 	document.getElementById("childOtherPercent").placeholder = childOtherPercent +"%";
 	//--------------------------------------------------------------------------------------------------------------------------
 
-	//Other Percentage Needed-------------------------------------------------------------------------------------------------
 	
+	
+	//Other Percentage Needed-------------------------------------------------------------------------------------------------
 	document.getElementById("membershipsPercent").placeholder = membershipsPercent +"%";
 
 	
@@ -368,7 +368,65 @@ function setElements(){
 
 	
 	document.getElementById("otherExpensesPercent").placeholder = otherExpensesPercent +"%";
+
+
+	//hides show/hide calculations button at beginning
+    $("#showHidePercent").hide();
+    $(".percentNeeded").hide();
+
 }
+
+function showHidePercent()
+{
+
+	//Hide Percentage Needed Columns-------------------------------------------------------------------------------------------------
+	$(".percentNeeded").toggle();
+	
+	/*
+	$("#rentPercent").hide();
+	$("#electricityPercent").hide();
+	$("#gasPercent").hide();
+	$("#waterPercent").hide();
+	$("#netflixPercent").hide();
+	$("#internetPercent").hide();
+	$("#entertainmentPercent").hide();
+	$("#otherUtilitiesPercent").hide();
+	$("#cellPhonePercent").hide();
+	$("#groceriesPercent").hide();
+	$("#eatingOutPercent").hide();
+	$("#personalHygienePercent").hide();
+	$("#groceriesOtherPercent").hide();
+	$("#autoInsurancePercent").hide();
+	$("#autoFuelPercent").hide();
+	$("#publicTransitPercent").hide();
+	$("#transOtherPercent").hide();
+	$("#medicalPocketPercent").hide();
+	$("#medicalPrescriptionsPercent").hide();
+	$("#medicalOtherPercent").hide();
+	$("#eduFeesPercent").hide();
+	$("#eduSuppliesPercent").hide();
+	$("#eduOtherPercent").hide();
+	$("#childCareExpensePercent").hide();
+	$("#childSupportPercent").hide();
+	$("#childRecreationPercent").hide();
+	$("#childClothingPercent").hide();
+	$("#childOtherPercent").hide();
+	$("#membershipsPercent").hide();
+	$("#legalFeesPercent").hide();
+	$("#donationsPercent").hide();
+	$("#otherEntertainmentPercent").hide();
+	$("#petsPercent").hide();
+	$("#storagePercent").hide();
+	$("#clothingPercent").hide();
+	$("#constructiveDebtPercent").hide();
+	$("#consumerDebtPercent").hide();
+	$("#collectionsPercent").hide();
+	$("#otherExpensesPercent").hide();
+	*/
+	/////////---------------------------------------------------------------------------------------------------------------------------
+}
+
+
 
 
 
@@ -993,6 +1051,8 @@ function housing_click()
     hideAllDivs();
     housingOp.style.display = "block";
     housingNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function food_click()
@@ -1000,6 +1060,8 @@ function food_click()
     hideAllDivs();
     foodOp.style.display = "block";
     foodNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function trans_click()
@@ -1007,6 +1069,8 @@ function trans_click()
     hideAllDivs();
     transOp.style.display = "block";
     transNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function medical_click()
@@ -1014,6 +1078,8 @@ function medical_click()
     hideAllDivs();
     medicalOp.style.display = "block";
     medicalNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function education_click()
@@ -1021,6 +1087,8 @@ function education_click()
     hideAllDivs();
     educationOp.style.display = "block";
     educationNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function children_click()
@@ -1028,6 +1096,8 @@ function children_click()
     hideAllDivs();
     childrenOp.style.display = "block";
     childrenNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function other_click()
@@ -1035,6 +1105,8 @@ function other_click()
     hideAllDivs();
     otherOp.style.display = "block";
     otherNav.className = "list-group-item active";
+
+    $("#showHidePercent").show();
 }
 
 function results_click()
@@ -1043,6 +1115,8 @@ function results_click()
     resultsOp.style.display = "block";
     resultsNav.className = "list-group-item active";
     calculateEmergencySavings();
+
+    $("#showHidePercent").show();
 }
 
 function hideAllDivs()
@@ -1068,4 +1142,7 @@ function hideAllDivs()
     childrenNav.className = "list-group-item";
     otherNav.className = "list-group-item";
     resultsNav.className = "list-group-item";
+
+    $("#showHidePercent").hide();
+    $(".percentNeeded").hide();
 }

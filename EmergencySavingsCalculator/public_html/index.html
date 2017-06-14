@@ -77,6 +77,9 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
                 <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Toggle nav
             </button>
+            <button type="button" class="btn btn-primary btn-xs" id="showHidePercent" onclick="showHidePercent()">
+                Hide / Show Calculation
+            </button>
           </p>
   
 <!--            <div class="text-center">
@@ -87,7 +90,7 @@
               <div class="row">
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="inputEmail" class="col-md-4 control-label">Email:</label>
+                    <label for="inputEmail" class="col-md-4 control-label">Email ($):</label>
                     <div class="col-md-8">
                       <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                     </div>
@@ -95,7 +98,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="inputPassword" class="col-md-4 control-label">Password:</label>
+                    <label for="inputPassword" class="col-md-4 control-label">Password ($):</label>
                     <div class="col-md-8">
                       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
@@ -103,7 +106,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="inputLabel3" class="col-md-4 control-label">Label 3:</label>
+                    <label for="inputLabel3" class="col-md-4 control-label">Label 3 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="inputLabel3" placeholder="Label 3">
                     </div>
@@ -111,7 +114,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="inputLabel4" class="col-md-4 control-label">Label 4:</label>
+                    <label for="inputLabel4" class="col-md-4 control-label">Label 4 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="inputLabel4" placeholder="Label 4">
                     </div>
@@ -119,7 +122,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input5" class="col-md-4 control-label">1234567890:</label>
+                    <label for="input5" class="col-md-4 control-label">1234567890 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input5" placeholder="input 5">
                     </div>
@@ -127,7 +130,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input6" class="col-md-4 control-label">123456789012:</label>
+                    <label for="input6" class="col-md-4 control-label">123456789012 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input6" placeholder="input 6">
                     </div>
@@ -135,7 +138,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input7" class="col-md-4 control-label">12345678901234:</label>
+                    <label for="input7" class="col-md-4 control-label">12345678901234 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input7" placeholder="input 7">
                     </div>
@@ -143,7 +146,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input8" class="col-md-4 control-label">1234567890123456:</label>
+                    <label for="input8" class="col-md-4 control-label">1234567890123456 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input8" placeholder="input 8">
                     </div>
@@ -151,7 +154,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input9" class="col-md-4 control-label">123456789012345678:</label>
+                    <label for="input9" class="col-md-4 control-label">123456789012345678 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input9" placeholder="input 9">
                     </div>
@@ -159,7 +162,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="form-group">
-                    <label for="input10" class="col-md-4 control-label">12345678901234567890:</label>
+                    <label for="input10" class="col-md-4 control-label">12345678901234567890 ($):</label>
                     <div class="col-md-8">
                       <input type="text" class="form-control" id="input10" placeholder="input 10">
                     </div>
@@ -183,14 +186,14 @@
                     <div class="form-group">
                       <label for="clientHours" class="col-lg-6 control-label">Client Hours:</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientHours" name="clientHours"  placeholder="Client Hours"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientHours" name="clientHours"  placeholder="0 Hours"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientHours"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Rate:</label>
+                      <label class="col-lg-6 control-label">Client Rate ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientRate" name="clientRate"  placeholder="Client Rate"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientRate" name="clientRate"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientRate"></span></div>
                     </div>
@@ -202,9 +205,9 @@
                       <div class="content" style="color:#ff5757"><span class="invalidClientWages"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client PR Deductions:</label>
+                      <label class="col-lg-6 control-label">Client PR Deductions ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientPRDeductions" name="clientPRDeductions"  placeholder="Client PR Deductions"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientPRDeductions" name="clientPRDeductions"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientPRDeductions"></span></div>
                     </div>
@@ -216,44 +219,44 @@
                       <div class="content" style="color:#ff5757"><span class="invalidClientNet"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Self-Employment:</label>
+                      <label class="col-lg-6 control-label">Client Self-Employment ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientSelfEmployment" name="clientSelfEmployment"  placeholder="Client Self-Employment"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientSelfEmployment" name="clientSelfEmployment"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientSelfEmployment"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Social Security Retirement:</label>
+                      <label class="col-lg-6 control-label">Client Social Security ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientSocialSecurityRetirement" name="clientSocialSecurityRetirement"  placeholder="Client Social Security Retirement"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientSocialSecurityRetirement" name="clientSocialSecurityRetirement"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientSocialSecurityRetirement"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Pension:</label>
+                      <label class="col-lg-6 control-label">Client Pension ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientPension" name="clientPension"  placeholder="Client Pension"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientPension" name="clientPension"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientPension"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Alimony:</label>
+                      <label class="col-lg-6 control-label">Client Alimony ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientAlimony" name="clientAlimony"  placeholder="Client Alimony"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientAlimony" name="clientAlimony"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientAlimony"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Child Support:</label>
+                      <label class="col-lg-6 control-label">Client Child Support ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientChildSupport" name="clientChildSupport"  placeholder="Client Child Support"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientChildSupport" name="clientChildSupport"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientChildSupport"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Client Other Income:</label>
+                      <label class="col-lg-6 control-label">Client Other Income ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="clientOtherIncome" name="clientOtherIncome"  placeholder="Client Other Income"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="clientOtherIncome" name="clientOtherIncome"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidClientOtherIncome"></span></div>
                     </div>
@@ -272,14 +275,14 @@
                     <div class="form-group">
                       <label class="col-lg-6 control-label">Spouse Hours:</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseHours" name="spouseHours"  placeholder="Spouse Hours"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseHours" name="spouseHours"  placeholder="0 Hours"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseHours"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Rate:</label>
+                      <label class="col-lg-6 control-label">Spouse Rate  ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" placeholder="Spouse Rate" id="spouseRate" name="spouseRate" />
+                        <input oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spouseRate" name="spouseRate" />
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseRate"></span></div>
                     </div>
@@ -291,9 +294,9 @@
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseWages"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse PR Deductions:</label>
+                      <label class="col-lg-6 control-label">Spouse PR Deductions ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" placeholder="Spouse PR Deductions" id="spousePRDeductions" name="spousePRDeductions" />
+                        <input oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spousePRDeductions" name="spousePRDeductions" />
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpousePRDeductions"></span></div>
                     </div>
@@ -305,44 +308,44 @@
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseNet"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Self-Employment:</label>
+                      <label class="col-lg-6 control-label">Spouse Self-Employment ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseSelfEmployment" name="spouseSelfEmployment"  placeholder="Spouse Self-Employment"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseSelfEmployment" name="spouseSelfEmployment"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseSelfEmployment"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Social Security Retirement:</label>
+                      <label class="col-lg-6 control-label">Spouse Social Security ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseSocialSecurityRetirement" name="spouseSocialSecurityRetirement"  placeholder="Spouse Social Security Retirement"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseSocialSecurityRetirement" name="spouseSocialSecurityRetirement"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseSocialSecurityRetirement"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Pension:</label>
+                      <label class="col-lg-6 control-label">Spouse Pension ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spousePension" name="spousePension"  placeholder="Spouse Pension"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spousePension" name="spousePension"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpousePension"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Alimony:</label>
+                      <label class="col-lg-6 control-label">Spouse Alimony ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseAlimony" name="spouseAlimony"  placeholder="Spouse Alimony"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseAlimony" name="spouseAlimony"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseAlimony"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Child Support:</label>
+                      <label class="col-lg-6 control-label">Spouse Child Support ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseChildSupport" name="spouseChildSupport"  placeholder="Spouse Child Support"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseChildSupport" name="spouseChildSupport"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseChildSupport"></span></div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-6 control-label">Spouse Other Income:</label>
+                      <label class="col-lg-6 control-label">Spouse Other Income ($):</label>
                       <div class="col-lg-6">
-                        <input oninput="calculate()" type="number" class="form-control" id="spouseOtherIncome" name="spouseOtherIncome"  placeholder="Spouse Other Income"/>
+                        <input oninput="calculate()" type="number" class="form-control" id="spouseOtherIncome" name="spouseOtherIncome"  placeholder="$0.00"/>
                       </div>
                       <div class="content" style="color:#ff5757"><span class="invalidSpouseOtherIncome"></span></div>
                     </div>
@@ -364,17 +367,27 @@
                     <form class="form-horizontal" role="form" action="housing" method="post" id="housingForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Rent:</label>
+                      <label class="col-lg-3 control-label">Rent ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="rent" name="rent"  placeholder="Rent"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="rent" name="rent"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="rentPercent" name="rentPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                            <input oninput="calculateHousing()" type="number" class="form-control" id="rentPercent" name="rentPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="rentRequired" name="rentRequired"  disabled="disabled"/>
@@ -382,12 +395,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidRent"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Electricity:</label>
+                      <label class="col-lg-3 control-label">Electricity ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="electricity" name="electricity"  placeholder="Electricity"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="electricity" name="electricity"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                      <input oninput="calculateHousing()" type="number" class="form-control" id="electricityPercent" name="electricityPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="electricityPercent" name="electricityPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                       <input oninput="calculateHousing()" type="number" class="form-control" id="electricityRequired" name="electricityRequired"  disabled="disabled"/>
@@ -395,12 +410,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidElectricity"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Gas:</label>
+                      <label class="col-lg-3 control-label">Gas ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="gas" name="gas"  placeholder="Gas"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="gas" name="gas"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="gasPercent" name="gasPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="gasPercent" name="gasPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="gasRequired" name="gasRequired"  disabled="disabled"/>
@@ -408,12 +425,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidGas"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Water/Sewer/Garbage:</label>
+                      <label class="col-lg-3 control-label">Water/Sewer/Garbage ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="water" name="water"  placeholder="Water/Sewer/Garbage"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="water" name="water"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="waterPercent" name="waterPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="waterPercent" name="waterPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="waterRequired" name="waterRequired"  disabled="disabled"/>
@@ -421,12 +440,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidWater"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Cable/Netflix/Hulu:</label>
+                      <label class="col-lg-3 control-label">Cable/Netflix/Hulu ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="netflix" name="netflix"  placeholder="Cable/Netflix/Hulu"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="netflix" name="netflix"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="netflixPercent" name="netflixPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="netflixPercent" name="netflixPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="netflixRequired" name="netflixRequired"  disabled="disabled"/>
@@ -434,12 +455,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidNetflix"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Internet:</label>
+                      <label class="col-lg-3 control-label">Internet ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="internet" name="internet"  placeholder="Internet"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="internet" name="internet"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="internetPercent" name="internetPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="internetPercent" name="internetPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="internetRequired" name="internetRequired"  disabled="disabled"/>
@@ -447,12 +470,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="internet"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Entertainment Pkg:</label>
+                      <label class="col-lg-3 control-label">Entertainment Pkg ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="entertainment" name="entertainment"  placeholder="Entertainment Pkg"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="entertainment" name="entertainment"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="entertainmentPercent" name="entertainmentPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="entertainmentPercent" name="entertainmentPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="entertainmentRequired" name="entertainmentRequired"  disabled="disabled" />
@@ -460,12 +485,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidEntertainment"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Other Home Utilities:</label>
+                      <label class="col-lg-3 control-label">Other Home Utilities ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="otherUtilities" name="otherUtilities"  placeholder="Other Home Utilities"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="otherUtilities" name="otherUtilities"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesPercent" name="otherUtilitiesPercent"  disabled="disabled" />
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesPercent" name="otherUtilitiesPercent"  disabled="disabled" />
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesRequired" name="otherUtilitiesRequired"  disabled="disabled"/>
@@ -473,12 +500,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidOtherUtilities"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Cell Phone:</label>
+                      <label class="col-lg-3 control-label">Cell Phone ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="cellPhone" name="cellPhone"  placeholder="Cell Phone"/>
+                        <input oninput="calculateHousing()" type="number" class="form-control" id="cellPhone" name="cellPhone"  placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateHousing()" type="number" class="form-control" id="cellPhonePercent" name="cellPhonePercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateHousing()" type="number" class="form-control" id="cellPhonePercent" name="cellPhonePercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateHousing()" type="number" class="form-control" id="cellPhoneRequired" name="cellPhoneRequired"  disabled="disabled"/>
@@ -496,17 +525,27 @@
                 <form class="form-horizontal" role="form" action="food" method="post" id="foodForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Groceries:</label>
+                      <label class="col-lg-3 control-label">Groceries ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="groceries" name="groceries" placeholder="Groceries"/>
+                        <input oninput="calculateFood()" type="number" class="form-control" id="groceries" name="groceries" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="groceriesPercent" name="groceriesPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateFood()" type="number" class="form-control" id="groceriesPercent" name="groceriesPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateFood()" type="number" class="form-control" id="groceriesRequired" name="groceriesRequired"  disabled="disabled"/>
@@ -514,12 +553,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidGroceries"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Eating Out:</label>
+                      <label class="col-lg-3 control-label">Eating Out ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="eatingOut" name="eatingOut" placeholder="Eating Out"/>
+                        <input oninput="calculateFood()" type="number" class="form-control" id="eatingOut" name="eatingOut" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="eatingOutPercent" name="eatingOutPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateFood()" type="number" class="form-control" id="eatingOutPercent" name="eatingOutPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateFood()" type="number" class="form-control" id="eatingOutRequired" name="eatingOutRequired"  disabled="disabled"/>
@@ -527,12 +568,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidEatingOut"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Personal Hygiene:</label>
+                      <label class="col-lg-3 control-label">Personal Hygiene ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="personalHygiene" name="personalHygiene" placeholder="Personal Hygiene"/>
+                        <input oninput="calculateFood()" type="number" class="form-control" id="personalHygiene" name="personalHygiene" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="personalHygienePercent" name="personalHygienePercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateFood()" type="number" class="form-control" id="personalHygienePercent" name="personalHygienePercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateFood()" type="number" class="form-control" id="personalHygieneRequired" name="personalHygieneRequired"  disabled="disabled"/>
@@ -540,12 +583,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidPersonalHygiene"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Groceries - Other:</label>
+                      <label class="col-lg-3 control-label">Groceries - Other ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="groceriesOther" name="groceriesOther" placeholder="Groceries - Other"/>
+                        <input oninput="calculateFood()" type="number" class="form-control" id="groceriesOther" name="groceriesOther" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherPercent" name="groceriesOtherPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherPercent" name="groceriesOtherPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherRequired" name="groceriesOtherRequired"  disabled="disabled"/>
@@ -563,17 +608,27 @@
                 <form class="form-horizontal" role="form" action="autobus" method="post" id="autobusForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Auto Insurance:</label>
+                      <label class="col-lg-3 control-label">Auto Insurance ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoInsurance" name="autoInsurance" placeholder="Auto Insurance"/>
+                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoInsurance" name="autoInsurance" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoInsurancePercent" name="autoInsurancePercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateAuto()" type="number" class="form-control" id="autoInsurancePercent" name="autoInsurancePercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateAuto()" type="number" class="form-control" id="autoInsuranceRequired" name="autoInsuranceRequired"  disabled="disabled"/>
@@ -581,12 +636,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidAutoInsurance"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Auto Fuel:</label>
+                      <label class="col-lg-3 control-label">Auto Fuel ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoFuel" name="autoFuel" placeholder="Auto Fuel"/>
+                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoFuel" name="autoFuel" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="autoFuelPercent" name="autoFuelPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateAuto()" type="number" class="form-control" id="autoFuelPercent" name="autoFuelPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateAuto()" type="number" class="form-control" id="autoFuelRequired" name="autoFuelRequired"  disabled="disabled"/>
@@ -594,12 +651,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidAutoFuel"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Public Transit:</label>
+                      <label class="col-lg-3 control-label">Public Transit ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="publicTransit" name="publicTransit" placeholder="Public Transit"/>
+                        <input oninput="calculateAuto()" type="number" class="form-control" id="publicTransit" name="publicTransit" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="publicTransitPercent" name="publicTransitPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateAuto()" type="number" class="form-control" id="publicTransitPercent" name="publicTransitPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateAuto()" type="number" class="form-control" id="publicTransitRequired" name="publicTransitRequired"  disabled="disabled"/>
@@ -607,12 +666,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidPublicTransit"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Trans - Other:</label>
+                      <label class="col-lg-3 control-label">Trans - Other ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="transOther" name="transOther" placeholder="Trans Other"/>
+                        <input oninput="calculateAuto()" type="number" class="form-control" id="transOther" name="transOther" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateAuto()" type="number" class="form-control" id="transOtherPercent" name="transOtherPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateAuto()" type="number" class="form-control" id="transOtherPercent" name="transOtherPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateAuto()" type="number" class="form-control" id="transOtherRequired" name="transOtherRequired"  disabled="disabled"/>
@@ -630,17 +691,27 @@
                 <form class="form-horizontal" role="form" action="medical" method="post" id="medicalForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Medical - Out of Pocket:</label>
+                      <label class="col-lg-3 control-label">Medical - Out of Pocket ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPocket" name="medicalPocket" placeholder="Medical - Out of Pocket:"/>
+                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPocket" name="medicalPocket" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketPercent" name="medicalPocketPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketPercent" name="medicalPocketPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketRequired" name="medicalPocketRequired"  disabled="disabled"/>
@@ -648,12 +719,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidMedicalPocket"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Medical - Prescriptions:</label>
+                      <label class="col-lg-3 control-label">Medical - Prescriptions ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptions" name="medicalPrescriptions" placeholder="Medical - Prescriptions:"/>
+                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptions" name="medicalPrescriptions" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsPercent" name="medicalPrescriptionsPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsPercent" name="medicalPrescriptionsPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsRequired" name="medicalPrescriptionsRequired"  disabled="disabled"/>
@@ -661,12 +734,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidMedicalPrescriptions"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Medical - Other:</label>
+                      <label class="col-lg-3 control-label">Medical - Other ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalOther" name="medicalOther" placeholder="Medical - Other:"/>
+                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalOther" name="medicalOther" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherPercent" name="medicalOtherPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherPercent" name="medicalOtherPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherRequired" name="medicalOtherRequired"  disabled="disabled"/>
@@ -684,17 +759,27 @@
                 <form class="form-horizontal" role="form" action="education" method="post" id="educationForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Edu Fees:</label>
+                      <label class="col-lg-3 control-label">Edu Fees ($):</label>
                       <div class="col-lg-3">
-                      <input oninput="calculateEducation()" type="number" class="form-control" id="eduFees" name="eduFees" placeholder="Edu Fees"/>
+                      <input oninput="calculateEducation()" type="number" class="form-control" id="eduFees" name="eduFees" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                      <input oninput="calculateEducation()" type="number" class="form-control" id="eduFeesPercent" name="eduFeesPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduFeesPercent" name="eduFeesPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                       <input oninput="calculateEducation()" type="number" class="form-control" id="eduFeesRequired" name="eduFeesRequired"  disabled="disabled"/>
@@ -702,12 +787,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidEduFees"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Edu Supplies:</label>
+                      <label class="col-lg-3 control-label">Edu Supplies ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduSupplies" name="eduSupplies" placeholder="Edu Supplies"/>
+                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduSupplies" name="eduSupplies" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesPercent" name="eduSuppliesPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesPercent" name="eduSuppliesPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesRequired" name="eduSuppliesRequired"  disabled="disabled"/>
@@ -715,12 +802,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidEduSupplies"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Edu Other:</label>
+                      <label class="col-lg-3 control-label">Edu Other ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduOther" name="eduOther" placeholder="Edu Other"/>
+                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduOther" name="eduOther" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateEducation()" type="number" class="form-control" id="eduOtherPercent" name="eduOtherPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateEducation()" type="number" class="form-control" id="eduOtherPercent" name="eduOtherPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateEducation()" type="number" class="form-control" id="eduOtherRequired" name="eduOtherRequired"  disabled="disabled"/>
@@ -738,17 +827,27 @@
                 <form class="form-horizontal" role="form" action="child" method="post" id="childForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Child Care Expense:</label>
+                      <label class="col-lg-3 control-label">Child Care Expense ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childCareExpense" name="childCareExpense" placeholder="Child Care Expense"/>
+                        <input oninput="calculateChild()" type="number" class="form-control" id="childCareExpense" name="childCareExpense" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childCareExpensePercent" name="childCareExpensePercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateChild()" type="number" class="form-control" id="childCareExpensePercent" name="childCareExpensePercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateChild()" type="number" class="form-control" id="childCareExpenseRequired" name="childCareExpenseRequired"  disabled="disabled"/>
@@ -756,12 +855,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="InvalidChildCareExpense"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Child Support:</label>
+                      <label class="col-lg-3 control-label">Child Support ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childSupport" name="childSupport" placeholder="Child Support"/>
+                        <input oninput="calculateChild()" type="number" class="form-control" id="childSupport" name="childSupport" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childSupportPercent" name="childSupportPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateChild()" type="number" class="form-control" id="childSupportPercent" name="childSupportPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateChild()" type="number" class="form-control" id="childSupportRequired" name="childSupportRequired"  disabled="disabled"/>
@@ -769,12 +870,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidChildSupport"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Child Recreation:</label>
+                      <label class="col-lg-3 control-label">Child Recreation ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childRecreation" name="childRecreation" placeholder="Child Recreation"/>
+                        <input oninput="calculateChild()" type="number" class="form-control" id="childRecreation" name="childRecreation" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childRecreationPercent" name="childRecreationPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateChild()" type="number" class="form-control" id="childRecreationPercent" name="childRecreationPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateChild()" type="number" class="form-control" id="childRecreationRequired" name="childRecreationRequired"  disabled="disabled"/>
@@ -782,12 +885,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidChildRecreation"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Child Clothing:</label>
+                      <label class="col-lg-3 control-label">Child Clothing ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childClothing" name="childClothing" placeholder="Child Clothing"/>
+                        <input oninput="calculateChild()" type="number" class="form-control" id="childClothing" name="childClothing" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childClothingPercent" name="childClothingPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateChild()" type="number" class="form-control" id="childClothingPercent" name="childClothingPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateChild()" type="number" class="form-control" id="childClothingRequired" name="childClothingRequired"  disabled="disabled"/>
@@ -795,12 +900,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidChildClothing"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Child - Other:</label>
+                      <label class="col-lg-3 control-label">Child - Other ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childOther" name="childOther" placeholder="Child - Other"/>
+                        <input oninput="calculateChild()" type="number" class="form-control" id="childOther" name="childOther" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateChild()" type="number" class="form-control" id="childOtherPercent" name="childOtherPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateChild()" type="number" class="form-control" id="childOtherPercent" name="childOtherPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateChild()" type="number" class="form-control" id="childOtherRequired" name="childOtherRequired"  disabled="disabled"/>
@@ -818,17 +925,27 @@
                 <form class="form-horizontal" role="form" action="other" method="post" id="otherForm"><br/>
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label" style="color:#1111ff">MONTHLY BUDGET ($)</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">PERCENTAGE NEEDED</label>
-                      <label class="col-lg-3 control-label" style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      <div class="col-lg-6 control-label">
+                        <label style="color:#1111ff">MONTHLY BUDGET ($)</label>
+                      </div>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3 control-label">
+                          <label style="color:#1111ff">PERCENTAGE NEEDED</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 control-label">
+                        <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Memberships:</label>
+                      <label class="col-lg-3 control-label">Memberships ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="memberships" name="memberships" placeholder="Memberships" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="memberships" name="memberships" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="membershipsPercent" name="membershipsPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="membershipsPercent" name="membershipsPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="membershipsRequired" name="membershipsRequired"  disabled="disabled"/>
@@ -836,12 +953,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="InvalidMemberships"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Legal Fees:</label>
+                      <label class="col-lg-3 control-label">Legal Fees ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="legalFees" name="legalFees" placeholder="Legal Fees" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="legalFees" name="legalFees" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="legalFeesPercent" name="legalFeesPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="legalFeesPercent" name="legalFeesPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="legalFeesRequired" name="legalFeesRequired"  disabled="disabled"/>
@@ -849,12 +968,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidLegalFees"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Donations (Charity):</label>
+                      <label class="col-lg-3 control-label">Donations (Charity) ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="donations" name="donations" placeholder="Donations (Charity)" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="donations" name="donations" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="donationsPercent" name="donationsPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="donationsPercent" name="donationsPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="donationsRequired" name="donationsRequired"  disabled="disabled"/>
@@ -862,12 +983,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidDonations"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Entertainment:</label>
+                      <label class="col-lg-3 control-label">Entertainment ($):</label>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="otherEntertainment" name="otherEntertainment" placeholder="Entertainment" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentPercent" name="otherEntertainmentPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentPercent" name="otherEntertainmentPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentRequired" name="otherEntertainmentRequired"  disabled="disabled"/>
@@ -875,12 +998,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidOtherEntertainment"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Pets:</label>
+                      <label class="col-lg-3 control-label">Pets ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="pets" name="pets" placeholder="Pets" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="pets" name="pets" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="petsPercent" name="petsPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="petsPercent" name="petsPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="petsRequired" name="petsRequired"  disabled="disabled"/>
@@ -888,12 +1013,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidPets"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Storage:</label>
+                      <label class="col-lg-3 control-label">Storage ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="storage" name="storage" placeholder="Storage" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="storage" name="storage" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="storagePercent" name="storagePercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="storagePercent" name="storagePercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="storageRequired" name="storageRequired"  disabled="disabled"/>
@@ -901,12 +1028,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidStorage"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Other Shopping (Clothing):</label>
+                      <label class="col-lg-3 control-label">Other Shopping ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="clothing" name="clothing" placeholder="Other Shopping (Clothing)" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="clothing" name="clothing" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="clothingPercent" name="clothingPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="clothingPercent" name="clothingPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="clothingRequired" name="clothingRequired"  disabled="disabled"/>
@@ -914,12 +1043,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidClothing"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Constructive Debt:</label>
+                      <label class="col-lg-3 control-label">Constructive Debt ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="constructiveDebt" name="constructiveDebt" placeholder="Constructive Debt" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="constructiveDebt" name="constructiveDebt" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtPercent" name="constructiveDebtPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtPercent" name="constructiveDebtPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtRequired" name="constructiveDebtRequired"  disabled="disabled"/>
@@ -927,12 +1058,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidConstructiveDebt"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Consumer Debt:</label>
+                      <label class="col-lg-3 control-label">Consumer Debt ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="consumerDebt" name="consumerDebt" placeholder="Consumer Debt" />
+                        <input oninput="calculateOther()" type="number" class="form-control" id="consumerDebt" name="consumerDebt" placeholder="$0.00" />
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="consumerDebtPercent" name="consumerDebtPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="consumerDebtPercent" name="consumerDebtPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="consumerDebtRequired" name="consumerDebtRequired"  disabled="disabled"/>
@@ -940,12 +1073,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidConsumerDebt"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Collections:</label>
+                      <label class="col-lg-3 control-label">Collections ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="collections" name="collections" placeholder="Collections"/>
+                        <input oninput="calculateOther()" type="number" class="form-control" id="collections" name="collections" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="collectionsPercent" name="collectionsPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="collectionsPercent" name="collectionsPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="collectionsRequired" name="collectionsRequired"  disabled="disabled"/>
@@ -953,12 +1088,14 @@
                     </div>
                     <div class="content" style="color:#ff5757"><span class="invalidCollections"></span></div>
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">Other Expenses:</label>
+                      <label class="col-lg-3 control-label">Other Expenses ($):</label>
                       <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="otherExpenses" name="otherExpenses" placeholder="Other Expenses"/>
+                        <input oninput="calculateOther()" type="number" class="form-control" id="otherExpenses" name="otherExpenses" placeholder="$0.00"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input oninput="calculateOther()" type="number" class="form-control" id="otherExpensesPercent" name="otherExpensesPercent"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="col-lg-3">
+                          <input oninput="calculateOther()" type="number" class="form-control" id="otherExpensesPercent" name="otherExpensesPercent"  disabled="disabled"/>
+                        </div>
                       </div>
                       <div class="col-lg-3">
                         <input oninput="calculateOther()" type="number" class="form-control" id="otherExpensesRequired" name="otherExpensesRequired"  disabled="disabled"/>
@@ -972,9 +1109,11 @@
             
             <div id="resultsOp" style="display:none;"> <!-- /results div -->
                 <h1 align="middle">Results</h1>
+
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="emergencySavings" method="post" id="emergencySavingsForm"><br/>
-                  <div class="form-group">
+                  <div class="percentNeeded">
+                    <div class="form-group">
                       <label class="col-lg-6 control-label" style="color:#1111ff">INCOME ($)</label>
                       <label class="col-lg-3 control-label" style="color:#1111ff">% OF HOUSEHOLD INCOME</label>
                       <label class="col-lg-3 control-label" style="color:#1111ff">% ABOVE 50</label>
@@ -1010,9 +1149,9 @@
                       <div class="col-lg-3">
                         <input type="text" class="form-control" id="householdIncome" name="householdIncome" disabled="disabled"/>
                       </div>
-                      <div class="col-lg-3">
-                        <input type="text" class="form-control" id="householdPercent" name="householdPercent"  disabled="disabled"/>
-                      </div>
+                        <div class="col-lg-3">
+                          <input type="text" class="form-control" id="householdPercent" name="householdPercent"  disabled="disabled"/>
+                        </div>
                       <div class="col-lg-3">
                         <input type="number" class="form-control" id="householdAboveFifty" name="householdAboveFifty"  disabled="disabled"/>
                       </div>
@@ -1035,18 +1174,22 @@
                         <input type="number" class="form-control" id="percentOfFiftyTimesThree" name="percentOfFiftyTimesThree"  disabled="disabled"/>
                       </div>
                     </div>
-
-                    <div class="col-lg-2">
-                    </div>
-                    <div class="col-lg-10">
-                      <h4 align="middle">Monthly Totals</h4>
+                  </div>
+                    <div class="percentNeeded">
+                      <div class="col-lg-2">
+                      </div>
+                      <div class="col-lg-10">
+                        <h4 align="middle">Monthly Totals</h4>
+                      </div>
                     </div>
 
                     <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="col-lg-6 control-label">Monthly Budget Total:</label>
-                        <div class="col-lg-6">
-                          <input type="number" class="form-control" id="budgetTotal" name="budgetTotal" disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="form-group">
+                          <label class="col-lg-6 control-label">Monthly Budget Total:</label>
+                          <div class="col-lg-6">
+                            <input type="number" class="form-control" id="budgetTotal" name="budgetTotal" disabled="disabled"/>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group">
@@ -1060,12 +1203,14 @@
 
 
                     <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="col-lg-6 control-label">Monthly Budget Required:</label>
-                        <div class="col-lg-6">
-                          <input type="number" class="form-control" id="budgetTotalRequired" name="budgetTotalRequired"  disabled="disabled"/>
+                      <div class="percentNeeded">
+                        <div class="form-group">
+                          <label class="col-lg-6 control-label">Monthly Budget Required:</label>
+                          <div class="col-lg-6">
+                            <input type="number" class="form-control" id="budgetTotalRequired" name="budgetTotalRequired"  disabled="disabled"/>
+                          </div>
                         </div>
-                      </div>  
+                      </div>
                       <div class="form-group">
                         <label class="col-lg-6 control-label">Total Emergency Savings Required:</label>
                         <div class="col-lg-6">
@@ -1073,6 +1218,7 @@
                         </div>
                       </div>  
                     </div>
+
                 </form>
               </div>
             </div> <!-- /end results div -->
