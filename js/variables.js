@@ -382,21 +382,22 @@ var backup_applicable_figure_table_values_list = [
 ];          // 'Applicable Figure Table'!B1:B169
 
 //Attempt to get data from database, else use hardcoded values
-$.ajax({
-    'url': '../api/v1/api.php?endpoint=entry&category=15',
-    'method': 'GET',
-    'dataType': 'json',
-    'success': function (entries) {
-        for (let i = 0; i < entries.length; i++) {
-            console.log(entries[i]['entryValue']);
-            applicable_figure_table_values_list.push(entries[i]['entryValue']);
+loadAppFigures = function () {
+    $.ajax({
+        'url': '../api/v1/api.php?endpoint=entry&category=15',
+        'method': 'GET',
+        'dataType': 'json',
+        'success': function (entries) {
+            for (let i = 0; i < entries.length; i++) {
+                applicable_figure_table_values_list.push(entries[i]['entryValue']);
+            }
+        },
+        error: function (response) {
+            applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
+            console.log(response);
         }
-    },
-    error: function (response) {
-        applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
-        console.log(response);
-    }
-});
+    });
+}
 
 
 // Housing -------------------------------------------------------------------------------------------------------------
