@@ -175,10 +175,12 @@
             </p>-->
             
             <div id="overviewOp" style="display:block;"> <!-- /overview div -->
+                <br />
                 <h1 align="middle">Overview</h1>
             </div> <!-- /end overview div -->
             
             <div id="incomeOp" style="display:none;">  <!-- /income div -->
+                <br />
                 <h1 align="middle">Income</h1>
                 <div id="form_layout">                   
 <form class="form-horizontal" role="form" action="income" method="post" id="incomeForm"><br/>
@@ -364,6 +366,7 @@
             </div> <!-- /end income div -->
             
             <div id="housingOp" style="display:none;"> <!-- /housing div -->
+                <br />
                 <h1 align="middle">Housing</h1>
                 <div id="form_layout">
                     <form class="form-horizontal" role="form" action="housing" method="post" id="housingForm"><br/>
@@ -522,6 +525,7 @@
             </div> <!-- /end housing div -->
             
             <div id="foodOp" style="display:none;"> <!-- /food div -->
+                <br />
                 <h1 align="middle">Food</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="food" method="post" id="foodForm"><br/>
@@ -605,6 +609,7 @@
             </div> <!-- /end food div -->
             
             <div id="transOp" style="display:none;"> <!-- /transportation div -->
+                <br />
                 <h1 align="middle">Transportation</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="autobus" method="post" id="autobusForm"><br/>
@@ -688,6 +693,7 @@
             </div> <!-- /end transportation div -->
             
             <div id="medicalOp" style="display:none;"> <!-- /medical div -->
+                <br />
                 <h1 align="middle">Medical</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="medical" method="post" id="medicalForm"><br/>
@@ -756,6 +762,7 @@
             </div> <!-- /end medical div -->
             
             <div id="educationOp" style="display:none;"> <!-- /education div -->
+                <br />
                 <h1 align="middle">Education</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="education" method="post" id="educationForm"><br/>
@@ -824,6 +831,7 @@
             </div> <!-- /end education div -->
             
             <div id="childrenOp" style="display:none;"> <!-- /children div -->
+                <br />
                 <h1 align="middle">Children</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="child" method="post" id="childForm"><br/>
@@ -922,6 +930,7 @@
             </div> <!-- /end children div -->
             
             <div id="otherOp" style="display:none;"> <!-- /other div -->
+                <br />
                 <h1 align="middle">Other</h1>
                 <div id="form_layout">
                 <form class="form-horizontal" role="form" action="other" method="post" id="otherForm"><br/>
@@ -1110,6 +1119,8 @@
             </div> <!-- /end other div -->
             
             <div id="resultsOp" style="display:none;"> <!-- /results div -->
+                
+                <br />
                 <h1 align="middle">Results</h1>
 
                 <div id="form_layout">
@@ -1175,7 +1186,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label class="col-lg-3 control-label">% of 50:</label>
+                      <label class="col-lg-3 control-label">% Above 50 x2:</label>
                       <div class="col-lg-3">
                         <input style="border:1px solid #000000" type="number" class="form-control" id="percentOfFifty" name="percentOfFifty" disabled="disabled"/>
                       </div>
@@ -1227,6 +1238,69 @@
                           <input style="border:1px solid #000000" type="number" class="form-control" id="totalEmergencySavingsRequired" name="totalEmergencySavingsRequired" disabled="disabled"/>
                         </div>
                       </div>  
+                    </div>
+                    <p></p>
+                    <h1 align="middle">Monthly Budget Totals</h1>
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label">Housing Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotal" name="housingTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Housing Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotalRequired" name="housingTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Food Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotal" name="foodTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Food Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotalRequired" name="foodTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Transportation Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotal" name="transTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Trans Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotalRequired" name="transTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Medical Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotal" name="medicalTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Medical Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotalRequired" name="medicalTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Edu Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotal" name="eduTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Education Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotalRequired" name="eduTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Child Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotal" name="childTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Child Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotalRequired" name="childTotalRequired"  disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Other Total:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotal" name="otherTotal" disabled="disabled"/>
+                      </div>
+                      <label class="col-lg-3 control-label">Other Total Required:</label>
+                      <div class="col-lg-3">
+                        <input style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotalRequired" name="otherTotalRequired"  disabled="disabled"/>
+                      </div>
+
+
+
                     </div>
 
                 </form>
