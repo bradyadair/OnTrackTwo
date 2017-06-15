@@ -1,10 +1,12 @@
 // CostOfCarOwnership	B13
 function carTaxOnPurchase() {
-    return sessionStorage.getItem('car_price') * sessionStorage.getItem('car_tax_multiplier');
+    //console.log('carTax: ' + parseFloat(sessionStorage.getItem('car_price')) * parseFloat(sessionStorage.getItem('car_tax_multiplier')))
+    return parseFloat(sessionStorage.getItem('car_price')) * parseFloat(sessionStorage.getItem('car_tax_multiplier'));
 }
 // CostOfCarOwnership	B14
 function carPaymentsMonthly() {
-    return sessionStorage.getItem('car_monthly_payment') / 2;
+    //console.log('carPayment:  ' + parseFloat(sessionStorage.getItem('car_monthly_payment')) / 2)
+    return parseFloat(sessionStorage.getItem('car_monthly_payment')) / 2;
 }
 // CostOfCarOwnership	C13
 function carTaxOnPurchaseAnnual() {
@@ -16,13 +18,17 @@ function carPaymentsAnnual() {
 }
 // CostOfCarOwnership	C15
 function carGasCostAnnual() {
-    return sessionStorage.getItem('car_gas_price') * (sessionStorage.getItem('car_miles_driven') / sessionStorage.getItem('car_miles_per_gallon'));
+    //console.log('carGasCost:  ' + parseFloat(sessionStorage.getItem('car_gas_price')) * (parseFloat(sessionStorage.getItem('car_miles_driven')) / parseFloat(sessionStorage.getItem('car_miles_per_gallon'))))
+    return parseFloat(sessionStorage.getItem('car_gas_price')) * (parseFloat(sessionStorage.getItem('car_miles_driven')) / parseFloat(sessionStorage.getItem('car_miles_per_gallon')));
 }
 // CostOfCarOwnership	C17
 function carTotalCostAnnualOne() {
-    return (sessionStorage.getItem('car_registration_annual') +
-            sessionStorage.getItem('car_emissions_annual') +
-            sessionStorage.getItem('car_maintenance_annual') +
+    //console.log('car Registration:  ' + parseFloat(sessionStorage.getItem('car_registration_annual')))
+    //console.log('car Emissions:  ' + parseFloat(sessionStorage.getItem('car_emissions_annual')))
+    //console.log('car Maintenance:  ' + parseFloat(sessionStorage.getItem('car_maintenance_annual')))
+    return (parseFloat(sessionStorage.getItem('car_registration_annual')) +
+            parseFloat(sessionStorage.getItem('car_emissions_annual')) +
+            parseFloat(sessionStorage.getItem('car_maintenance_annual')) +
             carTaxOnPurchaseAnnual() +
             carPaymentsAnnual() +
             carGasCostAnnual());

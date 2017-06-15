@@ -185,7 +185,7 @@ function ehcEITC() {
 }
 // Taxes	P6
 function ehcChildTaxCredit() {
-    return ehcNumKids() * child_tax_credit_each;
+    return ehcNumKids() * parseFloat(sessionStorage.getItem('child_tax_credit_each'));
 }
 // Taxes	Q9
 function ehcAdjustedChildTaxCredit() {

@@ -189,7 +189,7 @@ function mhcEITC() {
 }
 // Taxes	P6
 function mhcChildTaxCredit() {
-    return mhcNumKids() * child_tax_credit_each;
+    return mhcNumKids() * parseFloat(sessionStorage.getItem('child_tax_credit_each'));
 }
 // Taxes	Q6
 function mhcAdjustedChildTaxCredit() {
@@ -342,11 +342,11 @@ function mhcApplicableFigureTimesGrossIncome() {
 }
 // Taxes	Z6
 function mhcBenchmarkSilverPlan() {
-    return (mhc_benchmark_silver_adult_each * num_adults) +
+    return (parseFloat(sessionStorage.getItem('mhc_benchmark_silver_adult_each')) * num_adults) +
         (
             (num_infants + num_preschoolers + num_schoolagers + num_teenagers) > mhc_benchmark_silver_child_limit ?
-                mhc_benchmark_silver_child_limit * mhc_benchmark_silver_child_each :
-                (num_infants + num_preschoolers + num_schoolagers + num_teenagers) * mhc_benchmark_silver_child_each
+                mhc_benchmark_silver_child_limit * parseFloat(sessionStorage.getItem('mhc_benchmark_silver_child_each')) :
+                (num_infants + num_preschoolers + num_schoolagers + num_teenagers) * parseFloat(sessionStorage.getItem('mhc_benchmark_silver_child_each'))
         );
 }
 // Taxes	AA6

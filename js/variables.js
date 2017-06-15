@@ -391,6 +391,7 @@ loadAppFigures = function () {
             for (let i = 0; i < entries.length; i++) {
                 applicable_figure_table_values_list.push(entries[i]['entryValue']);
             }
+            console.log(applicable_figure_table_values_list)
         },
         error: function (response) {
             applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
@@ -410,7 +411,7 @@ loadHousing = function(){
             'success': function (entries) {
                 var tempDict = {};
                 for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
                 }
                 //console.log(tempDict);
 
@@ -472,7 +473,7 @@ loadFood = function(){
             'success': function (entries) {
                 var tempDict = {};
                 for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
                 }
                 //console.log(tempDict);
 
@@ -504,7 +505,7 @@ loadChildCare = function(){
             'success': function (entries) {
                 var tempDict = {};
                 for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
                 }
                 sessionStorage.setItem('center_care_0_to_12_mo', tempDict['center_care_0_to_12_mo']);
                 sessionStorage.setItem('center_care_1_yr', tempDict['center_care_1_yr']);
@@ -564,7 +565,7 @@ loadCar = function(){
             'success': function (entries) {
                 var tempDict = {};
                 for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
                 }
                 //console.log(tempDict);
 
@@ -614,7 +615,7 @@ loadCat6 = function(){
             'success': function (entries) {
                 var tempDict = {};
                 for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseInt(entries[entry_index]['entryValue'])
+                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
                 }
                 //console.log(tempDict);
 

@@ -23,7 +23,7 @@ class TokenController
         if(!$password) $password = $data->password;
         $dbo = DatabaseConnection::getInstance();
         $query_get_password_hash = '
-        SELECT Password, UserId
+        SELECT Password, UserId, UserRoll
         From OnTrackUsers
         WHERE Username = :username
         LIMIT 1
@@ -34,10 +34,19 @@ class TokenController
         if ($statement_get_password->execute()) {
             $fetched_data = $statement_get_password->fetch(PDO::FETCH_ASSOC);
             $hashed_password = $fetched_data['Password'];
+            $user_roll = $fetched_data['UserRoll'];
 
             if (password_verify($password, $hashed_password)) {
                 $token_object = new Token();
-                $token = $token_object->buildToken(Token::ROLE_ADMIN, $username);
+                if($user_roll == 'Admin'){
+                    $token = $token_object->buildToken(Token::ROLE_ADMIN, $username);
+                }
+                else if($user_roll == 'Coach'){
+                    $token = $token_object->buildToken(Token::ROLE_COACH, $username);
+                }
+                else{
+                    $token = $token_object->buildToken(Token::ROLE_CLIENT, $username);
+                }
                 return $token;
             }
         }
