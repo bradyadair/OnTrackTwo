@@ -324,7 +324,7 @@ function mhcGrossIncomeDividedByFederalPovertyLine() {
 }
 // Taxes	X6
 function mhcValueFromApplicableFigureTable() {
-    var applicable_figure_table_values_list = JSON.parse(localStorage.getItem("applicable_figure_table_values"));
+    var applicable_figure_table_values_list = JSON.parse(sessionStorage.getItem("applicable_figure_table_values"));
 
     if (mhcGrossIncomeDividedByFederalPovertyLine() < mhc_applicable_figure_index_min) {
         return applicable_figure_table_values_list[0];
