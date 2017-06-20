@@ -421,17 +421,16 @@ loadAppFigures = function () {
             for (let i = 0; i < entries.length; i++) {
                 applicable_figure_table_values_list.push(entries[i]['entryValue']);
             }
-            console.log(applicable_figure_table_values_list)
+            sessionStorage.setItem("applicable_figure_table_values", JSON.stringify(applicable_figure_table_values_list));
             loadingCount++;
         },
         error: function (response) {
             applicable_figure_table_values_list = backup_applicable_figure_table_values_list;
+            sessionStorage.setItem("applicable_figure_table_values", JSON.stringify(applicable_figure_table_values_list));
             console.log(response);
             loadingCount++;
         }
     });
-    // Store the array as a JSON string.
-    sessionStorage.setItem("applicable_figure_table_values", JSON.stringify(applicable_figure_table_values_list));
 }
 
 

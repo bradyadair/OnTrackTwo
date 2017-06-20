@@ -201,7 +201,7 @@ function costTotalEmployerCombined() {
 function costTotalEntertainment() {
     return (
         familySize() === 1 ? parseFloat(sessionStorage.getItem('entertainment_family_size_1')) :
-            familySize() === 2 ? eparseFloat(sessionStorage.getItem('ntertainment_family_size_2')) :
+            familySize() === 2 ? parseFloat(sessionStorage.getItem('entertainment_family_size_2')) :
                 familySize() === 3 ? parseFloat(sessionStorage.getItem('entertainment_family_size_3')) :
                     familySize() === 4 ? parseFloat(sessionStorage.getItem('entertainment_family_size_4')) :
                         parseFloat(sessionStorage.getItem('entertainment_family_size_5_plus')));
