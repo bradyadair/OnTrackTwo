@@ -1,10 +1,10 @@
 // Housing	K7
 function housing1BedAverageMonthly() {
     let monthlyCost = (parseInt(sessionStorage.getItem('housing_1_bed_84401')) +
-            parseInt(sessionStorage.getItem('housing_1_bed_84403'))  +
-            parseInt(sessionStorage.getItem('housing_1_bed_84404'))  +
-            parseInt(sessionStorage.getItem('housing_1_bed_84405'))  +
-            parseInt(sessionStorage.getItem('housing_1_bed_84408'))) / 5;
+            parseFloat(sessionStorage.getItem('housing_1_bed_84403'))  +
+            parseFloat(sessionStorage.getItem('housing_1_bed_84404'))  +
+            parseFloat(sessionStorage.getItem('housing_1_bed_84405'))  +
+            parseFloat(sessionStorage.getItem('housing_1_bed_84408'))) / 5;
     //console.log("Housing Monthly:   "+monthlyCost);
     return (monthlyCost);
 }
@@ -15,11 +15,11 @@ function housing1BedAverageAnnual() {
 }
 // Housing	L7
 function housing2BedAverageMonthly() {
-    let monthlyCost = (parseInt(sessionStorage.getItem('housing_2_bed_84401')) +
-            parseInt(sessionStorage.getItem('housing_2_bed_84403'))  +
-            parseInt(sessionStorage.getItem('housing_2_bed_84404'))  +
-            parseInt(sessionStorage.getItem('housing_2_bed_84405'))  +
-            parseInt(sessionStorage.getItem('housing_2_bed_84408'))) / 5;
+    let monthlyCost = (parseFloat(sessionStorage.getItem('housing_2_bed_84401')) +
+            parseFloat(sessionStorage.getItem('housing_2_bed_84403'))  +
+            parseFloat(sessionStorage.getItem('housing_2_bed_84404'))  +
+            parseFloat(sessionStorage.getItem('housing_2_bed_84405'))  +
+            parseFloat(sessionStorage.getItem('housing_2_bed_84408'))) / 5;
     //console.log("Housing Monthly:   "+monthlyCost);
     return (monthlyCost);
 }
@@ -29,11 +29,11 @@ function housing2BedAverageAnnual() {
 }
 // Housing	M7
 function housing3BedAverageMonthly() {
-    let monthlyCost = (parseInt(sessionStorage.getItem('housing_3_bed_84401')) +
-            parseInt(sessionStorage.getItem('housing_3_bed_84403'))  +
-            parseInt(sessionStorage.getItem('housing_3_bed_84404'))  +
-            parseInt(sessionStorage.getItem('housing_3_bed_84405'))  +
-            parseInt(sessionStorage.getItem('housing_3_bed_84408'))) / 5;
+    let monthlyCost = (parseFloat(sessionStorage.getItem('housing_3_bed_84401')) +
+            parseFloat(sessionStorage.getItem('housing_3_bed_84403'))  +
+            parseFloat(sessionStorage.getItem('housing_3_bed_84404'))  +
+            parseFloat(sessionStorage.getItem('housing_3_bed_84405'))  +
+            parseFloat(sessionStorage.getItem('housing_3_bed_84408'))) / 5;
     //console.log("Housing Monthly:   "+monthlyCost);
     return (monthlyCost);
 }
@@ -43,11 +43,11 @@ function housing3BedAverageAnnual() {
 }
 // Housing	N7
 function housing4BedAverageMonthly() {
-    let monthlyCost = (parseInt(sessionStorage.getItem('housing_4_bed_84401')) +
-            parseInt(sessionStorage.getItem('housing_4_bed_84403'))  +
-            parseInt(sessionStorage.getItem('housing_4_bed_84404'))  +
-            parseInt(sessionStorage.getItem('housing_4_bed_84405'))  +
-            parseInt(sessionStorage.getItem('housing_4_bed_84408'))) / 5;
+    let monthlyCost = (parseFloat(sessionStorage.getItem('housing_4_bed_84401')) +
+            parseFloat(sessionStorage.getItem('housing_4_bed_84403'))  +
+            parseFloat(sessionStorage.getItem('housing_4_bed_84404'))  +
+            parseFloat(sessionStorage.getItem('housing_4_bed_84405'))  +
+            parseFloat(sessionStorage.getItem('housing_4_bed_84408'))) / 5;
     //console.log("Housing Monthly:   "+monthlyCost);
     return (monthlyCost);
 }

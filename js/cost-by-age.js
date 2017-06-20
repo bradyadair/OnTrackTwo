@@ -200,11 +200,11 @@ function costTotalEmployerCombined() {
 // CostByAge	J16
 function costTotalEntertainment() {
     return (
-        familySize() === 1 ? entertainment_family_size_1 :
-            familySize() === 2 ? entertainment_family_size_2 :
-                familySize() === 3 ? entertainment_family_size_3 :
-                    familySize() === 4 ? entertainment_family_size_4 :
-                        entertainment_family_size_5_plus);
+        familySize() === 1 ? parseFloat(sessionStorage.getItem('entertainment_family_size_1')) :
+            familySize() === 2 ? eparseFloat(sessionStorage.getItem('ntertainment_family_size_2')) :
+                familySize() === 3 ? parseFloat(sessionStorage.getItem('entertainment_family_size_3')) :
+                    familySize() === 4 ? parseFloat(sessionStorage.getItem('entertainment_family_size_4')) :
+                        parseFloat(sessionStorage.getItem('entertainment_family_size_5_plus')));
 }
 // CostByAge	K16
 function costTotalMisc() {

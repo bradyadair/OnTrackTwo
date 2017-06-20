@@ -172,7 +172,7 @@ function mhcEITC() {
     // let eitc_lookup_list = (
     //     mhcNumKids() === 1 ? eitc_single_1_kids_amounts_list
     //         : (mhcNumKids() === 2 ? eitc_single_2_kids_amounts_list
-    //         : (mhcNumKids() === 0 ? eitc_single_0_kids_amounts_list
+    //         : (mhcNumKids() === 0 ? sessionStorage.getItem('eitc_single_0_kids_amounts_list')
     //             : (mhcNumKids() >= 3 ? eitc_single_3_kids_amounts_list
     //                     : false
     //             ))));

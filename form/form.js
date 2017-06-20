@@ -85,8 +85,9 @@ const getParams = query => {
 };
 
 console.log("form.js loaded.");
+loading();
 
-
+var interval = setInterval(stopLoading, 500);
 
 function calculate_input_data(){
     let adults = parseInt($("#number-of-adults").val());
