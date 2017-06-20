@@ -26,7 +26,7 @@ loading = function () {
 
 stopLoading = function () {
     console.log("checking loading count:   " + loadingCount);
-    if (loadingCount == 6) {
+    if (loadingCount == 7) {
         console.log("clearing interval")
         $('#overlay').remove();
         clearInterval(interval);
