@@ -1,5 +1,5 @@
 // Calculation constants ===============================================================================================
-//var applicable_figure_table_values_list = [];
+var applicable_figure_table_values_list = [];
 var loadingCount = 0;
 
 //Loading Screen
@@ -237,8 +237,8 @@ const applicable_figure_table_indices_list = [
     "300 thru 400"
 
 ];  // 'Applicable Figure Table'!A1:A169
-//var backup_applicable_figure_table_values_list 
-var applicable_figure_table_values_list = [
+var backup_applicable_figure_table_values_list = [
+//var applicable_figure_table_values_list = [
     0.0201,
     0.0302,
     0.0308,
@@ -430,6 +430,8 @@ loadAppFigures = function () {
             loadingCount++;
         }
     });
+
+    sessionStorage.setItem("applicable_figure_table_values", JSON.stringify(applicable_figure_table_values_list));
 }
 
 
