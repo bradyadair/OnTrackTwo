@@ -1,37 +1,8 @@
 // Calculation constants ===============================================================================================
-//var applicable_figure_table_values_list = [];
-var loadingCount = 0;
+var applicable_figure_table_values_list = [];
 
-//Loading Screen
-loading = function() {
-        // add the overlay with loading image to the page
-        var over = '<div id="overlay">' +
-            '<img id="loading" src="https://media.giphy.com/media/VseXvvxwowwCc/giphy.gif">' +
-            '</div>';
-        $(over).appendTo('body');
-        console.log('Loading');
 
-        // click on the overlay to remove it
-        //$('#overlay').click(function() {
-        //    $(this).remove();
-        //});
 
-        // hit escape to close the overlay
-        /*$(document).keyup(function(e) {
-            if (e.which === 27) {
-                $('#overlay').remove();
-            }
-        });*/
-    };
-
-stopLoading = function() {
-    console.log("checking loading count:   " + loadingCount);
-    if(loadingCount == 6){
-        console.log("clearing interval")
-        $('#overlay').remove();
-        clearInterval(interval);
-    }
-}
 
 // Taxes (Both MHC and EHC) --------------------------------------------------------------------------------------------
 const qualifying_childcare_expenses_0_kids =        0;      // 'Taxes'!A6/A9
@@ -237,8 +208,7 @@ const applicable_figure_table_indices_list = [
     "300 thru 400"
 
 ];  // 'Applicable Figure Table'!A1:A169
-//var backup_applicable_figure_table_values_list 
-var applicable_figure_table_values_list = [
+var backup_applicable_figure_table_values_list = [
     0.0201,
     0.0302,
     0.0308,
@@ -421,7 +391,6 @@ loadAppFigures = function () {
             for (let i = 0; i < entries.length; i++) {
                 applicable_figure_table_values_list.push(entries[i]['entryValue']);
             }
-            console.log(applicable_figure_table_values_list)
             loadingCount++;
         },
         error: function (response) {
@@ -430,6 +399,8 @@ loadAppFigures = function () {
             loadingCount++;
         }
     });
+    // Store the array as a JSON string.
+    sessionStorage.setItem("applicable_figure_table_values", JSON.stringify(applicable_figure_table_values_list));
 }
 
 
@@ -467,7 +438,6 @@ loadHousing = function(){
                 sessionStorage.setItem('housing_4_bed_84404', tempDict['housing_4_bed_84404']);   // 'Housing'!N4
                 sessionStorage.setItem('housing_4_bed_84405', tempDict['housing_4_bed_84405']);   // 'Housing'!N5
                 sessionStorage.setItem('housing_4_bed_84408', tempDict['housing_4_bed_84408']);   // 'Housing'!N6
-                loadingCount++;
             },
             error: function(response){
                 console.log(response);
@@ -491,7 +461,6 @@ loadHousing = function(){
                 sessionStorage.setItem('housing_4_bed_84404', 1300);
                 sessionStorage.setItem('housing_4_bed_84405', 1300);
                 sessionStorage.setItem('housing_4_bed_84408', 1290);
-                loadingCount++;
             }
     });
 }
@@ -516,7 +485,6 @@ loadFood = function(){
                 sessionStorage.setItem('food_schoolager', tempDict['food_schoolager']);
                 sessionStorage.setItem('food_teenager', tempDict['food_teenager']);
                 sessionStorage.setItem('food_adult', tempDict['food_adult']);
-                loadingCount++;
             },
             error: function(response){
                 console.log(response);
@@ -525,7 +493,6 @@ loadFood = function(){
                 sessionStorage.setItem('food_schoolager', 193.37);
                 sessionStorage.setItem('food_teenager', 209.30);
                 sessionStorage.setItem('food_adult', 210.30);
-                loadingCount++;
             }
     });
 }
@@ -563,7 +530,6 @@ loadChildCare = function(){
                 sessionStorage.setItem('family_care_kindergarten_not_in_school', tempDict['family_care_kindergarten_out']);
                 sessionStorage.setItem('family_care_schoolage_in_school', tempDict['family_care_schoolage_in']);
                 sessionStorage.setItem('family_care_schoolage_not_in_school', tempDict['family_care_schoolage_out']);
-                loadingCount++;
 
             },
             error: function(response){
@@ -588,7 +554,6 @@ loadChildCare = function(){
                 sessionStorage.setItem('family_care_kindergarten_not_in_school', 437.43);
                 sessionStorage.setItem('family_care_schoolage_in_school', 384.65);
                 sessionStorage.setItem('family_care_schoolage_not_in_school', 439.08);
-                loadingCount++;
             }
     });
 }
@@ -619,7 +584,6 @@ loadCar = function(){
                 sessionStorage.setItem('car_emissions_annual', tempDict['car_emissions_annual']);
                 sessionStorage.setItem('car_maintenance_annual', tempDict['car_maintenance_annual']);
                 sessionStorage.setItem('car_tax_multiplier', tempDict['car_tax_multiplier']);
-                loadingCount++;
             },
             error: function(response){
                 console.log(response);
@@ -635,7 +599,6 @@ loadCar = function(){
                 sessionStorage.setItem('car_emissions_annual', 27);
                 sessionStorage.setItem('car_maintenance_annual', 580);
                 sessionStorage.setItem('car_tax_multiplier', 0.071);
-                loadingCount++;
             }
     });
 }
@@ -679,7 +642,6 @@ loadCat6 = function(){
                 sessionStorage.setItem('oop_mhc_schoolager_annual', tempDict['oop_mhc_schoolager_annual']);
                 sessionStorage.setItem('oop_mhc_infant_annual', tempDict['oop_mhc_infant_annual']);
                 sessionStorage.setItem('oop_mhc_preschooler_annual', tempDict['oop_mhc_preschooler_annual']);
-                loadingCount++;
             },
             error: function(response){
                 console.log(response);
@@ -703,115 +665,6 @@ loadCat6 = function(){
                 sessionStorage.setItem('oop_mhc_schoolager_annual', 139.86);
                 sessionStorage.setItem('oop_mhc_infant_annual', 46.74);
                 sessionStorage.setItem('oop_mhc_preschooler_annual', 46.74);
-                loadingCount++;
-            }
-    });
-}
-
-
-//eitc_single_0_kids_amounts_list
-loadCat7 = function(){
-    $.ajax({
-            'url': '../api/v1/api.php?endpoint=entry&category=16',
-            'method': 'GET',
-            'dataType': 'json',
-            'success': function (entries) {
-                var tempDict = {};
-                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
-                }
-                //console.log(tempDict);
-                sessionStorage.setItem('eitc_single_0_kids_amounts_list', JSON.parse(tempDict));
-                loadingCount++;
-            },
-            error: function(response){
-                console.log(response);
-                sessionStorage.setItem('eitc_single_0_kids_amounts_list', JSON.parse(eitc_single_0_kids_amounts_list));
-                loadingCount++;
-            }
-    });
-}
-
-
-// Entertainment -------------------------------------------------------------------------------------------------------
-// Misc ----------------------------------------------------------------------------------------------------------------
-loadCat16 = function(){
-    $.ajax({
-            'url': '../api/v1/api.php?endpoint=entry&category=16',
-            'method': 'GET',
-            'dataType': 'json',
-            'success': function (entries) {
-                var tempDict = {};
-                for (let entry_index = 0; entry_index < entries.length; entry_index++) {
-                    tempDict[entries[entry_index]['entryName']] = parseFloat(entries[entry_index]['entryValue'])
-                }
-                //console.log(tempDict);
-
-                sessionStorage.setItem('entertainment_family_size_1', tempDict['entertainment_family_size_1']);
-                sessionStorage.setItem('entertainment_family_size_2', tempDict['entertainment_family_size_2']);
-                sessionStorage.setItem('entertainment_family_size_3', tempDict['entertainment_family_size_3']);
-                sessionStorage.setItem('entertainment_family_size_4', tempDict['entertainment_family_size_4']);
-                sessionStorage.setItem('entertainment_family_size_5_plus', tempDict['entertainment_family_size_5_plus']);
-                sessionStorage.setItem('misc_general_1', tempDict['misc_general_1']);
-                sessionStorage.setItem('misc_personal_1', tempDict['misc_personal_1']);
-                sessionStorage.setItem('misc_housekeeping_1', tempDict['misc_housekeeping_1']);
-                sessionStorage.setItem('misc_apparel_1', tempDict['misc_apparel_1']);
-                sessionStorage.setItem('misc_general_2', tempDict['misc_general_2']);
-                sessionStorage.setItem('misc_personal_2', tempDict['misc_personal_2']);
-                sessionStorage.setItem('misc_housekeeping_2', tempDict['misc_housekeeping_2']);
-                sessionStorage.setItem('misc_apparel_2', tempDict['misc_apparel_2']);
-                sessionStorage.setItem('misc_general_3', tempDict['misc_general_3']);
-                sessionStorage.setItem('misc_personal_3', tempDict['misc_personal_3']);
-                sessionStorage.setItem('misc_housekeeping_3', tempDict['misc_housekeeping_3']);
-                sessionStorage.setItem('misc_apparel_3', tempDict['misc_apparel_3']);
-                sessionStorage.setItem('misc_general_4', tempDict['misc_general_4']);
-                sessionStorage.setItem('misc_personal_4', tempDict['misc_personal_4']);
-                sessionStorage.setItem('misc_housekeeping_4', tempDict['misc_housekeeping_4']);
-                sessionStorage.setItem('misc_apparel_4', tempDict['misc_apparel_4']);
-                
-                sessionStorage.setItem('misc_general_50k_5_plus', tempDict['misc_general_50k_5_plus']);
-                sessionStorage.setItem('misc_personal_50k_5_plus', tempDict['misc_personal_50k_5_plus']);
-                sessionStorage.setItem('misc_housekeeping_50k_5_plus', tempDict['misc_housekeeping_50k_5_plus']);
-                sessionStorage.setItem('misc_apparel_50k_5_plus', tempDict['misc_apparel_50k_5_plus']);
-                sessionStorage.setItem('misc_general_70k_5_plus', tempDict['misc_general_70k_5_plus']);
-                sessionStorage.setItem('misc_personal_70k_5_plus', tempDict['misc_personal_70k_5_plus']);
-                sessionStorage.setItem('misc_housekeeping_70k_5_plus', tempDict['misc_housekeeping_70k_5_plus']);
-                sessionStorage.setItem('misc_apparel_70k_5_plus', tempDict['misc_apparel_70k_5_plus']);
-                loadingCount++;
-            },
-            error: function(response){
-                console.log(response);
-                sessionStorage.setItem('entertainment_family_size_1', 1139);
-                sessionStorage.setItem('entertainment_family_size_2', 1496);
-                sessionStorage.setItem('entertainment_family_size_3', 1650);
-                sessionStorage.setItem('entertainment_family_size_4', 2379);
-                sessionStorage.setItem('entertainment_family_size_5_plus', 2429);
-                sessionStorage.setItem('misc_general_1', 403);
-                sessionStorage.setItem('misc_personal_1', 311);
-                sessionStorage.setItem('misc_housekeeping_1', 307);
-                sessionStorage.setItem('misc_apparel_1', 593);
-                sessionStorage.setItem('misc_general_2', 275);
-                sessionStorage.setItem('misc_personal_2', 487);
-                sessionStorage.setItem('misc_housekeeping_2', 520);
-                sessionStorage.setItem('misc_apparel_2', 709);
-                sessionStorage.setItem('misc_general_3', 389);
-                sessionStorage.setItem('misc_personal_3', 522);
-                sessionStorage.setItem('misc_housekeeping_3', 400);
-                sessionStorage.setItem('misc_apparel_3', 1230);
-                sessionStorage.setItem('misc_general_4', 512);
-                sessionStorage.setItem('misc_personal_4', 730);
-                sessionStorage.setItem('misc_housekeeping_4', 598);
-                sessionStorage.setItem('misc_apparel_4', 1676);
-                
-                sessionStorage.setItem('misc_general_50k_5_plus', 610);
-                sessionStorage.setItem('misc_personal_50k_5_plus', 582);
-                sessionStorage.setItem('misc_housekeeping_50k_5_plus', 752);
-                sessionStorage.setItem('misc_apparel_50k_5_plus', 2271);
-                sessionStorage.setItem('misc_general_70k_5_plus', 932);
-                sessionStorage.setItem('misc_personal_70k_5_plus', 980);
-                sessionStorage.setItem('misc_housekeeping_70k_5_plus', 1115);
-                sessionStorage.setItem('misc_apparel_70k_5_plus', 3095);
-                loadingCount++;
             }
     });
 }
@@ -835,6 +688,41 @@ const federal_poverty_level_value_list = [
     36030,
     40090
 ];                     // 'Federal Poverty Level'!B3:B10
+
+
+
+// Entertainment -------------------------------------------------------------------------------------------------------
+const entertainment_family_size_1       = 1139; // 'Entertainment'!B2
+const entertainment_family_size_2       = 1496; // 'Entertainment'!B3
+const entertainment_family_size_3       = 1650; // 'Entertainment'!B4
+const entertainment_family_size_4       = 2379; // 'Entertainment'!B5
+const entertainment_family_size_5_plus  = 2429; // 'Entertainment'!B6
+
+// Misc ----------------------------------------------------------------------------------------------------------------
+const misc_general_1        = 403;  // 'Misc'!B3
+const misc_personal_1       = 311;  // 'Misc'!B4
+const misc_housekeeping_1   = 307;  // 'Misc'!B5
+const misc_apparel_1        = 593;  // 'Misc'!B6
+const misc_general_2        = 275;  // 'Misc'!C8
+const misc_personal_2       = 487;  // 'Misc'!C9
+const misc_housekeeping_2   = 520;  // 'Misc'!C10
+const misc_apparel_2        = 709;  // 'Misc'!C11
+const misc_general_3        = 389;  // 'Misc'!D13
+const misc_personal_3       = 522;  // 'Misc'!D14
+const misc_housekeeping_3   = 400;  // 'Misc'!D15
+const misc_apparel_3        = 1230; // 'Misc'!D16
+const misc_general_4        = 512;  // 'Misc'!E18
+const misc_personal_4       = 730;  // 'Misc'!E19
+const misc_housekeeping_4   = 598;  // 'Misc'!E20
+const misc_apparel_4        = 1676; // 'Misc'!E21
+const misc_general_50k_5_plus       = 610;  // 'Misc'!E23
+const misc_personal_50k_5_plus      = 582;  // 'Misc'!E24
+const misc_housekeeping_50k_5_plus  = 752;  // 'Misc'!E25
+const misc_apparel_50k_5_plus       = 2271; // 'Misc'!E26
+const misc_general_70k_5_plus       = 932;  // 'Misc'!F23
+const misc_personal_70k_5_plus      = 980;  // 'Misc'!F24
+const misc_housekeeping_70k_5_plus  = 1115; // 'Misc'!F25
+const misc_apparel_70k_5_plus       = 3095; // 'Misc'!F26
 
 // EITC ----------------------------------------------------------------------------------------------------------------
 // All lists should have length of 1067
@@ -2976,8 +2864,6 @@ const eitc_income_less_than_list =      [
     53267,
     1000000000
 ];  // 'EITC'!B6:B1086
-
-
 const eitc_single_0_kids_amounts_list = [
     2  ,
     6  ,
