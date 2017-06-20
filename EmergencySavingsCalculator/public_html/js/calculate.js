@@ -46,7 +46,77 @@ window.onload = function () {
     otherNav = document.getElementById("otherNav");
     resultsNav = document.getElementById("resultsNav");
 
-    console.log("Loaded")
+    overviewNav.className = "list-group-item active";
+    incomeNav.className = "list-group-item disabled";
+    housingNav.className = "list-group-item disabled";
+    foodNav.className = "list-group-item disabled";
+    transNav.className = "list-group-item disabled";
+    medicalNav.className = "list-group-item disabled";
+    educationNav.className = "list-group-item disabled";
+    childrenNav.className = "list-group-item disabled";
+    otherNav.className = "list-group-item disabled";
+    resultsNav.className = "list-group-item disabled";
+
+    //wire up nav
+    document.getElementById("btnStart").onclick = function () {
+        navigate("start");
+    };
+    document.getElementById("btnIncomeBack").onclick = function () {
+        navigate("income_back");
+    };
+    document.getElementById("btnIncomeNext").onclick = function () {
+        navigate("income_next");
+    };
+    document.getElementById("btnHousingBack").onclick = function () {
+        navigate("housing_back");
+    };
+    document.getElementById("btnHousingNext").onclick = function () {
+        navigate("housing_next");
+    };
+    document.getElementById("btnFoodBack").onclick = function () {
+        navigate("food_back");
+    };
+    document.getElementById("btnFoodNext").onclick = function () {
+        navigate("food_next");
+    };
+    document.getElementById("btnTransBack").onclick = function () {
+        navigate("trans_back");
+    };
+    document.getElementById("btnTransNext").onclick = function () {
+        navigate("trans_next");
+    };
+    document.getElementById("btnMedicalBack").onclick = function () {
+        navigate("medical_back");
+    };
+    document.getElementById("btnMedicalNext").onclick = function () {
+        navigate("medical_next");
+    };
+    document.getElementById("btnEducationBack").onclick = function () {
+        navigate("education_back");
+    };
+    document.getElementById("btnEducationNext").onclick = function () {
+        navigate("education_next");
+    };
+    document.getElementById("btnChildrenBack").onclick = function () {
+        navigate("children_back");
+    };
+    document.getElementById("btnChildrenNext").onclick = function () {
+        navigate("children_next");
+    };
+    document.getElementById("btnOtherBack").onclick = function () {
+        navigate("other_back");
+    };
+    document.getElementById("btnOtherNext").onclick = function () {
+        navigate("other_next");
+    };
+    document.getElementById("btnResultsBack").onclick = function () {
+        navigate("results_back");
+    };
+    document.getElementById("btnReset").onclick = function () {
+        navigate("reset");
+    };
+
+    console.log("Loaded");
     //Housing Percentage Needed-------------------------------------------------------------------------------------------
     rentPercent = 100;
     electricityPercent = 90;
@@ -1077,88 +1147,125 @@ function calculateEmergencySavings()
 function overview_click()
 {
     hideAllDivs();
+    updateAll();
     overviewOp.style.display = "block";
     overviewNav.className = "list-group-item active";
 }
 
 function income_click()
 {
-    hideAllDivs();
-    incomeOp.style.display = "block";
-    incomeNav.className = "list-group-item active";
+    if (!incomeNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        incomeOp.style.display = "block";
+        incomeNav.className = "list-group-item active";
+    }
 }
 
 function housing_click()
 {
-    hideAllDivs();
-    housingOp.style.display = "block";
-    housingNav.className = "list-group-item active";
+    if (!housingNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        housingOp.style.display = "block";
+        housingNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function food_click()
 {
-    hideAllDivs();
-    foodOp.style.display = "block";
-    foodNav.className = "list-group-item active";
+    if (!foodNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        foodOp.style.display = "block";
+        foodNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function trans_click()
 {
-    hideAllDivs();
-    transOp.style.display = "block";
-    transNav.className = "list-group-item active";
+    if (!transNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        transOp.style.display = "block";
+        transNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function medical_click()
 {
-    hideAllDivs();
-    medicalOp.style.display = "block";
-    medicalNav.className = "list-group-item active";
+    if (!medicalNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        medicalOp.style.display = "block";
+        medicalNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function education_click()
 {
-    hideAllDivs();
-    educationOp.style.display = "block";
-    educationNav.className = "list-group-item active";
+    if (!educationNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        educationOp.style.display = "block";
+        educationNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function children_click()
 {
-    hideAllDivs();
-    childrenOp.style.display = "block";
-    childrenNav.className = "list-group-item active";
+    if (!childrenNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        childrenOp.style.display = "block";
+        childrenNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function other_click()
 {
-    hideAllDivs();
-    otherOp.style.display = "block";
-    otherNav.className = "list-group-item active";
+    if (!otherNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        otherOp.style.display = "block";
+        otherNav.className = "list-group-item active";
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function results_click()
 {
-    hideAllDivs();
-    resultsOp.style.display = "block";
-    resultsNav.className = "list-group-item active";
-    calculateEmergencySavings();
+    if (!resultsNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        resultsOp.style.display = "block";
+        resultsNav.className = "list-group-item active";
+        calculateEmergencySavings();
 
-    $("#showHidePercent").show();
+        $("#showHidePercent").show();
+    }
 }
 
 function hideAllDivs()
@@ -1174,21 +1281,317 @@ function hideAllDivs()
     otherOp.style.display = "none";
     resultsOp.style.display = "none";
 
-    overviewNav.className = "list-group-item";
-    incomeNav.className = "list-group-item";
-    housingNav.className = "list-group-item";
-    foodNav.className = "list-group-item";
-    transNav.className = "list-group-item";
-    medicalNav.className = "list-group-item";
-    educationNav.className = "list-group-item";
-    childrenNav.className = "list-group-item";
-    otherNav.className = "list-group-item";
-    resultsNav.className = "list-group-item";
+//    overviewNav.className = "list-group-item";
+//    incomeNav.className = "list-group-item";
+//    housingNav.className = "list-group-item";
+//    foodNav.className = "list-group-item";
+//    transNav.className = "list-group-item";
+//    medicalNav.className = "list-group-item";
+//    educationNav.className = "list-group-item";
+//    childrenNav.className = "list-group-item";
+//    otherNav.className = "list-group-item";
+//    resultsNav.className = "list-group-item";
 
     $("#showHidePercent").hide();
     $(".percentNeeded").hide();
 }
 
+var startStatus = "visited";
+var incomeStatus = "disabled";
+var housingStatus = "disabled";
+var foodStatus = "disabled";
+var transStatus = "disabled";
+var medicalStatus = "disabled";
+var educationStatus = "disabled";
+var childrenStatus = "disabled";
+var otherStatus = "disabled";
+var resultsStatus = "disabled";
+
+function updateAll()
+{
+    if (startStatus === "complete")
+    {
+        overviewNav.className = "list-group-item list-group-item-success";
+        overviewNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Overview";
+    } else if (startStatus === "visited")
+    {
+        overviewNav.className = "list-group-item";
+        overviewNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Overview";
+    } else
+    {
+        overviewNav.className = "list-group-item disabled";
+        overviewNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Overview";
+    }
+
+    if (incomeStatus === "complete")
+    {
+        incomeNav.className = "list-group-item list-group-item-success";
+        incomeNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Income";
+    } else if (incomeStatus === "visited")
+    {
+        incomeNav.className = "list-group-item";
+        incomeNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Income";
+    } else
+    {
+        incomeNav.className = "list-group-item disabled";
+        incomeNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Income";
+    }
+
+    if (housingStatus === "complete")
+    {
+        housingNav.className = "list-group-item list-group-item-success";
+        housingNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Housing";
+    } else if (housingStatus === "visited")
+    {
+        housingNav.className = "list-group-item";
+        housingNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Housing";
+    } else
+    {
+        housingNav.className = "list-group-item disabled";
+        housingNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Housing";
+    }
+
+    if (foodStatus === "complete")
+    {
+        foodNav.className = "list-group-item list-group-item-success";
+        foodNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Food";
+    } else if (foodStatus === "visited")
+    {
+        foodNav.className = "list-group-item";
+        foodNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Food";
+    } else
+    {
+        foodNav.className = "list-group-item disabled";
+        foodNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Food";
+    }
+
+    if (transStatus === "complete")
+    {
+        transNav.className = "list-group-item list-group-item-success";
+        transNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Transportation";
+    } else if (transStatus === "visited")
+    {
+        transNav.className = "list-group-item";
+        transNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Transportation";
+    } else
+    {
+        transNav.className = "list-group-item disabled";
+        transNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Transportation";
+    }
+
+    if (medicalStatus === "complete")
+    {
+        medicalNav.className = "list-group-item list-group-item-success";
+        medicalNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Medical";
+    } else if (medicalStatus === "visited")
+    {
+        medicalNav.className = "list-group-item";
+        medicalNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Medical";
+    } else
+    {
+        medicalNav.className = "list-group-item disabled";
+        medicalNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Medical";
+    }
+
+    if (educationStatus === "complete")
+    {
+        educationNav.className = "list-group-item list-group-item-success";
+        educationNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Education";
+    } else if (educationStatus === "visited")
+    {
+        educationNav.className = "list-group-item";
+        educationNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Education";
+    } else
+    {
+        educationNav.className = "list-group-item disabled";
+        educationNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Education";
+    }
+
+    if (childrenStatus === "complete")
+    {
+        childrenNav.className = "list-group-item list-group-item-success";
+        childrenNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Children";
+    } else if (childrenStatus === "visited")
+    {
+        childrenNav.className = "list-group-item";
+        childrenNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Children";
+    } else
+    {
+        childrenNav.className = "list-group-item disabled";
+        childrenNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Children";
+    }
+
+    if (otherStatus === "complete")
+    {
+        otherNav.className = "list-group-item list-group-item-success";
+        otherNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Other";
+    } else if (otherStatus === "visited")
+    {
+        otherNav.className = "list-group-item";
+        otherNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Other";
+    } else
+    {
+        otherNav.className = "list-group-item disabled";
+        otherNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Other";
+    }
+
+    if (resultsStatus === "complete")
+    {
+        resultsNav.className = "list-group-item list-group-item-success";
+        resultsNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Results";
+    } else if (resultsStatus === "visited")
+    {
+        resultsNav.className = "list-group-item";
+    } else
+    {
+        resultsNav.className = "list-group-item disabled";
+    }
+}
+
+function navigate(direction)
+{
+switch (direction)
+    {
+        case "start":
+            startStatus = "complete";
+            updateAll();
+            incomeNav.className = "list-group-item active";
+            hideAllDivs();
+            incomeOp.style.display = "block";
+            break;
+        case "income_back":
+            //incomeStatus = "visited";
+            updateAll();
+            overviewNav.className = "list-group-item active";
+            hideAllDivs();
+            overviewOp.style.display = "block";
+            break;
+        case "income_next":
+            incomeStatus = "complete";
+            updateAll();
+            housingNav.className = "list-group-item active";
+            hideAllDivs();
+            housingOp.style.display = "block";
+            break;
+        case "housing_back":
+            //housingStatus = "visited";
+            updateAll();
+            incomeNav.className = "list-group-item active";
+            hideAllDivs();
+            incomeOp.style.display = "block";
+            break;
+        case "housing_next":
+            housingStatus = "complete";
+            updateAll();
+            foodNav.className = "list-group-item active";
+            hideAllDivs();
+            foodOp.style.display = "block";
+            break;
+        case "food_back":
+            //foodStatus = "visited";
+            updateAll();
+            housingNav.className = "list-group-item active";
+            hideAllDivs();
+            housingOp.style.display = "block";
+            break;
+        case "food_next":
+            foodStatus = "complete";
+            updateAll();
+            transNav.className = "list-group-item active";
+            hideAllDivs();
+            transOp.style.display = "block";
+            break;
+        case "trans_back":
+            //transStatus = "visited";
+            updateAll();
+            foodNav.className = "list-group-item active";
+            hideAllDivs();
+            foodOp.style.display = "block";
+            break;
+        case "trans_next":
+            transStatus = "complete";
+            updateAll();
+            medicalNav.className = "list-group-item active";
+            hideAllDivs();
+            medicalOp.style.display = "block";
+            break;
+        case "medical_back":
+            //medicalStatus = "visited";
+            updateAll();
+            transNav.className = "list-group-item active";
+            hideAllDivs();
+            transOp.style.display = "block";
+            break;
+        case "medical_next":
+            medicalStatus = "complete";
+            updateAll();
+            educationNav.className = "list-group-item active";
+            hideAllDivs();
+            educationOp.style.display = "block";
+            break;
+        case "education_back":
+            //educationStatus = "visited";
+            updateAll();
+            medicalNav.className = "list-group-item active";
+            hideAllDivs();
+            medicalOp.style.display = "block";
+            break;
+        case "education_next":
+            educationStatus = "complete";
+            updateAll();
+            childrenNav.className = "list-group-item active";
+            hideAllDivs();
+            childrenOp.style.display = "block";
+            break;
+        case "children_back":
+            //childrenStatus = "visited";
+            updateAll();
+            educationNav.className = "list-group-item active";
+            hideAllDivs();
+            educationOp.style.display = "block";
+            break;
+        case "children_next":
+            childrenStatus = "complete";
+            updateAll();
+            otherNav.className = "list-group-item active";
+            hideAllDivs();
+            otherOp.style.display = "block";
+            break;
+        case "other_back":
+            //otherStatus = "visited";
+            updateAll();
+            childrenNav.className = "list-group-item active";
+            hideAllDivs();
+            childrenOp.style.display = "block";
+            break;
+        case "other_next":
+            otherStatus = "complete";
+            resultsStatus = "visited";
+            updateAll();
+            resultsNav.className = "list-group-item active";
+            hideAllDivs();
+            resultsOp.style.display = "block";
+            calculateEmergencySavings();
+            break;
+        case "results_back":           
+            updateAll();
+            otherNav.className = "list-group-item active";
+            hideAllDivs();
+            otherOp.style.display = "block";
+            break;
+        case "reset":
+            var r = confirm("Are you sure you want to reset?");
+            if (r == true) {
+                location.reload();
+            } else {
+                //do nothing
+            }
+            break;
+        default:
+            break;
+    }
+    window.scrollTo(0, 0);
+}
 
 function printPage() {
     alert(document.body.innerHTML);

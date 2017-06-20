@@ -69,7 +69,7 @@
                         <a id="otherNav" onclick="other_click()" class="list-group-item"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Other</a>
                     </div>
                     <div class="list-group">
-                        <a id="resultsNav" onclick="results_click()" class="list-group-item disabled">Results</a>
+                        <a id="resultsNav" onclick="results_click()" class="list-group-item">Results</a>
                     </div>
                 </div><!--/span-->
                 <div class="col-xs-12 col-sm-9 content">
@@ -80,103 +80,14 @@
                         <button type="button" class="btn btn-primary btn-xs" id="showHidePercent" onclick="showHidePercent()">
                             Hide / Show Calculation
                         </button>
-                    </p>
-
-                    <!--            <div class="text-center">
-                                  <h1>Overview</h1>
-                                  <p class="lead">blahblahblahblahblahblahblahblahblahblah blahblahblahblah blahblah blahblah blah blah blahblahblah</p>
-                                </div>
-                                <form class="form-horizontal" role="form">
-                                  <div class="row">
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="inputEmail" class="col-md-4 control-label">Email ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="inputPassword" class="col-md-4 control-label">Password ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="inputLabel3" class="col-md-4 control-label">Label 3 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="inputLabel3" placeholder="Label 3">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="inputLabel4" class="col-md-4 control-label">Label 4 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="inputLabel4" placeholder="Label 4">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input5" class="col-md-4 control-label">1234567890 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input5" placeholder="input 5">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input6" class="col-md-4 control-label">123456789012 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input6" placeholder="input 6">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input7" class="col-md-4 control-label">12345678901234 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input7" placeholder="input 7">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input8" class="col-md-4 control-label">1234567890123456 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input8" placeholder="input 8">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input9" class="col-md-4 control-label">123456789012345678 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input9" placeholder="input 9">
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-sm-6 col-lg-4">
-                                      <div class="form-group">
-                                        <label for="input10" class="col-md-4 control-label">12345678901234567890 ($):</label>
-                                        <div class="col-md-8">
-                                          <input style="border:1px solid #ff0000" type="text" class="form-control" id="input10" placeholder="input 10">
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div> /.row this actually does not appear to be needed with the form-horizontal 
-                                </form>
-                                <p>Note: label text will occupy as much space as the text takes regardless of the 
-                                    column size, so be sure to validate your spacing.
-                                </p>-->
-
+                    </p>           
                     <div id="overviewOp" style="display:block;"> <!-- /overview div -->
                         <br />
                         <h1 align="middle">Overview</h1>
+                        <div style="margin-top:10px;" class="btn-toolbar" align="middle">
+                            <hr />
+                            <button style="width:50%;" class="btn btn-group-lg btn-success" id="btnStart">Start</button>
+                        </div>
                     </div> <!-- /end overview div -->
 
                     <div id="incomeOp" style="display:none;">  <!-- /income div -->
@@ -363,6 +274,18 @@
 
 
                         </div>
+
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnIncomeBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnIncomeNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
                     </div> <!-- /end income div -->
 
                     <div id="housingOp" style="display:none;"> <!-- /housing div -->
@@ -529,6 +452,17 @@
                                 </div>
                             </form>
                         </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnHousingBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnHousingNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div> <!-- /end housing div -->
 
                     <div id="foodOp" style="display:none;"> <!-- /food div -->
@@ -612,6 +546,17 @@
                                     <div class="content" style="color:#ff5757"><span class="invalidGroceriesOther"></span></div>
                                 </div>        
                             </form>
+                        </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnFoodBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnFoodNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div> <!-- /end food div -->
 
@@ -697,6 +642,17 @@
                                 </div>        
                             </form>
                         </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnTransBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnTransNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div> <!-- /end transportation div -->
 
                     <div id="medicalOp" style="display:none;"> <!-- /medical div -->
@@ -766,6 +722,17 @@
                                 </div>        
                             </form>
                         </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnMedicalBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnMedicalNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div> <!-- /end medical div -->
 
                     <div id="educationOp" style="display:none;"> <!-- /education div -->
@@ -834,6 +801,17 @@
                                     <div class="content" style="color:#ff5757"><span class="invalidEduOther"></span></div>
                                 </div>        
                             </form>
+                        </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnEducationBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnEducationNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div> <!-- /end education div -->
 
@@ -933,6 +911,17 @@
                                     <div class="content" style="color:#ff5757"><span class="invalidChildOther"></span></div>
                                 </div>        
                             </form>
+                        </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnChildrenBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnChildrenNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div> <!-- /end children div -->
 
@@ -1122,6 +1111,17 @@
                                     <div class="content" style="color:#ff5757"><span class="invalidOtherExpenses"></span></div>
                                 </div>        
                             </form>
+                        </div>
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:25%;" class="btn btn-group-lg btn-danger" id="btnOtherBack">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+                            </button>
+                            <button style="width:25%;" class="btn btn-group-lg btn-success" id="btnOtherNext">
+                                Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div> <!-- /end other div -->
 
@@ -1313,18 +1313,16 @@
                             </form>
                             <button align="middle" onclick="printPage()">Print this page</button>
                         </div>
-                    </div> <!-- /end results div -->
+                        
+                        <hr />
+                        <!-- Nav buttons -->
+                        <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                            <button style="width:51%;" class="btn btn-group-lg btn-danger" id="btnResultsBack">Back</button>
+                        </div>
+                    </div> <!-- /end results div --> 
 
-                    <div class="btn-toolbar" align="middle" style="margin-top:50px;">
-                        <button style="width:25%;" class="btn btn-group-lg btn-danger">
-                            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
-                        </button>
-                        <button style="width:25%;" class="btn btn-group-lg btn-success">
-                            Next <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-                        </button>
-                    </div>
                     <div style="margin-top:10px;" class="btn-toolbar" align="middle">
-                        <button style="width:51%;" class="btn btn-group-lg btn-warning">Reset</button>
+                        <button style="width:51%;" class="btn btn-group-lg btn-warning" id="btnReset">Reset</button>
                     </div>
 
                     <hr />
