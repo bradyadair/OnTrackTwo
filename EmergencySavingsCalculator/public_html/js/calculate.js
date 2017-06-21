@@ -1472,6 +1472,7 @@ switch (direction)
             housingNav.className = "list-group-item active";
             hideAllDivs();
             housingOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "housing_back":
             //housingStatus = "visited";
@@ -1486,6 +1487,7 @@ switch (direction)
             foodNav.className = "list-group-item active";
             hideAllDivs();
             foodOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "food_back":
             //foodStatus = "visited";
@@ -1493,6 +1495,7 @@ switch (direction)
             housingNav.className = "list-group-item active";
             hideAllDivs();
             housingOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "food_next":
             foodStatus = "complete";
@@ -1500,6 +1503,7 @@ switch (direction)
             transNav.className = "list-group-item active";
             hideAllDivs();
             transOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "trans_back":
             //transStatus = "visited";
@@ -1507,6 +1511,7 @@ switch (direction)
             foodNav.className = "list-group-item active";
             hideAllDivs();
             foodOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "trans_next":
             transStatus = "complete";
@@ -1514,6 +1519,7 @@ switch (direction)
             medicalNav.className = "list-group-item active";
             hideAllDivs();
             medicalOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "medical_back":
             //medicalStatus = "visited";
@@ -1521,6 +1527,7 @@ switch (direction)
             transNav.className = "list-group-item active";
             hideAllDivs();
             transOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "medical_next":
             medicalStatus = "complete";
@@ -1528,6 +1535,7 @@ switch (direction)
             educationNav.className = "list-group-item active";
             hideAllDivs();
             educationOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "education_back":
             //educationStatus = "visited";
@@ -1535,6 +1543,7 @@ switch (direction)
             medicalNav.className = "list-group-item active";
             hideAllDivs();
             medicalOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "education_next":
             educationStatus = "complete";
@@ -1542,6 +1551,7 @@ switch (direction)
             childrenNav.className = "list-group-item active";
             hideAllDivs();
             childrenOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "children_back":
             //childrenStatus = "visited";
@@ -1549,6 +1559,7 @@ switch (direction)
             educationNav.className = "list-group-item active";
             hideAllDivs();
             educationOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "children_next":
             childrenStatus = "complete";
@@ -1556,6 +1567,7 @@ switch (direction)
             otherNav.className = "list-group-item active";
             hideAllDivs();
             otherOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "other_back":
             //otherStatus = "visited";
@@ -1563,6 +1575,7 @@ switch (direction)
             childrenNav.className = "list-group-item active";
             hideAllDivs();
             childrenOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "other_next":
             otherStatus = "complete";
@@ -1572,12 +1585,14 @@ switch (direction)
             hideAllDivs();
             resultsOp.style.display = "block";
             calculateEmergencySavings();
+            $("#showHidePercent").show();
             break;
         case "results_back":           
             updateAll();
             otherNav.className = "list-group-item active";
             hideAllDivs();
             otherOp.style.display = "block";
+            $("#showHidePercent").show();
             break;
         case "reset":
             var r = confirm("Are you sure you want to reset?");

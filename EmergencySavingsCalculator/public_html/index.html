@@ -295,6 +295,7 @@
                             <form class="form-horizontal" role="form" action="housing" method="post" id="housingForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -306,146 +307,275 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Rent ($):</label>
                                         <div class="col-lg-3">
-
                                             <div class="input-group">
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Monthly Budget ($)</span>
                                                 </div>
                                                 <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="rent" name="rent"  placeholder="$0.00" style="border:1px solid #ff0000"/>
                                             </div>
-
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="rentPercent" name="rentPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="rentRequired" name="rentRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidRent"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Electricity ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="electricity" name="electricity"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="electricityPercent" name="electricityPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="electricityRequired" name="electricityRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidElectricity"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Gas ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="gas" name="gas"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="gasPercent" name="gasPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="gasRequired" name="gasRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidGas"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Water/Sewer/Garbage ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="water" name="water"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="waterPercent" name="waterPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="waterRequired" name="waterRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidWater"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Cable/Netflix/Hulu ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="netflix" name="netflix"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="netflixPercent" name="netflixPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="netflixRequired" name="netflixRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidNetflix"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Internet ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="internet" name="internet"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="internetPercent" name="internetPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="internetRequired" name="internetRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="internet"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Entertainment Pkg ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="entertainment" name="entertainment"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentPercent" name="entertainmentPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentRequired" name="entertainmentRequired"  disabled="disabled" />
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidEntertainment"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Other Home Utilities ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilities" name="otherUtilities"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesPercent" name="otherUtilitiesPercent"  disabled="disabled" />
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesRequired" name="otherUtilitiesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidOtherUtilities"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Cell Phone ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="cellPhone" name="cellPhone"  placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="cellPhonePercent" name="cellPhonePercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="cellPhoneRequired" name="cellPhoneRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidCellPhone"></span></div>
@@ -472,6 +602,7 @@
                             <form class="form-horizontal" role="form" action="food" method="post" id="foodForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -483,64 +614,125 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Groceries ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceries" name="groceries" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesPercent" name="groceriesPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesRequired" name="groceriesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidGroceries"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Eating Out ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="eatingOut" name="eatingOut" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="eatingOutPercent" name="eatingOutPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="eatingOutRequired" name="eatingOutRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidEatingOut"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Personal Hygiene ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="personalHygiene" name="personalHygiene" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="personalHygienePercent" name="personalHygienePercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="personalHygieneRequired" name="personalHygieneRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidPersonalHygiene"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Groceries - Other ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceriesOther" name="groceriesOther" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherPercent" name="groceriesOtherPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherRequired" name="groceriesOtherRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidGroceriesOther"></span></div>
@@ -567,6 +759,7 @@
                             <form class="form-horizontal" role="form" action="autobus" method="post" id="autobusForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -578,64 +771,125 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Auto Insurance ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurance" name="autoInsurance" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurancePercent" name="autoInsurancePercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoInsuranceRequired" name="autoInsuranceRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidAutoInsurance"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Auto Fuel ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoFuel" name="autoFuel" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelPercent" name="autoFuelPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelRequired" name="autoFuelRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidAutoFuel"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Public Transit ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="publicTransit" name="publicTransit" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitPercent" name="publicTransitPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitRequired" name="publicTransitRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidPublicTransit"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Trans - Other ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="transOther" name="transOther" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="transOtherPercent" name="transOtherPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="transOtherRequired" name="transOtherRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidTransOther"></span></div>
@@ -662,6 +916,7 @@
                             <form class="form-horizontal" role="form" action="medical" method="post" id="medicalForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -673,49 +928,95 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Medical - Out of Pocket ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocket" name="medicalPocket" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketPercent" name="medicalPocketPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketRequired" name="medicalPocketRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidMedicalPocket"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Medical - Prescriptions ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptions" name="medicalPrescriptions" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsPercent" name="medicalPrescriptionsPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsRequired" name="medicalPrescriptionsRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidMedicalPrescriptions"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Medical - Other ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalOther" name="medicalOther" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherPercent" name="medicalOtherPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherRequired" name="medicalOtherRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidMedicalOther"></span></div>
@@ -742,6 +1043,7 @@
                             <form class="form-horizontal" role="form" action="education" method="post" id="educationForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -753,49 +1055,95 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Edu Fees ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduFees" name="eduFees" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesPercent" name="eduFeesPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Required Amount ($)</span>
+                                                </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesRequired" name="eduFeesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidEduFees"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Edu Supplies ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduSupplies" name="eduSupplies" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesPercent" name="eduSuppliesPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesRequired" name="eduSuppliesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidEduSupplies"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Edu Other ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduOther" name="eduOther" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherPercent" name="eduOtherPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherRequired" name="eduOtherRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidEduOther"></span></div>
@@ -822,6 +1170,7 @@
                             <form class="form-horizontal" role="form" action="child" method="post" id="childForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -833,79 +1182,155 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Child Care Expense ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childCareExpense" name="childCareExpense" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childCareExpensePercent" name="childCareExpensePercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childCareExpenseRequired" name="childCareExpenseRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="InvalidChildCareExpense"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Child Support ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childSupport" name="childSupport" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childSupportPercent" name="childSupportPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childSupportRequired" name="childSupportRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidChildSupport"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Child Recreation ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childRecreation" name="childRecreation" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childRecreationPercent" name="childRecreationPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childRecreationRequired" name="childRecreationRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidChildRecreation"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Child Clothing ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childClothing" name="childClothing" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childClothingPercent" name="childClothingPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childClothingRequired" name="childClothingRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidChildClothing"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Child - Other ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childOther" name="childOther" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childOtherPercent" name="childOtherPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childOtherRequired" name="childOtherRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidChildOther"></span></div>
@@ -932,6 +1357,7 @@
                             <form class="form-horizontal" role="form" action="other" method="post" id="otherForm"><br/>
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">MONTHLY BUDGET ($)</label>
                                         </div>
@@ -943,169 +1369,335 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">REQUIRED AMOUNT ($)</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Memberships ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="memberships" name="memberships" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="membershipsPercent" name="membershipsPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Required Amount ($)</span>
+                                                </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="membershipsRequired" name="membershipsRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="InvalidMemberships"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Legal Fees ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="legalFees" name="legalFees" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="legalFeesPercent" name="legalFeesPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="legalFeesRequired" name="legalFeesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidLegalFees"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Donations (Charity) ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="donations" name="donations" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="donationsPercent" name="donationsPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="donationsRequired" name="donationsRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidDonations"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Entertainment ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainment" name="otherEntertainment" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentPercent" name="otherEntertainmentPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentRequired" name="otherEntertainmentRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidOtherEntertainment"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Pets ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="pets" name="pets" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="petsPercent" name="petsPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="petsRequired" name="petsRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidPets"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Storage ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="storage" name="storage" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="storagePercent" name="storagePercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="storageRequired" name="storageRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidStorage"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Other Shopping ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="clothing" name="clothing" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="clothingPercent" name="clothingPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="clothingRequired" name="clothingRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidClothing"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Constructive Debt ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebt" name="constructiveDebt" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtPercent" name="constructiveDebtPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtRequired" name="constructiveDebtRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidConstructiveDebt"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Consumer Debt ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="consumerDebt" name="consumerDebt" placeholder="$0.00" />
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtPercent" name="consumerDebtPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtRequired" name="consumerDebtRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidConsumerDebt"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Collections ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="collections" name="collections" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="collectionsPercent" name="collectionsPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="collectionsRequired" name="collectionsRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidCollections"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Other Expenses ($):</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherExpenses" name="otherExpenses" placeholder="$0.00"/>
+                                          </div>
                                         </div>
                                         <div class="percentNeeded">
                                             <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
                                                 <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesPercent" name="otherExpensesPercent"  disabled="disabled"/>
+                                              </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesRequired" name="otherExpensesRequired"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidOtherExpenses"></span></div>
@@ -1128,12 +1720,15 @@
                     <div id="resultsOp" style="display:none;"> <!-- /results div -->
 
                         <br />
-                        <h1 align="middle">Results</h1>
+                        <div class="percentNeeded">
+                          <h1 align="middle">Calculations</h1>
+                        </div>
 
                         <div id="form_layout">
                             <form class="form-horizontal" role="form" action="emergencySavings" method="post" id="emergencySavingsForm"><br/>
                                 <div class="percentNeeded">
                                     <div class="form-group">
+                                      <div class="visible-lg">
                                         <div class="col-lg-6 control-label">
                                             <label style="color:#ff0000">INCOME ($)</label>
                                         </div>
@@ -1145,43 +1740,89 @@
                                         <div class="col-lg-3 control-label">
                                             <label  style="color:#1111ff">% ABOVE 50</label>
                                         </div>
+                                      </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Client:</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">INCOME ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" type="text" class="form-control" id="clientFinalTotalIncome" name="clientFinalTotalIncome" disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
+                                            </div>
                                             <input style="border:1px solid #11ff11" type="number" class="form-control" id="clientHouseholdPercent" name="clientHouseholdPercent"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% ABOVE 50</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" type="number" class="form-control" id="clientFinalAboveFifty" name="clientFinalAboveFifty"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="InvalidMemberships"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Spouse:</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">INCOME ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" type="text" class="form-control" id="spouseFinalTotalIncome" name="spouseFinalTotalIncome" disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
+                                            </div>
                                             <input style="border:1px solid #11ff11" type="number" class="form-control" id="spouseHouseholdPercent" name="spouseHouseholdPercent"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% ABOVE 50</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" type="number" class="form-control" id="spouseFinalAboveFifty" name="spouseFinalAboveFifty"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidLegalFees"></span></div>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Household:</label>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">INCOME ($)</span>
+                                            </div>
                                             <input style="border:1px solid #ff0000" type="text" class="form-control" id="householdIncome" name="householdIncome" disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
+                                            </div>
                                             <input style="border:1px solid #11ff11" type="text" class="form-control" id="householdPercent" name="householdPercent"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                         <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">% ABOVE 50</span>
+                                            </div>
                                             <input style="border:1px solid #1111ff" type="number" class="form-control" id="householdAboveFifty" name="householdAboveFifty"  disabled="disabled"/>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidDonations"></span></div>  
@@ -1199,7 +1840,8 @@
                                             </div>
                                         </div>
                                 </div>
-
+                                
+                                <h1 align="middle">Results</h1>
 
                                 <div id='printResults'>
                                     <div class="percentNeeded">
