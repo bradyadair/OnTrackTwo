@@ -1139,7 +1139,7 @@ function calculateEmergencySavings()
     monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
     document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
     totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
-    document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toFixed(2);
+    document.getElementById("totalEmergencySavingsRequired").placeholder = "$" + totalEmergencySavingsRequired.toFixed(2);
 
 }
 
@@ -1609,7 +1609,7 @@ switch (direction)
 }
 
 function printPage() {
-    alert(document.body.innerHTML);
+/*
     var restorepage = document.body.innerHTML;
     var printcontent = '<html></head><body <link rel="stylesheet" href="css/bootstrap.min.css" media="all"><link rel="stylesheet" href="css/bootstrap-theme.min.css" media="all"><link rel="stylesheet" href="css/main.css" media="all"><link href="css/dashboard.css" rel="stylesheet" media="all"><link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet" media="all"></head>';
     printcontent = printcontent + document.getElementById('printResults').innerHTML + '</body></html>';
@@ -1617,7 +1617,184 @@ function printPage() {
     $(".percentNeeded").show();
     window.print();
     document.body.innerHTML = restorepage;
-    alert(document.body.innerHTML);
-    window.onload();
-    alert(document.body.innerHTML);
+*/
+    
+    //printcontent = printcontent + document.getElementById('printResults').innerHTML + '</body></html>';
+
+    
+
+
+
+
+    var x1 = 0;
+    var x2= 0;
+    var x3 = 220;
+    var y1 = 0;
+    var y2 = 0;
+    var y3 = 0;
+    var moneyX = 190;
+    var doc = new jsPDF();
+    doc.setDrawColor(128,0,0);
+    var name = prompt('What is your name?');
+    y1 += 20;
+    doc.text(200, y1, name.toString(), null, null, 'right')
+
+    doc.setFontSize(22);
+    y1 += 10;
+    doc.text(105, y1, 'Emergency Savings', null, null, 'center')
+    
+    x1 += 20;
+    doc.setFontSize(16);
+    y1 += 10;
+    y2 +=33;
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Months of Savings Required:')
+    doc.text(moneyX, y1, monthsEmergencySavingsRequired.toFixed(2) + " Months", null, null, 'right');
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    y1 += 10;
+    doc.text(x1, y1, 'Total Emergency Savings Required:')
+    doc.text(moneyX, y1, "$" + totalEmergencySavingsRequired.toFixed(2), null, null, 'right')
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    
+
+    doc.setFontSize(22);
+    y1 += 20;
+    doc.text(105, y1, 'Monthly Totals', null, null, 'center')
+    doc.setFontSize(16);
+    y1 += 10;
+    y2 +=20;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Monthly Budget Total:')
+    doc.text(moneyX, y1, "$" + budgetTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Monthly Budget Required:')
+    doc.text(moneyX, y1, "$" + budgetTotalRequired.toFixed(2), null, null, 'right')
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+
+    doc.setFontSize(22);
+    y1 += 20;
+    doc.text(105, y1, 'Categorized Monthly Totals', null, null, 'center')
+
+    doc.setFontSize(16);
+    y1 += 10;
+    y2 +=20;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Housing Total:')
+    doc.text(moneyX, y1, "$" + housingTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Housing Total Required:')
+    doc.text(moneyX, y1, "$" + housingTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;   
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Food Total:')
+    doc.text(moneyX, y1, "$" + foodTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Food Total Required:')
+    doc.text(moneyX, y1, "$" + housingTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Transportation Total:')
+    doc.text(moneyX, y1, "$" + transTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Transportation Total Required:')
+    doc.text(moneyX, y1, "$" + transTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Medical Total:')
+    doc.text(moneyX, y1, "$" + medicalTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Medical Total Required:')
+    doc.text(moneyX, y1, "$" + medicalTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Education Total:')
+    doc.text(moneyX, y1, "$" + eduTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Education Total Required:')
+    doc.text(moneyX, y1, "$" + eduTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Child Total:')
+    doc.text(moneyX, y1, "$" + childTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Child Total Required:')
+    doc.text(moneyX, y1, "$" + childTotalRequired.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Other Total:')
+    doc.text(moneyX, y1, "$" + otherTotal.toFixed(2), null, null, 'right')
+    y1 += 10;
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    doc.text(x1, y1, 'Other Total Required:')
+    doc.text(moneyX, y1, "$" + otherTotalRequired.toFixed(2), null, null, 'right')
+    y2 +=10;
+    //(x2, y2, x3, y3)
+    doc.line(x2, y2, x3, y2);
+    //doc.addPage()
+  
+
+    //doc.save.pdf();
+    doc.save('a4.pdf')
+/*
+    budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses)
+    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toFixed(2);
+
+    budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
+    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toFixed(2);
+
+    monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
+    document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
+    totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
+    document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toFixed(2);
+    */
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+
 }
