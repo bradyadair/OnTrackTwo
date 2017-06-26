@@ -452,48 +452,6 @@ function showHidePercent()
     //Hide Percentage Needed Columns-------------------------------------------------------------------------------------------------
     $(".percentNeeded").toggle();
 
-    /*
-     $("#rentPercent").hide();
-     $("#electricityPercent").hide();
-     $("#gasPercent").hide();
-     $("#waterPercent").hide();
-     $("#netflixPercent").hide();
-     $("#internetPercent").hide();
-     $("#entertainmentPercent").hide();
-     $("#otherUtilitiesPercent").hide();
-     $("#cellPhonePercent").hide();
-     $("#groceriesPercent").hide();
-     $("#eatingOutPercent").hide();
-     $("#personalHygienePercent").hide();
-     $("#groceriesOtherPercent").hide();
-     $("#autoInsurancePercent").hide();
-     $("#autoFuelPercent").hide();
-     $("#publicTransitPercent").hide();
-     $("#transOtherPercent").hide();
-     $("#medicalPocketPercent").hide();
-     $("#medicalPrescriptionsPercent").hide();
-     $("#medicalOtherPercent").hide();
-     $("#eduFeesPercent").hide();
-     $("#eduSuppliesPercent").hide();
-     $("#eduOtherPercent").hide();
-     $("#childCareExpensePercent").hide();
-     $("#childSupportPercent").hide();
-     $("#childRecreationPercent").hide();
-     $("#childClothingPercent").hide();
-     $("#childOtherPercent").hide();
-     $("#membershipsPercent").hide();
-     $("#legalFeesPercent").hide();
-     $("#donationsPercent").hide();
-     $("#otherEntertainmentPercent").hide();
-     $("#petsPercent").hide();
-     $("#storagePercent").hide();
-     $("#clothingPercent").hide();
-     $("#constructiveDebtPercent").hide();
-     $("#consumerDebtPercent").hide();
-     $("#collectionsPercent").hide();
-     $("#otherExpensesPercent").hide();
-     */
-    /////////---------------------------------------------------------------------------------------------------------------------------
 }
 
 
@@ -1611,22 +1569,6 @@ switch (direction)
 }
 
 function printPage() {
-/*
-    var restorepage = document.body.innerHTML;
-    var printcontent = '<html></head><body <link rel="stylesheet" href="css/bootstrap.min.css" media="all"><link rel="stylesheet" href="css/bootstrap-theme.min.css" media="all"><link rel="stylesheet" href="css/main.css" media="all"><link href="css/dashboard.css" rel="stylesheet" media="all"><link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet" media="all"></head>';
-    printcontent = printcontent + document.getElementById('printResults').innerHTML + '</body></html>';
-    document.body.innerHTML = printcontent;
-    $(".percentNeeded").show();
-    window.print();
-    document.body.innerHTML = restorepage;
-*/
-    
-    //printcontent = printcontent + document.getElementById('printResults').innerHTML + '</body></html>';
-
-    
-
-
-
 
     var x1 = 0;
     var x2= 0;
@@ -1777,38 +1719,15 @@ function printPage() {
     doc.line(x2, y2, x3, y2);
     //doc.addPage()
   
-
-    //doc.save.pdf();
     doc.save('a4.pdf')
-/*
-    budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses)
-    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
-
-    budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
-    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
-
-    monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
-    document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
-    totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
-    document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
-    */
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+                      
 
 }
 
 
-//$(function() {
- //   $("#input").keypress(function(event) {
 function checkInput(event)
 {
     if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
 }
-   // });
-//});
