@@ -557,12 +557,12 @@ function calculate()
     }
 
 
-    document.getElementById("clientWages").placeholder = "$" + parseFloat(clientWages).toFixed(2);
-    document.getElementById("clientNet").placeholder = "$" + (parseFloat(clientWages) - parseFloat(clientPRDeductions)).toFixed(2);
+    document.getElementById("clientWages").placeholder = "$" + parseFloat(clientWages).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById("clientNet").placeholder = "$" + (parseFloat(clientWages) - parseFloat(clientPRDeductions)).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     clientTotal = parseFloat(clientWages) + parseFloat(clientSelfEmployment) + parseFloat(clientSocialSecurityRetirement) + parseFloat(clientPension) + parseFloat(clientAlimony) + parseFloat(clientChildSupport) + parseFloat(clientOtherIncome);
 
-    document.getElementById("clientTotal").placeholder = "$" + clientTotal.toFixed(2);
+    document.getElementById("clientTotal").placeholder = "$" + clientTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
     //-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -617,13 +617,15 @@ function calculate()
         spouseOtherIncome = document.getElementById("spouseOtherIncome").value;
     }
 
+    
 
-    document.getElementById("spouseWages").placeholder = "$" + parseFloat(spouseWages).toFixed(2);
-    document.getElementById("spouseNet").placeholder = "$" + (parseFloat(spouseWages) - parseFloat(spousePRDeductions)).toFixed(2);
+    
+    document.getElementById("spouseWages").placeholder = "$" + parseFloat(spouseWages).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById("spouseNet").placeholder = "$" + (parseFloat(spouseWages) - parseFloat(spousePRDeductions)).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     spouseTotal = parseFloat(spouseWages) + parseFloat(spouseSelfEmployment) + parseFloat(spouseSocialSecurityRetirement) + parseFloat(spousePension) + parseFloat(spouseAlimony) + parseFloat(spouseChildSupport) + parseFloat(spouseOtherIncome);
 
-    document.getElementById("spouseTotal").placeholder = "$" + spouseTotal.toFixed(2);
+    document.getElementById("spouseTotal").placeholder = "$" + spouseTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     //---------------------------------------------------------------------------------------------------------------------------
 }
@@ -649,7 +651,7 @@ function calculateHousing()
         rent = document.getElementById("rent").value;
     }
     rentRequired = parseFloat(rent * (rentPercent / 100));
-    document.getElementById("rentRequired").placeholder = "$" + rentRequired.toFixed(2);
+    document.getElementById("rentRequired").placeholder = "$" + rentRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     electricity = 0;
     if (document.getElementById("electricity").value)
@@ -657,7 +659,7 @@ function calculateHousing()
         electricity = document.getElementById("electricity").value;
     }
     electricityRequired = parseFloat(electricity * (electricityPercent / 100));
-    document.getElementById("electricityRequired").placeholder = "$" + electricityRequired.toFixed(2);
+    document.getElementById("electricityRequired").placeholder = "$" + electricityRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     gas = 0;
     if (document.getElementById("gas").value)
@@ -665,7 +667,7 @@ function calculateHousing()
         gas = document.getElementById("gas").value;
     }
     gasRequired = parseFloat(gas * (gasPercent / 100));
-    document.getElementById("gasRequired").placeholder = "$" + gasRequired.toFixed(2);
+    document.getElementById("gasRequired").placeholder = "$" + gasRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     water = 0;
     if (document.getElementById("water").value)
@@ -673,7 +675,7 @@ function calculateHousing()
         water = document.getElementById("water").value;
     }
     waterRequired = parseFloat(water * (waterPercent / 100));
-    document.getElementById("waterRequired").placeholder = "$" + waterRequired.toFixed(2);
+    document.getElementById("waterRequired").placeholder = "$" + waterRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     netflix = 0;
     if (document.getElementById("netflix").value)
@@ -681,7 +683,7 @@ function calculateHousing()
         netflix = document.getElementById("netflix").value;
     }
     netflixRequired = parseFloat(netflix * (netflixPercent / 100));
-    document.getElementById("netflixRequired").placeholder = "$" + netflixRequired.toFixed(2);
+    document.getElementById("netflixRequired").placeholder = "$" + netflixRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     internet = 0;
     if (document.getElementById("internet").value)
@@ -689,7 +691,7 @@ function calculateHousing()
         internet = document.getElementById("internet").value;
     }
     internetRequired = parseFloat(internet * (internetPercent / 100));
-    document.getElementById("internetRequired").placeholder = "$" + internetRequired.toFixed(2);
+    document.getElementById("internetRequired").placeholder = "$" + internetRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     entertainment = 0;
     if (document.getElementById("entertainment").value)
@@ -697,7 +699,7 @@ function calculateHousing()
         entertainment = document.getElementById("entertainment").value;
     }
     entertainmentRequired = parseFloat(entertainment * (entertainmentPercent / 100));
-    document.getElementById("entertainmentRequired").placeholder = "$" + entertainmentRequired.toFixed(2);
+    document.getElementById("entertainmentRequired").placeholder = "$" + entertainmentRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     otherUtilities = 0;
     if (document.getElementById("otherUtilities").value)
@@ -705,7 +707,7 @@ function calculateHousing()
         otherUtilities = document.getElementById("otherUtilities").value;
     }
     otherUtilitiesRequired = parseFloat(otherUtilities * (otherUtilitiesPercent / 100));
-    document.getElementById("otherUtilitiesRequired").placeholder = "$" + otherUtilitiesRequired.toFixed(2);
+    document.getElementById("otherUtilitiesRequired").placeholder = "$" + otherUtilitiesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     cellPhone = 0;
     if (document.getElementById("cellPhone").value)
@@ -713,15 +715,15 @@ function calculateHousing()
         cellPhone = document.getElementById("cellPhone").value;
     }
     cellPhoneRequired = parseFloat(cellPhone * (cellPhonePercent / 100));
-    document.getElementById("cellPhoneRequired").placeholder = "$" + cellPhoneRequired.toFixed(2);
+    document.getElementById("cellPhoneRequired").placeholder = "$" + cellPhoneRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
 
     housingTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone);
-    document.getElementById("housingTotal").placeholder = "$" + housingTotal.toFixed(2);
+    document.getElementById("housingTotal").placeholder = "$" + housingTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     housingTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired);
-    document.getElementById("housingTotalRequired").placeholder = "$" + housingTotalRequired.toFixed(2);
+    document.getElementById("housingTotalRequired").placeholder = "$" + housingTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
 
@@ -735,7 +737,7 @@ function calculateFood()
         groceries = document.getElementById("groceries").value;
     }
     groceriesRequired = parseFloat(groceries * (groceriesPercent / 100));
-    document.getElementById("groceriesRequired").placeholder = "$" + groceriesRequired.toFixed(2);
+    document.getElementById("groceriesRequired").placeholder = "$" + groceriesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     eatingOut = 0;
     if (document.getElementById("eatingOut").value)
@@ -743,7 +745,7 @@ function calculateFood()
         eatingOut = document.getElementById("eatingOut").value;
     }
     eatingOutRequired = parseFloat(eatingOut * (eatingOutPercent / 100));
-    document.getElementById("eatingOutRequired").placeholder = "$" + eatingOutRequired.toFixed(2);
+    document.getElementById("eatingOutRequired").placeholder = "$" + eatingOutRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     personalHygiene = 0;
     if (document.getElementById("personalHygiene").value)
@@ -751,7 +753,7 @@ function calculateFood()
         personalHygiene = document.getElementById("personalHygiene").value;
     }
     personalHygieneRequired = parseFloat(personalHygiene * (personalHygienePercent / 100));
-    document.getElementById("personalHygieneRequired").placeholder = "$" + personalHygieneRequired.toFixed(2);
+    document.getElementById("personalHygieneRequired").placeholder = "$" + personalHygieneRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     groceriesOther = 0;
     if (document.getElementById("groceriesOther").value)
@@ -759,14 +761,14 @@ function calculateFood()
         groceriesOther = document.getElementById("groceriesOther").value;
     }
     groceriesOtherRequired = parseFloat(groceriesOther * (groceriesOtherPercent / 100));
-    document.getElementById("groceriesOtherRequired").placeholder = "$" + groceriesOtherRequired.toFixed(2);
+    document.getElementById("groceriesOtherRequired").placeholder = "$" + groceriesOtherRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     foodTotal = parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther);
-    document.getElementById("foodTotal").placeholder = "$" + foodTotal.toFixed(2);
+    document.getElementById("foodTotal").placeholder = "$" + foodTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     foodTotalRequired = parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired)
-    document.getElementById("foodTotalRequired").placeholder = "$" + foodTotalRequired.toFixed(2);
+    document.getElementById("foodTotalRequired").placeholder = "$" + foodTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
 }
@@ -782,7 +784,7 @@ function calculateAuto()
         autoInsurance = document.getElementById("autoInsurance").value;
     }
     autoInsuranceRequired = parseFloat(autoInsurance * (autoInsurancePercent / 100));
-    document.getElementById("autoInsuranceRequired").placeholder = "$" + autoInsuranceRequired.toFixed(2);
+    document.getElementById("autoInsuranceRequired").placeholder = "$" + autoInsuranceRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     autoFuel = 0;
     if (document.getElementById("autoFuel").value)
@@ -790,7 +792,7 @@ function calculateAuto()
         autoFuel = document.getElementById("autoFuel").value;
     }
     autoFuelRequired = parseFloat(autoFuel * (autoFuelPercent / 100));
-    document.getElementById("autoFuelRequired").placeholder = "$" + autoFuelRequired.toFixed(2);
+    document.getElementById("autoFuelRequired").placeholder = "$" + autoFuelRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     publicTransit = 0;
     if (document.getElementById("publicTransit").value)
@@ -798,7 +800,7 @@ function calculateAuto()
         publicTransit = document.getElementById("publicTransit").value;
     }
     publicTransitRequired = parseFloat(publicTransit * (publicTransitPercent / 100));
-    document.getElementById("publicTransitRequired").placeholder = "$" + publicTransitRequired.toFixed(2);
+    document.getElementById("publicTransitRequired").placeholder = "$" + publicTransitRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     transOther = 0;
     if (document.getElementById("transOther").value)
@@ -806,14 +808,14 @@ function calculateAuto()
         transOther = document.getElementById("transOther").value;
     }
     transOtherRequired = parseFloat(transOther * (transOtherPercent / 100));
-    document.getElementById("transOtherRequired").placeholder = "$" + transOtherRequired.toFixed(2);
+    document.getElementById("transOtherRequired").placeholder = "$" + transOtherRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     transTotal = parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther);
-    document.getElementById("transTotal").placeholder = "$" + transTotal.toFixed(2);
+    document.getElementById("transTotal").placeholder = "$" + transTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     transTotalRequired = parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired);
-    document.getElementById("transTotalRequired").placeholder = "$" + transTotalRequired.toFixed(2);
+    document.getElementById("transTotalRequired").placeholder = "$" + transTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 }
 
 
@@ -826,7 +828,7 @@ function calculateMedical()
         medicalPocket = document.getElementById("medicalPocket").value;
     }
     medicalPocketRequired = parseFloat(medicalPocket * (medicalPocketPercent / 100));
-    document.getElementById("medicalPocketRequired").placeholder = "$" + medicalPocketRequired.toFixed(2);
+    document.getElementById("medicalPocketRequired").placeholder = "$" + medicalPocketRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     medicalPrescriptions = 0;
     if (document.getElementById("medicalPrescriptions").value)
@@ -834,7 +836,7 @@ function calculateMedical()
         medicalPrescriptions = document.getElementById("medicalPrescriptions").value;
     }
     medicalPrescriptionsRequired = parseFloat(medicalPrescriptions * (medicalPrescriptionsPercent / 100));
-    document.getElementById("medicalPrescriptionsRequired").placeholder = "$" + medicalPrescriptionsRequired.toFixed(2);
+    document.getElementById("medicalPrescriptionsRequired").placeholder = "$" + medicalPrescriptionsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     medicalOther = 0;
@@ -843,13 +845,13 @@ function calculateMedical()
         medicalOther = document.getElementById("medicalOther").value;
     }
     medicalOtherRequired = parseFloat(medicalOther * (medicalOtherPercent / 100));
-    document.getElementById("medicalOtherRequired").placeholder = "$" + medicalOtherRequired.toFixed(2);
+    document.getElementById("medicalOtherRequired").placeholder = "$" + medicalOtherRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     medicalTotal = parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther);
-    document.getElementById("medicalTotal").placeholder = "$" + medicalTotal.toFixed(2);
+    document.getElementById("medicalTotal").placeholder = "$" + medicalTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     medicalTotalRequired = parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired);
-    document.getElementById("medicalTotalRequired").placeholder = "$" + medicalTotalRequired.toFixed(2);
+    document.getElementById("medicalTotalRequired").placeholder = "$" + medicalTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 }
 
 
@@ -865,7 +867,7 @@ function calculateEducation()
         eduFees = document.getElementById("eduFees").value;
     }
     eduFeesRequired = parseFloat(eduFees * (eduFeesPercent / 100));
-    document.getElementById("eduFeesRequired").placeholder = "$" + eduFeesRequired.toFixed(2);
+    document.getElementById("eduFeesRequired").placeholder = "$" + eduFeesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     eduSupplies = 0;
     if (document.getElementById("eduSupplies").value)
@@ -873,7 +875,7 @@ function calculateEducation()
         eduSupplies = document.getElementById("eduSupplies").value;
     }
     eduSuppliesRequired = parseFloat(eduSupplies * (eduSuppliesPercent / 100));
-    document.getElementById("eduSuppliesRequired").placeholder = "$" + eduSuppliesRequired.toFixed(2);
+    document.getElementById("eduSuppliesRequired").placeholder = "$" + eduSuppliesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     eduOther = 0;
     if (document.getElementById("eduOther").value)
@@ -881,13 +883,13 @@ function calculateEducation()
         eduOther = document.getElementById("eduOther").value;
     }
     eduOtherRequired = parseFloat(eduOther * (eduOtherPercent / 100));
-    document.getElementById("eduOtherRequired").placeholder = "$" + eduOtherRequired.toFixed(2);
+    document.getElementById("eduOtherRequired").placeholder = "$" + eduOtherRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     eduTotal = parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther);
-    document.getElementById("eduTotal").placeholder = "$" + eduTotal.toFixed(2);
+    document.getElementById("eduTotal").placeholder = "$" + eduTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     eduTotalRequired = parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired);
-    document.getElementById("eduTotalRequired").placeholder = "$" + eduTotalRequired.toFixed(2);
+    document.getElementById("eduTotalRequired").placeholder = "$" + eduTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
 
@@ -900,7 +902,7 @@ function calculateChild()
         childCareExpense = document.getElementById("childCareExpense").value;
     }
     childCareExpenseRequired = parseFloat(childCareExpense * (childCareExpensePercent / 100));
-    document.getElementById("childCareExpenseRequired").placeholder = "$" + childCareExpenseRequired.toFixed(2);
+    document.getElementById("childCareExpenseRequired").placeholder = "$" + childCareExpenseRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childSupport = 0;
     if (document.getElementById("childSupport").value)
@@ -908,7 +910,7 @@ function calculateChild()
         childSupport = document.getElementById("childSupport").value;
     }
     childSupportRequired = parseFloat(childSupport * (childSupportPercent / 100));
-    document.getElementById("childSupportRequired").placeholder = "$" + childSupportRequired.toFixed(2);
+    document.getElementById("childSupportRequired").placeholder = "$" + childSupportRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childRecreation = 0;
     if (document.getElementById("childRecreation").value)
@@ -916,7 +918,7 @@ function calculateChild()
         childRecreation = document.getElementById("childRecreation").value;
     }
     childRecreationRequired = parseFloat(childRecreation * (childRecreationPercent / 100));
-    document.getElementById("childRecreationRequired").placeholder = "$" + childRecreationRequired.toFixed(2);
+    document.getElementById("childRecreationRequired").placeholder = "$" + childRecreationRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childClothing = 0;
     if (document.getElementById("childClothing").value)
@@ -924,7 +926,7 @@ function calculateChild()
         childClothing = document.getElementById("childClothing").value;
     }
     childClothingRequired = parseFloat(childClothing * (childClothingPercent / 100));
-    document.getElementById("childClothingRequired").placeholder = "$" + childClothingRequired.toFixed(2);
+    document.getElementById("childClothingRequired").placeholder = "$" + childClothingRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childOther = 0;
     if (document.getElementById("childOther").value)
@@ -932,13 +934,13 @@ function calculateChild()
         childOther = document.getElementById("childOther").value;
     }
     childOtherRequired = parseFloat(childOther * (childOtherPercent / 100));
-    document.getElementById("childOtherRequired").placeholder = "$" + childOtherRequired.toFixed(2);
+    document.getElementById("childOtherRequired").placeholder = "$" + childOtherRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childTotal = parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther);
-    document.getElementById("childTotal").placeholder = "$" + childTotal.toFixed(2);
+    document.getElementById("childTotal").placeholder = "$" + childTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     childTotalRequired = parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired);
-    document.getElementById("childTotalRequired").placeholder = "$" + childTotalRequired.toFixed(2);
+    document.getElementById("childTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 }
 
 
@@ -953,7 +955,7 @@ function calculateOther()
         memberships = document.getElementById("memberships").value;
     }
     membershipsRequired = parseFloat(memberships * (membershipsPercent / 100));
-    document.getElementById("membershipsRequired").placeholder = "$" + membershipsRequired.toFixed(2);
+    document.getElementById("membershipsRequired").placeholder = "$" + membershipsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     legalFees = 0;
@@ -962,7 +964,7 @@ function calculateOther()
         legalFees = document.getElementById("legalFees").value;
     }
     legalFeesRequired = parseFloat(legalFees * (legalFeesPercent / 100));
-    document.getElementById("legalFeesRequired").placeholder = "$" + legalFeesRequired.toFixed(2);
+    document.getElementById("legalFeesRequired").placeholder = "$" + legalFeesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     donations = 0;
@@ -971,7 +973,7 @@ function calculateOther()
         donations = document.getElementById("donations").value;
     }
     donationsRequired = parseFloat(donations * (donationsPercent / 100));
-    document.getElementById("donationsRequired").placeholder = "$" + donationsRequired.toFixed(2);
+    document.getElementById("donationsRequired").placeholder = "$" + donationsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     otherEntertainment = 0;
@@ -980,7 +982,7 @@ function calculateOther()
         otherEntertainment = document.getElementById("otherEntertainment").value;
     }
     otherEntertainmentRequired = parseFloat(otherEntertainment * (otherEntertainmentPercent / 100));
-    document.getElementById("otherEntertainmentRequired").placeholder = "$" + otherEntertainmentRequired.toFixed(2);
+    document.getElementById("otherEntertainmentRequired").placeholder = "$" + otherEntertainmentRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     pets = 0;
@@ -989,7 +991,7 @@ function calculateOther()
         pets = document.getElementById("pets").value;
     }
     petsRequired = parseFloat(pets * (petsPercent / 100));
-    document.getElementById("petsRequired").placeholder = "$" + petsRequired.toFixed(2);
+    document.getElementById("petsRequired").placeholder = "$" + petsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     storage = 0;
@@ -998,7 +1000,7 @@ function calculateOther()
         storage = document.getElementById("storage").value;
     }
     storageRequired = parseFloat(storage * (storagePercent / 100));
-    document.getElementById("storageRequired").placeholder = "$" + storageRequired.toFixed(2);
+    document.getElementById("storageRequired").placeholder = "$" + storageRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     clothing = 0;
@@ -1007,7 +1009,7 @@ function calculateOther()
         clothing = document.getElementById("clothing").value;
     }
     clothingRequired = parseFloat(clothing * (clothingPercent / 100));
-    document.getElementById("clothingRequired").placeholder = "$" + clothingRequired.toFixed(2);
+    document.getElementById("clothingRequired").placeholder = "$" + clothingRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     constructiveDebt = 0;
@@ -1016,7 +1018,7 @@ function calculateOther()
         constructiveDebt = document.getElementById("constructiveDebt").value;
     }
     constructiveDebtRequired = parseFloat(constructiveDebt * (constructiveDebtPercent / 100));
-    document.getElementById("constructiveDebtRequired").placeholder = "$" + constructiveDebtRequired.toFixed(2);
+    document.getElementById("constructiveDebtRequired").placeholder = "$" + constructiveDebtRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     consumerDebt = 0;
@@ -1025,7 +1027,7 @@ function calculateOther()
         consumerDebt = document.getElementById("consumerDebt").value;
     }
     consumerDebtRequired = parseFloat(consumerDebt * (consumerDebtPercent / 100));
-    document.getElementById("consumerDebtRequired").placeholder = "$" + consumerDebtRequired.toFixed(2);
+    document.getElementById("consumerDebtRequired").placeholder = "$" + consumerDebtRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     collections = 0;
@@ -1034,7 +1036,7 @@ function calculateOther()
         collections = document.getElementById("collections").value;
     }
     collectionsRequired = parseFloat(collections * (collectionsPercent / 100));
-    document.getElementById("collectionsRequired").placeholder = "$" + collectionsRequired.toFixed(2);
+    document.getElementById("collectionsRequired").placeholder = "$" + collectionsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
     otherExpenses = 0;
@@ -1043,7 +1045,7 @@ function calculateOther()
         otherExpenses = document.getElementById("otherExpenses").value;
     }
     otherExpensesRequired = parseFloat(otherExpenses * (otherExpensesPercent / 100));
-    document.getElementById("otherExpensesRequired").placeholder = "$" + otherExpensesRequired.toFixed(2);
+    document.getElementById("otherExpensesRequired").placeholder = "$" + otherExpensesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     /*
      savings = 0;
@@ -1055,10 +1057,10 @@ function calculateOther()
      document.getElementById("savingsRequired").placeholder = "$" +savingsRequired;
      */
     otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses);
-    document.getElementById("otherTotal").placeholder = "$" + otherTotal.toFixed(2);
+    document.getElementById("otherTotal").placeholder = "$" + otherTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
-    document.getElementById("otherTotalRequired").placeholder = "$" + childTotalRequired.toFixed(2);
+    document.getElementById("otherTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 }
 
 
@@ -1131,15 +1133,15 @@ function calculateEmergencySavings()
     document.getElementById("percentOfFiftyTimesThree").placeholder = percentOfFiftyTimesThree.toFixed(2) + " Months";
 
     budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses)
-    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toFixed(2);
+    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
-    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toFixed(2);
+    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
     document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
     totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
-    document.getElementById("totalEmergencySavingsRequired").placeholder = "$" + totalEmergencySavingsRequired.toFixed(2);
+    document.getElementById("totalEmergencySavingsRequired").placeholder = "$" + totalEmergencySavingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
 
@@ -1780,15 +1782,15 @@ function printPage() {
     doc.save('a4.pdf')
 /*
     budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses)
-    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toFixed(2);
+    document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
-    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toFixed(2);
+    document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     monthsEmergencySavingsRequired = percentOfFiftyTimesThree;
     document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
     totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
-    document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toFixed(2);
+    document.getElementById("totalEmergencySavingsRequired").placeholder = totalEmergencySavingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
     */
                                         
                                         
