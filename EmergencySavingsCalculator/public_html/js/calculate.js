@@ -109,6 +109,12 @@ window.onload = function () {
     document.getElementById("btnOtherNext").onclick = function () {
         navigate("other_next");
     };
+    document.getElementById("btnCheckBudgetBack").onclick = function () {
+        navigate("checkBudget_back");
+    };
+    document.getElementById("btnCheckBudgetNext").onclick = function () {
+        navigate("checkBudget_next");
+    };
     document.getElementById("btnResultsBack").onclick = function () {
         navigate("results_back");
     };
@@ -1103,6 +1109,36 @@ function calculateEmergencySavings()
 
 }
 
+function checkBudget()
+{
+    calculateEmergencySavings();
+
+    document.getElementById("checkhouseholdIncome").placeholder = '$' + (clientTotal + spouseTotal).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    document.getElementById("checkbudgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    var surplus = ((clientTotal + spouseTotal)-budgetTotal);
+    if (surplus < 0 )
+    {
+        $("#surplusIndicatorLabel").css("color", "red");
+        $("#surplusIndicatorLabel").text("You Have Too Much In Your Budget! (Lower Money In A Budget Category)");
+        document.getElementById("surplusIndicator").placeholder = '- $' + (surplus*-1).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    }
+    else if (surplus == 0)
+    {
+        $("#surplusIndicatorLabel").css("color", "green");
+        $("#surplusIndicatorLabel").text("You Budgeted Your Money Perfectly!");
+        document.getElementById("surplusIndicator").placeholder = '$' + surplus.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    }
+    else
+    {
+        $("#surplusIndicatorLabel").css("color", "red");
+        $("#surplusIndicatorLabel").text("You Didn't Budget All Your Money! (Add to Savings?)");
+        document.getElementById("surplusIndicator").placeholder = '$' + surplus.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    }
+}
+
 //flow functions
 function overview_click()
 {
@@ -1214,6 +1250,20 @@ function other_click()
     }
 }
 
+function checkBudget_click()
+{
+    if (!checkBudgetNav.className.includes("disabled"))
+    {
+        hideAllDivs();
+        updateAll();
+        checkBudgetOp.style.display = "block";
+        checkBudgetNav.className = "list-group-item active";
+        checkBudget();
+
+        $("#showHidePercent").show();
+    }
+}
+
 function results_click()
 {
     if (!resultsNav.className.includes("disabled"))
@@ -1239,6 +1289,7 @@ function hideAllDivs()
     educationOp.style.display = "none";
     childrenOp.style.display = "none";
     otherOp.style.display = "none";
+    checkBudgetOp.style.display = "none";
     resultsOp.style.display = "none";
 
 //    overviewNav.className = "list-group-item";
@@ -1265,6 +1316,7 @@ var medicalStatus = "disabled";
 var educationStatus = "disabled";
 var childrenStatus = "disabled";
 var otherStatus = "disabled";
+var checkBudgetStatus = "disabled";
 var resultsStatus = "disabled";
 
 function updateAll()
@@ -1393,6 +1445,20 @@ function updateAll()
     {
         otherNav.className = "list-group-item disabled";
         otherNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Other";
+    }
+
+    if (checkBudgetStatus === "complete")
+    {
+        checkBudgetNav.className = "list-group-item list-group-item-success";
+        checkBudgetNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Check Budget";
+    } else if (checkBudgetStatus === "visited")
+    {
+        checkBudgetNav.className = "list-group-item";
+        checkBudgetNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Check Budget";
+    } else
+    {
+        checkBudgetNav.className = "list-group-item disabled";
+        checkBudgetNav.innerHTML = "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Check Budget";
     }
 
     if (resultsStatus === "complete")
@@ -1539,6 +1605,24 @@ switch (direction)
             break;
         case "other_next":
             otherStatus = "complete";
+            checkBudgetStatus = "visited";
+            updateAll();
+            checkBudgetNav.className = "list-group-item active";
+            hideAllDivs();
+            checkBudgetOp.style.display = "block";
+            $("#showHidePercent").show();
+            checkBudget();
+            break;
+        case "checkBudget_back":
+            //otherStatus = "visited";
+            updateAll();
+            otherNav.className = "list-group-item active";
+            hideAllDivs();
+            otherOp.style.display = "block";
+            $("#showHidePercent").show();
+            break;
+        case "checkBudget_next":
+            checkBudgetStatus = "complete";
             resultsStatus = "visited";
             updateAll();
             resultsNav.className = "list-group-item active";
@@ -1549,10 +1633,11 @@ switch (direction)
             break;
         case "results_back":           
             updateAll();
-            otherNav.className = "list-group-item active";
+            checkBudgetNav.className = "list-group-item active";
             hideAllDivs();
-            otherOp.style.display = "block";
+            checkBudgetOp.style.display = "block";
             $("#showHidePercent").show();
+            checkBudget();
             break;
         case "reset":
             var r = confirm("Are you sure you want to reset?");
