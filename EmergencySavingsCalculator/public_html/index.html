@@ -30,6 +30,7 @@
         <script type="text/javascript" src="js/dashboard.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
         <script type="text/javascript" src="js/calculate.js"></script>
+        
 
     </head>
     <body>
@@ -94,6 +95,7 @@
 
                     <div id="incomeOp" style="display:none;">  <!-- /income div -->
                         <br />
+                        <div class="alert"></div>
                         <h1 align="middle">Income</h1>
                         <div id="form_layout">                   
                             <form class="form-horizontal" role="form" action="income" method="post" id="incomeForm"><br/>
@@ -101,84 +103,84 @@
                                     <div class="form-group">
                                         <label for="clientHours" class="col-lg-6 control-label">Client Hours:</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientHours" name="clientHours"  placeholder="0 Hours"/>
+                                            <input onkeypress="checkInput(event)" onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientHours" name="clientHours"  placeholder="0 Hours"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientHours"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Rate ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientRate" name="clientRate"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientRate" name="clientRate"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientRate"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Wages:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientWages" name="clientWages"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientWages" name="clientWages"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientWages"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client PR Deductions ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientPRDeductions" name="clientPRDeductions"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientPRDeductions" name="clientPRDeductions"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientPRDeductions"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Net:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientNet" name="clientNet" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientNet" name="clientNet" disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientNet"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Self-Employment ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientSelfEmployment" name="clientSelfEmployment"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientSelfEmployment" name="clientSelfEmployment"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientSelfEmployment"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Social Security ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientSocialSecurityRetirement" name="clientSocialSecurityRetirement"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientSocialSecurityRetirement" name="clientSocialSecurityRetirement"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientSocialSecurityRetirement"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Pension ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientPension" name="clientPension"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientPension" name="clientPension"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientPension"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Alimony ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientAlimony" name="clientAlimony"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientAlimony" name="clientAlimony"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientAlimony"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Child Support ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientChildSupport" name="clientChildSupport"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientChildSupport" name="clientChildSupport"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientChildSupport"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Other Income ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="clientOtherIncome" name="clientOtherIncome"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="clientOtherIncome" name="clientOtherIncome"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientOtherIncome"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Client Total:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientTotal" name="clientTotal"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientTotal" name="clientTotal"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientTotal"></span></div>
                                     </div>
@@ -190,84 +192,84 @@
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Hours:</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseHours" name="spouseHours"  placeholder="0 Hours"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseHours" name="spouseHours"  placeholder="0 Hours"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseHours"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Rate  ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spouseRate" name="spouseRate" />
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spouseRate" name="spouseRate" />
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseRate"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Wages:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseWages" name="spouseWages"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseWages" name="spouseWages"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseWages"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse PR Deductions ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spousePRDeductions" name="spousePRDeductions" />
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spousePRDeductions" name="spousePRDeductions" />
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpousePRDeductions"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Net:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseNet" name="spouseNet" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseNet" name="spouseNet" disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseNet"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Self-Employment ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseSelfEmployment" name="spouseSelfEmployment"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseSelfEmployment" name="spouseSelfEmployment"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseSelfEmployment"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Social Security ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseSocialSecurityRetirement" name="spouseSocialSecurityRetirement"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseSocialSecurityRetirement" name="spouseSocialSecurityRetirement"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseSocialSecurityRetirement"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Pension ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spousePension" name="spousePension"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spousePension" name="spousePension"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpousePension"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Alimony ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseAlimony" name="spouseAlimony"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseAlimony" name="spouseAlimony"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseAlimony"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Child Support ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseChildSupport" name="spouseChildSupport"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseChildSupport" name="spouseChildSupport"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseChildSupport"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Other Income ($):</label>
                                         <div class="col-lg-6">
-                                            <input oninput="calculate()" type="number" class="form-control" id="spouseOtherIncome" name="spouseOtherIncome"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" oninput="calculate()" type="number" class="form-control" id="spouseOtherIncome" name="spouseOtherIncome"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseOtherIncome"></span></div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-lg-6 control-label">Spouse Total:</label>
                                         <div class="col-lg-6">
-                                            <input style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseTotal" name="spouseTotal"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseTotal" name="spouseTotal"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseTotal"></span></div>
                                     </div>
@@ -318,7 +320,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Monthly Budget ($)</span>
                                                 </div>
-                                                <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="rent" name="rent"  placeholder="$0.00" style="border:1px solid #ff0000"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="rent" name="rent"  placeholder="$0.00" style="border:1px solid #ff0000"/>
                                             </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -327,7 +329,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="rentPercent" name="rentPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="rentPercent" name="rentPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -336,7 +338,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="rentRequired" name="rentRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="rentRequired" name="rentRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -348,7 +350,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="electricity" name="electricity"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="electricity" name="electricity"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -357,7 +359,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="electricityPercent" name="electricityPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="electricityPercent" name="electricityPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -366,7 +368,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="electricityRequired" name="electricityRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="electricityRequired" name="electricityRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -378,7 +380,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="gas" name="gas"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="gas" name="gas"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -387,7 +389,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="gasPercent" name="gasPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="gasPercent" name="gasPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -396,7 +398,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="gasRequired" name="gasRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="gasRequired" name="gasRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -408,7 +410,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="water" name="water"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="water" name="water"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -417,7 +419,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="waterPercent" name="waterPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="waterPercent" name="waterPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -426,7 +428,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="waterRequired" name="waterRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="waterRequired" name="waterRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -438,7 +440,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="netflix" name="netflix"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="netflix" name="netflix"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -447,7 +449,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="netflixPercent" name="netflixPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="netflixPercent" name="netflixPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -456,7 +458,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="netflixRequired" name="netflixRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="netflixRequired" name="netflixRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -468,7 +470,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="internet" name="internet"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="internet" name="internet"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -477,7 +479,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="internetPercent" name="internetPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="internetPercent" name="internetPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -486,7 +488,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="internetRequired" name="internetRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="internetRequired" name="internetRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -498,7 +500,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="entertainment" name="entertainment"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="entertainment" name="entertainment"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -507,7 +509,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentPercent" name="entertainmentPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentPercent" name="entertainmentPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -516,7 +518,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentRequired" name="entertainmentRequired"  disabled="disabled" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="entertainmentRequired" name="entertainmentRequired"  disabled="disabled" />
                                           </div>
                                         </div>
                                     </div>
@@ -528,7 +530,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilities" name="otherUtilities"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilities" name="otherUtilities"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -537,7 +539,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesPercent" name="otherUtilitiesPercent"  disabled="disabled" />
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesPercent" name="otherUtilitiesPercent"  disabled="disabled" />
                                               </div>
                                             </div>
                                         </div>
@@ -546,7 +548,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesRequired" name="otherUtilitiesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="otherUtilitiesRequired" name="otherUtilitiesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -558,7 +560,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="cellPhone" name="cellPhone"  placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateHousing()" type="number" class="form-control" id="cellPhone" name="cellPhone"  placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -567,7 +569,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="cellPhonePercent" name="cellPhonePercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateHousing()" type="number" class="form-control" id="cellPhonePercent" name="cellPhonePercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -576,7 +578,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="cellPhoneRequired" name="cellPhoneRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateHousing()" type="number" class="form-control" id="cellPhoneRequired" name="cellPhoneRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -625,7 +627,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceries" name="groceries" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceries" name="groceries" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -634,7 +636,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesPercent" name="groceriesPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesPercent" name="groceriesPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -643,7 +645,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesRequired" name="groceriesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesRequired" name="groceriesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -655,7 +657,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="eatingOut" name="eatingOut" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="eatingOut" name="eatingOut" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -664,7 +666,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="eatingOutPercent" name="eatingOutPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="eatingOutPercent" name="eatingOutPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -673,7 +675,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="eatingOutRequired" name="eatingOutRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="eatingOutRequired" name="eatingOutRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -685,7 +687,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="personalHygiene" name="personalHygiene" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="personalHygiene" name="personalHygiene" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -694,7 +696,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="personalHygienePercent" name="personalHygienePercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="personalHygienePercent" name="personalHygienePercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -703,7 +705,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="personalHygieneRequired" name="personalHygieneRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="personalHygieneRequired" name="personalHygieneRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -715,7 +717,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceriesOther" name="groceriesOther" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateFood()" type="number" class="form-control" id="groceriesOther" name="groceriesOther" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -724,7 +726,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherPercent" name="groceriesOtherPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherPercent" name="groceriesOtherPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -733,7 +735,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherRequired" name="groceriesOtherRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateFood()" type="number" class="form-control" id="groceriesOtherRequired" name="groceriesOtherRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -782,7 +784,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurance" name="autoInsurance" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurance" name="autoInsurance" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -791,7 +793,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurancePercent" name="autoInsurancePercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoInsurancePercent" name="autoInsurancePercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -800,7 +802,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoInsuranceRequired" name="autoInsuranceRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoInsuranceRequired" name="autoInsuranceRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -812,7 +814,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoFuel" name="autoFuel" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="autoFuel" name="autoFuel" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -821,7 +823,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelPercent" name="autoFuelPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelPercent" name="autoFuelPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -830,7 +832,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelRequired" name="autoFuelRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="autoFuelRequired" name="autoFuelRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -842,7 +844,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="publicTransit" name="publicTransit" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="publicTransit" name="publicTransit" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -851,7 +853,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitPercent" name="publicTransitPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitPercent" name="publicTransitPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -860,7 +862,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitRequired" name="publicTransitRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="publicTransitRequired" name="publicTransitRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -872,7 +874,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="transOther" name="transOther" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateAuto()" type="number" class="form-control" id="transOther" name="transOther" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -881,7 +883,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="transOtherPercent" name="transOtherPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateAuto()" type="number" class="form-control" id="transOtherPercent" name="transOtherPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -890,7 +892,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="transOtherRequired" name="transOtherRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateAuto()" type="number" class="form-control" id="transOtherRequired" name="transOtherRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -939,7 +941,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocket" name="medicalPocket" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocket" name="medicalPocket" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -948,7 +950,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketPercent" name="medicalPocketPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketPercent" name="medicalPocketPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -957,7 +959,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketRequired" name="medicalPocketRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPocketRequired" name="medicalPocketRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -969,7 +971,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptions" name="medicalPrescriptions" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptions" name="medicalPrescriptions" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -978,7 +980,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsPercent" name="medicalPrescriptionsPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsPercent" name="medicalPrescriptionsPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -987,7 +989,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsRequired" name="medicalPrescriptionsRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalPrescriptionsRequired" name="medicalPrescriptionsRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -999,7 +1001,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalOther" name="medicalOther" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateMedical()" type="number" class="form-control" id="medicalOther" name="medicalOther" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1008,7 +1010,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherPercent" name="medicalOtherPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherPercent" name="medicalOtherPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1017,7 +1019,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherRequired" name="medicalOtherRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateMedical()" type="number" class="form-control" id="medicalOtherRequired" name="medicalOtherRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1066,7 +1068,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduFees" name="eduFees" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduFees" name="eduFees" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1075,7 +1077,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesPercent" name="eduFeesPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesPercent" name="eduFeesPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1084,7 +1086,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Required Amount ($)</span>
                                                 </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesRequired" name="eduFeesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduFeesRequired" name="eduFeesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1096,7 +1098,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduSupplies" name="eduSupplies" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduSupplies" name="eduSupplies" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1105,7 +1107,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesPercent" name="eduSuppliesPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesPercent" name="eduSuppliesPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1114,7 +1116,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesRequired" name="eduSuppliesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduSuppliesRequired" name="eduSuppliesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1126,7 +1128,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduOther" name="eduOther" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateEducation()" type="number" class="form-control" id="eduOther" name="eduOther" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1135,7 +1137,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherPercent" name="eduOtherPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherPercent" name="eduOtherPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1144,7 +1146,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherRequired" name="eduOtherRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateEducation()" type="number" class="form-control" id="eduOtherRequired" name="eduOtherRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1193,7 +1195,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childCareExpense" name="childCareExpense" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childCareExpense" name="childCareExpense" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1202,7 +1204,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childCareExpensePercent" name="childCareExpensePercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childCareExpensePercent" name="childCareExpensePercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1211,7 +1213,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childCareExpenseRequired" name="childCareExpenseRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childCareExpenseRequired" name="childCareExpenseRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1223,7 +1225,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childSupport" name="childSupport" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childSupport" name="childSupport" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1232,7 +1234,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childSupportPercent" name="childSupportPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childSupportPercent" name="childSupportPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1241,7 +1243,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childSupportRequired" name="childSupportRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childSupportRequired" name="childSupportRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1253,7 +1255,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childRecreation" name="childRecreation" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childRecreation" name="childRecreation" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1262,7 +1264,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childRecreationPercent" name="childRecreationPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childRecreationPercent" name="childRecreationPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1271,7 +1273,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childRecreationRequired" name="childRecreationRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childRecreationRequired" name="childRecreationRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1283,7 +1285,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childClothing" name="childClothing" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childClothing" name="childClothing" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1292,7 +1294,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childClothingPercent" name="childClothingPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childClothingPercent" name="childClothingPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1301,7 +1303,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childClothingRequired" name="childClothingRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childClothingRequired" name="childClothingRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1313,7 +1315,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childOther" name="childOther" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateChild()" type="number" class="form-control" id="childOther" name="childOther" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1322,7 +1324,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childOtherPercent" name="childOtherPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateChild()" type="number" class="form-control" id="childOtherPercent" name="childOtherPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1331,7 +1333,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childOtherRequired" name="childOtherRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateChild()" type="number" class="form-control" id="childOtherRequired" name="childOtherRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1380,7 +1382,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="memberships" name="memberships" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="memberships" name="memberships" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1389,7 +1391,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="membershipsPercent" name="membershipsPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="membershipsPercent" name="membershipsPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1398,7 +1400,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Required Amount ($)</span>
                                                 </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="membershipsRequired" name="membershipsRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="membershipsRequired" name="membershipsRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1410,7 +1412,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="legalFees" name="legalFees" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="legalFees" name="legalFees" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1419,7 +1421,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="legalFeesPercent" name="legalFeesPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="legalFeesPercent" name="legalFeesPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1428,7 +1430,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="legalFeesRequired" name="legalFeesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="legalFeesRequired" name="legalFeesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1440,7 +1442,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="donations" name="donations" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="donations" name="donations" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1449,7 +1451,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="donationsPercent" name="donationsPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="donationsPercent" name="donationsPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1458,7 +1460,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="donationsRequired" name="donationsRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="donationsRequired" name="donationsRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1470,7 +1472,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainment" name="otherEntertainment" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainment" name="otherEntertainment" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1479,7 +1481,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentPercent" name="otherEntertainmentPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentPercent" name="otherEntertainmentPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1488,7 +1490,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentRequired" name="otherEntertainmentRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherEntertainmentRequired" name="otherEntertainmentRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1500,7 +1502,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="pets" name="pets" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="pets" name="pets" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1509,7 +1511,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="petsPercent" name="petsPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="petsPercent" name="petsPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1518,7 +1520,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="petsRequired" name="petsRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="petsRequired" name="petsRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1530,7 +1532,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="storage" name="storage" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="storage" name="storage" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1539,7 +1541,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="storagePercent" name="storagePercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="storagePercent" name="storagePercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1548,7 +1550,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="storageRequired" name="storageRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="storageRequired" name="storageRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1560,7 +1562,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="clothing" name="clothing" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="clothing" name="clothing" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1569,7 +1571,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="clothingPercent" name="clothingPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="clothingPercent" name="clothingPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1578,7 +1580,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="clothingRequired" name="clothingRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="clothingRequired" name="clothingRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1590,7 +1592,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebt" name="constructiveDebt" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebt" name="constructiveDebt" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1599,7 +1601,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtPercent" name="constructiveDebtPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtPercent" name="constructiveDebtPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1608,7 +1610,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtRequired" name="constructiveDebtRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="constructiveDebtRequired" name="constructiveDebtRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1620,7 +1622,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="consumerDebt" name="consumerDebt" placeholder="$0.00" />
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="consumerDebt" name="consumerDebt" placeholder="$0.00" />
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1629,7 +1631,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtPercent" name="consumerDebtPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtPercent" name="consumerDebtPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1638,7 +1640,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtRequired" name="consumerDebtRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="consumerDebtRequired" name="consumerDebtRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1650,7 +1652,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="collections" name="collections" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="collections" name="collections" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1659,7 +1661,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="collectionsPercent" name="collectionsPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="collectionsPercent" name="collectionsPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1668,7 +1670,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="collectionsRequired" name="collectionsRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="collectionsRequired" name="collectionsRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1680,7 +1682,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Monthly Budget ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherExpenses" name="otherExpenses" placeholder="$0.00"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="otherExpenses" name="otherExpenses" placeholder="$0.00"/>
                                           </div>
                                         </div>
                                         <div class="percentNeeded">
@@ -1689,7 +1691,7 @@
                                                 <div class="input-group-addon">
                                                     <span class="hidden-lg">Percentage Needed</span>
                                                 </div>
-                                                <input style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesPercent" name="otherExpensesPercent"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesPercent" name="otherExpensesPercent"  disabled="disabled"/>
                                               </div>
                                             </div>
                                         </div>
@@ -1698,7 +1700,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">Required Amount ($)</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesRequired" name="otherExpensesRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesRequired" name="otherExpensesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1751,7 +1753,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">INCOME ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" type="text" class="form-control" id="clientFinalTotalIncome" name="clientFinalTotalIncome" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" type="text" class="form-control" id="clientFinalTotalIncome" name="clientFinalTotalIncome" disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1759,7 +1761,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
                                             </div>
-                                            <input style="border:1px solid #11ff11" type="number" class="form-control" id="clientHouseholdPercent" name="clientHouseholdPercent"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" type="number" class="form-control" id="clientHouseholdPercent" name="clientHouseholdPercent"  disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1767,7 +1769,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% ABOVE 50</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" type="number" class="form-control" id="clientFinalAboveFifty" name="clientFinalAboveFifty"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" type="number" class="form-control" id="clientFinalAboveFifty" name="clientFinalAboveFifty"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1779,7 +1781,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">INCOME ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" type="text" class="form-control" id="spouseFinalTotalIncome" name="spouseFinalTotalIncome" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" type="text" class="form-control" id="spouseFinalTotalIncome" name="spouseFinalTotalIncome" disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1787,7 +1789,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
                                             </div>
-                                            <input style="border:1px solid #11ff11" type="number" class="form-control" id="spouseHouseholdPercent" name="spouseHouseholdPercent"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" type="number" class="form-control" id="spouseHouseholdPercent" name="spouseHouseholdPercent"  disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1795,7 +1797,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% ABOVE 50</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" type="number" class="form-control" id="spouseFinalAboveFifty" name="spouseFinalAboveFifty"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" type="number" class="form-control" id="spouseFinalAboveFifty" name="spouseFinalAboveFifty"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1807,7 +1809,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">INCOME ($)</span>
                                             </div>
-                                            <input style="border:1px solid #ff0000" type="text" class="form-control" id="householdIncome" name="householdIncome" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" type="text" class="form-control" id="householdIncome" name="householdIncome" disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1815,7 +1817,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% OF HOUSEHOLD INCOME</span>
                                             </div>
-                                            <input style="border:1px solid #11ff11" type="text" class="form-control" id="householdPercent" name="householdPercent"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" type="text" class="form-control" id="householdPercent" name="householdPercent"  disabled="disabled"/>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
@@ -1823,7 +1825,7 @@
                                             <div class="input-group-addon">
                                                 <span class="hidden-lg">% ABOVE 50</span>
                                             </div>
-                                            <input style="border:1px solid #1111ff" type="number" class="form-control" id="householdAboveFifty" name="householdAboveFifty"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" type="number" class="form-control" id="householdAboveFifty" name="householdAboveFifty"  disabled="disabled"/>
                                           </div>
                                         </div>
                                     </div>
@@ -1834,11 +1836,11 @@
                                         <div class="form-group">
                                             <label class="col-lg-3 control-label">% Above 50 x2:</label>
                                             <div class="col-lg-3">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="percentOfFifty" name="percentOfFifty" disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="percentOfFifty" name="percentOfFifty" disabled="disabled"/>
                                             </div>
                                             <label class="col-lg-3 control-label">x3 Months + 3 Months:</label>
                                             <div class="col-lg-3">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="percentOfFiftyTimesThree" name="percentOfFiftyTimesThree"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="percentOfFiftyTimesThree" name="percentOfFiftyTimesThree"  disabled="disabled"/>
                                             </div>
                                         </div>
                                 </div>
@@ -1852,13 +1854,13 @@
                                         <div class="form-group">
                                             <label class="col-lg-6 control-label">Monthly Budget Total:</label>
                                             <div class="col-lg-6">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="budgetTotal" name="budgetTotal" disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="budgetTotal" name="budgetTotal" disabled="disabled"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-lg-6 control-label">Months of Savings Required:</label>
                                             <div class="col-lg-6">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="monthsEmergencySavingsRequired" name="monthsEmergencySavingsRequired" disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="monthsEmergencySavingsRequired" name="monthsEmergencySavingsRequired" disabled="disabled"/>
                                             </div>
                                         </div>
 
@@ -1869,13 +1871,13 @@
                                         <div class="form-group">
                                             <label class="col-lg-6 control-label">Monthly Budget Required:</label>
                                             <div class="col-lg-6">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="budgetTotalRequired" name="budgetTotalRequired"  disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="budgetTotalRequired" name="budgetTotalRequired"  disabled="disabled"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-lg-6 control-label">Total Emergency Savings Required:</label>
                                             <div class="col-lg-6">
-                                                <input style="border:1px solid #000000" type="number" class="form-control" id="totalEmergencySavingsRequired" name="totalEmergencySavingsRequired" disabled="disabled"/>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #000000" type="number" class="form-control" id="totalEmergencySavingsRequired" name="totalEmergencySavingsRequired" disabled="disabled"/>
                                             </div>
                                         </div>  
                                     </div>
@@ -1886,59 +1888,59 @@
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Housing Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotal" name="housingTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotal" name="housingTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Housing Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotalRequired" name="housingTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateHousing()" type="number" class="form-control" id="housingTotalRequired" name="housingTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Food Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotal" name="foodTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotal" name="foodTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Food Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotalRequired" name="foodTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateFood()" type="number" class="form-control" id="foodTotalRequired" name="foodTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Transportation Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotal" name="transTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotal" name="transTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Trans Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotalRequired" name="transTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateTransportation()" type="number" class="form-control" id="transTotalRequired" name="transTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Medical Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotal" name="medicalTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotal" name="medicalTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Medical Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotalRequired" name="medicalTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateMedical()" type="number" class="form-control" id="medicalTotalRequired" name="medicalTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Edu Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotal" name="eduTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotal" name="eduTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Education Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotalRequired" name="eduTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateEdu()" type="number" class="form-control" id="eduTotalRequired" name="eduTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Child Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotal" name="childTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotal" name="childTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Child Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotalRequired" name="childTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateChild()" type="number" class="form-control" id="childTotalRequired" name="childTotalRequired"  disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Other Total:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotal" name="otherTotal" disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotal" name="otherTotal" disabled="disabled"/>
                                         </div>
                                         <label class="col-lg-3 control-label">Other Total Required:</label>
                                         <div class="col-lg-3">
-                                            <input style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotalRequired" name="otherTotalRequired"  disabled="disabled"/>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotalRequired" name="otherTotalRequired"  disabled="disabled"/>
                                         </div>
 
 
@@ -1995,5 +1997,7 @@
                                 ga('create', 'UA-XXXXX-X', 'auto');
                                 ga('send', 'pageview');
         </script>
+
+        
     </body>
 </html>
