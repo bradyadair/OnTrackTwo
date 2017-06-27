@@ -163,6 +163,8 @@ window.onload = function () {
     consumerDebtPercent = 75;
     collectionsPercent = 0;
     otherExpensesPercent = 0;
+    savingsPercent = 0;
+    
 
     $.ajax({
         'url': '../../api/v1/api.php?endpoint=entry&category=18',
@@ -303,9 +305,6 @@ window.onload = function () {
     });
 
 
-    //savingsPercent = 0;
-    //document.getElementById("savingsPercent").placeholder = savingsPercent +"%";
-
 
     //-------------------------------------------------------------------------------------------------------------------------
 
@@ -444,6 +443,8 @@ function setElements() {
 
 
     document.getElementById("otherExpensesPercent").placeholder = otherExpensesPercent + "%";
+
+    document.getElementById("savingsPercent").placeholder = savingsPercent +"%";
 
 
     //hides show/hide calculations button at beginning
@@ -1009,17 +1010,16 @@ function calculateOther()
         otherExpenses = document.getElementById("otherExpenses").value;
     }
     otherExpensesRequired = parseFloat(otherExpenses * (otherExpensesPercent / 100));
-    document.getElementById("otherExpensesRequired").placeholder = "$" + otherExpensesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById("otherExpensesRequired").placeholder = "$" + otherExpensesRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});    
 
-    /*
-     savings = 0;
-     if (document.getElementById("savings").value)
-     {
-     savings = document.getElementById("savings").value;
-     }
-     savingsRequired = parseFloat(savings*(savingsPercent/100));
-     document.getElementById("savingsRequired").placeholder = "$" +savingsRequired;
-     */
+    savings = 0;
+    if (document.getElementById("savings").value)
+    {
+        savings = document.getElementById("savings").value;
+    }
+    savingsRequired = parseFloat(savings*(savingsPercent/100));
+    document.getElementById("savingsRequired").placeholder = "$" +savingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
     otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses);
     document.getElementById("otherTotal").placeholder = "$" + otherTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
@@ -1096,10 +1096,10 @@ function calculateEmergencySavings()
     percentOfFiftyTimesThree = ((householdAboveFifty * 2) / 100 * 3 + 3);
     document.getElementById("percentOfFiftyTimesThree").placeholder = percentOfFiftyTimesThree.toFixed(2) + " Months";
 
-    budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses)
+    budgetTotal = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone) + parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther) + parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther) + parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther) + parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther) + parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther) + parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
     document.getElementById("budgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
+    budgetTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired) + parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired) + parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired) + parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired) + parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired) + parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired) + parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
     document.getElementById("budgetTotalRequired").placeholder = "$" + budgetTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     monthsEmergencySavingsRequired = percentOfFiftyTimesThree;

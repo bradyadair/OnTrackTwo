@@ -1709,11 +1709,45 @@
                                             <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="otherExpensesRequired" name="otherExpensesRequired"  disabled="disabled"/>
                                           </div>
                                         </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Savings ($):</label>
+                                        <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Monthly Budget ($)</span>
+                                            </div>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #ff0000" oninput="calculateOther()" type="number" class="form-control" id="savings" name="savings" placeholder="$0.00"/>
+                                          </div>
+                                        </div>
+                                        <div class="percentNeeded">
+                                            <div class="col-lg-3">
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="hidden-lg">Percentage Needed</span>
+                                                </div>
+                                                <input onkeypress="checkInput(event)" style="border:1px solid #11ff11" oninput="calculateOther()" type="number" class="form-control" id="savingsPercent" name="savingsPercent"  disabled="disabled"/>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                          <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <span class="hidden-lg">Required Amount ($)</span>
+                                            </div>
+                                            <input onkeypress="checkInput(event)" style="border:1px solid #1111ff" oninput="calculateOther()" type="number" class="form-control" id="savingsRequired" name="savingsRequired"  disabled="disabled"/>
+                                          </div>
+                                        </div>
+                                        
                                     </div>
                                     <div class="content" style="color:#ff5757"><span class="invalidOtherExpenses"></span></div>
                                 </div>        
                             </form>
                         </div>
+
+
                         
                         <hr />
                         <!-- Nav buttons -->
@@ -1995,14 +2029,8 @@
                                         <div class="col-lg-3">
                                             <input onkeypress="checkInput(event)" style="border:1px solid #000000" oninput="calculateOther()" type="number" class="form-control" id="otherTotalRequired" name="otherTotalRequired"  disabled="disabled"/>
                                         </div>
-
-
-
-
-
                                     </div>
                                 </div>
-
                             </form>
                             <button align="middle" onclick="printPage()">Print this page</button>
                         </div>
