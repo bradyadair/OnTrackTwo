@@ -30,7 +30,17 @@ $main = function () {
             if (isset($_GET['id'])) {
                 $args = array("id" => $_GET['id']);
                 echo json_encode((new \OnTrack\Controllers\EntryController())->getEntry($args));
-            } else echo json_encode((new \OnTrack\Controllers\EntryController())->getEntries($args));
+            } 
+            //Using getEntryName to find the values with the name beginning with certain text (Ex. housing_1) to use for calculations
+            else if (isset($_GET['name'])) {
+                $args = array("name" => $_GET['name']);
+                echo json_encode((new \OnTrack\Controllers\EntryController())->getEntryName($args));
+            } 
+            else if (isset($_GET['category'])) {
+                $args = array("category" => $_GET['category']);
+                echo json_encode((new \OnTrack\Controllers\EntryController())->getEntryCategory($args));
+            } 
+            else echo json_encode((new \OnTrack\Controllers\EntryController())->getEntries($args));
         }
 
         if ($_GET['endpoint'] == 'category') {
@@ -38,6 +48,14 @@ $main = function () {
                 $args = array("id" => $_GET['id']);
                 echo json_encode((new \OnTrack\Controllers\CategoryController())->getCategory($args));
             } else echo json_encode((new \OnTrack\Controllers\CategoryController())->getCategories($args));
+        }
+
+        if ($_GET['endpoint'] == 'token') {
+            if (isset($_GET['token'])) {
+                //$args = array("token" => $_GET['token']);
+                $args = $_GET['token'];
+                echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
+            } else echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
         }
 
 
@@ -51,11 +69,12 @@ $main = function () {
         }
         if ($_GET['endpoint'] == 'token') {
             $tokenController = new \OnTrack\Controllers\TokenController();
-            //Is the data via a form?
+                //Is the data via a form?
             if (!empty($_POST['username'])) {
                 $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
                 $password = $_POST['password'];
-            } else {
+            } 
+            else {
                 //Attempt to parse json input
                 $json = (object)json_decode(file_get_contents('php://input'));
                 if (count((array)$json) >= 2) {

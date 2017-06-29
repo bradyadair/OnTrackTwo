@@ -37,7 +37,9 @@ let entry_form_template = `
     </div>
     <div class="col-xs-8 col-xs-offset-4 col-sm-4 col-sm-offset-0">
         <input type="text" class="entry-value" >
+        <input type="button" class="change-value" value="Update">
     </div>
+    
 </div>
 `;
 let create_entry_form = function (entry) {
@@ -56,13 +58,22 @@ let create_entry_form = function (entry) {
     let row_value = row.find('.entry-value');
     row_value.val(entry_value);
     row_value.addClass(entry_name);
-    row_value.blur(update_display_name);
+
+    let btn_change = row.find('.change-value');
+    btn_change.click(function(){
+        update_display_name(row);
+    });
+    //*****REMOVED THE BLUR AND ADDED A BUTTON INSTEAD MUST SEND THE ROW FOR THE UPDATE FUNCTION */
+    //row_value.blur(update_display_name);
     return row;
 };
+let test = function() {
+    console.log("TEST");
+}
 
 
 let FORM_CATEGORIES = [
-    1, 2, 3, 4, 6, 16, 17
+    "1", "2", "3", "4", "6", "18"
 ];
 let EIC_CATEGORIES = [
     7, 8, 9, 10, 11, 12, 13, 14
@@ -74,6 +85,17 @@ let entries_by_category = {};
 $(document).ready(function () {
     if (localStorage.getItem('token')) {
         console.log(1);
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=token&token='+localStorage.getItem('token'),
+            'method': 'get',
+            'dataType': 'json',
+            'success': function (roll) {
+                console.log(roll);
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
 
         $.ajax({
             'url': '../api/v1/api.php?endpoint=category',
@@ -107,7 +129,7 @@ $(document).ready(function () {
 
                         for (let category_index in entries_by_category) {
                             let category = entries_by_category[category_index];
-                            if (category['CategoryId'] in FORM_CATEGORIES) {
+                            if (FORM_CATEGORIES.includes(category.CategoryId)) {
                                 console.log('Form Category', category['CategoryId']);
                                 let panel_id = 'category_body_' + category['CategoryId'];
                                 let panel_title = category['CategoryName'];
@@ -147,15 +169,19 @@ let beforeSend = function(request){
     );
 };
 
-let update_display_name = function () {
-    let self = $(this);
-    let entry_title = $(".entry-title");
+let update_display_name = function (row) {
+    console.log('Update Display Name');
+    //let self = $(this);
+    //let self = this_row_value;
+    let entry_title = row.find(".entry-title");
     let new_display_name = entry_title.val();
-    let entry_name = self.attr('class').split(' ')[1];
+    //let entry_name = self.attr('class').split(' ')[1];
+    let entry_name = row.find(".entry-value").attr('class').split(' ')[1];
     let id = entry_title.attr('class').split(' ')[2].slice(3);
     let category = entry_title.attr('class').split(' ')[3].slice(9);
     let value = $(".entry-value." + entry_name);
     let new_value = value.val();
+    //console.log(value);
 
     console.log(entry_name, new_display_name, id, category, new_value);
 

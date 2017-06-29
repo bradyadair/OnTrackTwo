@@ -174,6 +174,104 @@ class EntryController
         return $entry->jsonSerialize();
     }
 
+    //GET ENTRIES BY THE FIRST PART OF THE ENTRY NAME
+    public function getEntryName($args)
+    {
+
+        // Get entries with EntryName
+        $entryName = $args['name'];
+        //$entryName+='%';
+        $dbo = DatabaseConnection::getInstance();
+
+        $query_select_entry = "
+        SELECT EntryId, EntryName, EntryValue, CategoryId, DisplayName
+        FROM Entry
+        WHERE EntryName like :entryName
+        ";
+
+
+        $statement_select_entry = $dbo->prepare($query_select_entry);
+        $statement_select_entry->bindParam(':entryName', $entryName);
+
+
+        if (!$statement_select_entry->execute()) {
+            http_response_code(StatusCodes::BAD_REQUEST);
+            return array(
+                "error" => "Query failed."
+            );
+        }
+
+        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC);
+
+        $entries = [];
+        foreach ($result as $entry) {
+//            array_push($entries, array(
+//                'EntryId'=>$entry['EntryId'],
+//                'EntryName'=>$entry['EntryName'],
+//                'EntryValue'=>$entry['EntryValue'],
+//                'CategoryId'=>$entry['CategoryId']
+//            ));
+            array_push($entries, new Entry(
+                $entry['EntryId'],
+                $entry['EntryName'],
+                $entry['EntryValue'],
+                $entry['CategoryId'],
+                $entry['DisplayName']
+            ));
+        }
+
+        return $entries;
+    }
+
+    //GET ENTRIES IN A SPECIFIC CATEGORY
+    public function getEntryCategory($args)
+    {
+
+        // Get entries with EntryName
+        $catName = $args['category'];
+        //$entryName+='%';
+        $dbo = DatabaseConnection::getInstance();
+
+        $query_select_entry = "
+        SELECT EntryId, EntryName, EntryValue, CategoryId, DisplayName
+        FROM Entry
+        WHERE CategoryId = :catName
+        ";
+
+
+        $statement_select_entry = $dbo->prepare($query_select_entry);
+        $statement_select_entry->bindParam(':catName', $catName);
+
+
+        if (!$statement_select_entry->execute()) {
+            http_response_code(StatusCodes::BAD_REQUEST);
+            return array(
+                "error" => "Query failed."
+            );
+        }
+
+        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC);
+
+        $entries = [];
+        foreach ($result as $entry) {
+//            array_push($entries, array(
+//                'EntryId'=>$entry['EntryId'],
+//                'EntryName'=>$entry['EntryName'],
+//                'EntryValue'=>$entry['EntryValue'],
+//                'CategoryId'=>$entry['CategoryId']
+//            ));
+            array_push($entries, new Entry(
+                $entry['EntryId'],
+                $entry['EntryName'],
+                $entry['EntryValue'],
+                $entry['CategoryId'],
+                $entry['DisplayName']
+            ));
+        }
+
+        return $entries;
+    }
+
     public function getEntries($args)
     {
 

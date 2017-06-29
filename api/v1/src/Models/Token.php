@@ -17,6 +17,8 @@ use \OnTrack\Http\StatusCodes;
 class Token
 {
     const ROLE_ADMIN= "Admin";
+    const ROLE_COACH= "Coach";
+    const ROLE_CLIENT= "Client";
     private static $KEY = "cdf97907258bb76aebaa7d435992f6b94f6f8886de4d725036e38cc17420625dc23fc2856519a1b51937ce89502cbb309b3501dd3908b4ff0966ff49c8747dfc";   //TODO: Extract key to config file that is loaded on-run.
     private static $lengthValid = 4730400000; // 150 Years
 
@@ -53,18 +55,19 @@ class Token
     {
         try {
             $tokenData = (array)JWT::decode($jwt, self::$KEY, array('HS256'));
+            //$tokenData = (array)JWT::decode($jwt, self::$KEY, 'HS256');
         } catch (Exception $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
             exit("Invalid token. Error: $e");
         } catch (BeforeValidException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
-            exit("Invalid token.");
+            exit("Invalid token.   Token" + $jwt);
         } catch (ExpiredException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
             exit("Token Expired.");
         } catch (SignatureInvalidException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
-            exit("Invalid token.");
+            exit("Invalid token.   Token" + $jwt);
         }
 
         return $tokenData;

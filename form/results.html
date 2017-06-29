@@ -191,9 +191,10 @@
             }
 
             let var_annualHousingCosts = finalHousingAnnual();
-            console.log(finalHousingAnnual());
+            console.log(var_annualHousingCosts);
             console.log("num_adults", localStorage.num_adults);
 //            let monthlyHousingCosts = var_annualHousingCosts / 12;
+            //COMMENT OUT WHEN USING VALUES FROM DATABASE
             $('#housing-cost').text('$' + (var_annualHousingCosts / 12).toLocaleString(undefined, {maximumFractionDigits:0}));
 
             let var_annualChildcareCosts = finalChildcareAnnual();

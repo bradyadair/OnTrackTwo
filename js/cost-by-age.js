@@ -105,23 +105,23 @@ function costTotalCenterCare() {
 }
 // CostByAge	E2
 function costFoodInfant() {
-    return 12 * numInfants() * food_infant;
+    return 12 * numInfants() * parseFloat(sessionStorage.getItem('food_infant'));
 }
 // CostByAge	E3
 function costFoodPreschooler() {
-    return 12 * numPreschoolers() * food_preschooler;
+    return 12 * numPreschoolers() * parseFloat(sessionStorage.getItem('food_preschooler'));
 }
 // CostByAge	E4
 function costFoodSchoolager() {
-    return 12 * numSchoolagers() * food_schoolager;
+    return 12 * numSchoolagers() * parseFloat(sessionStorage.getItem('food_schoolager'));
 }
 // CostByAge	E5
 function costFoodTeenager() {
-    return 12 * numTeenagers() * food_teenager;
+    return 12 * numTeenagers() * parseFloat(sessionStorage.getItem('food_teenager'));
 }
 // CostByAge	E6
 function costFoodAdult() {
-    return 12 * numAdults() * food_adult;
+    return 12 * numAdults() * parseFloat(sessionStorage.getItem('food_adult'));
 }
 // CostByAge	E16
 function costTotalFood() {
@@ -144,7 +144,7 @@ function costTotalFood() {
 
 // CostByAge	F14
 function costCarInsurance() {
-    return numCars() * car_insurance_single;
+    return numCars() * parseFloat(sessionStorage.getItem('car_insurance_single'));
 }
 // CostByAge	F16
 function costTotalCarInsurance() {
@@ -161,29 +161,29 @@ function costTotalCarOwnership() {
 // CostByAge	H16
 function costEmployerHealthInsurance() {
     return (
-        familySize() === 1 ? employer_health_insurance_average_1_person :
-            familySize() === 2 ? employer_health_insurance_average_2_people :
-                employer_health_insurance_average_3_people);
+        familySize() === 1 ? parseFloat(sessionStorage.getItem('employer_health_insurance_average_1_person')) :
+            familySize() === 2 ? parseFloat(sessionStorage.getItem('employer_health_insurance_average_2_people')) :
+                parseFloat(sessionStorage.getItem('employer_health_insurance_average_3_people')));
 }
 // CostByAge	I2
 function costOOPEmployerInfant() {
-    return numInfants() * oop_ehc_infant_annual;
+    return numInfants() * parseFloat(sessionStorage.getItem('oop_ehc_infant_annual'));
 }
 // CostByAge	I3
 function costOOPEmployerPreschooler() {
-    return numPreschoolers() * oop_ehc_preschooler_annual;
+    return numPreschoolers() * parseFloat(sessionStorage.getItem('oop_ehc_preschooler_annual'));
 }
 // CostByAge	I4
 function costOOPEmployerSchoolager() {
-    return numSchoolagers() * oop_ehc_schoolager_annual;
+    return numSchoolagers() * parseFloat(sessionStorage.getItem('oop_ehc_schoolager_annual'));
 }
 // CostByAge	I5
 function costOOPEmployerTeenager() {
-    return numTeenagers() * oop_ehc_teenager_annual;
+    return numTeenagers() * parseFloat(sessionStorage.getItem('oop_ehc_teenager_annual'));
 }
 // CostByAge	I6
 function costOOPEmployerAdult() {
-    return numAdults() * oop_ehc_adult_annual;
+    return numAdults() * parseFloat(sessionStorage.getItem('oop_ehc_adult_annual'));
 }
 // CostByAge	I16
 function costTotalOOPEmployer() {
@@ -200,11 +200,11 @@ function costTotalEmployerCombined() {
 // CostByAge	J16
 function costTotalEntertainment() {
     return (
-        familySize() === 1 ? entertainment_family_size_1 :
-            familySize() === 2 ? entertainment_family_size_2 :
-                familySize() === 3 ? entertainment_family_size_3 :
-                    familySize() === 4 ? entertainment_family_size_4 :
-                        entertainment_family_size_5_plus);
+        familySize() === 1 ? parseFloat(sessionStorage.getItem('entertainment_family_size_1')) :
+            familySize() === 2 ? parseFloat(sessionStorage.getItem('entertainment_family_size_2')) :
+                familySize() === 3 ? parseFloat(sessionStorage.getItem('entertainment_family_size_3')) :
+                    familySize() === 4 ? parseFloat(sessionStorage.getItem('entertainment_family_size_4')) :
+                        parseFloat(sessionStorage.getItem('entertainment_family_size_5_plus')));
 }
 // CostByAge	K16
 function costTotalMisc() {
@@ -244,11 +244,11 @@ function costTotalFamilyCare() {
 }
 // CostByAge	R4
 function costPublicTransportChild() {
-    return bus_child_annual * bus_passes_child;
+    return parseFloat(sessionStorage.getItem('bus_child_annual')) * bus_passes_child;
 }
 // CostByAge	R6
 function costPublicTransportAdult() {
-    return bus_adult_annual * bus_passes_adult;
+    return parseFloat(sessionStorage.getItem('bus_adult_annual')) * bus_passes_adult;
 }
 // CostByAge	R16
 function costTotalPublicTransport() {
@@ -256,23 +256,23 @@ function costTotalPublicTransport() {
 }
 // CostByAge	S2
 function costOOPMarketplaceInfant() {
-    return oop_mhc_infant_annual * numInfants();
+    return parseFloat(sessionStorage.getItem('oop_mhc_infant_annual')) * numInfants();
 }
 // CostByAge	S3
 function costOOPMarketplacePreschooler() {
-    return oop_mhc_preschooler_annual * numPreschoolers();
+    return parseFloat(sessionStorage.getItem('oop_mhc_preschooler_annual')) * numPreschoolers();
 }
 // CostByAge	S4
 function costOOPMarketplaceSchoolager() {
-    return oop_mhc_schoolager_annual * numSchoolagers();
+    return parseFloat(sessionStorage.getItem('oop_mhc_schoolager_annual')) * numSchoolagers();
 }
 // CostByAge	S5
 function costOOPMarketplaceTeenager() {
-    return oop_mhc_teenager_annual * numTeenagers();
+    return parseFloat(sessionStorage.getItem('oop_mhc_teenager_annual')) * numTeenagers();
 }
 // CostByAge	S6
 function costOOPMarketplaceAdult() {
-    return oop_mhc_adult_annual * numAdults();
+    return parseFloat(sessionStorage.getItem('oop_mhc_adult_annual')) * numAdults();
 }
 // CostByAge	S16
 function costTotalOOPMarketplace() {
@@ -284,11 +284,11 @@ function costTotalOOPMarketplace() {
 }
 // CostByAge	V3
 function costMarketplaceExpenseAdult() {
-    return expense_mhc_adult_annual * numAdults();
+    return parseFloat(sessionStorage.getItem('expense_mhc_adult_annual')) * numAdults();
 }
 // CostByAge	V4
 function costMarketplaceExpenseChild() {
-    return expense_mhc_child_annual * numKids();
+    return parseFloat(sessionStorage.getItem('expense_mhc_child_annual')) * numKids();
 }
 // CostByAge	V16
 function costTotalMarketplaceExpense() {

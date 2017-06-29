@@ -167,29 +167,29 @@ function mhcEITC() {
     return 0;
     /* Excel formula always return 0 for some reason.
      * Actual formula is below if that ever gets fixed.
-     */
-    // // choose correct list based on number of children
-    // let eitc_lookup_list = (
-    //     mhcNumKids() === 1 ? eitc_single_1_kids_amounts_list
-    //         : (mhcNumKids() === 2 ? eitc_single_2_kids_amounts_list
-    //         : (mhcNumKids() === 0 ? eitc_single_0_kids_amounts_list
-    //             : (mhcNumKids() >= 3 ? eitc_single_3_kids_amounts_list
-    //                     : false
-    //             ))));
-    // // find index in at-least/less-than lists where gross income > at-least[index] and < less-than[index]
-    // for (let i = 0; i < eitc_income_at_least_list.length; i++) {
-    //     if (mhc_gross_income >= eitc_income_at_least_list[i] &&
-    //         mhc_gross_income < eitc_income_less_than_list[i]) {
-    //         // get the eitc value at that index
-    //         return eitc_lookup_list[i];
-    //     }
-    // }
-    // // return 0 if we looked through the whole list and didn't find a value
-    // return 0;
+     
+     // choose correct list based on number of children
+     let eitc_lookup_list = (
+         mhcNumKids() === 1 ? eitc_single_1_kids_amounts_list
+             : (mhcNumKids() === 2 ? eitc_single_2_kids_amounts_list
+             : (mhcNumKids() === 0 ? sessionStorage.getItem('eitc_single_0_kids_amounts_list')
+                 : (mhcNumKids() >= 3 ? eitc_single_3_kids_amounts_list
+                         : false
+                 ))));
+     // find index in at-least/less-than lists where gross income > at-least[index] and < less-than[index]
+     for (let i = 0; i < eitc_income_at_least_list.length; i++) {
+         if (mhc_gross_income >= eitc_income_at_least_list[i] &&
+             mhc_gross_income < eitc_income_less_than_list[i]) {
+             // get the eitc value at that index
+             return eitc_lookup_list[i];
+         }
+     }
+     // return 0 if we looked through the whole list and didn't find a value
+     return 0;*/
 }
 // Taxes	P6
 function mhcChildTaxCredit() {
-    return mhcNumKids() * child_tax_credit_each;
+    return mhcNumKids() * parseFloat(sessionStorage.getItem('child_tax_credit_each'));
 }
 // Taxes	Q6
 function mhcAdjustedChildTaxCredit() {
@@ -324,6 +324,8 @@ function mhcGrossIncomeDividedByFederalPovertyLine() {
 }
 // Taxes	X6
 function mhcValueFromApplicableFigureTable() {
+    var applicable_figure_table_values_list = JSON.parse(sessionStorage.getItem("applicable_figure_table_values"));
+
     if (mhcGrossIncomeDividedByFederalPovertyLine() < mhc_applicable_figure_index_min) {
         return applicable_figure_table_values_list[0];
     }
@@ -342,11 +344,11 @@ function mhcApplicableFigureTimesGrossIncome() {
 }
 // Taxes	Z6
 function mhcBenchmarkSilverPlan() {
-    return (mhc_benchmark_silver_adult_each * num_adults) +
+    return (parseFloat(sessionStorage.getItem('mhc_benchmark_silver_adult_each')) * num_adults) +
         (
             (num_infants + num_preschoolers + num_schoolagers + num_teenagers) > mhc_benchmark_silver_child_limit ?
-                mhc_benchmark_silver_child_limit * mhc_benchmark_silver_child_each :
-                (num_infants + num_preschoolers + num_schoolagers + num_teenagers) * mhc_benchmark_silver_child_each
+                mhc_benchmark_silver_child_limit * parseFloat(sessionStorage.getItem('mhc_benchmark_silver_child_each')) :
+                (num_infants + num_preschoolers + num_schoolagers + num_teenagers) * parseFloat(sessionStorage.getItem('mhc_benchmark_silver_child_each'))
         );
 }
 // Taxes	AA6
