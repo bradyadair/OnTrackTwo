@@ -164,10 +164,10 @@ function mhcFederalTaxesOwedBeforeCredits() {
 }
 // Taxes	O6
 function mhcEITC() {
-    //return 0;
+    return 0;
     /* Excel formula always return 0 for some reason.
      * Actual formula is below if that ever gets fixed.
-     */
+     
      // choose correct list based on number of children
      let eitc_lookup_list = (
          mhcNumKids() === 1 ? eitc_single_1_kids_amounts_list
@@ -185,7 +185,7 @@ function mhcEITC() {
          }
      }
      // return 0 if we looked through the whole list and didn't find a value
-     return 0;
+     return 0;*/
 }
 // Taxes	P6
 function mhcChildTaxCredit() {

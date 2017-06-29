@@ -85,6 +85,17 @@ let entries_by_category = {};
 $(document).ready(function () {
     if (localStorage.getItem('token')) {
         console.log(1);
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=token&token='+localStorage.getItem('token'),
+            'method': 'get',
+            'dataType': 'json',
+            'success': function (roll) {
+                console.log(roll);
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
 
         $.ajax({
             'url': '../api/v1/api.php?endpoint=category',

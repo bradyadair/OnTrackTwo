@@ -54,5 +54,13 @@ class TokenController
 
     }
 
+    public function getRole($token)
+    {
+        $token_object = new Token();
+        $data = (object)json_decode(file_get_contents('php://input'));
+        if(!$token) $token = $data->token;
+        return $token_object->getRoleFromToken($token);
+    }
+
 
 }

@@ -50,6 +50,14 @@ $main = function () {
             } else echo json_encode((new \OnTrack\Controllers\CategoryController())->getCategories($args));
         }
 
+        if ($_GET['endpoint'] == 'token') {
+            if (isset($_GET['token'])) {
+                //$args = array("token" => $_GET['token']);
+                $args = $_GET['token'];
+                echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
+            } else echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
+        }
+
 
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -61,11 +69,12 @@ $main = function () {
         }
         if ($_GET['endpoint'] == 'token') {
             $tokenController = new \OnTrack\Controllers\TokenController();
-            //Is the data via a form?
+                //Is the data via a form?
             if (!empty($_POST['username'])) {
                 $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
                 $password = $_POST['password'];
-            } else {
+            } 
+            else {
                 //Attempt to parse json input
                 $json = (object)json_decode(file_get_contents('php://input'));
                 if (count((array)$json) >= 2) {

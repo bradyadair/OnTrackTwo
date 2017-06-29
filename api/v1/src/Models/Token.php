@@ -55,18 +55,19 @@ class Token
     {
         try {
             $tokenData = (array)JWT::decode($jwt, self::$KEY, array('HS256'));
+            //$tokenData = (array)JWT::decode($jwt, self::$KEY, 'HS256');
         } catch (Exception $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
             exit("Invalid token. Error: $e");
         } catch (BeforeValidException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
-            exit("Invalid token.");
+            exit("Invalid token.   Token" + $jwt);
         } catch (ExpiredException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
             exit("Token Expired.");
         } catch (SignatureInvalidException $e) {
             http_response_code(StatusCodes::UNAUTHORIZED);
-            exit("Invalid token.");
+            exit("Invalid token.   Token" + $jwt);
         }
 
         return $tokenData;
