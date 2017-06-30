@@ -127,7 +127,7 @@ window.onload = function () {
     rentPercent = 100;
     electricityPercent = 90;
     gasPercent = 90;
-    waterPercent = 90;
+    waterPercent = 100;
     netflixPercent = 50;
     internetPercent = 50;
     entertainmentPercent = 0;
@@ -1812,7 +1812,22 @@ function printPage() {
 
 function checkInput(event)
 {
+ 
     if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
+    
+}
+
+function checkInputIncome(event)
+{
+
+    var charCode = (event.which) ? event.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+    {
+        event.preventDefault();
+        return false;
+    }
+
+    return true;
 }
