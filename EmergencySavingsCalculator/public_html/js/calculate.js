@@ -44,6 +44,7 @@ window.onload = function () {
     educationNav = document.getElementById("educationNav");
     childrenNav = document.getElementById("childrenNav");
     otherNav = document.getElementById("otherNav");
+    checkBudgetNav = document.getElementById("checkBudgetNav");
     resultsNav = document.getElementById("resultsNav");
 
     overviewNav.className = "list-group-item active";
@@ -55,6 +56,7 @@ window.onload = function () {
     educationNav.className = "list-group-item disabled";
     childrenNav.className = "list-group-item disabled";
     otherNav.className = "list-group-item disabled";
+    checkBudgetNav.className = "list-group-item disabled";
     resultsNav.className = "list-group-item disabled";
 
     //wire up nav
@@ -123,8 +125,6 @@ window.onload = function () {
     };
 
     console.log("Loaded");
-    //Housing Percentage Needed-------------------------------------------------------------------------------------------
-    
     
 
     $.ajax({
@@ -137,121 +137,121 @@ window.onload = function () {
 
                 switch (entries[entry_index]['entryName']) {
                     case 'Housing_Rent':
-                        rentPercent = parseInt(entries[entry_index]['entryValue'])
+                        rentPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Electricity':
-                        electricityPercent = parseInt(entries[entry_index]['entryValue'])
+                        electricityPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Gas':
-                        gasPercent = parseInt(entries[entry_index]['entryValue'])
+                        gasPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Water':
-                        waterPercent = parseInt(entries[entry_index]['entryValue'])
+                        waterPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Cable':
-                        netflixPercent = parseInt(entries[entry_index]['entryValue'])
+                        netflixPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Internet':
-                        internetPercent = parseInt(entries[entry_index]['entryValue'])
+                        internetPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Entertainment':
-                        entertainmentPercent = parseInt(entries[entry_index]['entryValue'])
+                        entertainmentPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_Other':
-                        otherUtilitiesPercent = parseInt(entries[entry_index]['entryValue'])
+                        otherUtilitiesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Housing_CellPhone':
-                        cellPhonePercent = parseInt(entries[entry_index]['entryValue'])
+                        cellPhonePercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Food_Groceries':
-                        groceriesPercent = parseInt(entries[entry_index]['entryValue'])
+                        groceriesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Food_Out':
-                        eatingOutPercent = parseInt(entries[entry_index]['entryValue'])
+                        eatingOutPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Food_Hygiene':
-                        personalHygienePercent = parseInt(entries[entry_index]['entryValue'])
+                        personalHygienePercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Food_Other':
-                        groceriesOtherPercent = parseInt(entries[entry_index]['entryValue'])
+                        groceriesOtherPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Trans_Insurance':
-                        autoInsurancePercent = parseInt(entries[entry_index]['entryValue'])
+                        autoInsurancePercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Trans_Fuel':
-                        autoFuelPercent = parseInt(entries[entry_index]['entryValue'])
+                        autoFuelPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Trans_Public':
-                        publicTransitPercent = parseInt(entries[entry_index]['entryValue'])
+                        publicTransitPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Trans_Other':
-                        transOtherPercent = parseInt(entries[entry_index]['entryValue'])
+                        transOtherPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Medical_Pocket':
-                        medicalPocketPercent = parseInt(entries[entry_index]['entryValue'])
+                        medicalPocketPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Medical_Prescription':
-                        medicalPrescriptionsPercent = parseInt(entries[entry_index]['entryValue'])
+                        medicalPrescriptionsPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Medical_Other':
-                        medicalOtherPercent = parseInt(entries[entry_index]['entryValue'])
+                        medicalOtherPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Edu_Fees':
-                        eduFeesPercent = parseInt(entries[entry_index]['entryValue'])
+                        eduFeesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Edu_Supplies':
-                        eduSuppliesPercent = parseInt(entries[entry_index]['entryValue'])
+                        eduSuppliesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Edu_Other':
-                        eduOtherPercent = parseInt(entries[entry_index]['entryValue'])
+                        eduOtherPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Child_Care':
-                        childCareExpensePercent = parseInt(entries[entry_index]['entryValue'])
+                        childCareExpensePercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Child_Support':
-                        childSupportPercent = parseInt(entries[entry_index]['entryValue'])
+                        childSupportPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Child_Rec':
-                        childRecreationPercent = parseInt(entries[entry_index]['entryValue'])
+                        childRecreationPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Child_Cloth':
-                        childClothingPercent = parseInt(entries[entry_index]['entryValue'])
+                        childClothingPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Child_Other':
-                        childOtherPercent = parseInt(entries[entry_index]['entryValue'])
+                        childOtherPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Memberships':
-                        membershipsPercent = parseInt(entries[entry_index]['entryValue'])
+                        membershipsPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Legal':
-                        legalFeesPercent = parseInt(entries[entry_index]['entryValue'])
+                        legalFeesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Charity':
-                        donationsPercent = parseInt(entries[entry_index]['entryValue'])
+                        donationsPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Entertainment':
-                        otherEntertainmentPercent = parseInt(entries[entry_index]['entryValue'])
+                        otherEntertainmentPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Pets':
-                        petsPercent = parseInt(entries[entry_index]['entryValue'])
+                        petsPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Storage':
-                        storagePercent = parseInt(entries[entry_index]['entryValue'])
+                        storagePercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Shopping':
-                        clothingPercent = parseInt(entries[entry_index]['entryValue'])
+                        clothingPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_DebtConstructive':
-                        constructiveDebtPercent = parseInt(entries[entry_index]['entryValue'])
+                        constructiveDebtPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_DebtConsumer':
-                        consumerDebtPercent = parseInt(entries[entry_index]['entryValue'])
+                        consumerDebtPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Collections':
-                        collectionsPercent = parseInt(entries[entry_index]['entryValue'])
+                        collectionsPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     case 'Other_Expenses':
-                        otherExpensesPercent = parseInt(entries[entry_index]['entryValue'])
+                        otherExpensesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
                     default:
                         break;
@@ -693,6 +693,12 @@ function calculateHousing()
     housingTotalRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired);
     document.getElementById("housingTotalRequired").placeholder = "$" + housingTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
+    housingTotalFirst = parseFloat(rent) + parseFloat(electricity) + parseFloat(gas) + parseFloat(water) + parseFloat(netflix) + parseFloat(internet) + parseFloat(entertainment) + parseFloat(otherUtilities) + parseFloat(cellPhone);
+    document.getElementById("housingTotalFirst").placeholder = "$" + housingTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    housingTotalFirstRequired = parseFloat(rentRequired) + parseFloat(electricityRequired) + parseFloat(gasRequired) + parseFloat(waterRequired) + parseFloat(netflixRequired) + parseFloat(internetRequired) + parseFloat(entertainmentRequired) + parseFloat(otherUtilitiesRequired) + parseFloat(cellPhoneRequired);
+    document.getElementById("housingTotalFirstRequired").placeholder = "$" + housingTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
 }
 
 
@@ -737,6 +743,12 @@ function calculateFood()
 
     foodTotalRequired = parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired)
     document.getElementById("foodTotalRequired").placeholder = "$" + foodTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    foodTotalFirst = parseFloat(groceries) + parseFloat(eatingOut) + parseFloat(personalHygiene) + parseFloat(groceriesOther);
+    document.getElementById("foodTotalFirst").placeholder = "$" + foodTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    foodTotalFirstRequired = parseFloat(groceriesRequired) + parseFloat(eatingOutRequired) + parseFloat(personalHygieneRequired) + parseFloat(groceriesOtherRequired)
+    document.getElementById("foodTotalFirstRequired").placeholder = "$" + foodTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 
 }
@@ -784,6 +796,13 @@ function calculateAuto()
 
     transTotalRequired = parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired);
     document.getElementById("transTotalRequired").placeholder = "$" + transTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    transTotalFirst = parseFloat(autoInsurance) + parseFloat(autoFuel) + parseFloat(publicTransit) + parseFloat(transOther);
+    document.getElementById("transTotalFirst").placeholder = "$" + transTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    transTotalFirstRequired = parseFloat(autoInsuranceRequired) + parseFloat(autoFuelRequired) + parseFloat(publicTransitRequired) + parseFloat(transOtherRequired);
+    document.getElementById("transTotalFirstRequired").placeholder = "$" + transTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
 }
 
 
@@ -820,6 +839,13 @@ function calculateMedical()
 
     medicalTotalRequired = parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired);
     document.getElementById("medicalTotalRequired").placeholder = "$" + medicalTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    medicalTotalFirst = parseFloat(medicalPocket) + parseFloat(medicalPrescriptions) + parseFloat(medicalOther);
+    document.getElementById("medicalTotalFirst").placeholder = "$" + medicalTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    medicalTotalFirstRequired = parseFloat(medicalPocketRequired) + parseFloat(medicalPrescriptionsRequired) + parseFloat(medicalOtherRequired);
+    document.getElementById("medicalTotalFirstRequired").placeholder = "$" + medicalTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
 }
 
 
@@ -858,6 +884,12 @@ function calculateEducation()
 
     eduTotalRequired = parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired);
     document.getElementById("eduTotalRequired").placeholder = "$" + eduTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    eduTotalFirst = parseFloat(eduFees) + parseFloat(eduSupplies) + parseFloat(eduOther);
+    document.getElementById("eduTotalFirst").placeholder = "$" + eduTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    eduTotalFirstRequired = parseFloat(eduFeesRequired) + parseFloat(eduSuppliesRequired) + parseFloat(eduOtherRequired);
+    document.getElementById("eduTotalFirstRequired").placeholder = "$" + eduTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
 
@@ -909,6 +941,13 @@ function calculateChild()
 
     childTotalRequired = parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired);
     document.getElementById("childTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    childTotalFirst = parseFloat(childCareExpense) + parseFloat(childSupport) + parseFloat(childRecreation) + parseFloat(childClothing) + parseFloat(childOther);
+    document.getElementById("childTotalFirst").placeholder = "$" + childTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    childTotalFirstRequired = parseFloat(childCareExpenseRequired) + parseFloat(childSupportRequired) + parseFloat(childRecreationRequired) + parseFloat(childClothingRequired) + parseFloat(childOtherRequired);
+    document.getElementById("childTotalFirstRequired").placeholder = "$" + childTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
 }
 
 
@@ -1023,11 +1062,18 @@ function calculateOther()
     savingsRequired = parseFloat(savings*(savingsPercent/100));
     document.getElementById("savingsRequired").placeholder = "$" +savingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses);
+    otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
     document.getElementById("otherTotal").placeholder = "$" + otherTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
+    otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
     document.getElementById("otherTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    otherTotalFirst = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
+    document.getElementById("otherTotalFirst").placeholder = "$" + otherTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
+    otherTotalFirstRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
+    document.getElementById("otherTotalFirstRequired").placeholder = "$" + childTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+
 }
 
 
@@ -1110,6 +1156,8 @@ function calculateEmergencySavings()
     totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
     document.getElementById("totalEmergencySavingsRequired").placeholder = "$" + totalEmergencySavingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
+    $("#monthsOfSavingsRequiredColor").css("color", "blue");
+    $("#emergencySavingsRequiredColor").css("color", "blue");
 }
 
 function checkBudget()
@@ -1121,13 +1169,13 @@ function checkBudget()
     document.getElementById("checkbudgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     var surplus = ((clientTotal + spouseTotal)-budgetTotal);
-    if (surplus < 0 )
+    if (surplus < -10 )
     {
         $("#surplusIndicatorLabel").css("color", "red");
         $("#surplusIndicatorLabel").text("You Have Too Much In Your Budget! (Lower Money In A Budget Category)");
         document.getElementById("surplusIndicator").placeholder = '- $' + (surplus*-1).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
     }
-    else if (surplus == 0)
+    else if (surplus <= 10 && surplus >= -10)
     {
         $("#surplusIndicatorLabel").css("color", "green");
         $("#surplusIndicatorLabel").text("You Budgeted Your Money Perfectly!");
@@ -1815,7 +1863,22 @@ function printPage() {
 
 function checkInput(event)
 {
+ 
     if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
         event.preventDefault();
     }
+    
+}
+
+function checkInputIncome(event)
+{
+
+    var charCode = (event.which) ? event.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+    {
+        event.preventDefault();
+        return false;
+    }
+
+    return true;
 }
