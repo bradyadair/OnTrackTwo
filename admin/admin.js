@@ -89,8 +89,8 @@ $(document).ready(function () {
             'url': '../api/v1/api.php?endpoint=token&token='+localStorage.getItem('token'),
             'method': 'get',
             'dataType': 'json',
-            'success': function (roll) {
-                console.log(roll);
+            'success': function (role) {
+                console.log(role);
             },
             error: function(response){
                 console.log(response);

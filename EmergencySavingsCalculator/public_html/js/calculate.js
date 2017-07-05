@@ -124,46 +124,7 @@ window.onload = function () {
 
     console.log("Loaded");
     //Housing Percentage Needed-------------------------------------------------------------------------------------------
-    rentPercent = 100;
-    electricityPercent = 90;
-    gasPercent = 90;
-    waterPercent = 90;
-    netflixPercent = 50;
-    internetPercent = 50;
-    entertainmentPercent = 0;
-    otherUtilitiesPercent = 0;
-    cellPhonePercent = 75;
-    groceriesPercent = 50;
-    eatingOutPercent = 0;
-    personalHygienePercent = 30;
-    groceriesOtherPercent = 50;
-    autoInsurancePercent = 100;
-    autoFuelPercent = 75;
-    publicTransitPercent = 100;
-    transOtherPercent = 0;
-    medicalPocketPercent = 100;
-    medicalPrescriptionsPercent = 100;
-    medicalOtherPercent = 0;
-    eduFeesPercent = 0;
-    eduSuppliesPercent = 0;
-    eduOtherPercent = 0;
-    childCareExpensePercent = 100;
-    childSupportPercent = 100;
-    childRecreationPercent = 0;
-    childClothingPercent = 0;
-    childOtherPercent = 0;
-    membershipsPercent = 100;
-    legalFeesPercent = 50;
-    donationsPercent = 50;
-    otherEntertainmentPercent = 0;
-    petsPercent = 50;
-    storagePercent = 100;
-    clothingPercent = 0;
-    constructiveDebtPercent = 100;
-    consumerDebtPercent = 75;
-    collectionsPercent = 0;
-    otherExpensesPercent = 0;
-    savingsPercent = 0;
+    
     
 
     $.ajax({
@@ -300,12 +261,56 @@ window.onload = function () {
         },
         error: function (response) {
             console.log(response);
+            rentPercent = 100;
+            electricityPercent = 90;
+            gasPercent = 90;
+            waterPercent = 90;
+            netflixPercent = 50;
+            internetPercent = 50;
+            entertainmentPercent = 0;
+            otherUtilitiesPercent = 0;
+            cellPhonePercent = 75;
+            groceriesPercent = 50;
+            eatingOutPercent = 0;
+            personalHygienePercent = 30;
+            groceriesOtherPercent = 50;
+            autoInsurancePercent = 100;
+            autoFuelPercent = 75;
+            publicTransitPercent = 100;
+            transOtherPercent = 0;
+            medicalPocketPercent = 100;
+            medicalPrescriptionsPercent = 100;
+            medicalOtherPercent = 0;
+            eduFeesPercent = 0;
+            eduSuppliesPercent = 0;
+            eduOtherPercent = 0;
+            childCareExpensePercent = 100;
+            childSupportPercent = 100;
+            childRecreationPercent = 0;
+            childClothingPercent = 0;
+            childOtherPercent = 0;
+            membershipsPercent = 100;
+            legalFeesPercent = 50;
+            donationsPercent = 50;
+            otherEntertainmentPercent = 0;
+            petsPercent = 50;
+            storagePercent = 100;
+            clothingPercent = 0;
+            constructiveDebtPercent = 100;
+            consumerDebtPercent = 75;
+            collectionsPercent = 0;
+            otherExpensesPercent = 0;
+            savingsPercent = 0;
             setElements()
         }
     });
 
 
 
+    
+};
+
+function setElements() {
     //-------------------------------------------------------------------------------------------------------------------------
 
     //Run All functions so all output starts out at 0---------------------------------------------------------------------------
@@ -318,9 +323,7 @@ window.onload = function () {
     calculateChild();
     calculateOther();
     //---------------------------------------------------------------------------------------------------------------------------
-};
-
-function setElements() {
+    
     document.getElementById("rentPercent").placeholder = rentPercent + "%";
 
     document.getElementById("electricityPercent").placeholder = electricityPercent + "%";

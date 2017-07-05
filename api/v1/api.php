@@ -13,11 +13,13 @@ require_once 'src/Controllers/CategoryController.php';
 require_once 'src/Controllers/EntryController.php';
 require_once 'src/Controllers/UserController.php';
 require_once 'src/Controllers/TokenController.php';
+require_once 'src/Controllers/MonthSavingsController.php';
 
 require_once 'src/Models/Category.php';
 require_once 'src/Models/Entry.php';
 require_once 'src/Models/User.php';
 require_once 'src/Models/Token.php';
+require_once 'src/Models/MonthSavings.php';
 
 require_once 'src/Utilities/DatabaseConnection.php';
 require_once 'src/Utilities/Setup.php';
@@ -89,6 +91,9 @@ $main = function () {
         };
         if ($_GET['endpoint'] == 'user') {
             echo json_encode((new \OnTrack\Controllers\UserController())->postUser($args));
+        }
+        if ($_GET['endpoint'] == 'monthsavings') {
+            echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->postMonthSavings($args));
         }
     }
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
