@@ -1061,16 +1061,16 @@ function calculateOther()
     savingsRequired = parseFloat(savings*(savingsPercent/100));
     document.getElementById("savingsRequired").placeholder = "$" +savingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses);
+    otherTotal = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
     document.getElementById("otherTotal").placeholder = "$" + otherTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
+    otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
     document.getElementById("otherTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotalFirst = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses);
+    otherTotalFirst = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
     document.getElementById("otherTotalFirst").placeholder = "$" + otherTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
-    otherTotalFirstRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired);
+    otherTotalFirstRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
     document.getElementById("otherTotalFirstRequired").placeholder = "$" + childTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
@@ -1168,13 +1168,13 @@ function checkBudget()
     document.getElementById("checkbudgetTotal").placeholder = "$" + budgetTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     var surplus = ((clientTotal + spouseTotal)-budgetTotal);
-    if (surplus < 0 )
+    if (surplus < -10 )
     {
         $("#surplusIndicatorLabel").css("color", "red");
         $("#surplusIndicatorLabel").text("You Have Too Much In Your Budget! (Lower Money In A Budget Category)");
         document.getElementById("surplusIndicator").placeholder = '- $' + (surplus*-1).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
     }
-    else if (surplus == 0)
+    else if (surplus <= 10 && surplus >= -10)
     {
         $("#surplusIndicatorLabel").css("color", "green");
         $("#surplusIndicatorLabel").text("You Budgeted Your Money Perfectly!");
