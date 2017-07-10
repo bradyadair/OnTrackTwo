@@ -20,10 +20,10 @@ class MonthSavingsController
 
     public function postMonthSavings($args)
     {
-        /*$username = Token::getUsernameFromToken();
-        if($username == null){
-            return array("error"=>"Token not valid.");
-        }*/
+        $role = Token::getRoleFromToken();
+        if($role != Token::ROLE_ADMIN && $role != Token::ROLE_COACH){
+            return array("error"=>"Not Authorized.");
+        }
 
         $data = (object)json_decode(file_get_contents('php://input'));
         $dbo = DatabaseConnection::getInstance();
@@ -257,22 +257,29 @@ class MonthSavingsController
         );
     }
 
-    public function getEntry($args)
+    public function getMonthSavingsForCoach($args)
     {
-
         // Get League ID
-        $entryId = $args['id'];
+        $coachId = $args;
         $dbo = DatabaseConnection::getInstance();
 
         $query_select_entry = '
-        SELECT EntryId, EntryName, EntryValue, CategoryId, DisplayName
-        FROM Entry
-        WHERE EntryId = :entryId
+            SELECT MonthSavingsRecordID, a.ClientID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
+            ClientSelfEmployment, ClientSocialSecurity, ClientPension, ClientAlimony, ClientChildSupport, ClientOtherIncome, SpouseHours, SpouseRate, SpousePRDeductions, 
+            SpouseSelfEmployment, SpouseSocialSecurity, SpousePension, SpouseAlimony, SpouseChildSupport, SpouseOtherIncome, Rent, Electricity, Gas, WaterSewerGarbage, 
+            CableNetflixHulu, Internet, EntertainmentPkg, OtherHomeUtilities, CellPhone, Groceries, EatingOut, PersonalHygiene, GroceiresOther, AutoInsurance, AutoFuel, 
+            PublicTransit, TransOther, MedicalOutOfPocket, MedicalPrescriptions, MedicalOther, EduFees, EduSupplies, EduOther, ChildCareExpense, ChildSupport, ChildRecreation, 
+            ChildClothing, ChildOther, Memberships, LegalFees, Donations, Entertainment, Pets, Storage, OtherShopping, ConstructiveDebt, ConsumerDebt, Collections, OtherExpenses, 
+            Savings, d.ClientFirstName, d.ClientLastName 
+            FROM MonthSavingsRecord a
+            JOIN CoachClient b ON a.ClientID = b.ClientID
+            JOIN OnTrackUsers c ON b.CoachID = c.UserID
+            JOIN Client d ON d.ClientID = b.CoachID
+            WHERE c.UserID = :coachID;
         ';
 
-
         $statement_select_entry = $dbo->prepare($query_select_entry);
-        $statement_select_entry->bindParam(':entryId', $entryId);
+        $statement_select_entry->bindParam(':coachID', $coachId);
 
 
         if (!$statement_select_entry->execute()) {
@@ -282,17 +289,83 @@ class MonthSavingsController
             );
         }
 
-        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC)[0];
+        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC);
 
-        $entry = new Entry(
-            $result['EntryId'],
-            $result['EntryName'],
-            $result['EntryValue'],
-            $result['CategoryId'],
-            $result['DisplayName']
-        );
+        $entries = [];
+        foreach ($result as $entry) {
+//            array_push($entries, array(
+//                'EntryId'=>$entry['EntryId'],
+//                'EntryName'=>$entry['EntryName'],
+//                'EntryValue'=>$entry['EntryValue'],
+//                'CategoryId'=>$entry['CategoryId']
+//            ));
+            array_push($entries, new MonthSavings(
+                $entry['ClientID'],
+                $entry['DateSaved'],
+                $entry['ClientHours'],
+                $entry['ClientRate'],
+                $entry['ClientPRDeductions'],
+                $entry['ClientSelfEmployment'],
+                $entry['ClientSocialSecurity'],
+                $entry['ClientPension'],
+                $entry['ClientAlimony'],
+                $entry['ClientChildSupport'],
+                $entry['ClientOtherIncome'],
+                $entry['SpouseHours'],
+                $entry['SpouseRate'],
+                $entry['SpousePRDeductions'],
+                $entry['SpouseSelfEmployment'],
+                $entry['SpouseSocialSecurity'],
+                $entry['SpousePension'],
+                $entry['SpouseAlimony'],
+                $entry['SpouseChildSupport'],
+                $entry['SpouseOtherIncome'],
+                $entry['Rent'],
+                $entry['Electricity'],
+                $entry['Gas'],
+                $entry['WaterSewerGarbage'],
+                $entry['CableNetflixHulu'],
+                $entry['Internet'],
+                $entry['EntertainmentPkg'],
+                $entry['OtherHomeUtilities'],
+                $entry['CellPhone'],
+                $entry['Groceries'],
+                $entry['EatingOut'],
+                $entry['PersonalHygiene'],
+                $entry['GroceiresOther'],
+                $entry['AutoInsurance'],
+                $entry['AutoFuel'],
+                $entry['PublicTransit'],
+                $entry['TransOther'],
+                $entry['MedicalOutOfPocket'],
+                $entry['MedicalPrescriptions'],
+                $entry['MedicalOther'],
+                $entry['EduFees'],
+                $entry['EduSupplies'],
+                $entry['EduOther'],
+                $entry['ChildCareExpense'],
+                $entry['ChildSupport'],
+                $entry['ChildRecreation'],
+                $entry['ChildClothing'],
+                $entry['ChildOther'],
+                $entry['Memberships'],
+                $entry['LegalFees'],
+                $entry['Donations'],
+                $entry['Entertainment'],
+                $entry['Pets'],
+                $entry['Storage'],
+                $entry['OtherShopping'],
+                $entry['ConstructiveDebt'],
+                $entry['ConsumerDebt'],
+                $entry['Collections'],
+                $entry['OtherExpenses'],
+                $entry['Savings']
+            ));
+        }
+        //echo($result);
+        //$result = $coachID;
 
-        return $entry->jsonSerialize();
+        return $entries;
     }
 
     //GET ENTRIES BY THE FIRST PART OF THE ENTRY NAME

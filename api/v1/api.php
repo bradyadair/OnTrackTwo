@@ -52,10 +52,28 @@ $main = function () {
             } else echo json_encode((new \OnTrack\Controllers\CategoryController())->getCategories($args));
         }
 
+        if ($_GET['endpoint'] == 'monthSavingsByCoach') {
+            if (!empty($_GET['token'])) {
+                    $args = $_GET['token'];
+                }
+            else{
+                $json = (object)json_decode(file_get_contents('php://input'));
+                $args = $json->token;
+            }
+            $coachID = (new \OnTrack\Controllers\TokenController())->getId($args);
+            echo json_encode((new \OnTrack\Controllers\TokenController())->getId($args));
+            echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->getMonthSavingsForCoach($coachID));
+        }
+
         if ($_GET['endpoint'] == 'token') {
             if (isset($_GET['token'])) {
-                //$args = array("token" => $_GET['token']);
-                $args = $_GET['token'];
+                if (!empty($_GET['token'])) {
+                    //$args = $_GET['token'];
+                }
+                else{
+                    $json = (object)json_decode(file_get_contents('php://input'));
+                    $args = $json->token;
+                }
                 echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
             } else echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
         }

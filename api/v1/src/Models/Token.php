@@ -80,7 +80,7 @@ class Token
             $jwt = self::getBearerTokenFromHeader();
         $tokenData = static::extractTokenData($jwt);
         $data = (array)$tokenData['data'];
-        return $data['role'];
+        return [$data['role'], $data['username'], $data['id']];
     }
 
     public static function getUsernameFromToken($jwt = null)

@@ -83,14 +83,38 @@ let APPLICABLE_FIGURES = 15;
 let entries_by_category = {};
 
 $(document).ready(function () {
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
         console.log(1);
         $.ajax({
-            'url': '../api/v1/api.php?endpoint=token&token='+localStorage.getItem('token'),
+            'url': '../api/v1/api.php?endpoint=token&token=1',
             'method': 'get',
+            data: JSON.stringify({
+                'token': sessionStorage.getItem('token')
+            }),
+            beforeSend: beforeSend,
             'dataType': 'json',
             'success': function (role) {
                 console.log(role);
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+
+        console.log(sessionStorage.getItem('token'));
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=monthSavingsByCoach',
+            'method': 'get',
+            data: JSON.stringify({
+                'token': sessionStorage.getItem('token')
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                for (let savingsID = 0; savingsID < savings.length; savingsID++){
+                    console.log('Month Savings:   ' + savings[savingsID]['ClientID']);
+                }
+                
             },
             error: function(response){
                 console.log(response);
@@ -158,6 +182,7 @@ $(document).ready(function () {
         $('body').removeClass("hidden");
     }
     else{
+        console.log('No User:   ' + sessionStorage.getItem('token'));
         window.location.assign("login.html");
     }
 });
@@ -264,7 +289,7 @@ let change_password = function(){
 };
 
 logout = function(){
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     window.location.reload();
 };
 

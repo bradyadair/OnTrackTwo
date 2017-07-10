@@ -17,7 +17,7 @@ login = function () {
             console.log(3);
             console.log("YASS", response);
             if(response){
-                localStorage.setItem("token", response);
+                sessionStorage.setItem("token", response);
                 window.location.assign("admin.html");
             } else {
                 alert('Unrecognized username and/or password.');

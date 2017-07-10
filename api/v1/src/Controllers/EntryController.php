@@ -274,7 +274,6 @@ class EntryController
 
     public function getEntries($args)
     {
-
         $dbo = DatabaseConnection::getInstance();
 
 

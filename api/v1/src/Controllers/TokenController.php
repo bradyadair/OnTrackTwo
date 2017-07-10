@@ -35,7 +35,7 @@ class TokenController
             $fetched_data = $statement_get_password->fetch(PDO::FETCH_ASSOC);
             $hashed_password = $fetched_data['Password'];
             $user_role = $fetched_data['UserRole'];
-            $user_id = $fetched_data['UserId'];
+            $id = $fetched_data['UserId'];
 
             if (password_verify($password, $hashed_password)) {
                 $token_object = new Token();
@@ -49,7 +49,7 @@ class TokenController
                     $role = Token::ROLE_CLIENT;
                 }
 
-                $token = $token_object->buildToken($role, $username, $user_id);
+                $token = $token_object->buildToken('Role 2', $username, $id);
                 return $token;
             }
         }
@@ -65,5 +65,11 @@ class TokenController
         return $token_object->getRoleFromToken($token);
     }
 
-
+    public function getId($token)
+    {
+        $token_object = new Token();
+        $data = (object)json_decode(file_get_contents('php://input'));
+        if(!$token) $token = $data->token;
+        return $token_object->getIdFromToken($token);
+    }
 }
