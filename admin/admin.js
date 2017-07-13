@@ -112,9 +112,44 @@ $(document).ready(function () {
             'dataType': 'json',
             'success': function (savings) {
                 for (let savingsID = 0; savingsID < savings.length; savingsID++){
-                    console.log('Month Savings:   ' + savings[savingsID]['ClientID']);
+                    console.log('Month Savings:   ' + savings[savingsID][0]);
                 }
                 
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=getMonthSavingsForClient&clientID=' + 2,
+            'method': 'get',
+            data: JSON.stringify({
+                'clientID': 2 
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                for (let savingsID = 0; savingsID < savings.length; savingsID++){
+                    console.log('Client Records:   ' + savings[savingsID][0] + '   ' + savings[savingsID][1]);
+                }
+                
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + 2 + '&date=' + '2017-07-12 17:43:50',
+            'method': 'get',
+            data: JSON.stringify({
+                
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                console.log('Emergency Savings Record:   ' + savings[0]['ClientHours'] + '   ' + savings[0]['Rent']);
             },
             error: function(response){
                 console.log(response);

@@ -65,6 +65,22 @@ $main = function () {
             echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->getMonthSavingsForCoach($coachID));
         }
 
+        if ($_GET['endpoint'] == 'getMonthSavingsForClient') {
+            if (!empty($_GET['clientID'])) {
+                    $args = (int) $_GET['clientID'];
+                }
+            else{
+                $json = (object)json_decode(file_get_contents('php://input'));
+                $args = (int) $json->clientID;
+            }
+            echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->getMonthSavingsForClient($args));
+        }
+
+        if ($_GET['endpoint'] == 'getMonthSavingsForClientDate') {
+            $args = [(int) $_GET['clientID'], $_GET['date']];
+            echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->getMonthSavingsForClientDate($args));
+        }
+
         if ($_GET['endpoint'] == 'token') {
             if (isset($_GET['token'])) {
                 if (!empty($_GET['token'])) {

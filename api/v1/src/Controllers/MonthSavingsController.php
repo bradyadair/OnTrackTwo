@@ -180,51 +180,7 @@ class MonthSavingsController
         return $dbo->lastInsertId();
     }
 
-    public function putEntry($args)
-    {
-        $username = Token::getUsernameFromToken();
-        if($username == null){
-            return array("error"=>"Token not valid.");
-        }
-
-        $data = (object)json_decode(file_get_contents('php://input'));
-        $dbo = DatabaseConnection::getInstance();
-
-
-        $entryName = strip_tags($data->entryName);
-        $entryId = strip_tags($data->entryId);
-        $entryValue = strip_tags($data->entryValue);
-        $categoryId = strip_tags($data->categoryId);
-        $displayName = strip_tags($data->displayName);
-
-        $query_update_entry = '
-        UPDATE Entry
-        SET EntryName = :entryName,
-            EntryValue = :entryValue,
-            CategoryId = :categoryId,
-            DisplayName = :displayName
-        WHERE EntryId = :entryId
-        ';
-
-        $statement_update_entry = $dbo->prepare($query_update_entry);
-        $statement_update_entry->bindParam(':entryName', $entryName);
-        $statement_update_entry->bindParam(':entryId', $entryId);
-        $statement_update_entry->bindParam(':entryValue', $entryValue);
-        $statement_update_entry->bindParam(':categoryId', $categoryId);
-        $statement_update_entry->bindParam(':displayName', $displayName);
-
-        if (!$statement_update_entry->execute()) {
-            http_response_code(StatusCodes::BAD_REQUEST);
-            return array(
-                "error" => "Entry not updated in database."
-            );
-        }
-
-        $entry = new Entry($entryId, $entryName, $entryValue, $categoryId, $displayName);
-
-        return $entry->jsonSerialize();
-    }
-
+    
     public function deleteEntry($args)
     {
         $username = Token::getUsernameFromToken();
@@ -264,21 +220,99 @@ class MonthSavingsController
         $dbo = DatabaseConnection::getInstance();
 
         $query_select_entry = '
-            SELECT MonthSavingsRecordID, a.ClientID, a.CoachID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
+            SELECT DISTINCT ClientID, CoachID 
+            FROM MonthSavingsRecord
+            WHERE CoachID = :coachID;
+        ';
+
+        $statement_select_entry = $dbo->prepare($query_select_entry);
+        $statement_select_entry->bindParam(':coachID', $coachId);
+
+
+        if (!$statement_select_entry->execute()) {
+            http_response_code(StatusCodes::BAD_REQUEST);
+            return array(
+                "error" => "Query failed."
+            );
+        }
+
+        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC);
+
+        $entries = [];
+        foreach ($result as $entry) {
+            array_push($entries, $entry['ClientID']);
+        }
+
+        return $entries;
+    }
+
+    public function getMonthSavingsForClient($args)
+    {
+        // Get League ID
+        $clientID = (int) $args;
+        $dbo = DatabaseConnection::getInstance();
+
+        $query_select_entry = '
+            SELECT ClientID, DateSaved
+            FROM MonthSavingsRecord
+            WHERE ClientID = :clientID;
+        ';
+
+        $statement_select_entry = $dbo->prepare($query_select_entry);
+        $statement_select_entry->bindParam(':clientID', $clientID, PDO::PARAM_INT);
+
+
+        if (!$statement_select_entry->execute()) {
+            http_response_code(StatusCodes::BAD_REQUEST);
+            return array(
+                "error" => "Query failed."
+            );
+        }
+
+        $result = $statement_select_entry->fetchAll(PDO::FETCH_ASSOC);
+
+        $entries = [];
+        foreach ($result as $entry) {
+//            array_push($entries, array(
+//                'EntryId'=>$entry['EntryId'],
+//                'EntryName'=>$entry['EntryName'],
+//                'EntryValue'=>$entry['EntryValue'],
+//                'CategoryId'=>$entry['CategoryId']
+//            ));
+            array_push($entries, [
+                $entry['ClientID'],
+                $entry['DateSaved']]
+            );
+        }
+        //echo($result);
+        //$result = $coachID;
+
+        return $entries;
+    }
+
+    public function getMonthSavingsForClientDate($args)
+    {
+        // Get League ID
+        $clientID = $args[0];
+        $dateSaved = $args[1];
+        $dbo = DatabaseConnection::getInstance();
+
+        $query_select_entry = '
+            SELECT MonthSavingsRecordID, ClientID, CoachID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
             ClientSelfEmployment, ClientSocialSecurity, ClientPension, ClientAlimony, ClientChildSupport, ClientOtherIncome, SpouseHours, SpouseRate, SpousePRDeductions, 
             SpouseSelfEmployment, SpouseSocialSecurity, SpousePension, SpouseAlimony, SpouseChildSupport, SpouseOtherIncome, Rent, Electricity, Gas, WaterSewerGarbage, 
             CableNetflixHulu, Internet, EntertainmentPkg, OtherHomeUtilities, CellPhone, Groceries, EatingOut, PersonalHygiene, GroceiresOther, AutoInsurance, AutoFuel, 
             PublicTransit, TransOther, MedicalOutOfPocket, MedicalPrescriptions, MedicalOther, EduFees, EduSupplies, EduOther, ChildCareExpense, ChildSupport, ChildRecreation, 
             ChildClothing, ChildOther, Memberships, LegalFees, Donations, Entertainment, Pets, Storage, OtherShopping, ConstructiveDebt, ConsumerDebt, Collections, OtherExpenses, 
-            Savings, d.ClientFirstName, d.ClientLastName 
-            FROM MonthSavingsRecord a
-            JOIN OnTrackUsers c ON a.CoachID = c.UserID
-            JOIN Client d ON d.ClientID = a.CoachID
-            WHERE c.UserID = :coachID;
+            Savings
+            FROM MonthSavingsRecord
+            WHERE ClientID = :clientID
+            AND DateSaved = :dateSaved;
         ';
 
         $statement_select_entry = $dbo->prepare($query_select_entry);
-        $statement_select_entry->bindParam(':coachID', $coachId);
+        $statement_select_entry->bindParam(':clientID', $clientID, PDO::PARAM_INT);
+        $statement_select_entry->bindParam(':dateSaved', $dateSaved);
 
 
         if (!$statement_select_entry->execute()) {
