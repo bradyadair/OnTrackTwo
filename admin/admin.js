@@ -86,7 +86,7 @@ $(document).ready(function () {
     if (sessionStorage.getItem('token')) {
         console.log(1);
         $.ajax({
-            'url': '../api/v1/api.php?endpoint=token&token=1',
+            'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
             'method': 'get',
             data: JSON.stringify({
                 'token': sessionStorage.getItem('token')
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         console.log(sessionStorage.getItem('token'));
         $.ajax({
-            'url': '../api/v1/api.php?endpoint=monthSavingsByCoach',
+            'url': '../api/v1/api.php?endpoint=monthSavingsByCoach&token=' + sessionStorage.getItem('token'),
             'method': 'get',
             data: JSON.stringify({
                 'token': sessionStorage.getItem('token')

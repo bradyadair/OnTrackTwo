@@ -264,7 +264,7 @@ class MonthSavingsController
         $dbo = DatabaseConnection::getInstance();
 
         $query_select_entry = '
-            SELECT MonthSavingsRecordID, a.ClientID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
+            SELECT MonthSavingsRecordID, a.ClientID, a.CoachID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
             ClientSelfEmployment, ClientSocialSecurity, ClientPension, ClientAlimony, ClientChildSupport, ClientOtherIncome, SpouseHours, SpouseRate, SpousePRDeductions, 
             SpouseSelfEmployment, SpouseSocialSecurity, SpousePension, SpouseAlimony, SpouseChildSupport, SpouseOtherIncome, Rent, Electricity, Gas, WaterSewerGarbage, 
             CableNetflixHulu, Internet, EntertainmentPkg, OtherHomeUtilities, CellPhone, Groceries, EatingOut, PersonalHygiene, GroceiresOther, AutoInsurance, AutoFuel, 
@@ -272,9 +272,8 @@ class MonthSavingsController
             ChildClothing, ChildOther, Memberships, LegalFees, Donations, Entertainment, Pets, Storage, OtherShopping, ConstructiveDebt, ConsumerDebt, Collections, OtherExpenses, 
             Savings, d.ClientFirstName, d.ClientLastName 
             FROM MonthSavingsRecord a
-            JOIN CoachClient b ON a.ClientID = b.ClientID
-            JOIN OnTrackUsers c ON b.CoachID = c.UserID
-            JOIN Client d ON d.ClientID = b.CoachID
+            JOIN OnTrackUsers c ON a.CoachID = c.UserID
+            JOIN Client d ON d.ClientID = a.CoachID
             WHERE c.UserID = :coachID;
         ';
 

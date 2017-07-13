@@ -40,10 +40,11 @@ class Token
             'iss' => $serverName,       // Issuer
             'nbf' => $notBefore,        // Not before
             'exp' => $expire,           // Expire
-            'data' => [                  // Data related to the signer user
+            'data' => [
+                'id' => $id,                  // Data related to the signer user
                 'role' => $role,
-                'username' => $username, // User name
-                'id' => $id
+                'username' => $username // User name
+                
             ]
         ];
 
@@ -76,11 +77,11 @@ class Token
 
     public static function getRoleFromToken($jwt = null)
     {
-        if ($jwt == null)
-            $jwt = self::getBearerTokenFromHeader();
+        //if ($jwt == null)
+            //$jwt = self::getBearerTokenFromHeader();
         $tokenData = static::extractTokenData($jwt);
         $data = (array)$tokenData['data'];
-        return [$data['role'], $data['username'], $data['id']];
+        return $data['role'];
     }
 
     public static function getUsernameFromToken($jwt = null)

@@ -49,7 +49,7 @@ class TokenController
                     $role = Token::ROLE_CLIENT;
                 }
 
-                $token = $token_object->buildToken('Role 2', $username, $id);
+                $token = $token_object->buildToken($role, $username, $id);
                 return $token;
             }
         }
@@ -60,8 +60,8 @@ class TokenController
     public function getRole($token)
     {
         $token_object = new Token();
-        $data = (object)json_decode(file_get_contents('php://input'));
-        if(!$token) $token = $data->token;
+        //$data = (object)json_decode(file_get_contents('php://input'));
+        //if(!$token) $token = $data->token;
         return $token_object->getRoleFromToken($token);
     }
 

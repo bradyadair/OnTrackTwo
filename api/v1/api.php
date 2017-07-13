@@ -61,19 +61,34 @@ $main = function () {
                 $args = $json->token;
             }
             $coachID = (new \OnTrack\Controllers\TokenController())->getId($args);
-            echo json_encode((new \OnTrack\Controllers\TokenController())->getId($args));
+            //echo json_encode((new \OnTrack\Controllers\TokenController())->getId($args));
             echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->getMonthSavingsForCoach($coachID));
         }
 
         if ($_GET['endpoint'] == 'token') {
             if (isset($_GET['token'])) {
                 if (!empty($_GET['token'])) {
-                    //$args = $_GET['token'];
+                    $args = $_GET['token'];
                 }
                 else{
                     $json = (object)json_decode(file_get_contents('php://input'));
                     $args = $json->token;
                 }
+                $args = $_GET['token'];
+                echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
+            } else echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
+        }
+
+        if ($_GET['endpoint'] == 'getRole') {
+            if (isset($_GET['token'])) {
+                if (!empty($_GET['token'])) {
+                    $args = $_GET['token'];
+                }
+                else{
+                    $json = (object)json_decode(file_get_contents('php://input'));
+                    $args = $json->token;
+                }
+                $args = $_GET['token'];
                 echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
             } else echo json_encode((new \OnTrack\Controllers\TokenController())->getRole($args));
         }
