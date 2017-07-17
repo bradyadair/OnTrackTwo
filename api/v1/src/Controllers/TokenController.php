@@ -36,21 +36,24 @@ class TokenController
             $hashed_password = $fetched_data['Password'];
             $user_role = $fetched_data['UserRole'];
             $id = $fetched_data['UserId'];
+            $location = 'login.html';
 
             if (password_verify($password, $hashed_password)) {
                 $token_object = new Token();
                 if($user_role == 'Admin'){
                     $role = Token::ROLE_ADMIN;
+                    $location = "admin.html";
                 }
                 else if($user_role == 'Coach'){
                     $role = Token::ROLE_COACH;
+                    $location = "../coach/coach.html";
                 }
                 else{
                     $role = Token::ROLE_CLIENT;
                 }
 
                 $token = $token_object->buildToken($role, $username, $id);
-                return $token;
+                return json_encode([$token,$location]);
             }
         }
         return null;

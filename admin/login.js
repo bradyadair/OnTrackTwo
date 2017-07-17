@@ -17,8 +17,12 @@ login = function () {
             console.log(3);
             console.log("YASS", response);
             if(response){
-                sessionStorage.setItem("token", response);
-                window.location.assign("admin.html");
+                res = JSON.parse(response)
+                console.log(res[0]);
+                sessionStorage.setItem("token", res[0]);
+                console.log("TEST");
+                console.log(res[1]);
+                window.location.assign(res[1]);
             } else {
                 alert('Unrecognized username and/or password.');
             }
