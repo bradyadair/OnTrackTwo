@@ -134,7 +134,23 @@ window.onload = function () {
         navigate("reset");
     };
 
-    console.log("Loaded");   
+    console.log("Loaded");  
+    
+     //Role
+     $.ajax({
+        'url': '../../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
+        'method': 'GET',
+        data: JSON.stringify({
+            'token': sessionStorage.getItem('token')
+        }),
+        'dataType': 'json',
+        'success': function (role) {
+            console.log(role);
+        },
+        error: function(response){
+            console.log(response);
+        }
+    }); 
 
     $.ajax({
         'url': '../../api/v1/api.php?endpoint=entry&category=18',
