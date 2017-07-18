@@ -141,7 +141,7 @@ window.onload = function () {
     
      //Role
      $.ajax({
-        'url': '../../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
+        'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
         'method': 'GET',
         data: JSON.stringify({
             'token': sessionStorage.getItem('token')
@@ -160,7 +160,7 @@ window.onload = function () {
     }); 
 
     $.ajax({
-        'url': '../../api/v1/api.php?endpoint=entry&category=18',
+        'url': '../api/v1/api.php?endpoint=entry&category=18',
         'method': 'GET',
         'dataType': 'json',
         'success': function (entries) {
