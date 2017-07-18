@@ -21,6 +21,16 @@ var childrenNav;
 var otherNav;
 var resultsNav;
 
+let beforeSend = function(request){
+    console.log("In beforeSend with token:");
+    console.log(sessionStorage.getItem("token"));
+    request.setRequestHeader(
+        "Authorization",
+        "Bearer " + sessionStorage.getItem("token")  
+    );
+    console.log("after beforeSend");
+};
+
 window.onload = function () {
 
     //flow stuff
@@ -124,8 +134,7 @@ window.onload = function () {
         navigate("reset");
     };
 
-    console.log("Loaded");
-    
+    console.log("Loaded");   
 
     $.ajax({
         'url': '../../api/v1/api.php?endpoint=entry&category=18',
@@ -304,6 +313,26 @@ window.onload = function () {
             setElements()
         }
     });
+
+    
+    console.log("About to do Brady's ajax call");
+    //Brady Added this to test pulling values from database
+    $.ajax({
+           'url': '../../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + 2 + '&date=' + '2017-07-12 17:43:50',
+           'method': 'get',
+           data: JSON.stringify({
+              
+           }),
+           beforeSend: beforeSend,
+           'dataType': 'json',
+           'success': function (savings) {
+               console.log('Emergency Savings Record:   ' + savings[0]['ClientHours'] + '   ' + savings[0]['Rent']);
+           },
+           error: function(response){
+               console.log(response);
+               console.log("Brady's ajax call returned error");
+           }
+       });
 
 
 
