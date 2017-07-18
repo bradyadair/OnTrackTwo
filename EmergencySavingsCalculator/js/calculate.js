@@ -69,6 +69,9 @@ window.onload = function () {
     checkBudgetNav.className = "list-group-item disabled";
     resultsNav.className = "list-group-item disabled";
 
+    //save button
+    saveDiv = document.getElementById("saveToDatabase");
+
     //wire up nav
     document.getElementById("btnStart").onclick = function () {
         navigate("start");
@@ -146,6 +149,10 @@ window.onload = function () {
         'dataType': 'json',
         'success': function (role) {
             console.log(role);
+            if(role == "Coach" || role =="Admin")
+                {
+                    saveDiv.style.display = "block";
+                }
         },
         error: function(response){
             console.log(response);
