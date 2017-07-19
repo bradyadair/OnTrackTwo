@@ -285,6 +285,9 @@ window.onload = function () {
                     case 'Other_Expenses':
                         otherExpensesPercent = parseFloat(entries[entry_index]['entryValue'])
                         break;
+                    case 'Other_Savings':
+                        savingsPercent = parseFloat(entries[entry_index]['entryValue'])
+                        break;
                     default:
                         break;
                 }
@@ -341,7 +344,7 @@ window.onload = function () {
     console.log("About to do Brady's ajax call");
     //Brady Added this to test pulling values from database
     $.ajax({
-           'url': '../../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + 2 + '&date=' + '2017-07-12 17:43:50',
+           'url': '../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + 2 + '&date=' + '2017-07-17 20:06:41',
            'method': 'get',
            data: JSON.stringify({
               
@@ -349,7 +352,7 @@ window.onload = function () {
            beforeSend: beforeSend,
            'dataType': 'json',
            'success': function (savings) {
-               console.log('Emergency Savings Record:   ' + savings[0]['ClientHours'] + '   ' + savings[0]['Rent']);
+               addClientValues(savings);
            },
            error: function(response){
                console.log(response);
@@ -361,6 +364,98 @@ window.onload = function () {
 
     
 };
+
+function addClientValues(savings)
+{
+    console.log("hello world");
+    console.log('Emergency Savings Record:   ' + savings[0]['ClientHours'] + '   ' + savings[0]['Rent']);
+
+    //Income Page
+    document.getElementById("clientHours").value = savings[0]['ClientHours'];
+    document.getElementById("clientRate").value = savings[0]['ClientRate'];
+    document.getElementById("clientPRDeductions").value = savings[0]['ClientPRDeductions'];
+    document.getElementById("clientSelfEmployment").value = savings[0]['ClientSelfEmployment'];
+    document.getElementById("clientSocialSecurityRetirement").value = savings[0]['ClientSocialSecurity'];
+    document.getElementById("clientPension").value = savings[0]['ClientPension'];
+    document.getElementById("clientAlimony").value = savings[0]['ClientAlimony'];
+    document.getElementById("clientChildSupport").value = savings[0]['ClientChildSupport'];
+    document.getElementById("clientOtherIncome").value = savings[0]['ClientOtherIncome']; 
+    document.getElementById("spouseHours").value = savings[0]['SpouseHours'];
+    document.getElementById("spouseRate").value = savings[0]['SpouseRate'];
+    document.getElementById("spousePRDeductions").value = savings[0]['SpousePRDeductions'];
+    document.getElementById("spouseSelfEmployment").value = savings[0]['SpouseSelfEmployment'];
+    document.getElementById("spouseSocialSecurityRetirement").value = savings[0]['SpouseSocialSecurity'];
+    document.getElementById("spousePension").value = savings[0]['SpousePension'];
+    document.getElementById("spouseAlimony").value = savings[0]['SpouseAlimony'];
+    document.getElementById("spouseChildSupport").value = savings[0]['SpouseChildSupport'];
+    document.getElementById("spouseOtherIncome").value = savings[0]['SpouseOtherIncome']; 
+
+    //Housing Page
+    document.getElementById("rent").value = savings[0]['Rent'];
+    document.getElementById("electricity").value = savings[0]['Electricity'];
+    document.getElementById("gas").value = savings[0]['Gas'];
+    document.getElementById("water").value = savings[0]['WaterSewerGarbage'];
+    document.getElementById("netflix").value = savings[0]['CableNetflixHulu'];
+    document.getElementById("internet").value = savings[0]['Internet'];
+    document.getElementById("entertainment").value = savings[0]['EntertainmentPkg'];
+    document.getElementById("otherUtilities").value = savings[0]['OtherHomeUtilities'];
+    document.getElementById("cellPhone").value = savings[0]['CellPhone'];
+
+    //Food Page
+    document.getElementById("groceries").value = savings[0]['Groceries'];
+    document.getElementById("eatingOut").value = savings[0]['EatingOut'];
+    document.getElementById("personalHygiene").value = savings[0]['PersonalHygiene'];
+    document.getElementById("groceriesOther").value = savings[0]['GroceiresOther'];
+
+
+
+
+    //Transportation Page
+    document.getElementById("autoInsurance").value = savings[0]['AutoInsurance'];
+    document.getElementById("autoFuel").value = savings[0]['AutoFuel'];
+    document.getElementById("publicTransit").value = savings[0]['PublicTransit'];
+    document.getElementById("transOther").value = savings[0]['TransOther'];
+
+    //Medical Page
+    document.getElementById("medicalPocket").value = savings[0]['MedicalOutOfPocket'];
+    document.getElementById("medicalPrescriptions").value = savings[0]['MedicalPrescriptions'];
+    document.getElementById("medicalOther").value = savings[0]['MedicalOther'];
+
+    //Education Page
+    document.getElementById("eduFees").value = savings[0]['EduFees'];
+    document.getElementById("eduSupplies").value = savings[0]['EduSupplies'];
+    document.getElementById("eduOther").value = savings[0]['EduOther'];
+
+    //Child Page
+    document.getElementById("childCareExpense").value = savings[0]['ChildCareExpense'];
+    document.getElementById("childSupport").value = savings[0]['ChildSupport'];
+    document.getElementById("childRecreation").value = savings[0]['ChildRecreation'];
+    document.getElementById("childClothing").value = savings[0]['ChildClothing'];
+    document.getElementById("childOther").value = savings[0]['ChildOther'];
+
+    //Other Page
+    document.getElementById("memberships").value = savings[0]['Memberships'];
+    document.getElementById("legalFees").value = savings[0]['LegalFees'];
+    document.getElementById("donations").value = savings[0]['Donations'];
+    document.getElementById("otherEntertainment").value = savings[0]['Entertainment'];
+    document.getElementById("pets").value = savings[0]['Pets'];
+    document.getElementById("storage").value = savings[0]['Storage'];
+    document.getElementById("clothing").value = savings[0]['OtherShopping'];
+    document.getElementById("constructiveDebt").value = savings[0]['ConstructiveDebt'];
+    document.getElementById("consumerDebt").value = savings[0]['ConsumerDebt'];
+    document.getElementById("collections").value = savings[0]['Collections'];
+    document.getElementById("otherExpenses").value = savings[0]['OtherExpenses'];
+    document.getElementById("savings").value = savings[0]['Savings'];
+
+    calculateEmergencySavings();
+//END OF ADDING CLIENT INFO**********************************************************************************
+
+
+
+
+
+    console.log('updated clientHours:   ' + document.getElementById("clientHours").value);
+}
 
 function setElements() {
     //-------------------------------------------------------------------------------------------------------------------------
