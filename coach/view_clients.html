@@ -29,6 +29,12 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
         <script src="viewclients.js"></script>
+       
+        <script>
+          function inform(){
+            viewReport();
+          }
+        </script>
 
     </head>
     <body>
@@ -68,7 +74,11 @@
                     <div class="list-group" id="clientReports">
                     </div>
                     <p style="display: none;" id="noReports">No reports available.</p>
-                    <button disabled style="margin: auto; display: block;" class="btn-primary btn-lg" id="viewBtn">View</button>
+                    <!--
+                    <button disabled style="margin: auto; display: block;" class="btn-primary btn-lg" id="viewBtn" onclick="inform()">View</button>-->
+                    <form action="http://www.cottagesofhope.org/weberstate/ontrack/EmergencySavingsCalculator/index.html">
+                        <input type="submit" value="View" disabled style="margin: auto; display: block;" class="btn-primary btn-lg" id="viewBtn" onclick="inform()"/>
+                    </form>
                 </div>
             </div> <!-- end row -->
         </div> <!-- /container -->

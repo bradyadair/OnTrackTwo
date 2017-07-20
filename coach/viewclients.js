@@ -1,7 +1,7 @@
 var clients = [];
 var reports = [];
 var selectedClient;
-var selectedReport = {};
+var selectedReport;;
 var clientList;
 var clientReports;
 var noClients;
@@ -15,6 +15,8 @@ $(window).load(function () {
     noClients = document.getElementById("noClients");
     noReports = document.getElementById("noReports");
     viewBtn = document.getElementById("viewBtn");
+
+    
     //ajax call to get list of clients
     $.ajax({
         'url': '../api/v1/api.php?endpoint=monthSavingsByCoach&token=' + sessionStorage.getItem('token'),
@@ -138,4 +140,12 @@ function activeReport(index)
     selectedReport = index;
     //enable view button
     viewBtn.disabled = false;
+}
+
+function viewReport()
+{
+    console.log("clientID: " + clients[selectedClient]);
+    console.log("date: " + reports[selectedReport]);
+    sessionStorage.setItem('clientID', clients[selectedClient]);
+    sessionStorage.setItem('date', reports[selectedReport]);  
 }

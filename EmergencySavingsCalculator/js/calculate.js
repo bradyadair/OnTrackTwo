@@ -138,27 +138,34 @@ window.onload = function () {
     };
 
     console.log("Loaded");  
-    
-     //Role
-     $.ajax({
-        'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
-        'method': 'GET',
-        data: JSON.stringify({
-            'token': sessionStorage.getItem('token')
-        }),
-        'dataType': 'json',
-        'success': function (role) {
-            console.log(role);
-            if(role == "Coach" || role =="Admin")
-                {
-                    saveDiv.style.display = "block";
-                }
-        },
-        error: function(response){
-            console.log(response);
-        }
-    }); 
 
+    // Get saved data from sessionStorage
+    var clientID = sessionStorage.getItem('clientID');
+    console.log("clientID: " +clientID);
+    var date = sessionStorage.getItem('date');
+    console.log("date: " +date);
+    if (clientID && date)
+    {
+        //Role
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
+            'method': 'GET',
+            data: JSON.stringify({
+                'token': sessionStorage.getItem('token')
+            }),
+            'dataType': 'json',
+            'success': function (role) {
+                console.log(role);
+                if(role == "Coach" || role =="Admin")
+                    {
+                        saveDiv.style.display = "block";
+                    }
+            },
+            error: function(response){
+                console.log(response);
+            }
+        }); 
+    }
     $.ajax({
         'url': '../api/v1/api.php?endpoint=entry&category=18',
         'method': 'GET',
@@ -342,23 +349,30 @@ window.onload = function () {
 
     
     console.log("About to do Brady's ajax call");
+
+
     //Brady Added this to test pulling values from database
-    $.ajax({
-           'url': '../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + 2 + '&date=' + '2017-07-17 20:06:41',
-           'method': 'get',
-           data: JSON.stringify({
-              
-           }),
-           beforeSend: beforeSend,
-           'dataType': 'json',
-           'success': function (savings) {
-               addClientValues(savings);
-           },
-           error: function(response){
-               console.log(response);
-               console.log("Brady's ajax call returned error");
-           }
-       });
+    if (clientID && date)
+    {
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=getMonthSavingsForClientDate&clientID=' + clientID + '&date=' + date,
+            'method': 'get',
+            data: JSON.stringify({
+                
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                sessionStorage.removeItem('clientID');
+                sessionStorage.removeItem('date');
+                addClientValues(savings);
+            },
+            error: function(response){
+                console.log(response);
+                console.log("Brady's ajax call returned error");
+            }
+        });
+    }
 
 
 
