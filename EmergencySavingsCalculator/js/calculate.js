@@ -1316,7 +1316,7 @@ function calculateEmergencySavings()
     document.getElementById("monthsEmergencySavingsRequired").placeholder = monthsEmergencySavingsRequired.toFixed(2) + " Months";
     totalEmergencySavingsRequired = (monthsEmergencySavingsRequired * budgetTotalRequired);
     document.getElementById("totalEmergencySavingsRequired").placeholder = "$" + totalEmergencySavingsRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
-
+    $("#EmergencySavingsRequiredColor").css("color", "blue");
     $("#monthsOfSavingsRequiredColor").css("color", "blue");
     $("#emergencySavingsRequiredColor").css("color", "blue");
 }
