@@ -144,28 +144,27 @@ window.onload = function () {
     console.log("clientID: " +clientID);
     var date = sessionStorage.getItem('date');
     console.log("date: " +date);
-    if (clientID && date)
-    {
-        //Role
-        $.ajax({
-            'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
-            'method': 'GET',
-            data: JSON.stringify({
-                'token': sessionStorage.getItem('token')
-            }),
-            'dataType': 'json',
-            'success': function (role) {
-                console.log(role);
-                if(role == "Coach" || role =="Admin")
-                    {
-                        saveDiv.style.display = "block";
-                    }
-            },
-            error: function(response){
-                console.log(response);
-            }
-        }); 
-    }
+    
+    //Role
+    $.ajax({
+        'url': '../api/v1/api.php?endpoint=token&token=' + sessionStorage.getItem('token'),
+        'method': 'GET',
+        data: JSON.stringify({
+            'token': sessionStorage.getItem('token')
+        }),
+        'dataType': 'json',
+        'success': function (role) {
+            console.log(role);
+            if(role == "Coach" || role =="Admin")
+                {
+                    saveDiv.style.display = "block";
+                }
+        },
+        error: function(response){
+            console.log(response);
+        }
+    }); 
+    
     $.ajax({
         'url': '../api/v1/api.php?endpoint=entry&category=18',
         'method': 'GET',
