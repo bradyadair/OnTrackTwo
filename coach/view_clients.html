@@ -31,9 +31,18 @@
         <script src="viewclients.js"></script>
        
         <script>
-          function inform(){
-            viewReport();
-          }
+            function inform(){
+                viewReport();
+            }
+
+            //check if coach is logged in before displaying this page
+            if (sessionStorage.getItem('token')) {
+                    console.log("coach is logged in");    
+            }
+            else{
+                console.log('No User:   ' + sessionStorage.getItem('token'));
+                window.location.assign("../admin/login.html");
+            }
         </script>
 
     </head>
