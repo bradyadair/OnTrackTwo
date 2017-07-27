@@ -12,6 +12,16 @@
 <link href="coach.css" rel="stylesheet" media="all">
 <script type="text/javascript" src="coach.js"></script>
 
+<script type="text/javascript"> 
+    if (sessionStorage.getItem('token')) {
+            console.log("coach is logged in");    
+    }
+    else{
+        console.log('No User:   ' + sessionStorage.getItem('token'));
+        window.location.assign("../admin/login.html");
+    }
+</script>
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
