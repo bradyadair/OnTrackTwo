@@ -20,12 +20,10 @@ class MonthSavingsController
 
     public function postMonthSavings($args)
     {
-        $role = Token::getRoleFromToken();
-        if($role != Token::ROLE_ADMIN && $role != Token::ROLE_COACH){
-            return array("error"=>"Not Authorized.");
-        }
+        
 
         $data = (object)json_decode(file_get_contents('php://input'));
+
         $dbo = DatabaseConnection::getInstance();
 
         $ClientID = strip_tags($data->ClientID);
