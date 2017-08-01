@@ -270,9 +270,21 @@ let create_user = function(){
     let USER_URL = '../api/v1/api.php?endpoint=user';
     let username = $("#username").val();
     let password = $("#password").val();
-    let admin = $("#admin").val();
-    let coach = $("#coach").val();
-    let client = $("#client").val();
+    let role = "Client";
+
+    if($("#admin").is(":checked")) 
+    {
+        // checkbox is checked -> do something
+        role = "Admin";
+    } 
+    else if($("#coach").is(":checked")) 
+    {
+        // checkbox is not checked -> do something different
+        role = "Coach";
+    } 
+    else {
+        role = "Client";
+    }
 
     $.ajax({
         url: USER_URL,
@@ -280,9 +292,7 @@ let create_user = function(){
         data: JSON.stringify({
             'username': username,
             'password': password,
-            'admin' : admin,
-            'coach' : coach,
-            'client' : client
+            'role' : role
         }),
         beforeSend: beforeSend,
         dataType: 'json',

@@ -29,20 +29,7 @@ class UserController
 
         $username = strip_tags($data->username);
         $password = $data->password;
-        $role = "Client";
-
-        if($data->admin)
-        {
-            $role = "Admin"
-        } 
-        else if($data->coach)
-        {
-            $role = "Coach"
-        } 
-        else 
-        {
-            $role = "Client"
-        }
+        $role = $data->role;
 
         $user = new User(null, $username, $password);
         $password = $user->getPassword();
