@@ -181,10 +181,10 @@ class MonthSavingsController
     
     public function deleteMonthSavings($args)
     {
-        $username = Token::getUsernameFromToken();
-        if($username == null){
-            return array("error"=>"Token not valid.");
-        }
+//        $username = Token::getUsernameFromToken();
+//        if($username == null){
+//            return array("error"=>"Token not valid.");
+//        }
 
         $data = (object)json_decode(file_get_contents('php://input'));
         $dbo = DatabaseConnection::getInstance();

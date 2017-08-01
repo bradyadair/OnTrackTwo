@@ -1,12 +1,14 @@
 var clients = [];
 var reports = [];
 var selectedClient;
-var selectedReport;;
+var selectedReport;
+;
 var clientList;
 var clientReports;
 var noClients;
 var noReports;
 var viewBtn;
+var removeBtn;
 
 $(window).load(function () {
     //wire up elements
@@ -15,8 +17,8 @@ $(window).load(function () {
     noClients = document.getElementById("noClients");
     noReports = document.getElementById("noReports");
     viewBtn = document.getElementById("viewBtn");
+    removeBtn = document.getElementById("removeBtn");
 
-    
     //ajax call to get list of clients
     $.ajax({
         'url': '../api/v1/api.php?endpoint=monthSavingsByCoach&token=' + sessionStorage.getItem('token'),
@@ -70,6 +72,7 @@ function activeClient(index)
 {
     //disable view button
     viewBtn.disabled = true;
+    removeBtn.disabled = true;
     for (var i = 0; i < clients.length; i++)
     {
         clientList.childNodes[i + 1].className = "list-group-item";
@@ -109,7 +112,7 @@ function getReports(id)
 function populateReports()
 {
     //clear current list
-    while (clientReports.firstChild) 
+    while (clientReports.firstChild)
     {
         clientReports.removeChild(clientReports.firstChild);
     }
@@ -140,6 +143,7 @@ function activeReport(index)
     selectedReport = index;
     //enable view button
     viewBtn.disabled = false;
+    removeBtn.disabled = false;
 }
 
 function viewReport()
@@ -147,5 +151,34 @@ function viewReport()
     console.log("clientID: " + clients[selectedClient]);
     console.log("date: " + reports[selectedReport]);
     sessionStorage.setItem('clientID', clients[selectedClient]);
-    sessionStorage.setItem('date', reports[selectedReport]);  
+    sessionStorage.setItem('date', reports[selectedReport]);
+}
+
+function deleteReport()
+{
+    console.log("delete button clicked");
+
+    var r = confirm("Are you sure you want to delete this record?");
+    if (r == true) {
+        console.log("Client ID: " + parseInt(clients[selectedClient]) + " Date: " + reports[selectedReport].toString());
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=deleteMonthSavings&clientID=' + parseInt(clients[selectedClient]) + '&date=' + reports[selectedReport].toString(),
+            'method': 'post',
+            data: JSON.stringify({
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                console.log('Record Deleted');
+                location.reload();
+            },
+            error: function (response) {
+                console.log(response);
+                window.alert("There was an error deleting this report.");
+            }
+        });     
+    }
+    else {
+        //do nothing
+    }
 }
