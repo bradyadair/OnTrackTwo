@@ -29,14 +29,29 @@ class UserController
 
         $username = strip_tags($data->username);
         $password = $data->password;
+        $role = "Client";
+
+        if($data->admin)
+        {
+            $role = "Admin"
+        } 
+        else if($data->coach)
+        {
+            $role = "Coach"
+        } 
+        else 
+        {
+            $role = "Client"
+        }
 
         $user = new User(null, $username, $password);
         $password = $user->getPassword();
 
-        $query_insert_user = 'INSERT INTO OnTrackUsers (`UserName`, `Password`) VALUES (:username, :pass)';
+        $query_insert_user = 'INSERT INTO OnTrackUsers (`UserName`, `Password`, `UserRole`) VALUES (:username, :pass, :role)';
         $statement_insert_user = $dbo->prepare($query_insert_user);
         $statement_insert_user->bindParam(':username', $username);
         $statement_insert_user->bindParam(':pass', $password);
+        $statement_insert_user->bindParam(':role', $role);
 
         try{
             if(!$statement_insert_user->execute()){

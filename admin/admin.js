@@ -270,14 +270,19 @@ let create_user = function(){
     let USER_URL = '../api/v1/api.php?endpoint=user';
     let username = $("#username").val();
     let password = $("#password").val();
+    let admin = $("#admin").val();
     let coach = $("#coach").val();
+    let client = $("#client").val();
+
     $.ajax({
         url: USER_URL,
         method: 'POST',
         data: JSON.stringify({
             'username': username,
             'password': password,
-            'coach' : coach
+            'admin' : admin,
+            'coach' : coach,
+            'client' : client
         }),
         beforeSend: beforeSend,
         dataType: 'json',
