@@ -71,6 +71,9 @@ window.onload = function () {
 
     //save button
     saveDiv = document.getElementById("saveToDatabase");
+    document.getElementById("btnSaveToDatabase").onclick = function () {
+        saveClientValues();
+    };
 
     //wire up nav
     document.getElementById("btnStart").onclick = function () {
@@ -377,6 +380,88 @@ window.onload = function () {
 
     
 };
+
+function saveClientValues() {
+
+    var date = new Date();
+
+    $.ajax({
+        'url': '../api/v1/api.php?endpoint=monthsavings',
+        'method': 'post',
+        data: JSON.stringify({
+            'ClientID': document.getElementById("ClientID").value,
+            'DateSaved': date.toLocaleDateString("en-US"),
+            'ClientHours': document.getElementById("clientHours").value,
+            'ClientRate': document.getElementById("clientRate").value,
+            'ClientPRDeductions': document.getElementById("clientPRDeductions").value,
+            'ClientSelfEmployment': document.getElementById("clientSelfEmployment").value,
+            'ClientSocialSecurity': document.getElementById("clientSocialSecurityRetirement").value,
+            'ClientPension': document.getElementById("clientPension").value,
+            'ClientAlimony': document.getElementById("clientAlimony").value,
+            'ClientChildSupport': document.getElementById("clientChildSupport").value,
+            'ClientOtherIncome': document.getElementById("clientOtherIncome").value,
+            'SpouseHours': document.getElementById("spouseHours").value,
+            'SpouseRate': document.getElementById("spouseRate").value,
+            'SpousePRDeductions': document.getElementById("spousePRDeductions").value,
+            'SpouseSelfEmployment': document.getElementById("spouseSelfEmployment").value,
+            'SpouseSocialSecurity': document.getElementById("spouseSocialSecurityRetirement").value,
+            'SpousePension': document.getElementById("spousePension").value,
+            'SpouseAlimony': document.getElementById("spouseAlimony").value,
+            'SpouseChildSupport': document.getElementById("spouseChildSupport").value,
+            'SpouseOtherIncome': document.getElementById("spouseOtherIncome").value,
+            'Rent': document.getElementById("rent").value,
+            'Electricity': document.getElementById("electricity").value,
+            'Gas': document.getElementById("gas").value,
+            'WaterSewerGarbage': document.getElementById("water").value,
+            'CableNetflixHulu': document.getElementById("netflix").value,
+            'Internet': document.getElementById("internet").value,
+            'EntertainmentPkg': document.getElementById("entertainment").value,
+            'OtherHomeUtilities': document.getElementById("otherUtilities").value,
+            'CellPhone': document.getElementById("cellPhone").value,
+            'Groceries': document.getElementById("groceries").value,
+            'EatingOut': document.getElementById("eatingOut").value,
+            'PersonalHygiene': document.getElementById("personalHygiene").value,
+            'GroceiresOther': document.getElementById("groceriesOther").value,
+            'AutoInsurance': document.getElementById("autoInsurance").value,
+            'AutoFuel': document.getElementById("autoFuel").value,
+            'PublicTransit': document.getElementById("publicTransit").value,
+            'TransOther': document.getElementById("transOther").value,
+            'MedicalOutOfPocket': document.getElementById("medicalPocket").value,
+            'MedicalPrescriptions': document.getElementById("medicalPrescriptions").value,
+            'MedicalOther': document.getElementById("medicalOther").value,
+            'EduFees': document.getElementById("eduFees").value,
+            'EduSupplies': document.getElementById("eduSupplies").value,
+            'EduOther': document.getElementById("eduOther").value,
+            'ChildCareExpense': document.getElementById("childCareExpense").value,
+            'ChildSupport': document.getElementById("childSupport").value,
+            'ChildRecreation': document.getElementById("childRecreation").value,
+            'ChildClothing': document.getElementById("childClothing").value,
+            'ChildOther': document.getElementById("childOther").value,
+            'Memberships': document.getElementById("memberships").value,
+            'LegalFees': document.getElementById("legalFees").value,
+            'Donations': document.getElementById("donations").value,
+            'Entertainment': document.getElementById("otherEntertainment").value,
+            'Pets': document.getElementById("otherEntertainment").value,
+            'Storage': document.getElementById("storage").value,
+            'OtherShopping': document.getElementById("clothing").value,
+            'ConstructiveDebt': document.getElementById("constructiveDebt").value,
+            'ConsumerDebt': document.getElementById("consumerDebt").value,
+            'Collections': document.getElementById("collections").value,
+            'OtherExpenses': document.getElementById("otherExpenses").value,
+            'Savings': document.getElementById("savings").value
+        }),
+        beforeSend: beforeSend,
+        'dataType': 'json',
+        'success': function (savings) {
+            console.log(savings);
+            console.log("Save successful");
+        },
+        error: function (response) {
+            console.log(response);
+            console.log("Error Saving Record");
+        }
+    });
+}
 
 function addClientValues(savings)
 {
