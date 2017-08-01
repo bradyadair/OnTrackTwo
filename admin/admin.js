@@ -100,7 +100,7 @@ $(document).ready(function () {
                 console.log(response);
             }
         });
-
+/*
         console.log(sessionStorage.getItem('token'));
         $.ajax({
             'url': '../api/v1/api.php?endpoint=monthSavingsByCoach&token=' + sessionStorage.getItem('token'),
@@ -120,6 +120,7 @@ $(document).ready(function () {
                 console.log(response);
             }
         });
+
 
         $.ajax({
             'url': '../api/v1/api.php?endpoint=getMonthSavingsForClient&clientID=' + 2,
@@ -154,12 +155,12 @@ $(document).ready(function () {
             error: function(response){
                 console.log(response);
             }
-        });
+        });*/
 
 
         $.ajax({
             'url': '../api/v1/api.php?endpoint=deleteMonthSavings&clientID=' + 2 + '&date=' + '2017-07-17 20:06:41',
-            'method': 'get',
+            'method': 'post',
             data: JSON.stringify({
                 
             }),
