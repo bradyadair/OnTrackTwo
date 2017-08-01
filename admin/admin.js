@@ -156,6 +156,25 @@ $(document).ready(function () {
             }
         });
 
+
+        $.ajax({
+            'url': '../api/v1/api.php?endpoint=deleteMonthSavings&clientID=' + 2 + '&date=' + '2017-07-17 20:06:41',
+            'method': 'get',
+            data: JSON.stringify({
+                
+            }),
+            beforeSend: beforeSend,
+            'dataType': 'json',
+            'success': function (savings) {
+                console.log('Record Deleted');
+            },
+            error: function(response){
+                console.log(response);
+            }
+        });
+
+
+
         $.ajax({
             'url': '../api/v1/api.php?endpoint=category',
             'method': 'GET',
