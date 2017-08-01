@@ -181,7 +181,7 @@ class MonthSavingsController
     }
 
     
-    public function deleteEntry($args)
+    public function deleteMonthSavings($args)
     {
         $username = Token::getUsernameFromToken();
         if($username == null){
@@ -191,15 +191,18 @@ class MonthSavingsController
         $data = (object)json_decode(file_get_contents('php://input'));
         $dbo = DatabaseConnection::getInstance();
 
-        $entryId = strip_tags($data->entryId);
+        $clientID = strip_tags($args[0]);
+        $dateSaved = strip_tags($args[1]);
 
         $query_delete_entry = '
-        DELETE FROM Entry
-        WHERE EntryId = :entryId
+        DELETE FROM MonthSavingsRecord
+        WHERE ClientID = :clientID
+        AND DateSaved = :dateSaved
         ';
 
         $statement_delete_entry = $dbo->prepare($query_delete_entry);
-        $statement_delete_entry->bindParam(':entryId', $entryId);
+        $statement_delete_entry->bindParam(':clientID', $clientID);
+        $statement_delete_entry->bindParam(':dateSaved', $dateSaved);
 
         if (!$statement_delete_entry->execute()) {
             http_response_code(StatusCodes::BAD_REQUEST);

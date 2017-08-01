@@ -144,6 +144,10 @@ $main = function () {
         if ($_GET['endpoint'] == 'monthsavings') {
             echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->postMonthSavings($args));
         }
+        if ($_GET['endpoint'] == 'deleteMonthSavings') {
+            $args = [(int) $_GET['clientID'], $_GET['date']];
+            echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->deleteMonthSavings($args));
+        }
     }
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         if ($_GET['endpoint'] == 'entry') {
