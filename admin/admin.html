@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>On Track Admin</title>
+
+    <link rel="stylesheet" href="../EmergencySavingsCalculator/css/bootstrap.min.css" media="all">
+            <style>
+                body {
+                    padding-top: 50px;
+                    padding-bottom: 20px;
+                }
+            </style>
+    <link rel="stylesheet" href="../EmergencySavingsCalculator/css/bootstrap-theme.min.css" media="all">
+    <link rel="stylesheet" href="../EmergencySavingsCalculator/css/main.css" media="all">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 
@@ -22,6 +33,31 @@
     <script src="../js/lib/jquery.steps.js"></script>
 </head>
 <body class="hidden">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Admin</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="http://www.cottagesofhope.org">Home</a></li>
+				<li><a href="../admin/login.html" onclick="Logout();">Logout</a></li>
+				<script>
+				function Logout() {
+					sessionStorage.removeItem('token');
+				}
+				</script>
+			</ul>
+		</div>
+	</div>
+</nav>
+
 <div id="container" class="col-xs-12">
     <div class="row">
         <div class="col-xs-12
