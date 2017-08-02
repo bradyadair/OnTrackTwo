@@ -36,8 +36,13 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Home</a></li>
-				<li><a href="#" onclick="MyFunction();">Logout</a></li>
+				<li><a href="http://www.cottagesofhope.org">Home</a></li>
+				<li><a href="../admin/login.html" onclick="Logout();">Logout</a></li>
+				<script>
+				function Logout() {
+					sessionStorage.removeItem('token');
+				}
+				</script>
 			</ul>
 		</div>
 	</div>
