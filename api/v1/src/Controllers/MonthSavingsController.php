@@ -27,6 +27,7 @@ class MonthSavingsController
         $dbo = DatabaseConnection::getInstance();
 
         $ClientID = strip_tags($data->ClientID);
+        $CoachID = strip_tags($args['CoachID']);
         $DateSaved = strip_tags($data->DateSaved);
         $ClientHours = strip_tags($data->ClientHours);
         $ClientRate = strip_tags($data->ClientRate);
@@ -87,14 +88,14 @@ class MonthSavingsController
         $OtherExpenses = strip_tags($data->OtherExpenses);
         $Savings = strip_tags($data->Savings);
 
-        $query_create_entry = 'INSERT INTO MonthSavingsRecord (MonthSavingsRecordID, ClientID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
+        $query_create_entry = 'INSERT INTO MonthSavingsRecord (MonthSavingsRecordID, ClientID, CoachID, DateSaved, ClientHours, ClientRate, ClientPRDeductions, 
         ClientSelfEmployment, ClientSocialSecurity, ClientPension, ClientAlimony, ClientChildSupport, ClientOtherIncome, SpouseHours, SpouseRate, SpousePRDeductions, 
         SpouseSelfEmployment, SpouseSocialSecurity, SpousePension, SpouseAlimony, SpouseChildSupport, SpouseOtherIncome, Rent, Electricity, Gas, WaterSewerGarbage, 
         CableNetflixHulu, Internet, EntertainmentPkg, OtherHomeUtilities, CellPhone, Groceries, EatingOut, PersonalHygiene, GroceiresOther, AutoInsurance, AutoFuel, 
         PublicTransit, TransOther, MedicalOutOfPocket, MedicalPrescriptions, MedicalOther, EduFees, EduSupplies, EduOther, ChildCareExpense, ChildSupport, ChildRecreation, 
         ChildClothing, ChildOther, Memberships, LegalFees, Donations, Entertainment, Pets, Storage, OtherShopping, ConstructiveDebt, ConsumerDebt, Collections, OtherExpenses, 
         Savings) 
-        VALUES (NULL, :ClientID, CURRENT_TIMESTAMP, :ClientHours, :ClientRate, :ClientPRDeductions, :ClientSelfEmployment, :ClientSocialSecurity, :ClientPension, 
+        VALUES (NULL, :ClientID, :CoachID, CURRENT_TIMESTAMP, :ClientHours, :ClientRate, :ClientPRDeductions, :ClientSelfEmployment, :ClientSocialSecurity, :ClientPension, 
         :ClientAlimony, :ClientChildSupport, :ClientOtherIncome, :SpouseHours, :SpouseRate, :SpousePRDeductions, :SpouseSelfEmployment, 
         :SpouseSocialSecurity, :SpousePension, :SpouseAlimony, :SpouseChildSupport, :SpouseOtherIncome, :Rent, :Electricity, :Gas, :WaterSewerGarbage, :CableNetflixHulu, 
         :Internet, :EntertainmentPkg, :OtherHomeUtilities, :CellPhone, :Groceries, :EatingOut, :PersonalHygiene, :GroceiresOther, :AutoInsurance, :AutoFuel, 
@@ -105,6 +106,7 @@ class MonthSavingsController
 
         $statement_create_entry = $dbo->prepare($query_create_entry);
         $statement_create_entry->bindParam(':ClientID', $ClientID);
+        $statement_create_entry->bindParam(':CoachID', $CoachID);
         $statement_create_entry->bindParam(':ClientHours', $ClientHours);
         $statement_create_entry->bindParam(':ClientRate', $ClientRate);
         $statement_create_entry->bindParam(':ClientPRDeductions', $ClientPRDeductions);

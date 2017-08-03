@@ -30,8 +30,8 @@ $(window).load(function () {
         'dataType': 'json',
         'success': function (savings) {
             for (var savingsID = 0; savingsID < savings.length; savingsID++) {
-                console.log('Month Savings:   ' + savings[savingsID][0]);
-                clients.push(savings[savingsID][0]);
+                console.log('Month Savings:   ' + savings[savingsID]);
+                clients.push(savings[savingsID]);
             }
             console.log(clients);
             populateClients();

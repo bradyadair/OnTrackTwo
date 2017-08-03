@@ -155,7 +155,7 @@ $(document).ready(function () {
             error: function(response){
                 console.log(response);
             }
-        });*/
+        });
 
 
         $.ajax({
@@ -172,7 +172,7 @@ $(document).ready(function () {
             error: function(response){
                 console.log(response);
             }
-        });
+        });*/
 
 
 
@@ -351,10 +351,10 @@ let change_password = function(){
             if(response){
                 window.location.assign("admin.html");
                 $("#user-setup-panel").html(
-                    "User created."
+                    "Password Updated."
                 )
             } else {
-                alert('User not created, sorry.');
+                alert('Password not created, sorry.');
             }
         }
     })

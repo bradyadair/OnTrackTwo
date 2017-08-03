@@ -142,8 +142,12 @@ $main = function () {
             echo json_encode((new \OnTrack\Controllers\UserController())->postUser($args));
         }
         if ($_GET['endpoint'] == 'monthsavings') {
-            $json = (object)json_decode(file_get_contents('php://input'));
+            $json = (array)json_decode(file_get_contents('php://input'));
+            $coachID = (new \OnTrack\Controllers\TokenController())->getId($args);
+            $json['CoachID'] = $coachID;
+            //echo $json['CoachID'];
             $args = $json;
+            //echo $coachID;
             echo json_encode((new \OnTrack\Controllers\MonthSavingsController())->postMonthSavings($args));
         }
         if ($_GET['endpoint'] == 'deleteMonthSavings') {
