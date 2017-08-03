@@ -50,7 +50,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="http://www.cottagesofhope.org">Home</a></li>
                     </ul>
                 </div>
             </div>
@@ -2297,12 +2297,13 @@
                             </form>
                             <button align="middle" onclick="printPage()">Print this page</button>
                             <div id="saveToDatabase" style="display:none;"> 
-                                <form action=""> 
-                                Client ID: <input type="text" id="ClientID" name="ClientID" value=""><br> 
-                                <input id="btnSaveToDatabase" class="btn-default" value="Save"> 
-                                </form> 
+                                <div class="btn-toolbar" align="middle" style="margin-top:50px;">
+                                    Client ID: <input type="text" id="ClientID" name="ClientID" value=""><br> 
+                                    <button onclick="saveClientValues()" id="btnSaveToDatabase" style="width:25%;" class="btn btn-group-lg">Save</button>
+                                </div>
                             </div> 
                         </div>
+
                         
                         <hr />
                         <!-- Nav buttons -->
