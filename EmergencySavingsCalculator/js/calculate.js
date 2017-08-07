@@ -21,7 +21,7 @@ var childrenNav;
 var otherNav;
 var resultsNav;
 
-let beforeSend = function(request){
+var beforeSend = function(request){
     console.log("In beforeSend with token:");
     console.log(sessionStorage.getItem("token"));
     request.setRequestHeader(
@@ -160,7 +160,7 @@ window.onload = function () {
             console.log(role);
             if(role == "Coach")
                 {
-                    saveDiv.style.display = "block";
+                    saveDiv.style.display = "block";                   
                 }
         },
         error: function(response){
@@ -365,9 +365,10 @@ window.onload = function () {
             beforeSend: beforeSend,
             'dataType': 'json',
             'success': function (savings) {
+                enableAllTabs();
                 sessionStorage.removeItem('clientID');
                 sessionStorage.removeItem('date');
-                addClientValues(savings);
+                addClientValues(savings);             
             },
             error: function(response){
                 console.log(response);
@@ -1588,17 +1589,6 @@ function hideAllDivs()
     checkBudgetOp.style.display = "none";
     resultsOp.style.display = "none";
 
-//    overviewNav.className = "list-group-item";
-//    incomeNav.className = "list-group-item";
-//    housingNav.className = "list-group-item";
-//    foodNav.className = "list-group-item";
-//    transNav.className = "list-group-item";
-//    medicalNav.className = "list-group-item";
-//    educationNav.className = "list-group-item";
-//    childrenNav.className = "list-group-item";
-//    otherNav.className = "list-group-item";
-//    resultsNav.className = "list-group-item";
-
     $("#showHidePercent").hide();
     $(".percentNeeded").hide();
 }
@@ -1768,6 +1758,45 @@ function updateAll()
     {
         resultsNav.className = "list-group-item disabled";
     }
+}
+
+function enableAllTabs()
+{
+    overviewNav.className = "list-group-item list-group-item-success";
+    incomeNav.className = "list-group-item list-group-item-success";
+    housingNav.className = "list-group-item list-group-item-success";
+    foodNav.className = "list-group-item list-group-item-success";
+    transNav.className = "list-group-item list-group-item-success";
+    medicalNav.className = "list-group-item list-group-item-success";
+    educationNav.className = "list-group-item list-group-item-success";
+    childrenNav.className = "list-group-item list-group-item-success";
+    otherNav.className = "list-group-item list-group-item-success";
+    checkBudgetNav.className = "list-group-item list-group-item-success";
+    resultsNav.className = "list-group-item list-group-item-success";
+    
+    overviewNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Overview";
+    incomeNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Income";
+    housingNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Housing";
+    foodNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Food";
+    transNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Transportation";
+    medicalNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Medical";
+    educationNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Education";
+    childrenNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Children";
+    otherNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Other";
+    checkBudgetNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Check Budget";
+    resultsNav.innerHTML = "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Results";
+    
+    startStatus = "complete";
+    incomeStatus = "complete";
+    housingStatus = "complete";
+    foodStatus = "complete";
+    transStatus = "complete";
+    medicalStatus = "complete";
+    educationStatus = "complete";
+    childrenStatus = "complete";
+    otherStatus = "complete";
+    checkBudgetStatus = "complete";
+    resultsStatus = "complete";
 }
 
 function navigate(direction)
