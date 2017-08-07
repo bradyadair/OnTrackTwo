@@ -342,7 +342,8 @@ let change_password = function(){
         method: 'PUT',
         data: JSON.stringify({
             'oldPassword': oldPassword,
-            'password': password
+            'password': password,
+            'token': sessionStorage.getItem('token')
         }),
         beforeSend: beforeSend,
         dataType: 'json',

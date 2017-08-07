@@ -59,7 +59,7 @@ class UserController
     }
 
     public function patchUser($args){
-        $username = Token::getUsernameFromToken();
+        $username = Token::getUsernameFromToken($data->token);
         if($username == null){
             http_response_code(StatusCodes::BAD_REQUEST);
             return array("error"=>"Token not valid.");
