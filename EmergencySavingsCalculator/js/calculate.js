@@ -158,7 +158,7 @@ window.onload = function () {
         'dataType': 'json',
         'success': function (role) {
             console.log(role);
-            if(role == "Coach" || role =="Admin")
+            if(role == "Coach")
                 {
                     saveDiv.style.display = "block";
                 }
