@@ -351,10 +351,12 @@ let change_password = function(){
             console.log(response);
             if(response){
                 window.location.assign("admin.html");
+                console.log("Your password was changed");
                 $("#user-setup-panel").html(
                     "Password Updated."
                 )
             } else {
+                console.log("Password not changed");
                 alert('Password not created, sorry.');
             }
         }

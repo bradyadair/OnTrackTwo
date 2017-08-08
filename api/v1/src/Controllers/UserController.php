@@ -59,13 +59,15 @@ class UserController
     }
 
     public function patchUser($args){
+        $data = (object)json_decode(file_get_contents('php://input'));
+        return $data->token;
         $username = Token::getUsernameFromToken($data->token);
         if($username == null){
             http_response_code(StatusCodes::BAD_REQUEST);
             return array("error"=>"Token not valid.");
         }
 
-        $data = (object)json_decode(file_get_contents('php://input'));
+        
         $dbo = DatabaseConnection::getInstance();
 
 //        if($username != strip_tags($data->username)){
