@@ -456,6 +456,7 @@ function saveClientValues() {
         'success': function (savings) {
             console.log(savings);
             console.log("Save successful");
+            $('#saveModal').modal('show')
         },
         error: function (response) {
             console.log(response);
