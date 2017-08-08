@@ -350,9 +350,9 @@ let change_password = function(){
         success: function (response) {
             console.log(response);
             if(response){
-                window.location.assign("admin.html");
+                //window.location.assign("admin.html");
                 console.log("Your password was changed");
-                $("#user-setup-panel").html(
+                $("#change-password-panel").html(
                     "Password Updated."
                 )
             } else {
