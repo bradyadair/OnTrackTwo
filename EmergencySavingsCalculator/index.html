@@ -106,34 +106,35 @@
                             <form class="form-horizontal" role="form" action="income" method="post" id="incomeForm"><br/>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="clientHours" class="col-lg-6 control-label">Client Hours:</label>
+                                        <label for="clientHours" class="col-lg-6 control-label">Client Hours (Weekly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientHours" name="clientHours"  placeholder="0 Hours"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientHours"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Rate:</label>
+                                        <label class="col-lg-6 control-label">Client Rate (Hourly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientRate" name="clientRate"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientRate"></span></div>
                                     </div>
+
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Wages:</label>
+                                        <label class="col-lg-6 control-label">Client Wages (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientWages" name="clientWages"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientWages"></span></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none;">
                                         <label class="col-lg-6 control-label">Client PR Deductions:</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientPRDeductions" name="clientPRDeductions"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientPRDeductions"></span></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none;">
                                         <label class="col-lg-6 control-label">Client Net:</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientNet" name="clientNet" disabled="disabled"/>
@@ -141,49 +142,49 @@
                                         <div class="content" style="color:#ff5757"><span class="invalidClientNet"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Self-Employment:</label>
+                                        <label class="col-lg-6 control-label">Client Self-Employment (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientSelfEmployment" name="clientSelfEmployment"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientSelfEmployment"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Social Security:</label>
+                                        <label class="col-lg-6 control-label">Client Social Security (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientSocialSecurityRetirement" name="clientSocialSecurityRetirement"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientSocialSecurityRetirement"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Pension:</label>
+                                        <label class="col-lg-6 control-label">Client Pension (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientPension" name="clientPension"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientPension"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Alimony:</label>
+                                        <label class="col-lg-6 control-label">Client Alimony (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientAlimony" name="clientAlimony"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientAlimony"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Child Support:</label>
+                                        <label class="col-lg-6 control-label">Client Child Support (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientChildSupport" name="clientChildSupport"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientChildSupport"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Other Income:</label>
+                                        <label class="col-lg-6 control-label">Client Other Income (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="clientOtherIncome" name="clientOtherIncome"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidClientOtherIncome"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Client Total:</label>
+                                        <label class="col-lg-6 control-label">Client Total (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="clientTotal" name="clientTotal"  disabled="disabled"/>
                                         </div>
@@ -195,34 +196,34 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Hours:</label>
+                                        <label class="col-lg-6 control-label">Spouse Hours (Weekly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseHours" name="spouseHours"  placeholder="0 Hours"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseHours"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Rate:</label>
+                                        <label class="col-lg-6 control-label">Spouse Rate (Hourly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spouseRate" name="spouseRate" />
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseRate"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Wages:</label>
+                                        <label class="col-lg-6 control-label">Spouse Wages (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseWages" name="spouseWages"  disabled="disabled"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseWages"></span></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none;">
                                         <label class="col-lg-6 control-label">Spouse PR Deductions:</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" placeholder="$0.00" id="spousePRDeductions" name="spousePRDeductions" />
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpousePRDeductions"></span></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none;">
                                         <label class="col-lg-6 control-label">Spouse Net:</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseNet" name="spouseNet" disabled="disabled"/>
@@ -230,49 +231,49 @@
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseNet"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Self-Employment:</label>
+                                        <label class="col-lg-6 control-label">Spouse Self-Employment (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseSelfEmployment" name="spouseSelfEmployment"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseSelfEmployment"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Social Security:</label>
+                                        <label class="col-lg-6 control-label">Spouse Social Security (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseSocialSecurityRetirement" name="spouseSocialSecurityRetirement"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseSocialSecurityRetirement"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Pension:</label>
+                                        <label class="col-lg-6 control-label">Spouse Pension (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spousePension" name="spousePension"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpousePension"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Alimony:</label>
+                                        <label class="col-lg-6 control-label">Spouse Alimony (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseAlimony" name="spouseAlimony"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseAlimony"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Child Support:</label>
+                                        <label class="col-lg-6 control-label">Spouse Child Support (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseChildSupport" name="spouseChildSupport"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseChildSupport"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Other Income:</label>
+                                        <label class="col-lg-6 control-label">Spouse Other Income (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" oninput="calculate()" type="number" class="form-control" id="spouseOtherIncome" name="spouseOtherIncome"  placeholder="$0.00"/>
                                         </div>
                                         <div class="content" style="color:#ff5757"><span class="invalidSpouseOtherIncome"></span></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-lg-6 control-label">Spouse Total:</label>
+                                        <label class="col-lg-6 control-label">Spouse Total (Monthly):</label>
                                         <div class="col-lg-6">
                                             <input onkeypress="checkInputIncome(event)" style="border:1px solid #000000" oninput="calculate()" type="number" class="form-control" id="spouseTotal" name="spouseTotal"  disabled="disabled"/>
                                         </div>
