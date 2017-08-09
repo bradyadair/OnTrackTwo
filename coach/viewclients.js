@@ -153,6 +153,7 @@ function viewReport()
     sessionStorage.setItem('clientID', clients[selectedClient]);
     sessionStorage.setItem('date', reports[selectedReport]);
     window.location.href = "../EmergencySavingsCalculator/index.html";
+
 }
 
 function deleteReport()
