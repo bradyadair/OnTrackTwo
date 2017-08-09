@@ -152,6 +152,8 @@ function viewReport()
     console.log("date: " + reports[selectedReport]);
     sessionStorage.setItem('clientID', clients[selectedClient]);
     sessionStorage.setItem('date', reports[selectedReport]);
+    window.location.href = "http://www.cottagesofhope.org/weberstate/ontrack/EmergencySavingsCalculator/index.html";
+    return true;
 }
 
 function deleteReport()
