@@ -10,6 +10,16 @@
 <link rel="stylesheet" href="../EmergencySavingsCalculator/css/main.css" media="all">
 <!-- Custom styles for this template -->
 <link href="coach.css" rel="stylesheet" media="all">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="../js/lib/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+
 <script type="text/javascript" src="coach.js"></script>
 
 <script type="text/javascript"> 
@@ -66,33 +76,33 @@
 	</form>
 </div>
 <div class="panel panel-default">
-                            <a href="#change-password-panel" data-toggle="collapse">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        Change My Password
-                                    </h4>
-                                </div>
-                            </a>
-                            <div class="panel-collapse collapse" id="change-password-panel">
-                                <div class="panel-body">
-                                    <form action="#" onsubmit="change_password(); return false;">
-                                        <div class="form-group">
-                                            <label for="username">Old password</label>
-                                            <input type="password" class="form-control" name="username"
-                                                   id="old-password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">New password</label>
-                                            <input type="password" class="form-control" name="password"
-                                                   id="new-password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">New password</label>
-                                            <input type="password" class="form-control" name="password"
-                                                   id="new-password-confirm">
-                                        </div>
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+	<a href="#change-password-panel" data-toggle="collapse">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				Change My Password
+			</h4>
+		</div>
+	</a>
+	<div class="panel-collapse collapse" id="change-password-panel" align = "center">
+		<div class="panel-body">
+			<form action="#" onsubmit="change_password(); return false;">
+				<div class="form-group">
+					<label for="username">Old password</label>
+					<input type="password" class="form-control" name="username"
+							id="old-password">
+				</div>
+				<div class="form-group">
+					<label for="password">New password</label>
+					<input type="password" class="form-control" name="password"
+							id="new-password">
+				</div>
+				<div class="form-group">
+					<label for="password">New password</label>
+					<input type="password" class="form-control" name="password"
+							id="new-password-confirm">
+				</div>
+				<button type="submit" class="btn btn-success">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
