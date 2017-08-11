@@ -1,5 +1,9 @@
 let LOGIN_URL = '../api/v1/api.php?endpoint=token';
 
+if ( location.host.substring(0,4) != 'www.' ) {
+  window.location.href = "http://www.cottagesofhope.org/weberstate/ontrack/admin/login.html";
+}
+
 login = function () {
     console.log(1);
     let username = $("#username").val();
