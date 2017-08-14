@@ -1313,13 +1313,13 @@ function calculateOther()
     document.getElementById("otherTotal").placeholder = "$" + otherTotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     otherTotalRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
-    document.getElementById("otherTotalRequired").placeholder = "$" + childTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById("otherTotalRequired").placeholder = "$" + otherTotalRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     otherTotalFirst = parseFloat(memberships) + parseFloat(legalFees) + parseFloat(donations) + parseFloat(otherEntertainment) + parseFloat(pets) + parseFloat(storage) + parseFloat(clothing) + parseFloat(constructiveDebt) + parseFloat(consumerDebt) + parseFloat(collections) + parseFloat(otherExpenses) + parseFloat(savings);
     document.getElementById("otherTotalFirst").placeholder = "$" + otherTotalFirst.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
     otherTotalFirstRequired = parseFloat(memberships) + parseFloat(legalFeesRequired) + parseFloat(donationsRequired) + parseFloat(otherEntertainmentRequired) + parseFloat(petsRequired) + parseFloat(storageRequired) + parseFloat(clothingRequired) + parseFloat(constructiveDebtRequired) + parseFloat(consumerDebtRequired) + parseFloat(collectionsRequired) + parseFloat(otherExpensesRequired) + parseFloat(savingsRequired);
-    document.getElementById("otherTotalFirstRequired").placeholder = "$" + childTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
+    document.getElementById("otherTotalFirstRequired").placeholder = "$" + otherTotalFirstRequired.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2});
 
 }
 
